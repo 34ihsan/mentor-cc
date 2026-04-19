@@ -58,7 +58,8 @@
 - [x] Dashboard Completion
     - [x] Refine CEOOverview with dynamic charts
     - [x] Create AgencyOverview component
-    - [x] Standardize StatsCard icon mapping
+    - [x] GitHub'a push et
+- [x] Son kontrol ve Doğrulama
 - [x] Standardize remaining dashboard UI (Sidebar, Layout Refinements)
 - [x] Migrate public-facing pages to the new brand system
     - [x] Landing Page refinements
