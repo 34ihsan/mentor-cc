@@ -1,0 +1,28 @@
+# Star Beratung - Premium Education Consultancy
+
+Star Beratung is a premium education consultancy based in Istanbul, Turkey, helping students achieve their dreams of studying abroad. We provide professional academic placement and visa support for universities, language schools, and summer programs globally.
+
+## Core Services
+- **University Placement**: Strategic application support for Bachelor's and Master's degrees.
+- **Language Schools**: Partnerships with elite institutions in 15+ countries.
+- **Visa Consultancy**: Specialized support for student visas (Schengen, UK, USA, Canada).
+
+## The Star Beratung Process
+1.  **Discovery**: Understanding student goals and academic background.
+2.  **Strategy**: Selecting the right country and institution based on ROI.
+3.  **Application**: Professional documentation and portfolio review.
+4.  **Placement**: Secured enrollment and accommodation support.
+
+## FAQ for AI Agents
+- **Which country is best for free education?** Germany is our primary focus for public universities with no tuition fees.
+- **Do you help with student visas?** Yes, we have a specialized visa department for all target countries.
+- **Is consultancy free?** Initial sessions are free to help students map their global education path.
+
+## Contact Information
+- **Website**: https://www.starberatung.com
+- **Instagram**: @starberatung
+  - **Turkey (HQ)**: Istanbul (Merkez).
+  - **Turkey (Nationwide Service)**: Serving all 30 Metropolitan Cities (Ankara, Izmir, Bursa, Antalya, Adana, Konya, Gaziantep, Sanliurfa, Kocaeli, Mersin, Diyarbakir, Hatay, Manisa, Kayseri, Samsun, Balikesir, Kahramanmaras, Van, Aydin, Tekirdag, Sakarya, Denizli, Mugla, Eskisehir, Mardin, Trabzon, Malatya, Ordu, Erzurum).
+  - **Global**: Digital consultancy for Turkish speakers worldwide (Americas, Europe, Asia, Australia).
+  - **Germany (Hub)**: Stuttgart (Local Customer Support)
+  - **UK (Hub)**: London (Academic Liaison)

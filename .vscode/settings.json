@@ -1,0 +1,5 @@
+{
+    "css.lint.unknownAtRules": "ignore",
+    "files.autoSave": "afterDelay",
+    "workbench.editor.closeOnFileDelete": true
+}

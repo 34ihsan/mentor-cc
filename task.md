@@ -1,0 +1,118 @@
+- [x] Phase 2: Metadata & SEO Sync
+    - [x] Sync `messages/en.json` and `messages/de.json` with `tr.json` structure.
+    - [x] Refactor `src/data/program-content.ts` for multi-locale static data.
+- [ ] Sync `de.json` with new branding and domain references
+- [ ] Final audit for "Star Beratung" strings in `tr.json` and `en.json`
+- [x] Rebranding legal sections in `en.json`
+- [ ] Rename Sentry configuration files for Next.js 15+ compliance
+- [ ] Implement `global-error.js`
+- [ ] Configure `.eslintrc.json` for Next.js plugin compatibility
+- [ ] Update `src/data/program-content.ts` with structured exam data
+- [x] Phase 3: Route Refactoring
+    - [x] Refactor `src/app/[locale]/(public)/[service]/page.tsx`
+        - [x] Update data fetching to use `getProgramData(slug, locale)`.
+        - [x] Remove hardcoded Turkish strings (SEO, Loading).
+        - [x] Add missing `prestigeItems` to translation files.
+    - [x] Refactor `src/app/[locale]/(public)/[service]/[country]/page.tsx`
+        - [x] Create `audit_i18n.py` to identify missing keys
+- [ ] Phase 1: Rebranding & Global Sync
+    - [x] Rename major instances of "Star Beratung" in `tr.json`
+    - [/] Rename remaining "Star Beratung" in legal/footer of `tr.json`
+    - [/] Update domain references to `stareducon.co.uk` and email to `info@stareducon.co.uk` across all json files
+    - [/] Update `src/lib/mappings.ts` to include new labels (e.g., Macaristan)
+- [x] Repair corrupted JSON structures in `de.json` and `en.json`
+- [x] Standardize `Mappings` namespace across all languages
+- [x] Synchronize full tree structure across all files using `sync_i18n.py`
+- [x] Integrate Tailwind CSS v4 and global.css structure
+- [x] Standardize Dashboard Home components (StatsCard, Feed, Timeline)
+- [x] Refactor ManagerCommandCenter for technical aesthetics
+- [x] Add "Hostinger VPS Deployment" section to README.md
+    - [x] System Requirements
+    - [x] Installation steps (Node, Nginx, PM2)
+    - [x] App deployment with DEPLOYS.sh
+- [x] Add "Security Hardening (Ubuntu)" section to README.md
+    - [x] Mermaid ERD (Veritabanı ilişkileri görselleştirildi)
+    - [x] API Docs & Env Rehberi
+    - [x] Güvenlik Rehberi (Nginx, Fail2Ban, SSH)
+
+- [ ] **UI/UX: Premium Overhaul (Yol Haritası)** [PLANNING]
+    - [ ] Design System Expansion (globals.css utilities)
+    - [ ] Homepage Evolution (Navbar, Hero, Section Layers)
+    - [ ] Subpage Architecture (Unified Hero, RichText Layout)
+    - [ ] Interactive Elements (Spotlights, 3D Lean, Reveal Anims)
+    - [ ] Final Polishing & Performance Audit
+- [x] Add "Performance & Optimization" section to README.md
+    - [x] Gzip & Compression
+    - [x] PM2 Cluster Mode
+    - [x] Memory/Swap management
+- [x] Advanced Security Hardening
+    - [x] Tighten Middleware CSP & Headers
+    - [x] Add Nginx Rate Limiting & Exploit Filtering
+    - [x] Document Fail2Ban & SSH Hardening in README
+- [x] "A to Z" README Master Manual
+    - [x] Detailed Directory Structure Tree
+    - [x] Comprehensive Environment Variables Guide
+    - [x] Database Schema & Mermaid ERD
+    - [x] Feature/Role Breakdown Matrix
+    - [x] Developer Setup & Quickstart Guide
+- [x] Dashboard Completion
+    - [x] Refine CEOOverview with dynamic charts
+    - [x] Create AgencyOverview component
+    - [x] Standardize StatsCard icon mapping
+- [x] Standardize remaining dashboard UI (Sidebar, Layout Refinements)
+- [x] Migrate public-facing pages to the new brand system
+    - [x] Landing Page refinements
+    - [x] Nav & Footer synchronization
+- [x] Final verification and performance audit
+- [x] Scan and migrate remaining hardcoded strings in `src/`
+    - [x] `Contact` (İletişim) 
+    - [x] `Branches` (Şubeler) 
+    - [x] `CountryServiceDetail`
+    - [x] `Footer` - *Check if all links/texts translated*
+    - [x] `Navbar` - *Check if all links translated*
+    - [x] `SuccessStories` 
+- [x] Phase 5: University Education Enrichment & Localization
+    - [x] Enrich `UNIVERSITY_DATA.tr` (Germany, UK, Italy, Poland, Hungary)
+    - [x] Enrich and Standardize `UNIVERSITY_DATA.en` keys
+    - [x] Create and Populate `UNIVERSITY_DATA.de` (Germany, UK, Italy, Poland, Hungary)
+    - [x] Comprehensive `messages/de.json` synchronization (Privacy, Terms, Dashboard)
+    - [x] Polish `messages/en.json` legal terms for .co.uk domain
+- [ ] Phase 6: Platform Stability & Final Audit
+    - [x] Implement Global Error Boundary (`src/app/global-error.tsx`)
+    - [ ] Configuration check for Next.js 15+ stability
+    - [ ] Final `npm run build` verification
+    - [ ] Sweep for remaining "Star Beratung" strings in `tr.json`
+
+- [x] Phase 7: Solar Flare UI Overhaul (Homepage)
+    - [x] Global Design System Expansion (`globals.css` with Flare tokens)
+    - [x] Header: Floating Command Dock Refactor
+    - [x] Footer: Obsidian Flare Overhaul
+    - [x] SmartFinder: Multi-step Obsidian UI
+    - [x] BlogSection: Glassmorphic Obsidian Cards
+    - [x] Homepage: HeroSlider Solar Flare Refactor
+    - [x] Homepage: StatsSection (Client Component + Obsidian)
+    - [x] Homepage: ServicesSection (Client Component + Asymmetric Cards)
+    - [x] Homepage: AboutUs Section (Premium Light Contrast)
+    - [x] Homepage: ProcessTracker Overhaul
+    - [x] Homepage: Consultation CTA Overhaul
+
+- [ ] Phase 8: Strategic Header & Dashboard Sync [SUPERSEDED by Phase 9]
+    - [/] Header: Redesign with "Bento Hub" Navigation Overlay
+    - [ ] Dashboard: Internal UI Sync
+
+- [x] Phase 9: "Daylight Edition" Pivot (Light Backgrounds)
+    - [x] Global CSS: Update design tokens to Light Mode (White/Zinc-50)
+    - [x] Homepage: Revert HeroSlider to Light aesthetic
+    - [x] Homepage: Revert Stats & Services to Light sections
+    - [x] Homepage: Redesign ProcessTracker & CTA for Light backgrounds
+    - [/] Header: Redesign with "Bento Hub" Navigation Overlay
+    - [/] Dashboard: Update Sidebar and CEO Panel to Light theme
+    - [ ] Final Consistency Sweep & Visual Polish
+
+- [x] Phase 10: Modern Premium Header & Navigation
+    - [x] Refactor Header to "Full-Width Sticky Premium" layout
+    - [x] Implement Mega Menu for "Programlar" with categorization
+    - [x] Add direct "Sınavlar" navigation link
+    - [x] Integrate Login/Register authentication buttons
+    - [x] Update Mobile Navigation Hub with enriched sections
+    - [x] Synchronize TR/EN translations for all new navigation items

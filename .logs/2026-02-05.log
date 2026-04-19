@@ -1,0 +1,10 @@
+2026-02-05 23:02:47,209 [INFO] [orchestrator] Orchestrator v1.0 STARTED. Press Ctrl+C to stop.
+2026-02-05 23:15:30,978 [INFO] [orchestrator] Identity Loaded: DOA Creative Lab
+2026-02-05 23:15:30,978 [INFO] [orchestrator] Active Project: Antigravity Luxury [initialized]
+2026-02-05 23:15:30,979 [INFO] [orchestrator] PHASE 1: Extracting 'Motion DNA' and Design Tokens for Premium AI Services...
+2026-02-05 23:15:32,980 [INFO] [orchestrator] Analysis Complete. Sektörel tasarım dili çıkarıldı.
+2026-02-05 23:15:32,981 [INFO] [orchestrator] PHASE 2: Transmuting competitor sections into your design for Premium AI Services...
+2026-02-05 23:15:34,983 [INFO] [orchestrator] Development Complete. Siteniz şu an yayında ve 'premium' hissediyor.
+2026-02-05 23:18:10,929 [INFO] [orchestrator] Identity Loaded: DOA Creative Lab
+2026-02-05 23:18:10,930 [WARNING] [orchestrator] No active project. Run init_project.py to start.
+2026-02-05 23:18:10,930 [INFO] [orchestrator] Orchestrator v1.0 STARTED. Press Ctrl+C to stop.

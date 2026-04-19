@@ -1,0 +1,393 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/**
+ * StarEducation — DESIGN SYSTEM v3.0 (Daylight Edition)
+ * Architecture : Tailwind CSS v4
+ * Palette      : Pure White / Zinc-50 + Solar Flare Orange (#FF4700)
+ * Typography   : Outfit (sans) + Playfair Display (serif)
+ */
+
+/* ═══════════════════════════════════════════════════════
+   1. UTILITIES
+   ═══════════════════════════════════════════════════════ */
+
+/* — Buttons ——————————————————————————————————————————— */
+@utility btn-base {
+  @apply inline-flex items-center justify-center rounded-full
+         font-semibold transition-all duration-500 active:scale-95
+         focus-visible:outline-none focus-visible:ring-2
+         focus-visible:ring-secondary/60;
+}
+
+@utility btn-primary {
+  @apply btn-base px-8 py-4
+         bg-primary text-white
+         hover:bg-zinc-900 shadow-lg shadow-primary/10;
+}
+
+@utility btn-secondary {
+  @apply btn-base px-8 py-4
+         bg-secondary text-white
+         hover:bg-secondary-light shadow-lg shadow-secondary/20;
+}
+
+/* btn-gold = alias kept for backward compat */
+@utility btn-gold {
+  @apply btn-base px-8 py-4
+         bg-secondary text-white
+         hover:bg-secondary-light shadow-lg shadow-secondary/20;
+}
+
+@utility btn-outline {
+  @apply btn-base px-8 py-4
+         border-2 border-zinc-200 text-primary
+         hover:border-secondary hover:text-secondary;
+}
+
+@utility btn-ghost {
+  @apply btn-base px-6 py-3
+         text-zinc-500 hover:text-primary hover:bg-zinc-50;
+}
+
+/* — Logo filters ————————————————————————————————————— */
+@utility logo-dark  { filter: brightness(0); }
+@utility logo-light { filter: brightness(0) invert(1); }
+
+/* — Layout helpers —————————————————————————————————— */
+
+/* Consistent section vertical padding */
+@utility section-padding {
+  @apply py-24 md:py-32;
+}
+
+/* Standard page container */
+@utility container-content {
+  @apply mx-auto w-full max-w-[1340px] px-6 md:px-10;
+}
+
+/* — Form inputs ————————————————————————————————————— */
+@utility input-field {
+  @apply w-full rounded-2xl border border-zinc-200 bg-white px-5 py-4
+         text-sm text-primary placeholder:text-zinc-400
+         focus:outline-none focus:ring-2 focus:ring-secondary/30
+         transition-all duration-300;
+}
+
+/* — Surface systems ————————————————————————————————— */
+@utility glass-surface {
+  @apply bg-white/70 backdrop-blur-3xl
+         border border-zinc-200/50
+         shadow-xl;
+  transition: all var(--transition-duration) var(--ease-premium);
+}
+
+@utility premium-card {
+  @apply bg-white border border-zinc-100 dark:bg-zinc-900 dark:border-zinc-800
+         rounded-[var(--radius-premium)] shadow-sm;
+  transition: all var(--transition-duration) var(--ease-premium);
+
+  &:hover {
+    @apply shadow-premium-hover -translate-y-2 border-secondary/20;
+  }
+}
+
+@utility asymmetric-bold {
+  border-top-left-radius: 10rem;
+  border-bottom-right-radius: 10rem;
+  border-top-right-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
+}
+
+@utility asymmetric-reverse {
+  border-top-right-radius: 10rem;
+  border-bottom-left-radius: 10rem;
+  border-top-left-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+}
+
+@utility neon-glow {
+  box-shadow: 0 0 15px rgba(255, 71, 0, 0.4), 0 0 30px rgba(255, 71, 0, 0.15);
+}
+
+@utility neon-border {
+  border: 1px solid rgba(255, 71, 0, 0.3);
+  transition: all 0.5s ease;
+  
+  &:hover {
+    border-color: rgba(255, 71, 0, 1);
+    box-shadow: 0 0 20px rgba(255, 71, 0, 0.3);
+  }
+}
+
+/* — Compatibility Aliases ————————————————————————————— */
+
+/* Color Aliases */
+@utility text-navy  { @apply text-primary; }
+@utility text-gold  { @apply text-secondary; }
+@utility text-slate { @apply text-zinc-600; }
+@utility bg-navy    { @apply bg-primary; }
+@utility bg-gold    { @apply bg-secondary; }
+@utility border-gold { @apply border-secondary; }
+@utility border-navy { @apply border-primary; }
+
+/* Component Aliases */
+@utility glass-card  { @apply glass-surface; }
+@utility premium-btn { @apply btn-primary; }
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+@utility institutional-card {
+  @apply bg-white border border-zinc-100 shadow-institutional rounded-3xl transition-all duration-500;
+  &:hover {
+    @apply shadow-2xl -translate-y-1 border-secondary/10;
+  }
+}
+
+@utility text-flare {
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(135deg, #FF4700 0%, #FF1E1E 100%);
+}
+
+@utility inner-shadow-flare {
+  box-shadow: inset 0 0 20px rgba(255, 71, 0, 0.1);
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   2. DESIGN TOKENS
+   ═══════════════════════════════════════════════════════ */
+
+@theme {
+  /* Zinc scale */
+  --color-zinc-50:  #fafafa;
+  --color-zinc-100: #f4f4f5;
+  --color-zinc-200: #e4e4e7;
+  --color-zinc-300: #d4d4d8;
+  --color-zinc-400: #a1a1aa;
+  --color-zinc-500: #71717a;
+  --color-zinc-600: #52525b;
+  --color-zinc-700: #3f3f46;
+  --color-zinc-800: #27272a;
+  --color-zinc-900: #18181b;
+  --color-zinc-950: #09090b;
+
+  /* Brand */
+  --color-primary:         #030712;   /* Obsidian */
+  --color-secondary:       #FF4700;   /* Solar Flare Orange */
+  --color-secondary-light: #FF7D00;   /* Bright Orange */
+
+  /* Semantic */
+  --color-background: #FFFFFF;
+  --color-foreground: #09090b;
+  --color-surface:    #F8FAFC;
+  --color-border:     rgba(0, 0, 0, 0.05);
+
+  /* Shadow & Glow - Softened for Light Mode */
+  --shadow-neon: 0 0 15px rgba(255, 71, 0, 0.1), 0 0 30px rgba(255, 71, 0, 0.03);
+  --shadow-premium: 0 4px 20px -5px rgba(0, 0, 0, 0.05);
+  --shadow-premium-hover: 0 20px 40px -10px rgba(255, 71, 0, 0.15), 0 10px 20px -5px rgba(0, 0, 0, 0.02);
+
+  /* Typography — CSS vars set by next/font in layout.tsx */
+  --font-sans:   var(--font-outfit), 'Inter', ui-sans-serif, system-ui;
+  --font-serif:  var(--font-playwright), 'Lora', ui-serif, Georgia, serif;
+  /* backward compat aliases */
+  --font-inter:  var(--font-outfit), 'Inter', ui-sans-serif, system-ui;
+  --font-lora:   var(--font-playwright), 'Lora', ui-serif, Georgia, serif;
+  --font-roboto: var(--font-outfit), 'Inter', ui-sans-serif, system-ui;
+
+  /* Elevation */
+  --shadow-premium:       0 4px 6px -1px rgba(0,0,0,.05), 0 10px 15px -3px rgba(0,0,0,.03);
+  --shadow-premium-hover: 0 20px 25px -5px rgba(0,0,0,.06), 0 10px 10px -5px rgba(0,0,0,.03);
+
+  /* Motion */
+  --ease-premium:       cubic-bezier(0.65, 0, 0.35, 1);
+  --transition-bezier:  cubic-bezier(0.65, 0, 0.35, 1);  /* alias */
+  --transition-duration: 0.8s;
+
+  /* Fluid type scale */
+  --text-fluid-h1: clamp(2.5rem, 5vw + 1rem, 5.5rem);
+  --text-fluid-h2: clamp(2rem,   4vw + 1rem, 4rem);
+  --text-fluid-p:  clamp(1rem,   1vw + .5rem, 1.25rem);
+
+  /* Premium Gradients */
+  --gradient-navy: linear-gradient(135deg, #0B1751 0%, #1A2B7A 100%);
+  --gradient-gold: linear-gradient(135deg, #B4943E 0%, #D4AF37 100%);
+  --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  
+  /* Institutional Shadow */
+  --shadow-institutional: 0 10px 30px -10px rgba(11, 23, 81, 0.15), 0 4px 10px -5px rgba(11, 23, 81, 0.05);
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   3. BASE LAYER
+   ═══════════════════════════════════════════════════════ */
+
+@layer base {
+  :root {
+    --radius-premium: 1.5rem;
+    
+    /* Legacy/Dashboard Var Mappings */
+    --primary: var(--color-primary);
+    --background: var(--color-zinc-50);
+    --foreground: var(--color-zinc-950);
+    --secondary: var(--color-secondary);
+  }
+
+  *, *::before, *::after {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-black tracking-tight text-primary italic;
+    line-height: 1.15;
+  }
+
+  img, video { @apply max-w-full; }
+
+  /* Fluid type helpers (used as className) */
+  .text-fluid-h1 { font-size: var(--text-fluid-h1); }
+  .text-fluid-h2 { font-size: var(--text-fluid-h2); }
+  .text-fluid-p  { font-size: var(--text-fluid-p); }
+
+  /* Turkish typography fix (i/İ) */
+  html[lang="tr"] {
+    font-feature-settings: "case" 1, "locl" 1, "ss01" 1;
+    font-variant-ligatures: common-ligatures;
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   4. COMPONENTS LAYER
+   ═══════════════════════════════════════════════════════ */
+
+@layer components {
+  /* — Section label (eyebrow text) ———————————————————— */
+  .section-label {
+    @apply text-secondary font-bold tracking-[0.3em] uppercase text-xs
+           flex items-center gap-3 mb-6;
+  }
+
+  .section-label::before {
+    content: '';
+    @apply w-8 h-[2px] bg-secondary opacity-40 shrink-0;
+  }
+
+  /* — Image effects ——————————————————————————————————— */
+  .img-premium {
+    @apply grayscale-[0.15] transition-all cursor-crosshair;
+    transition-duration: var(--transition-duration);
+  }
+  .img-premium:hover {
+    @apply grayscale-0 scale-105;
+  }
+
+  /* — Spotlight hover effect —————————————————————————— */
+  .spotlight-container {
+    @apply relative overflow-hidden;
+  }
+  .spotlight-container::after {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-700 pointer-events-none;
+    background: radial-gradient(
+      600px circle at var(--x, 50%) var(--y, 50%),
+      rgba(180, 148, 62, 0.07),
+      transparent 40%
+    );
+  }
+  .spotlight-container:hover::after {
+    @apply opacity-100;
+  }
+
+  /* — Divider with gradient ——————————————————————————— */
+  .divider-gradient {
+    @apply w-full h-px;
+    background: linear-gradient(90deg, transparent, rgba(180,148,62,.2), transparent);
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   5. ANIMATIONS
+   ═══════════════════════════════════════════════════════ */
+
+@keyframes fadeInSlide {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slowZoom {
+  from { transform: scale(1); }
+  to   { transform: scale(1.08); }
+}
+
+@keyframes logo3DRotate {
+  0%   { transform: perspective(1000px) rotateY(0deg); }
+  100% { transform: perspective(1000px) rotateY(360deg); }
+}
+
+/* Animation helpers */
+.animate-reveal {
+  animation: fadeInSlide var(--transition-duration) var(--ease-premium) both;
+}
+
+/* Was referenced in Hero.tsx but missing — now defined */
+.animate-fadeInUp {
+  animation: fadeInSlide 0.9s var(--ease-premium) both;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease both;
+}
+
+.animate-zoom-slow {
+  animation: slowZoom 18s linear infinite alternate;
+}
+
+.animate-logo-3d {
+  animation: logo3DRotate 12s infinite linear;
+  transform-style: preserve-3d;
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   6. BROWSER CHROME
+   ═══════════════════════════════════════════════════════ */
+
+/* Scrollbar */
+::-webkit-scrollbar          { width: 7px; }
+::-webkit-scrollbar-track    { background: var(--color-zinc-100); }
+::-webkit-scrollbar-thumb    {
+  background:    var(--color-zinc-300);
+  border-radius: 10px;
+  border: 2px solid var(--color-zinc-100);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--color-secondary); }
+
+/* Selection */
+::selection {
+  background: rgba(255, 71, 0, 0.25);
+  color: var(--color-foreground);
+}

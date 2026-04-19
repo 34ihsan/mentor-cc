@@ -1,0 +1,58 @@
+server {
+    listen 80;
+    server_name yourdomain.com www.yourdomain.com;
+
+    # Gzip Compression
+    gzip on;
+    gzip_proxied any;
+    gzip_types text/plain text/xml text/css application/x-javascript application/javascript text/javascript application/json;
+    gzip_vary on;
+    gzip_disable "MSIE [1-6]\.(?!.*SV1)";
+
+    # Security & Limits
+    client_max_body_size 50M; # For large uploads if needed
+    server_tokens off;
+
+    # Anti-Intrusion & Exploit Filtering
+    # 1. Block common sensitive files & shell hunting
+    if ($request_uri ~* "(\.php|\.git|\.env|\.aspx|wp-admin|wp-login|\.htaccess|\.ssh|\.bak|\.config)") {
+        return 403;
+    }
+
+    # 2. Block common SQL injection patterns in query strings
+    if ($query_string ~* "(union|select|insert|drop|delete|update|cast|char|convert|declare|set)") {
+        return 403;
+    }
+
+    # 3. Block command injection attempts (LS, CAT, WGET, CURL, BASH, SH)
+    if ($query_string ~* "(ls\+|cat\+|wget\+|curl\+|bash\+|sh\+|rm\+|chmod\+|chown\+|system\+|exec\+)") {
+        return 403;
+    }
+
+    # 4. Block path traversal
+    if ($query_string ~ "(\.\.|;|%3B|%2E%2E)") {
+        return 403;
+    }
+
+    location / {
+        proxy_pass http://localhost:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        # Standard timeouts
+        proxy_connect_timeout 60s;
+        proxy_send_timeout 60s;
+        proxy_read_timeout 60s;
+    }
+
+    # SSL configuration (Managed by Certbot usually)
+    # listen 443 ssl;
+    # ssl_certificate /etc/letsencrypt/live/yourdomain.com/fullchain.pem;
+    # ssl_certificate_key /etc/letsencrypt/live/yourdomain.com/privkey.pem;
+}

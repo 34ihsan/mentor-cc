@@ -1,0 +1,550 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                    String        @id @default(cuid())
+  email                 String        @unique
+  password              String
+  name                  String?
+  role                  Role          @default(STUDENT)
+  createdAt             DateTime      @default(now())
+  updatedAt             DateTime      @updatedAt
+  managedById           String?
+  resetToken            String?       @unique
+  resetTokenExpiry      DateTime?
+  activityLogs          ActivityLog[]
+  asAgency              Application[] @relation("AgencyApplications")
+  asConsultant          Application[] @relation("ConsultantApplications")
+  asStudent             Application[] @relation("StudentApplications")
+  appointmentsAsAdvisor Appointment[] @relation("AdvisorAppointments")
+  appointmentsAsStudent Appointment[] @relation("StudentAppointments")
+  commissions           Commission[]  @relation("AgencyCommissions")
+  contracts             Contract[]    @relation("StudentContracts")
+  documents             Document[]    @relation("UserDocuments")
+  leads                 Lead[]        @relation("AgencyLeads")
+  messagesReceived      Message[]     @relation("ReceivedMessages")
+  messagesSent          Message[]     @relation("SentMessages")
+  authoredPages         Page[]        @relation("AuthoredPages")
+  authoredPosts         Post[]        @relation("AuthoredPosts")
+  profile               Profile?
+  managedBy             User?         @relation("UserManagement", fields: [managedById], references: [id])
+  managedUsers          User[]        @relation("UserManagement")
+  tasks                 UserTask[]    @relation("UserTasks")
+}
+
+model Page {
+  id                String   @id @default(cuid())
+  title             String
+  title_en          String?
+  title_de          String?
+  slug              String   @unique
+  content           String
+  content_en        String?
+  content_de        String?
+  excerpt           String?
+  excerpt_en        String?
+  excerpt_de        String?
+  image             String?
+  imageSettings     String?
+  category          String?  @default("Genel")
+  published         Boolean  @default(false)
+  seoTitle          String?
+  seoTitle_en       String?
+  seoTitle_de       String?
+  seoDescription    String?
+  seoDescription_en String?
+  seoDescription_de String?
+  keywords          String?
+  keywords_en       String?
+  keywords_de       String?
+  authorId          String
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  author            User     @relation("AuthoredPages", fields: [authorId], references: [id])
+}
+
+model Post {
+  id                String   @id @default(cuid())
+  title             String
+  title_en          String?
+  title_de          String?
+  slug              String   @unique
+  content           String
+  content_en        String?
+  content_de        String?
+  excerpt           String?
+  excerpt_en        String?
+  excerpt_de        String?
+  image             String?
+  imageSettings     String?
+  category          String?  @default("Genel")
+  published         Boolean  @default(false)
+  seoTitle          String?
+  seoTitle_en       String?
+  seoTitle_de       String?
+  seoDescription    String?
+  seoDescription_en String?
+  seoDescription_de String?
+  keywords          String?
+  keywords_en       String?
+  keywords_de       String?
+  authorId          String
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  author            User     @relation("AuthoredPosts", fields: [authorId], references: [id])
+}
+
+model Announcement {
+  id            String    @id @default(cuid())
+  title         String
+  title_en      String?
+  title_de      String?
+  content       String
+  content_en    String?
+  content_de    String?
+  target        Role?
+  active        Boolean   @default(true)
+  targetPages   String?
+  styleSettings String?
+  link          String?
+  startDate     DateTime?
+  endDate       DateTime?
+  createdAt     DateTime  @default(now())
+}
+
+model HeroSlide {
+  id            String  @id @default(cuid())
+  title         String?
+  title_en      String?
+  title_de      String?
+  subtitle      String?
+  subtitle_en   String?
+  subtitle_de   String?
+  imageUrl      String
+  imageSettings String?
+  link          String?
+  pageContext   String  @default("home")
+  order         Int     @default(0)
+  active        Boolean @default(true)
+}
+
+model Settings {
+  id    String @id @default(cuid())
+  key   String @unique
+  value String
+}
+
+model Service {
+  id                   String                  @id @default(cuid())
+  title                String
+  title_en             String?
+  title_de             String?
+  slug                 String                  @unique
+  content              String?
+  content_en           String?
+  content_de           String?
+  image                String?
+  imageSettings        String?
+  icon                 String?
+  allowsTargeting      Boolean                 @default(false)
+  active               Boolean                 @default(true)
+  order                Int                     @default(0)
+  seoTitle             String?
+  seoTitle_en          String?
+  seoTitle_de          String?
+  seoDescription       String?
+  seoDescription_en    String?
+  seoDescription_de    String?
+  createdAt            DateTime                @default(now())
+  updatedAt            DateTime                @updatedAt
+  requiredDocuments    String?
+  requiredDocuments_en String?
+  requiredDocuments_de String?
+  countryContents      CountryServiceContent[]
+  institutions         Institution[]
+}
+
+model Profile {
+  id             String    @id @default(cuid())
+  userId         String    @unique
+  phone          String?
+  address        String?
+  birthDate      DateTime?
+  companyName    String?
+  companyWebsite String?
+  taxNumber      String?
+  user           User      @relation(fields: [userId], references: [id])
+}
+
+model Country {
+  id              String                  @id @default(cuid())
+  name            String
+  name_en         String?
+  name_de         String?
+  slug            String                  @unique
+  content         String?
+  content_en      String?
+  content_de      String?
+  image           String?
+  imageSettings   String?
+  population      String?
+  language        String?
+  currency        String?
+  capital         String?
+  timezone        String?
+  mapsUrl         String?
+  isFeatured      Boolean                 @default(false)
+  videoUrl        String?
+  active          Boolean                 @default(true)
+  features        Json?
+  cities          Json?
+  visaInfo        String?
+  visaInfo_en     String?
+  visaInfo_de     String?
+  workPermit      String?
+  workPermit_en   String?
+  workPermit_de   String?
+  costRange       String?
+  costRange_en    String?
+  costRange_de    String?
+  overview        String?
+  overview_en     String?
+  overview_de     String?
+  shortDesc       String?
+  shortDesc_en    String?
+  shortDesc_de    String?
+  createdAt       DateTime                @default(now())
+  updatedAt       DateTime                @updatedAt
+  capital_de      String?
+  capital_en      String?
+  language_de     String?
+  language_en     String?
+  serviceContents CountryServiceContent[]
+  institutions    Institution[]
+  resources       Resource[]
+}
+
+model CountryServiceContent {
+  id            String   @id @default(cuid())
+  countryId     String
+  serviceId     String
+  content       String?
+  content_en    String?
+  content_de    String?
+  image         String?
+  imageSettings String?
+  seoTitle      String?
+  seoTitle_en   String?
+  seoTitle_de   String?
+  seoDesc       String?
+  seoDesc_en    String?
+  seoDesc_de    String?
+  metadata      String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  country       Country  @relation(fields: [countryId], references: [id], onDelete: Cascade)
+  service       Service  @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+
+  @@unique([countryId, serviceId])
+}
+
+model Institution {
+  id               String     @id @default(cuid())
+  name             String
+  slug             String     @unique
+  city             String
+  description      String?
+  description_en   String?
+  description_de   String?
+  content          String?
+  content_en       String?
+  content_de       String?
+  logo             String?
+  image            String?
+  imageSettings    String?
+  website          String?
+  rank             String?
+  rating           Float?
+  isFeatured       Boolean    @default(false)
+  videoUrl         String?
+  active           Boolean    @default(true)
+  features         Json?
+  features_en      Json?
+  features_de      Json?
+  stats            Json?
+  stats_en         Json?
+  stats_de         Json?
+  campusLife       Json?
+  campusLife_en    Json?
+  campusLife_de    Json?
+  accommodation    Json?
+  accommodation_en Json?
+  accommodation_de Json?
+  tuition          Json?
+  tuition_en       Json?
+  tuition_de       Json?
+  serviceId        String?
+  countryId        String?
+  harvestStatus    String?    @default("IDLE")
+  lastHarvestAt    DateTime?
+  createdAt        DateTime   @default(now())
+  updatedAt        DateTime   @updatedAt
+  metadata         String?
+  city_de          String?
+  city_en          String?
+  name_de          String?
+  name_en          String?
+  country          Country?   @relation(fields: [countryId], references: [id])
+  service          Service?   @relation(fields: [serviceId], references: [id])
+  programs         Program[]
+  resources        Resource[]
+
+  @@index([serviceId])
+  @@index([countryId])
+}
+
+model Program {
+  id              String        @id @default(cuid())
+  name            String
+  name_en         String?
+  name_de         String?
+  slug            String        @unique
+  category        Category
+  description     String?
+  description_en  String?
+  description_de  String?
+  content         String?
+  content_en      String?
+  content_de      String?
+  price           Float?
+  currency        String        @default("EUR")
+  priceType       String?       @default("TOTAL")
+  duration        String?
+  duration_en     String?
+  duration_de     String?
+  lastPriceUpdate DateTime?
+  templateData    String?
+  institutionId   String
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  applications    Application[]
+  institution     Institution   @relation(fields: [institutionId], references: [id])
+}
+
+model Application {
+  id           String        @id @default(cuid())
+  status       AppStatus     @default(DRAFT)
+  studentId    String
+  consultantId String?
+  agencyId     String?
+  programId    String
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  activityLogs ActivityLog[]
+  agency       User?         @relation("AgencyApplications", fields: [agencyId], references: [id])
+  consultant   User?         @relation("ConsultantApplications", fields: [consultantId], references: [id])
+  program      Program       @relation(fields: [programId], references: [id])
+  student      User          @relation("StudentApplications", fields: [studentId], references: [id])
+  commissions  Commission[]
+  documents    Document[]
+  messages     Message[]
+  offers       Offer[]
+}
+
+model Document {
+  id              String       @id @default(cuid())
+  name            String
+  url             String
+  version         Int          @default(1)
+  status          DocStatus    @default(PENDING)
+  notes           String?
+  applicationId   String?
+  userId          String?
+  uploadedAt      DateTime     @default(now())
+  rejectionReason String?
+  application     Application? @relation(fields: [applicationId], references: [id])
+  user            User?        @relation("UserDocuments", fields: [userId], references: [id])
+}
+
+model Message {
+  id            String       @id @default(cuid())
+  content       String
+  senderId      String
+  receiverId    String
+  applicationId String?
+  createdAt     DateTime     @default(now())
+  isRead        Boolean      @default(false)
+  fileName      String?
+  fileUrl       String?
+  application   Application? @relation(fields: [applicationId], references: [id])
+  receiver      User         @relation("ReceivedMessages", fields: [receiverId], references: [id])
+  sender        User         @relation("SentMessages", fields: [senderId], references: [id])
+}
+
+model Offer {
+  id            String      @id @default(cuid())
+  content       String
+  amount        Float?
+  currency      String      @default("USD")
+  status        OfferStatus @default(PENDING)
+  validUntil    DateTime?
+  applicationId String
+  createdAt     DateTime    @default(now())
+  templateKey   String?
+  title         String?
+  contract      Contract?
+  application   Application @relation(fields: [applicationId], references: [id])
+}
+
+model Contract {
+  id        String    @id @default(cuid())
+  offerId   String?   @unique
+  version   Int       @default(1)
+  signedAt  DateTime?
+  signedUrl String?
+  status    String    @default("PENDING")
+  content   String?
+  title     String?
+  studentId String?
+  offer     Offer?    @relation(fields: [offerId], references: [id])
+  student   User?     @relation("StudentContracts", fields: [studentId], references: [id])
+}
+
+model Region {
+  id        String   @id @default(cuid())
+  name      String
+  office    String?
+  mapsUrl   String?
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Lead {
+  id        String   @id @default(cuid())
+  name      String
+  email     String?
+  phone     String?
+  country   String?
+  program   String?
+  value     String?
+  status    String   @default("new")
+  source    String   @default("website")
+  agencyId  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  notes     String?
+  agency    User?    @relation("AgencyLeads", fields: [agencyId], references: [id])
+}
+
+model ActivityLog {
+  id            String      @id @default(cuid())
+  action        String
+  details       String?
+  userId        String?
+  applicationId String
+  createdAt     DateTime    @default(now())
+  application   Application @relation(fields: [applicationId], references: [id])
+  user          User?       @relation(fields: [userId], references: [id])
+}
+
+model Appointment {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  startTime   DateTime
+  endTime     DateTime
+  type        String   @default("ONLINE")
+  status      String   @default("PENDING")
+  advisorId   String
+  studentId   String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  advisor     User     @relation("AdvisorAppointments", fields: [advisorId], references: [id])
+  student     User?    @relation("StudentAppointments", fields: [studentId], references: [id])
+}
+
+model UserTask {
+  id        String    @id @default(cuid())
+  title     String
+  category  String?   @default("General")
+  priority  String    @default("MEDIUM")
+  status    String    @default("PENDING")
+  deadline  DateTime?
+  userId    String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  user      User      @relation("UserTasks", fields: [userId], references: [id])
+}
+
+model Commission {
+  id            String       @id @default(cuid())
+  amount        Float
+  currency      String       @default("USD")
+  status        String       @default("PENDING")
+  date          DateTime     @default(now())
+  applicationId String?
+  agencyId      String
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  agency        User         @relation("AgencyCommissions", fields: [agencyId], references: [id])
+  application   Application? @relation(fields: [applicationId], references: [id])
+}
+
+model Resource {
+  id            String       @id @default(cuid())
+  title         String
+  url           String
+  type          String
+  countryId     String?
+  institutionId String?
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  country       Country?     @relation(fields: [countryId], references: [id])
+  institution   Institution? @relation(fields: [institutionId], references: [id])
+}
+
+enum Role {
+  ADMIN
+  CEO
+  ADVISOR
+  STUDENT
+  AGENCY_MANAGER
+}
+
+enum Category {
+  LANGUAGE_SCHOOL
+  SUMMER_SCHOOL
+  HIGH_SCHOOL
+  UNIVERSITY
+  MASTER
+  EXAM_PREPARATION
+  OTHER
+}
+
+enum AppStatus {
+  DRAFT
+  DOCS_PENDING
+  UNDER_REVIEW
+  OFFER_SENT
+  CONTRACT_SIGNED
+  COMPLETED
+}
+
+enum DocStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum OfferStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
+}

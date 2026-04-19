@@ -1,0 +1,51 @@
+workflows:
+  - name: "scrape_google_maps"
+    description: "Scrapes Google Maps for leads"
+    triggers: 
+      - "scrape google maps"
+      - "find leads on maps"
+      - "get gmaps data"
+    script: "execution/scrape_google_maps.py"
+    params:
+      limit: 10 # Default param example
+
+  - name: "create_proposal"
+    description: "Generates a proposal document"
+    triggers:
+      - "create proposal"
+      - "write proposal"
+      - "generate proposal"
+    script: "execution/create_proposal.py"
+    
+  - name: "update_sheet"
+    description: "Updates a Google Sheet"
+    triggers:
+      - "update sheet"
+      - "save to sheet"
+    script: "execution/update_sheet.py"
+
+  - name: "check_status"
+    description: "Checks the status of the system"
+    triggers:
+      - "status"
+      - "system check"
+    type: "function" # Example of internal function call vs script
+    handler: "orchestration.handlers.system_status.check"
+
+  - name: "create_page"
+    description: "Creates a new page from a saved template"
+    triggers:
+      - "create page"
+      - "new page"
+      - "generate page"
+    script: "execution/create_page.py"
+    params:
+      theme: "modern_saas" # Default theme
+
+  - name: "fetch_live_data"
+    description: "Fetches live sectoral data for content injection"
+    triggers:
+      - "fetch live data"
+      - "get news"
+      - "scrape trends"
+    script: "execution/fetch_live_data.py"

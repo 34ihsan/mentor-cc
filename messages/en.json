@@ -1,0 +1,1821 @@
+{
+  "SEO": {
+    "title": "Study Abroad Consultancy | Star Education Consulting",
+    "template": "%s | Star Education Consulting",
+    "description": "Star Education Consulting offers professional consultancy for language schools, university, master and summer school programs abroad. Get free advice for Germany, UK, Canada and more.",
+    "keywords": "study abroad, university applications, study in germany, language school abroad, master's degree abroad, student visa, high school abroad, summer school, education consultancy, star education consulting",
+    "ogTitle": "Star Education Consulting | Your Strategic Partner for a Global Future",
+    "ogDescription": "Turn your study abroad dreams into reality with Star Education Consulting's expert academic mentorship.",
+    "twitterTitle": "Star Education Consulting | Global Study Abroad Consultancy",
+    "twitterDescription": "Discover elite school placements and strategic education planning worldwide."
+  },
+  "Common": {
+    "title": "Star Education Consulting",
+    "template": "%s | Star Education Consulting",
+    "description": "Study Abroad Consultancy",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "comingSoon": "Coming Soon",
+    "soon": "Soon...",
+    "announcement": "ANNOUNCEMENT",
+    "details": "DETAILS",
+    "login": "Login",
+    "register": "Register",
+    "tuition": "Annual Tuition",
+    "getInformation": "Get Information",
+    "programs": "Programs",
+    "viewDetails": "View Details"
+  },
+  "Navbar": {
+    "menu": "MENU",
+    "home": "Home",
+    "programlar": "Programs",
+    "sinavlar": "Exams",
+    "services": "Services",
+    "career": "Career",
+    "aboutUs": "About Us",
+    "cta": "Apply Now",
+    "globalHub": "Global Education Opportunities",
+    "viewAllInstitutions": "Explore All Institutions",
+    "freeConsultation": "Free Consultation",
+    "info": "General Information",
+    "usefulLinks": "Useful Links",
+    "categories": "Categories",
+    "types": "Education Types",
+    "opportunities": "Opportunities",
+    "guide": "Career Guide",
+    "yurtdisi-meslek-egitimi": "Vocational Training Consultancy Abroad",
+    "uluslararasi-kariyer": "International Career Consultancy",
+    "profesyonel-cv": "Professional CV Creation",
+    "vize-belge-hazirlik": "Visa Document Preparation Guide",
+    "staj-programlari": "Internship Programs",
+    "boarding": "Boarding Schools",
+    "private-day": "Private Day Schools",
+    "exchange": "Exchange Programs",
+    "ib-ap": "IB & AP Programs",
+    "contact": "Contact",
+    "blog": "Blog",
+    "details": "Details",
+    "getCounseling": "Get Counseling",
+    "searchCenter": "Search Center",
+    "searchDiscover": "Discover",
+    "searchPlaceholder": "Search program, university or city...",
+    "noResults": "No results found",
+    "popularSearches": "Popular Searches"
+  },
+  "ServiceDetail": {
+    "globalStrategy": "GLOBAL FUTURE STRATEGY",
+    "advantages": "Program <span class='gold-text not-italic'>Advantages</span>",
+    "process": "Application <span class='gold-text not-italic'>Process</span>",
+    "prestige": "STAR EDUCATION PRESTIGE",
+    "destinationsLabel": "GLOBAL DESTINATIONS",
+    "destinationsTitle": "Academic <span class='gold-text not-italic'>Routes</span>",
+    "destinationsDesc": "You are not just choosing a location, but a global vision that will change your life. Explore the most prestigious academic centers.",
+    "popularLabel": "ELITE ACADEMIC ROUTES",
+    "popularTitle": "Popular <span class='gold-text not-italic'>Cities & Institutions</span>",
+    "viewDetails": "VIEW DETAILS",
+    "faqLabel": "GUIDANCE & ACADEMIC INFO",
+    "faqTitle": "Frequently Asked <span class='gold-text not-italic'>Questions</span>",
+    "strategicStep": "STRATEGIC STEP",
+    "formTitle": "{title} Strategic Application Form",
+    "formDesc": "Discover the most exclusive programs and institutions with our expert staff on your global education journey.",
+    "seoDefaultDescription": "Get detailed information and consultancy about {title} programs.",
+    "heroFallback": "We are with you with prestigious institutions and our expert guidance to help you reach your academic goals.",
+    "prestigeItems": {
+      "visionaryTitle": "VISIONARY APPROACH",
+      "visionaryDesc": "ACADEMIC STRATEGIES THAT CULTIVATE FUTURE LEADERS",
+      "eliteTitle": "ELITE PORTFOLIO",
+      "eliteDesc": "GLOBAL ACADEMIC NETWORK WITH THE MOST DISTINGUISHED INSTITUTIONS",
+      "holisticTitle": "HOLISTIC GUIDANCE",
+      "holisticDesc": "UNINTERRUPTED SUPPORT FROM APPLICATION TO CAREER PLANNING"
+    }
+  },
+  "CountryDetail": {
+    "guideLabel": "Global Destination Guide",
+    "heroSub": "Your academic journey in {country} begins here. Shape your future with Star Education Consulting's expert guidance.",
+    "capital": "Capital",
+    "language": "Language",
+    "currency": "Currency",
+    "whyLabel": "WHY {country}?",
+    "lifeAndEducation": "Education and Life in <span class='gold-text not-italic'>{country}</span>",
+    "featuredLabel": "FEATURED",
+    "prestigiousSchools": "Prestigious Schools in <span class='gold-text not-italic'>{country}</span>",
+    "viewAll": "VIEW ALL",
+    "institution": "EDUCATION INSTITUTION",
+    "freeResources": "Free <span class='gold-text not-italic'>Guides and Resources</span>",
+    "resourceSubtitle": "Download our exclusive documents containing everything you need to know about {country}.",
+    "fileInfo": "Comprehensive information file",
+    "downloadNow": "Download Now",
+    "description": "Comprehensive guide to education opportunities, universities, language schools and living conditions in {country}."
+  },
+  "CountryServiceDetail": {
+    "guideLabel": "ACADEMIC GUIDE",
+    "heroSub": "Discover elite education opportunities and prestigious institutions in {country} with Star Education Consulting guidance.",
+    "comprehensiveGuide": "Comprehensive <span class='gold-text not-italic'>Academic Guide</span>",
+    "noContent": "Content is being planned for this category.",
+    "preparingGuide": "We are preparing the most up-to-date guide for this region with our academic expertise.",
+    "contactForDetails": "You can contact our experts for detailed information and a personalized academic strategy.",
+    "advantages": "Program <span class='gold-text not-italic'>Advantages</span>",
+    "process": "Application <span class='gold-text not-italic'>Process</span>",
+    "faq": "Frequently Asked <span class='gold-text not-italic'>Questions</span>",
+    "pricing": "Program <span class='gold-text not-italic'>Fees</span>",
+    "tuition": "Annual Fee (Estimated)",
+    "askUs": "Ask Us",
+    "pricingDisclaimer": "* FEES MAY VARY DEPENDING ON INSTITUTIONS AND PROGRAMS.",
+    "institutionsByCity": "Institutions by <span class='gold-text not-italic'>City</span>",
+    "institutionsDesc": "The most exclusive institutions selected with Star Education Consulting quality across {country}.",
+    "institutionsCount": "{count} Institutions Listed",
+    "prestigiousInstitution": "PRESTIGIOUS INSTITUTION",
+    "globalPrestige": "GLOBAL PRESTIGE",
+    "explore": "EXPLORE",
+    "estimatedAnnualFee": "Estimated Annual Fee",
+    "whyCountry": "Why {country}?",
+    "defaultWhyItems": [
+      "Academic prestige and depth at international standards",
+      "Global network and lifelong visionary gains",
+      "A career targeted by world giant companies after graduation",
+      "Cultural enrichment and global citizenship competence"
+    ],
+    "academicStrategy": "Set Your Academic Strategy",
+    "academicStrategyDesc": "Select the most suitable program and institution for you in {country} together with our expert consultants.",
+    "startStrategySession": "START STRATEGY SESSION",
+    "consultantsOnline": "CONSULTANTS ONLINE",
+    "seoDefaultTitle": "{country} {service} | Star Education Consulting",
+    "seoDefaultDescription": "Explore the best {service} options and institutions in {country}.",
+    "courseDefaultDescription": "Comprehensive guide about the {service} program in {country}."
+  },
+  "RouteDetail": {
+    "prestigiousDestination": "PRESTIGIOUS DESTINATION",
+    "globalFuture": "Global Future",
+    "heroSub": "Explore elite academic opportunities and cultural richness with Star Education Consulting guidance.",
+    "academicPartner": "ACADEMIC PARTNER",
+    "strategicAnalysis": "Strategic <span class='gold-text not-italic'>Analysis</span>",
+    "academicEvaluation": "Academic Evaluation",
+    "partnersTitle": "Partner <span class='gold-text not-italic'>Institutions</span>",
+    "partnersDesc": "Partner institutions selected with Star Education Consulting academic precision in {country}.",
+    "resultsLabel": "ELITE ACADEMIC RESULTS",
+    "explore": "EXPLORE",
+    "countryGuide": "Country Guide",
+    "officialLanguage": "Official Language",
+    "population": "Approximate Population",
+    "processSupport": "Process Support",
+    "consultancy": "Academic Consultancy",
+    "visaManagement": "Visa Process Management",
+    "accommodation": "Accommodation Organization",
+    "orientation": "Cultural Orientation",
+    "formTitle": "{title} Consultancy Request",
+    "formDesc": "Get information from our experts about {title} academic opportunities."
+  },
+  "About": {
+    "loading": "Loading...",
+    "heritageLabel": "OUR ACADEMIC HERITAGE",
+    "heroSubtitle": "We offer not just consultancy, but an integrated <span class='gold-text italic font-serif'>future design</span> for you to make a difference in the global arena.",
+    "getCounseling": "GET STRATEGIC CONSULTANCY",
+    "stats": {
+      "experience": "Years of Experience",
+      "students": "Happy Students",
+      "partners": "Partner Schools",
+      "countries": "Countries"
+    },
+    "mission": "Our Mission",
+    "missionDesc": "To transform the intellectual and professional capital of our students into a strategic advantage in the most prestigious global institutions.",
+    "vision": "Our Vision",
+    "visionDesc": "To be the most visionary strategy house that raises the leaders of the future by building a bridge between global education elites.",
+    "principlesLabel": "OUR PRINCIPLES",
+    "valuesTitle": "Our Core <span class='gold-text not-italic'>Values</span>",
+    "valuesSubtitle": "Our unwavering principles that shape our global vision and ethical values.",
+    "whoWeAreLabel": "WHO WE ARE?",
+    "teamTitle": "Our Expert Academic <span class='gold-text not-italic'>Staff</span>",
+    "teamSummary": "The Star Education Consulting team consists of academic consultants who have been educated worldwide, each an expert and visionary in their field.",
+    "meetTeam": "MEET OUR CONSULTANTS",
+    "futureDesignLabel": "FUTURE DESIGN",
+    "ctaTitle": "Let's Turn Your Story Into a <span class='gold-text italic'>Global</span> Success",
+    "ctaSubtitle": "We are ready to be your unwavering academic partner in this journey from the application process to career.",
+    "startStrategy": "START THE STRATEGY SESSION",
+    "values": {
+      "transparency": "Strategic Transparency",
+      "transparencyDesc": "We share not only the processes but also the strategic rationality behind every decision.",
+      "careerDesign": "Individual Career Design",
+      "careerDesignDesc": "Every student is a project; we transform this project into a world-class future.",
+      "globalVision": "Global Visionary",
+      "globalVisionDesc": "We focus on academic competencies that will be in demand in tomorrow's world, not today's."
+    }
+  },
+  "Hero": {
+    "title": "Star Education Consulting Academic Mentorship",
+    "subtitle": "Build your future abroad with expert educational guidance and strategic matching.",
+    "cta": "Apply Now",
+    "cta2": "Explore Programs",
+    "slider2": {
+      "title": "A Global Vision from the UK to the USA — The Choice is Yours",
+      "subtitle": "500+ partner schools in 9 countries. Corporate guidance at every education level from language schools to master's degrees.",
+      "cta": "Explore Countries"
+    },
+    "slider3": {
+      "title": "From IELTS to GRE — We Are With You in Exam Preparation Too",
+      "subtitle": "Expert academic strategy for language and proficiency exams required to reach your target score in the shortest way.",
+      "cta": "View Exam Guide"
+    },
+    "label": "Your Strategic Partner for a Global Future",
+    "viewDetails": "View Details",
+    "contact": "Get in Touch",
+    "badges": {
+      "experience": "Years Experience",
+      "students": "Students Placed",
+      "countries": "Countries & Regions",
+      "partners": "Partner Schools & Universities"
+    }
+  },
+  "WhatsApp": {
+    "title": "Quick Support",
+    "online": "Online",
+    "offline": "Responds Soon",
+    "greeting": "Hello! 👋",
+    "message": "You can start chatting with our expert consultant on WhatsApp right now.",
+    "inputPlaceholder": "How should we address you? (Optional)",
+    "defaultMessage": "I'm reaching out via the Star Education Consulting website, can I get some information?",
+    "visitor": "Visitor",
+    "footer": "Secure Communication Line",
+    "topics": {
+      "interest": "Your interests",
+      "request": "I'd like to get information about.",
+      "start": "START WITH SELECTED",
+      "direct": "START DIRECT CHAT",
+      "uni": {
+        "label": "🎓 University",
+        "message": "Undergraduate education abroad"
+      },
+      "master": {
+        "label": "🎓 Master's",
+        "message": "Master's / Graduate studies abroad"
+      },
+      "lise": {
+        "label": "🏫 High School",
+        "message": "High school education abroad"
+      },
+      "language": {
+        "label": "🌍 Language School",
+        "message": "Language schools abroad"
+      },
+      "summer": {
+        "label": "☀️ Summer School",
+        "message": "Summer schools abroad"
+      },
+      "denklik": {
+        "label": "🛂 Equivalency",
+        "message": "Diploma equivalency processes"
+      },
+      "general": {
+        "label": "💬 Other",
+        "message": "General information"
+      }
+    },
+    "appointment": {
+      "title": "Schedule Appointment",
+      "back": "Go Back",
+      "selectDay": "Select a Day",
+      "selectTime": "Time Slot",
+      "submit": "SEND APPOINTMENT REQUEST",
+      "request": "I'd like to schedule an appointment for this time slot.",
+      "subject": "Appointment Request",
+      "slots": {
+        "morning": "Morning (09:00 - 12:00)",
+        "afternoon": "Afternoon (12:00 - 15:00)",
+        "evening": "Evening (15:00 - 18:00)"
+      }
+    }
+  },
+  "Auth": {
+    "loginTitle": "Welcome Back",
+    "loginSubtitle": "Log in to track your offer.",
+    "registerTitle": "Create an Account",
+    "registerSubtitle": "Sign up to manage your offer via the dashboard.",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "Jane Doe",
+    "email": "Email",
+    "emailPlaceholder": "jane@example.com",
+    "password": "Password",
+    "loginButton": "Log In",
+    "registerButton": "Sign Up",
+    "switch": {
+      "noAccount": "Don't have an account yet? Register",
+      "haveAccount": "Already have an account? Log in"
+    },
+    "errors": {
+      "login": "Login failed. Please check your credentials.",
+      "register": "Registration error"
+    }
+  },
+  "HomePage": {
+    "AboutUs": {
+      "label": "Corporate Vision",
+      "title": "25 Years of <span class='gold-text not-italic'>Academic Guidance</span>",
+      "desc1": "As one of Turkey's most established study abroad consultancy institutions, Star Education Consulting has been providing technical and strategic guidance to thousands of students in their global career journeys for over a quarter of a century.",
+      "desc2": "We don’t just handle school placement; we provide personalized <span class='gold-text font-bold italic'>global future architecture</span>. We project dreams at international standards with our expertise.",
+      "stats": {
+        "experience": "Years Experience",
+        "partners": "Global Partners"
+      }
+    },
+    "SmartFinder": {
+      "label": "Smart Match",
+      "title": "Discover the <span class='gold-text not-italic'>Program</span> Best Suited for You"
+    },
+    "Methodology": {
+      "label": "Application Process",
+      "title": "A Strategic <span class='gold-text not-italic'>Journey</span> to Your Dreams",
+      "desc": "We don’t just plan your future; we <span class='gold-text italic font-serif'>redesign it</span> to the highest standards. Together, we draw the strategic roadmap you need to make a difference in the global world.",
+      "ctaTitle": "Let's Draw Your Strategic Roadmap",
+      "steps": {
+        "1": {
+          "title": "Career Architecture",
+          "desc": "Not just a school choice, but a strategic start where we construct the vision of ten years from now, today."
+        },
+        "2": {
+          "title": "Elite Portfolio Management",
+          "desc": "We meticulously structure every detail that will separate you from other candidates and take your acceptance chances to the top."
+        },
+        "3": {
+          "title": "Operational Perfection",
+          "desc": "We turn visa and bureaucratic processes from stress into a comfort zone where you will focus solely on success."
+        },
+        "4": {
+          "title": "Global Life Guidance",
+          "desc": "We are your strongest ally by your side to evaluate every opportunity you encounter throughout your education life."
+        }
+      }
+    },
+    "Process": {
+      "label": "What We Do for You",
+      "title": "Academic <span class='gold-text not-italic'>Services</span>",
+      "desc": "Our professional academic and career-oriented services offered to shape your future by global standards.",
+      "viewService": "View Service"
+    },
+    "Destinations": {
+      "label": "Destinations",
+      "title": "Popular <span class='gold-text not-italic'>Routes</span>",
+      "desc": "Discover boundary-pushing education hubs where academic prestige and career opportunities meet worldwide with our expert guidance.",
+      "viewDestinations": "Explore Routes",
+      "viewDetail": "View Details"
+    },
+    "Featured": {
+      "label": "Popular Study Abroad Programs",
+      "title": "The World's Best <br /> <span class='gold-text not-italic'>Educational Institutions</span>",
+      "viewAll": "Explore All"
+    },
+    "Consultation": {
+      "label": "Consultation",
+      "title": "Build Your <br /> Future with <span class='gold-text italic'>Strategy</span>.",
+      "desc": "Studying abroad is not just a diploma; it's an investment in a lifelong network and vision. Start your <span class='text-white italic font-serif'>academic strategy session</span> now.",
+      "offices": [
+        {
+          "city": "Stuttgart",
+          "country": "Germany"
+        },
+        {
+          "city": "London",
+          "country": "United Kingdom"
+        },
+        {
+          "city": "Turkey Nationwide",
+          "country": "30 Metropolitan Cities"
+        },
+        {
+          "city": "Worldwide",
+          "country": "All Turkish Speakers"
+        }
+      ],
+      "formTitle": "Consultation Request",
+      "starberatungText": "Your academic journey starts with a single step. <span class='gold-text font-bold italic'>Star Education Consulting</span> is with you every step of the way, from application to enrollment and beyond."
+    },
+    "Services": {
+      "vize": "Visa Consultancy",
+      "konaklama": "Accommodation Support",
+      "bilet": "Flight Tickets",
+      "denklik": "Equivalency",
+      "master-yuksek-lisans": "Master & Graduate",
+      "lise": "High School",
+      "universite": "University",
+      "yaz-okulu": "Summer Schools",
+      "dil-okullari": "Language Schools",
+      "YURTDISI-YUKSEK-LISANS": "Postgraduate & Master's",
+      "YURTDISI-LISE": "High School Abroad",
+      "YURTDISI-UNIVERSITE": "University Abroad",
+      "YURTDISI-YAZ-OKULLARI": "Summer Schools Abroad",
+      "YURTDISI-DIL-OKULLARI": "Language Schools Abroad",
+      "KARIYER": "Career",
+      "yurtdisi-yuksek-lisans": "Postgraduate & Master's",
+      "yurtdisi-lise": "High School Abroad",
+      "yurtdisi-universite": "University Abroad",
+      "yurtdisi-yaz-okullari": "Summer Schools Abroad",
+      "yurtdisi-dil-okullari": "Language Schools Abroad",
+      "kariyer": "Career",
+      "egitim-koclugu": "Education Coaching",
+      "ulkeler": "Countries",
+      "programlar": "Programs",
+      "subeler": "Branches",
+      "sinavlar": "Exams"
+    }
+  },
+  "Card": {
+    "tuition": "Annual Tuition",
+    "programs": "Number of Programs",
+    "viewDetails": "View Details",
+    "notSpecified": "Not Specified"
+  },
+  "Blog": {
+    "label": "Academic Perspective",
+    "title": "Elite Notes from the <br /> <span class='italic'>Education World</span>",
+    "viewAll": "View All",
+    "readMore": "Start Reading",
+    "empty": "The latest announcements and educational content will be shared here soon.",
+    "categoryDefault": "General",
+    "authorDefault": "ADMIN",
+    "editor": "EDITOR"
+  },
+  "Contact": {
+    "loading": "Loading...",
+    "label": "Global Future Design",
+    "contactLabel": "CONTACT",
+    "title": "Start Your Strategy Session",
+    "subtitle": "We are here to turn your study abroad dreams into reality with academic precision and our expert guidance.",
+    "description": "Let's determine a special roadmap for you with our expert team to reach your global goals.",
+    "officeTitle": "Our Academic <span class='gold-text not-italic'>Office</span>",
+    "officeDesc": "You can visit our office to meet our expert consultants face to face or reach us through our digital channels.",
+    "mainOffice": "Head Office",
+    "phone": "Phone",
+    "email": "Email",
+    "workingHours": "Working Hours",
+    "weekdays": "Weekdays",
+    "saturday": "Saturday",
+    "collaborationTitle": "Strategic <span class='gold-text not-italic'>Collaboration</span>",
+    "collaborationDesc": "We are here to turn your study abroad dreams into reality with academic precision and our expert guidance. You can take the first step by filling out the form below or contacting our office directly.",
+    "formTitle": "Consultancy Request",
+    "formData": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "service": "Interested Program",
+      "message": "Your Notes (Optional)",
+      "placeholders": {
+        "name": "Jane Doe",
+        "email": "jane@example.com",
+        "phone": "+44 7___ ______",
+        "service": "Select Program",
+        "message": "Briefly mention your vision and expectations..."
+      }
+    },
+    "submit": "SEND STRATEGY REQUEST",
+    "processing": "Processing",
+    "successTitle": "Successfully Sent!",
+    "successDesc": "Welcome! Our expert consultants will review your profile and get back to you with a special program within 24 hours.",
+    "trackRequests": "Track My Requests",
+    "sendNew": "Send New Form",
+    "policyNote": "By approving this form, you accept the <policyLink>Data Policy</policyLink>.",
+    "policyLink": "Data Policy",
+    "supportLabel": "Contact & Professional Support",
+    "whatsappCta": "Contact via WhatsApp"
+  },
+  "Testimonials": {
+    "label": "Our References",
+    "title": "Success Stories",
+    "description": "We have shared the dreams of hundreds of our students. Here are frames from their <accent>academic success</accent> journeys.",
+    "items": {
+      "0": {
+        "name": "Zeynep K.",
+        "program": "King's College London - Law",
+        "text": "Before meeting Star Education Consulting, studying law in London was just a dream. I got accepted thanks to their meticulous work on the application process and their touches on my letter of intent. It was the best decision of my life."
+      },
+      "1": {
+        "name": "Caner Y.",
+        "program": "EC Malta - Language School (6 Months)",
+        "text": "I went with zero English, and returned speaking fluently after 6 months. I both had a vacation and learned English on the spot. My consultant's interest continued after I left, I never felt alone."
+      },
+      "2": {
+        "name": "Elif & Family",
+        "program": "UCLA Summer School",
+        "text": "We were very worried when we sent our 15-year-old daughter abroad for the first time. However, Star Education Consulting's sensitivity to security and constant updates really relieved us. Our daughter returned with confidence."
+      },
+      "3": {
+        "name": "Mert T.",
+        "program": "TU Munich - Engineering Master",
+        "text": "The free master's process in Germany seemed complicated, but the team simplified every step so much... Even my visa process went smoothly. The biggest step I took for my career."
+      }
+    }
+  },
+  "SmartFinder": {
+    "title": "Best Options for You",
+    "searching": "Analyzing...",
+    "compatibility": "%{score} Compatible",
+    "details": "Details",
+    "applyNow": "Apply Now",
+    "noMatch": "Unfortunately, no exact match was found.",
+    "noMatchDesc": "You can try again by relaxing your criteria or ask our consultant.",
+    "retry": "Search Again",
+    "mismatch": "Attention: {reason}",
+    "loadingServices": "Loading...",
+    "selectScore": "Select Score",
+    "completeStep": "Complete Step",
+    "prevStep": "Go Back",
+    "nextStep": "Go to Final Step",
+    "steps": {
+      "category": "Program Type",
+      "profile": "Profile & Goal",
+      "budget": "Budget Plan",
+      "country": "Target Country",
+      "academicProfile": "Academic Profile",
+      "schoolSuccess": "School Success",
+      "eduGoal": "Education Goal"
+    },
+    "categories": {
+      "UNIVERSITY": {
+        "label": "University",
+        "desc": "Undergraduate (Bachelor) education"
+      },
+      "MASTER": {
+        "label": "Master's Degree",
+        "desc": "Master / MBA programs"
+      },
+      "HIGH_SCHOOL": {
+        "label": "High School",
+        "desc": "Overseas high school exchange or boarding school"
+      },
+      "LANGUAGE_SCHOOL": {
+        "label": "Language School",
+        "desc": "Foreign language abroad"
+      },
+      "SUMMER_SCHOOL": {
+        "label": "Summer School",
+        "desc": "Camp and education for youth"
+      }
+    },
+    "fields": {
+      "gpa": "Academic Success (GPA)",
+      "gpaPlaceholder": "Ex: 3.4",
+      "langProficiency": "Language Proficiency",
+      "specialization": "Target Specialization Area",
+      "highSchoolGpa": "GPA (over 100)",
+      "highSchoolGpaPlaceholder": "Ex: 88",
+      "langLevel": "Language Level",
+      "schoolType": "School Type Preference",
+      "currentLangLevel": "Your Current Language Level",
+      "eduFocus": "Education Focus",
+      "duration": "Target Duration",
+      "period": "Education Period",
+      "budgetPlan": "Budget Plan"
+    },
+    "durationLabels": {
+      "short_summer": "2-4 Weeks",
+      "med_summer": "6-8 Weeks",
+      "long_summer": "10-12 Weeks",
+      "short_lang": "4-8 Weeks",
+      "med_lang": "12-24 Weeks",
+      "long_lang": "36+ Weeks",
+      "semester": "1 Semester",
+      "year": "1 Academic Year",
+      "full": "Full Program"
+    },
+    "budgetLabels": {
+      "ECONOMY": {
+        "label": "Economy",
+        "desc": "Options below 5,000 €"
+      },
+      "MID": {
+        "label": "Mid Segment",
+        "desc": "Between 5,000 € - 15,000 €"
+      },
+      "PREMIUM": {
+        "label": "Prestigious",
+        "desc": "Private schools above 15,000 €"
+      }
+    },
+    "countries": {
+      "ALL": "All Countries",
+      "almanya": "Germany",
+      "ingiltere": "UK",
+      "amerika": "USA",
+      "kanada": "Canada",
+      "isvicre": "Switzerland",
+      "avustralya": "Australia",
+      "belcika": "Belgium",
+      "hollanda": "Netherlands",
+      "irlanda": "Ireland",
+      "polonya": "Poland"
+    },
+    "areas": {
+      "Mühendislik": "Engineering",
+      "İşletme": "Business",
+      "Tıp": "Medicine",
+      "Sanat": "Art"
+    },
+    "focus": {
+      "Genel": "General Language Education",
+      "Sinav": "Exam Preparation (IELTS/TOEFL)",
+      "Is": "Business English"
+    },
+    "schoolTypes": {
+      "devlet": "Public High School",
+      "ozel": "Private Boarding",
+      "spor": "Sports Oriented"
+    }
+  },
+  "Career": {
+    "meta": {
+      "title": "Career & Future | Work With Us | Star Education Consulting",
+      "description": "Join our visionary team raising the leaders of the future. We are growing with professionals who will make a difference in the global education sector."
+    },
+    "hero": {
+      "label": "Join Our Team",
+      "title": "Career & <span class='gold-text not-italic'>Future</span>",
+      "subtitle": "Join our visionary team raising the leaders of the future. We are growing with professionals who will make a difference in the global education sector."
+    },
+    "culture": {
+      "label": "OUR CULTURE",
+      "title": "Why <span class='gold-text not-italic'>Star Education Consulting</span>?",
+      "subtitle": "Do you want to be in a center of excellence where we are not just a workplace, but where we learn something new every day and shape the global academic world?"
+    },
+    "benefits": {
+      "global": {
+        "title": "Global Vision",
+        "desc": "Opportunity to work directly with the world's most prestigious educational institutions and be part of a global network."
+      },
+      "development": {
+        "title": "Continuous Development",
+        "desc": "Regular domestic and international training programs that will enable you to specialize in academic consultancy."
+      },
+      "culture": {
+        "title": "Culture & Commitment",
+        "desc": "A supportive working environment based on mutual trust, professionalism, and high ethical values."
+      }
+    },
+    "positions": {
+      "label": "OPEN POSITIONS",
+      "title": "We Are <span class='gold-text not-italic'>Waiting For You</span>",
+      "desc": "If a listed position is not suitable for you, we may still want to meet you.",
+      "apply": "APPLY NOW",
+      "generalTitle": "General Application",
+      "generalDesc": "Send us your CV and motivation letter, we will reach out to you first when a position opens up where you can add value to our team."
+    },
+    "openings": [
+      {
+        "title": "Senior Academic Consultant",
+        "location": "Istanbul (HQ)",
+        "type": "Full-Time",
+        "category": "Academic Services"
+      },
+      {
+        "title": "Overseas Education Coordinator",
+        "location": "Turkey (Metropolitan Field Coordination)",
+        "type": "Full-Time",
+        "category": "Operations"
+      },
+      {
+        "title": "Digital Marketing Specialist",
+        "location": "Remote / Istanbul (HQ)",
+        "type": "Full-Time",
+        "category": "Marketing"
+      }
+    ]
+  },
+  "SuccessStories": {
+      "metaTitle": "Success Stories | Star Education Consulting",
+      "metaDesc": "Global academic achievements and experiences of our students who turned their study abroad dreams into reality.",
+      "heroLabel": "Success Stories",
+      "heroTitle": "Leaders of the <span>Future</span>",
+      "heroSubtitle": "Success stories and global academic achievements of thousands of students who accompanied us on our journey.",
+      "stats": {
+        "acceptance": {
+          "label": "Acceptance Rate",
+          "value": "99.2%"
+        },
+        "scholarship": {
+          "label": "Scholarship Gains",
+          "value": "$4.5M+"
+        },
+        "alumni": {
+          "label": "Number of Alumni",
+          "value": "8500+"
+        },
+        "partners": {
+          "label": "Global Partner",
+          "value": "450+"
+        }
+      },
+      "testimonials": [
+        {
+          "name": "Selin Yılmaz",
+          "university": "University of Oxford",
+          "program": "MSc in Computer Science",
+          "quote": "Working with Star Education Consulting was the turning point of my life. They added an incredible vision not only in the application process but also in my career planning.",
+          "year": "2025"
+        },
+        {
+          "name": "Can Berk",
+          "university": "Harvard University",
+          "program": "MBA",
+          "quote": "Getting accepted to Harvard seemed impossible, but thanks to strategic portfolio management, my dream came true. I received professional support at every stage.",
+          "year": "2023"
+        },
+        {
+          "name": "Merve Demir",
+          "university": "University of Toronto",
+          "program": "Biomedical Engineering",
+          "quote": "The Canadian visa process and school admission went very smoothly with Star Education Consulting expertise. I always felt safe.",
+          "year": "2025"
+        },
+        {
+          "name": "Arda Erkan",
+          "university": "ETH Zurich",
+          "program": "Robotics and Intelligent Systems",
+          "quote": "The process of getting accepted to one of the best universities in Europe was very challenging. Star Education Consulting's academic depth made a difference.",
+          "year": "2024"
+        },
+        {
+          "name": "Zeynep Kaya",
+          "university": "Bayswater London",
+          "program": "Intensive English Portfolio",
+          "quote": "Their options and school connections were great in my decision to go to London for language education. It was a tremendous experience.",
+          "year": "2023"
+        },
+        {
+          "name": "Emre Aydın",
+          "university": "Columbia University",
+          "program": "Public Administration",
+          "quote": "My dream of studying in New York came true. Especially their guidance in scholarship applications was very valuable.",
+          "year": "2025"
+        }
+      ],
+      "galleryLabel": "GLOBAL NETWORK",
+      "galleryTitle": "Institutions Where Our <span>Alumni</span> Are",
+      "ctaTitle": "What Will Your <span>Story</span> Be?",
+      "ctaDesc": "Let's take the first step together today to build your future at a world-renowned university.",
+      "ctaBtn": "GET FREE CONSULTANCY",
+      "classOf": "Class of {year}"
+    },
+  "ProgramFinder": {
+    "title": "Smart School Finder | Find the Most Suitable Program in Seconds",
+    "description": "Discover the most suitable study abroad programs, universities, and language schools for your budget and goals with real data.",
+    "keywords": "study abroad finder, affordable schools, budget-friendly study abroad, smart school matching",
+    "heroBadge": "AI Powered Matching",
+    "heroTitle": "Plan Your Future <br /> <span class='text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary)] to-blue-400'>With Data</span>.",
+    "heroSubtitle": "Find the shortest path between your dreams and your budget. <br /> Make your special analysis now with real school fees and admission criteria.",
+    "trust": {
+      "data": {
+        "title": "Pinpoint Data",
+        "desc": "Honest analysis with the most up-to-date price and acceptance data obtained from official school sources."
+      },
+      "service": {
+        "title": "Independent Consultancy",
+        "desc": "Our priority is not to sell a school, but to objectively chart the most suitable route for your career."
+      },
+      "speed": {
+        "title": "Instant Results",
+        "desc": "Smart matching algorithm that fits weeks of research into seconds."
+      }
+    },
+    "quote": {
+      "text": "\"Study abroad is not an expense, but the most strategic investment that will pay dividends for a lifetime.\"",
+      "author": "Star Education Consulting Executive Guide"
+    }
+  },
+  "Quote": {
+    "programSelect": "Select Department / Program",
+    "courseSelect": "Select Course Type",
+    "highSchoolSelect": "Select Education Program",
+    "generalSelect": "Select Program",
+    "fallbackProgram": "Department / Program of Interest",
+    "selectPlaceholder": "Please Select",
+    "programPlaceholder": "Ex: Law, Computer Engineering...",
+    "targetStart": "Target Start",
+    "currentGrade": "Your Current Grade",
+    "age": "Student Age",
+    "duration": "Education Duration",
+    "durationPlaceholderLanguage": "Ex: 12 Weeks",
+    "durationPlaceholderUni": "Fall / Spring",
+    "durationPlaceholderHighSchool": "Ex: 10th Grade",
+    "durationPlaceholderSummer": "Ex: 15",
+    "durationPlaceholderDefault": "Duration",
+    "academicYear": "Academic Year",
+    "startDate": "Start Date",
+    "accommodation": "I Want Accommodation",
+    "exams": "Exam Scores (Optional)",
+    "examsPlaceholder": "IELTS, TOEFL, SAT etc.",
+    "notes": "Your Notes (Optional)",
+    "notesPlaceholder": "Other details you want to add...",
+    "submitStart": "Start Application",
+    "submitQuote": "Get Quote",
+    "successTitleAuth": "Application Started!",
+    "successTitleNoAuth": "Great!",
+    "successDescAuth": "Your request has been successfully received and a consultant has been assigned. You can track the process on the dashboard.",
+    "successDescNoAuth": "Your quote request has reached our consultants. We will get back to you within 24 hours via the dashboard.",
+    "goToDashboard": "Go to Dashboard"
+  },
+  "ProcessSteps": {
+    "title": "How the Process Works",
+    "description": "We are with you from application to acceptance. We guide you step by step to your goals.",
+    "requiredDocs": "Required Documents"
+  },
+  "FAQ": {
+    "title": "Frequently Asked Questions",
+    "description": "All your questions answered here."
+  },
+  "Pricing": {
+    "title": "Pricing Information",
+    "description": "No surprise costs with our transparent pricing policy.",
+    "scholarship": "Scholarship Opportunities",
+    "importantNotes": "Important Notes"
+  },
+  "Footer": {
+    "brandSummary": "Star Education Consulting - Study Abroad Consultancy",
+    "brandDescription": "As Turkey's most established study abroad consultancy, we have been turning dreams into reality for over 25 years. Global vision, local expertise. Let's build your future together with Star Education Consulting.",
+    "sections": {
+      "programs": "Programs",
+      "corporate": "Corporate",
+      "contact": "Contact"
+    },
+    "links": {
+      "vision": "Our Vision",
+      "success": "Success Stories",
+      "offices": "Our Offices",
+      "career": "Our Services",
+      "legal": "KVKK",
+      "terms": "Terms of Use",
+      "privacy": "Privacy Policy"
+    },
+    "copyright": "ALL RIGHTS RESERVED."
+  },
+  "Programs": {
+    "yurtdisi-universite": {
+      "title": "University Education Abroad",
+      "heroDesc": "Join the leaders of the future, from Oxford to Harvard. Build a global career with entrance without exams and scholarship opportunities.",
+      "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Doors to a Global Future</h2><p class=\"mb-6\">University education abroad with Star Education Consulting is not just a diploma, but opening the door to a life without borders. In the UK, you can graduate in 3 years and start your career early, discover your talents with the 'Liberal Arts' system in the USA, or receive free engineering education in Germany.</p><h2 class=\"text-3xl font-serif font-bold text-navy mb-10 italic underline underline-offset-8 decoration-gold/50\">Estimated Academic Fees (Annual)</h2><div class=\"overflow-x-auto mb-10 border border-gold/10 shadow-sm\"><table class=\"w-full text-left font-sans text-sm\"><thead class=\"bg-navy text-gold uppercase tracking-widest text-[10px]\"><tr><th class=\"p-6\">Country</th><th class=\"p-6\">Program Type</th><th class=\"p-6\">Average Fee</th></tr></thead><tbody class=\"divide-y divide-gold/5 italic\"><tr class=\"hover:bg-gold/5 transition-colors\"><td class=\"p-6 font-bold\">UK</td><td class=\"p-6\">Bachelor / Master</td><td class=\"p-6 text-gold font-bold\">£14,000 - £28,000</td></tr><tr class=\"hover:bg-gold/5 transition-colors\"><td class=\"p-6 font-bold\">USA</td><td class=\"p-6\">Bachelor (Incl. Scholarship)</td><td class=\"p-6 text-gold font-bold\">$22,000 - $55,000</td></tr><tr class=\"hover:bg-gold/5 transition-colors\"><td class=\"p-6 font-bold\">Poland / Hungary</td><td class=\"p-6\">Medicine / Engineering</td><td class=\"p-6 text-gold font-bold\">€4,000 - €12,000</td></tr><tr class=\"hover:bg-gold/5 transition-colors\"><td class=\"p-6 font-bold\">Ireland</td><td class=\"p-6\">Bachelor / Master</td><td class=\"p-6 text-gold font-bold\">€11,000 - €18,000</td></tr></tbody></table></div><h2 class=\"text-3xl font-serif font-bold text-navy mb-10 italic underline underline-offset-8 decoration-gold/30\">Academic Preparation and Pathway Programs</h2><ul class=\"grid grid-cols-1 md:grid-cols-2 gap-4 mb-10 italic text-sm\"><li class=\"p-4 bg-white/50 border-l-4 border-gold font-bold\"><strong>Foundation:</strong> 1-year academic bridge program before Bachelor's.</li><li class=\"p-4 bg-white/50 border-l-4 border-gold font-bold\"><strong>Pre-Master:</strong> Academic and language proficiency required for Master's.</li><li class=\"p-4 bg-white/50 border-l-4 border-gold font-bold\"><strong>IY1:</strong> Direct equivalent transition program to the first year.</li><li class=\"p-4 bg-white/50 border-l-4 border-gold font-bold\"><strong>Scholarship Counseling:</strong> Tracking achievement scholarships from 20% to 100%.</li></ul>",
+      "advantages": [
+        {
+          "title": "Admission Without Exam",
+          "desc": "End the exam stress in Turkey. You can be placed in the world's top 500 universities with only your high school GPA and language proficiency.",
+          "icon": "Globe"
+        },
+        {
+          "title": "Work and Residence",
+          "desc": "Gain experience in global companies with work permits up to 2 years in the UK and 3 years in Canada and the USA after graduation.",
+          "icon": "Briefcase"
+        },
+        {
+          "title": "Cost Advantage",
+          "desc": "Studying in Europe at the price of private universities in Turkey, and in America with scholarship options, is more accessible than you think.",
+          "icon": "Users"
+        },
+        {
+          "title": "Personal Development",
+          "desc": "Grow as a visionary individual with high self-confidence, able to stand on your own feet, intertwined with different cultures.",
+          "icon": "Award"
+        }
+      ],
+      "process": [
+        {
+          "step": 1,
+          "title": "Goal Setting",
+          "desc": "We create the most suitable country and university list for you with the 'Best Fit' method by analyzing your academic background, budget, and dreams."
+        },
+        {
+          "step": 2,
+          "title": "Strong Application",
+          "desc": "We prepare your Statement of Purpose (SOP), CV, and References that will set you apart from your competitors with our professional editors, and make your application error-free."
+        },
+        {
+          "step": 3,
+          "title": "Admission and Scholarship",
+          "desc": "We manage admissions from universities, make your scholarship applications if any, and complete your final registration procedures."
+        },
+        {
+          "step": 4,
+          "title": "Visa and Travel",
+          "desc": "We meticulously manage country-specific visa procedures and see you off by organizing your accommodation and flight tickets."
+        }
+      ],
+      "documents": [
+        "High School Diploma (or Student Certificate)",
+        "Transcript (English)",
+        "IELTS / TOEFL Score Certificate",
+        "Passport",
+        "Statement of Purpose (SOP)",
+        "2 Academic References",
+        "CV / Resume"
+      ],
+      "faq": [
+        {
+          "q": "Can I get YÖK equivalency?",
+          "a": "Yes. When you graduate from universities in the top 1000 world rankings, you can get direct equivalency. For schools outside the top 1000, YGS/LYS requirements or a Level Placement Exam may be required. As Star Education Consulting, we only work with accredited and recognized schools."
+        }
+      ]
+    },
+    "yurtdisi-dil-okullari": {
+      "title": "Language Schools Abroad",
+      "heroDesc": "Learn the language by living it. Be a local, not a tourist."
+    },
+    "yurtdisi-yaz-okullari": {
+      "title": "Summer Schools and Camps Abroad",
+      "heroDesc": "An unforgettable summer experience at the world's best universities."
+    },
+    "yurtdisi-lise": {
+      "title": "High School Education Abroad",
+      "heroDesc": "Start becoming a world citizen in high school. The right time to gain a global vision."
+    },
+    "yurtdisi-yuksek-lisans": {
+      "title": "Master's Programs Abroad",
+      "heroDesc": "The most prestigious master's mentorship to carry your career to a global dimension."
+    },
+    "denklik": {
+      "title": "Diploma Equivalency",
+      "heroDesc": "Professional guidance for your foreign diploma to be recognized in Turkey."
+    }
+  },
+  "Branches": {
+    "title": "Our Global Network",
+    "subtitle": "Find the nearest Star Education Consulting office and start your journey to your dream education with our professional team.",
+    "label": "Global Network",
+    "ofislerimiz": "Our Offices & <span>Locations</span>",
+    "iletisim": "Contact",
+    "randevu": "Schedule Appointment",
+    "yakinda": "Yakında",
+    "onlineLabel": "Service Without Borders",
+    "onlineTitle": "We are with you even if <span>we're not</span> in your city",
+    "onlineDesc": "With our online consultancy services, you can reach our expert staff from all over the world and plan your academic journey in the comfort of your home.",
+    "onlineCta": "GET ONLINE APPOINTMENT",
+    "list": [
+      {
+        "country": "Germany",
+        "city": "Stuttgart Hub",
+        "address": "Stuttgart / Freiburg (Germany Local Support)",
+        "phone": "",
+        "hours": "Mon - Fri: 09:00 - 18:00",
+        "image": "https://images.unsplash.com/photo-1599946347341-6cd484b74085?q=80&w=1000",
+        "isComingSoon": false
+      },
+      {
+        "country": "United Kingdom",
+        "city": "London Hub",
+        "address": "London (Academic Liaison Centre)",
+        "phone": "",
+        "hours": "Mon - Fri: 09:00 - 17:30",
+        "image": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=1000",
+        "isComingSoon": false
+      },
+      {
+        "country": "Turkey",
+        "city": "Istanbul (HQ)",
+        "address": "Headquarters - Istanbul",
+        "phone": "",
+        "hours": "Mon - Sat: 09:00 - 19:00",
+        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
+        "isComingSoon": false
+      },
+      {
+        "country": "Turkey",
+        "city": "Ankara",
+        "address": "Ankara (Nationwide Online/On-site Service)",
+        "phone": "",
+        "hours": "Mon - Sat: 09:00 - 18:30",
+        "image": "https://images.unsplash.com/photo-605634563478-f730248c5e63?q=80&w=1000",
+        "isComingSoon": false
+      },
+      {
+        "country": "Turkey",
+        "city": "Izmir",
+        "address": "Izmir (Aegean Regional Coordination)",
+        "phone": "",
+        "hours": "Mon - Sat: 09:00 - 18:30",
+        "image": "https://images.unsplash.com/photo-1542385151-efd9000785a0?q=80&w=1000",
+        "isComingSoon": false
+      },
+      {
+        "country": "Turkey",
+        "city": "Bursa",
+        "address": "Bursa (Marmara Regional Support)",
+        "phone": "",
+        "hours": "Mon - Sat: 09:00 - 18:30",
+        "image": "https://images.unsplash.com/photo-1589113316203-1e85ba4bc6c0?q=80&w=1000",
+        "isComingSoon": false
+      },
+      {
+        "country": "Turkey",
+        "city": "Antalya",
+        "address": "Antalya (Mediterranean Regional Coordination)",
+        "phone": "",
+        "hours": "Mon - Sat: 09:00 - 18:30",
+        "image": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=1000",
+        "isComingSoon": false
+      },
+      {
+        "country": "Turkey",
+        "city": "Samsun",
+        "address": "Samsun (Black Sea Regional Support)",
+        "phone": "",
+        "hours": "Mon - Sat: 09:00 - 18:30",
+        "image": "https://images.unsplash.com/photo-1587313627440-97693d3957ce?q=80&w=1000",
+        "isComingSoon": false
+      },
+      {
+        "country": "Turkey",
+        "city": "Eskisehir",
+        "address": "Eskisehir",
+        "phone": "",
+        "hours": "Mon - Sat: 09:00 - 18:30",
+        "image": "https://images.unsplash.com/photo-1543852786-1cf6624b9987?q=80&w=1000",
+        "isComingSoon": false
+      },
+      {
+        "country": "Turkey",
+        "city": "Adana",
+        "address": "Adana",
+        "phone": "",
+        "hours": "Service Active",
+        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
+        "isComingSoon": true
+      },
+      {
+        "country": "Turkey",
+        "city": "Gaziantep",
+        "address": "Gaziantep",
+        "phone": "",
+        "hours": "Service Active",
+        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
+        "isComingSoon": true
+      },
+      {
+        "country": "Turkey",
+        "city": "Kocaeli",
+        "address": "Kocaeli",
+        "phone": "",
+        "hours": "Service Active",
+        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
+        "isComingSoon": true
+      },
+      {
+        "country": "Turkey",
+        "city": "Mersin",
+        "address": "Mersin",
+        "phone": "",
+        "hours": "Service Active",
+        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
+        "isComingSoon": true
+      },
+      {
+        "country": "Turkey",
+        "city": "Diyarbakir",
+        "address": "Diyarbakir",
+        "phone": "",
+        "hours": "Service Active",
+        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
+        "isComingSoon": true
+      },
+      {
+        "country": "Turkey",
+        "city": "Hatay",
+        "address": "Hatay",
+        "phone": "",
+        "hours": "Service Active",
+        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
+        "isComingSoon": true
+      },
+      {
+        "country": "Turkey",
+        "city": "Manisa",
+        "address": "Manisa",
+        "phone": "",
+        "hours": "Service Active",
+        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
+        "isComingSoon": true
+      },
+      {
+        "country": "Turkey",
+        "city": "Kayseri",
+        "address": "Kayseri",
+        "phone": "",
+        "hours": "Service Active",
+        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
+        "isComingSoon": true
+      },
+      {
+        "country": "Turkey",
+        "city": "Konya",
+        "address": "Konya",
+        "phone": "",
+        "hours": "Service Active",
+        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
+        "isComingSoon": true
+      },
+      {
+        "country": "Turkey",
+        "city": "Balikesir",
+        "address": "Balikesir",
+        "phone": "",
+        "hours": "Service Active",
+        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
+        "isComingSoon": true
+      },
+      {
+        "country": "Turkey",
+        "city": "Kahramanmaras",
+        "address": "Kahramanmaras",
+        "phone": "",
+        "hours": "Service Active",
+        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
+        "isComingSoon": true
+      },
+      {
+        "country": "Turkey",
+        "city": "Van",
+        "address": "Van",
+        "phone": "",
+        "hours": "Service Active",
+        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
+        "isComingSoon": true
+      },
+      {
+        "country": "Turkey",
+        "city": "Aydin",
+        "address": "Aydin",
+        "phone": "",
+        "hours": "Service Active",
+        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
+        "isComingSoon": true
+      },
+      {
+        "country": "Turkey",
+        "city": "Tekirdag",
+        "address": "Tekirdag",
+        "phone": "",
+        "hours": "Service Active",
+        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
+        "isComingSoon": true
+      },
+      {
+        "country": "Turkey",
+        "city": "Sakarya",
+        "address": "Sakarya",
+        "phone": "",
+        "hours": "Service Active",
+        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
+        "isComingSoon": true
+      },
+      {
+        "country": "Turkey",
+        "city": "Denizli",
+        "address": "Denizli",
+        "phone": "",
+        "hours": "Service Active",
+        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
+        "isComingSoon": true
+      },
+      {
+        "country": "Turkey",
+        "city": "Mugla",
+        "address": "Mugla",
+        "phone": "",
+        "hours": "Service Active",
+        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
+        "isComingSoon": true
+      },
+      {
+        "country": "Turkey",
+        "city": "Mardin",
+        "address": "Mardin",
+        "phone": "",
+        "hours": "Service Active",
+        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
+        "isComingSoon": true
+      },
+      {
+        "country": "Turkey",
+        "city": "Trabzon",
+        "address": "Trabzon",
+        "phone": "",
+        "email": "info@stareducon.co.uk",
+        "hours": "Service Active",
+        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
+        "isComingSoon": true
+      },
+      {
+        "country": "Turkey",
+        "city": "Malatya",
+        "address": "Malatya",
+        "phone": "",
+        "email": "info@stareducon.co.uk",
+        "hours": "Service Active",
+        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
+        "isComingSoon": true
+      },
+      {
+        "country": "Turkey",
+        "city": "Ordu",
+        "address": "Ordu",
+        "phone": "",
+        "email": "info@stareducon.co.uk",
+        "hours": "Service Active",
+        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
+        "isComingSoon": true
+      },
+      {
+        "country": "Turkey",
+        "city": "Erzurum",
+        "address": "Erzurum",
+        "phone": "",
+        "email": "info@stareducon.co.uk",
+        "hours": "Service Active",
+        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
+        "isComingSoon": true
+      },
+      {
+        "country": "Turkey",
+        "city": "Sanliurfa",
+        "address": "Sanliurfa",
+        "phone": "",
+        "email": "info@stareducon.co.uk",
+        "hours": "Service Active",
+        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
+        "isComingSoon": true
+      },
+      {
+        "country": "Global",
+        "city": "Worldwide (Turkish Support)",
+        "address": "Digital Consultancy for All Turkish Speakers Worldwide",
+        "phone": "",
+        "email": "info@stareducon.co.uk",
+        "hours": "24/7 Digital Access",
+        "image": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1000",
+        "isComingSoon": false
+      }
+    ]
+  },
+  "Privacy": {
+    "title": "Privacy Policy",
+    "description": "Information regarding Star Education Consulting data processing purposes and the protection of your personal information.",
+    "lastUpdated": "Last Updated: March 2024",
+    "genel": {
+      "title": "General",
+      "content": "This website, www.stareducon.co.uk, is managed by Star Education Consulting, headquartered in the United Kingdom. When you visit this website, Star Education Consulting may collect personal information about you directly or indirectly where appropriate. Star Education Consulting uses this personal information in accordance with legal requirements and is committed to ensuring the protection of all collected personal information. This Privacy Policy describes Star Education Consulting's data processing purposes related to its website, the use of identification data, and how to exercise your rights regarding your personal information."
+    },
+    "thirdParty": {
+      "title": "Third-Party Sites",
+      "content": "Please note that this Privacy Policy does not cover third-party sites linked from this website. If you do not wish to be contacted by Star Education Consulting or receive marketing messages, you can contact us at any time. If you have questions about our data processing activities or your transactions related to this website, please reach out to us. Our email address is info@stareducon.co.uk"
+    },
+    "processing": {
+      "title": "Data Processing",
+      "content": "Star Education Consulting collects and processes information about customers and visitors to the website for the execution of Study Abroad and Consultancy services, providing information about products and services you are interested in, and for the development of site statistics. The information you provide will be used to reach you when necessary and for uninterrupted communication. Star Education Consulting may send promotional materials, video content, etc., for informational and marketing purposes via email and SMS in line with the information provided. If you do not wish to receive such communications, please notify us via info@stareducon.co.uk."
+    },
+    "data": {
+      "title": "Data",
+      "content": "Star Education Consulting does not strive to collect critical personal information such as political opinions, religious beliefs, ethnic origins, health, or other issues through this site and has no such purpose. If Star Education Consulting requests such information, your personal permission is obtained. Please note that if you provide unsolicited personal data to Star Education Consulting, you have permitted us to use this information as described above."
+    },
+    "identification": {
+      "title": "Identification",
+      "content": "Star Education Consulting may collect and analyze data related to the use of this website, including domain name, number of entries to the site, pages visited, duration of stay, sites visited, and length of user session. This data can be collected using a cookie. Identification information will provide faster and easier use of this website."
+    },
+    "compensation": {
+      "title": "Indemnification",
+      "content": "In case of unauthorized use of the site and the services provided, or if you violate conditions or the law, you agree to pay compensation to Star Education Consulting, our employees, and third parties, and to cover legal defense expenses and all kinds of damages. You should cooperate with us in case of any compensation claim. We reserve the right to hire a separate lawyer and to undertake and provide exclusive defense for any issue that requires your indemnification."
+    },
+    "corrections": {
+      "title": "Amendments",
+      "content": "Star Education Consulting reserves the right to make changes to the sections in this Privacy Policy at any time. Please check this Privacy Policy from time to time."
+    }
+  },
+  "CookieBanner": {
+    "title": "Cookie Policy",
+    "description": "We use cookies to enhance your experience. By using our site, you agree to our use of cookies.",
+    "accept": "Accept All",
+    "decline": "Decline",
+    "details": "Details"
+  },
+  "Dashboard": {
+    "Sidebar": {
+      "overview": "Overview",
+      "users": "Users",
+      "leads": "Lead Tracking",
+      "analytics": "Analysis & ROI",
+      "pages": "Pages",
+      "home": "Home Page",
+      "services": "Services",
+      "countries": "Countries",
+      "institutions": "Institutions",
+      "import": "Bulk Import",
+      "blog": "Blog/Posts",
+      "announcements": "Announcements",
+      "hero": "Hero Section",
+      "assignments": "Assignments",
+      "finance": "Finance",
+      "performance": "Performance",
+      "students": "Students",
+      "tasks": "My Tasks",
+      "calendar": "Calendar",
+      "applications": "Applications",
+      "agencyPanel": "Agency Panel",
+      "myStudents": "My Students",
+      "leadManagement": "Lead Management",
+      "commissions": "Commissions",
+      "messages": "Messages",
+      "documents": "My Documents",
+      "generalSettings": "General Settings",
+      "regions": "Regions",
+      "logs": "System Logs",
+      "myAccount": "My Account",
+      "logout": "Logout"
+    },
+    "Denklik": {
+      "main": {
+        "title": "Diploma Equivalency",
+        "heroDesc": "Professional guidance for the recognition of your foreign diploma in Turkey.",
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Diploma Equivalency Services</h2><p class=\"mb-6\">With our expert consultancy, we guide you through the process of determining the equivalency of your diplomas obtained abroad (Bachelor's, Master's, Associate's) to diplomas issued in Turkey.</p><p class=\"mb-6\">The equivalency application is a meticulous evaluation process carried out by YÖK (Higher Education Council). As Star Education Consulting, we provide professional support at every stage, from document preparation to application tracking.</p><h3 class=\"text-2xl font-serif font-bold text-navy mb-4 mt-8 italic\">Who needs an Equivalency Application?</h3><ul class=\"space-y-4 mb-10 italic\"><li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> Those who want to work in public institutions in Turkey.</li><li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> Holders of regulated professions such as doctors, engineers, or lawyers who want to practice in Turkey.</li><li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> Those who want to continue their postgraduate education in Turkey.</li></ul>",
+        "advantages": [
+          {
+            "title": "Expert Analysis",
+            "desc": "We pre-analyze the suitability of your diploma and university for YÖK criteria.",
+            "icon": "Search"
+          },
+          {
+            "title": "Dossier Preparation",
+            "desc": "We prepare professional dossiers in compliance with the law, eliminating the risk of missing documents.",
+            "icon": "ShieldCheck"
+          },
+          {
+            "title": "Process Tracking",
+            "desc": "We regularly track your application in the YÖK system and inform you of updates.",
+            "icon": "Clock"
+          },
+          {
+            "title": "STS Consultancy",
+            "desc": "We provide resource and strategy support for cases where the Level Placement Exam (STS) is required.",
+            "icon": "Award"
+          }
+        ],
+        "destinations": {
+          "title": "Diploma Equivalency Destinations",
+          "desc": "Equivalency processes may vary depending on the country you graduated from. Check our special guides for popular countries.",
+          "cost": "Free Pre-Assessment",
+          "items": [
+            {
+              "name": "UK Diploma Equivalency",
+              "slug": "ingiltere",
+              "subDesc": "Special process for UK graduations with high acceptance rates."
+            },
+            {
+              "name": "USA Diploma Equivalency",
+              "slug": "amerika",
+              "subDesc": "Equivalency of US diplomas in the YÖK system."
+            },
+            {
+              "name": "Germany Diploma Equivalency",
+              "slug": "almanya",
+              "subDesc": "German education system and equivalency criteria."
+            },
+            {
+              "name": "Canada Diploma Equivalency",
+              "slug": "kanada",
+              "subDesc": "Equivalency and recognition guide for Canadian graduates."
+            },
+            {
+              "name": "Switzerland Diploma Equivalency",
+              "slug": "isvicre",
+              "subDesc": "Swiss higher education system and equivalency."
+            },
+            {
+              "name": "Australia Diploma Equivalency",
+              "slug": "avustralya",
+              "subDesc": "Recognition conditions for Australian diplomas in Turkey."
+            },
+            {
+              "name": "Belgium Diploma Equivalency",
+              "slug": "belcika",
+              "subDesc": "Step-by-step guide for Belgian university graduates."
+            },
+            {
+              "name": "Netherlands Diploma Equivalency",
+              "slug": "hollanda",
+              "subDesc": "YÖK equivalency of Dutch diplomas."
+            },
+            {
+              "name": "Ireland Diploma Equivalency",
+              "slug": "irlanda",
+              "subDesc": "Irish higher education system and equivalency."
+            },
+            {
+              "name": "Poland Diploma Equivalency",
+              "slug": "polonya",
+              "subDesc": "Equivalency procedures for Polish universities."
+            }
+          ]
+        },
+        "process": [
+          {
+            "step": 1,
+            "title": "Preliminary Review",
+            "desc": "We analyze the recognition of your university and the equivalency chances of your diploma."
+          },
+          {
+            "step": 2,
+            "title": "Document Collection",
+            "desc": "We coordinate your transcript, apostille, and notarized translation processes."
+          },
+          {
+            "step": 3,
+            "title": "Online Application",
+            "desc": "We carry out your online application via the YÖK e-equivalency system without errors."
+          },
+          {
+            "step": 4,
+            "title": "Physical Submission & Tracking",
+            "desc": "We handle the physical delivery of required documents to YÖK and track the commission's decision."
+          }
+        ],
+        "documents": [
+          "ID Card / Passport",
+          "Diploma or Graduation Certificate (Original)",
+          "Notarized Turkish Translations",
+          "Official Transcript (Sealed Envelope)",
+          "Apostille Certifications"
+        ],
+        "faq": [
+          {
+            "q": "How long does the equivalency process take?",
+            "a": "If the documents are complete, the commission evaluation usually takes 3-6 months."
+          },
+          {
+            "q": "What is STS (Level Placement Exam)?",
+            "a": "YÖK may require an exam if the education level does not fully match Turkey or in fields requiring specialization like medicine."
+          },
+          {
+            "q": "What is direct recognition?",
+            "a": "Graduates from universities in the top 400 world rankings usually receive faster approval."
+          }
+        ]
+      },
+      "countries": {
+        "ingiltere": {
+          "title": "UK Diploma Equivalency",
+          "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">UK Diploma Equivalency Process</h2><p class=\"mb-6\">UK universities are generally directly recognized by YÖK since they are top-ranked globally. However, you must obtain an official equivalency certificate to practice your profession in Turkey.</p><p class=\"mb-6\">The equivalency of diplomas obtained from the UK is evaluated specifically according to the 'Level' system (NQF/QCF). Different procedures may apply for Bachelor's and Master's degrees.</p><h3 class=\"text-2xl font-serif font-bold text-navy mb-4 mt-8 italic\">Important Considerations:</h3><ul class=\"space-y-4 mb-10 italic\"><li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> <strong>Duration Requirement:</strong> Undergraduate education is expected to last at least 3 years, and Master's at least 1 full year.</li><li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> <strong>Apostille:</strong> Your educational documents from the UK must be apostilled by the UK Legalisation Office.</li></ul>",
+          "advantages": [
+            {
+              "title": "Fast Approval",
+              "desc": "British universities in the Top 400 list usually get approval without exams (STS).",
+              "icon": "Target"
+            },
+            {
+              "title": "Global Prestige",
+              "desc": "UK diplomas have the highest acceptance rate in the Turkish business world.",
+              "icon": "Award"
+            }
+          ],
+          "process": [
+            {
+              "step": 1,
+              "title": "Legalization in UK",
+              "desc": "Formalization of diploma and transcript by UK authorities."
+            },
+            {
+              "step": 2,
+              "title": "Translation and Notary",
+              "desc": "Sworn translation and notary approval of documents in Turkey."
+            },
+            {
+              "step": 3,
+              "title": "YÖK Application",
+              "desc": "Online pre-application and physical document submission."
+            }
+          ],
+          "faq": [
+            {
+              "q": "Is residency required during education?",
+              "a": "Yes, YÖK requires you to be physically present in the country of education for the duration of the program."
+            }
+          ]
+        },
+        "amerika": {
+          "title": "USA Diploma Equivalency",
+          "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">US Diploma Equivalency Procedures</h2><p class=\"mb-6\">The equivalency of diplomas obtained from the United States depends on the university being recognized by regional accreditation bodies in America.</p><p class=\"mb-6\">The US education system, with its 4-year undergraduate structure, is fully compatible with the Turkish system. However, equivalency processes for diplomas obtained through online/distance education are examined much more meticulously.</p>",
+          "advantages": [
+            {
+              "title": "Accreditation Power",
+              "desc": "All US universities with regional accreditation have the potential to be recognized by YÖK.",
+              "icon": "Shield"
+            }
+          ],
+          "process": [
+            {
+              "step": 1,
+              "title": "US Secretary of State Approval",
+              "desc": "Apostille approval of documents at state or federal level."
+            },
+            {
+              "step": 2,
+              "title": "Course Syllabi",
+              "desc": "Having course contents ready to be presented, especially for technical departments."
+            }
+          ]
+        },
+        "almanya": {
+          "title": "Germany Diploma Equivalency",
+          "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Equivalency Guide for Germany Graduates</h2><p class=\"mb-6\">Since Germany is part of the Bologna Process, its diplomas show high compatibility with the Turkish system. Fachhochschule and Universität diplomas may be evaluated in different categories.</p>",
+          "advantages": [
+            {
+              "title": "Bologna Compatibility",
+              "desc": "Thanks to the ECTS credit system, the equivalency process is more predictable.",
+              "icon": "Globe"
+            }
+          ],
+          "process": [
+            {
+              "step": 1,
+              "title": "Regierungspräsidium Approval",
+              "desc": "Approval of documents by the relevant German state authorities."
+            },
+            {
+              "step": 2,
+              "title": "Diploma Supplement",
+              "desc": "Preparation of the English or German diploma supplement."
+            }
+          ]
+        },
+        "kanada": {
+          "title": "Canada Diploma Equivalency",
+          "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Recognition of the Canadian Education System</h2><p class=\"mb-6\">The difference between Canadian universities and colleges is critical in the equivalency process. 3-4 year undergraduate programs usually receive equivalency smoothly.</p>"
+        },
+        "isvicre": {
+          "title": "Switzerland Diploma Equivalency",
+          "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Equivalency Processes Specific to Switzerland</h2><p class=\"mb-6\">The equivalency of Swiss schools, especially in the field of Tourism and Hotel Management, varies greatly depending on whether the school is recognized by cantonal authorities or at the federal level.</p>"
+        },
+        "avustralya": {
+          "title": "Australia Diploma Equivalency",
+          "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Equivalency of Australian Degrees</h2><p class=\"mb-6\">Degrees obtained within the framework of the AQF (Australia Qualifications Framework) system are examined by YÖK on a level basis. Due to the long distance, detecting passport entry-exit records is important in this process.</p>"
+        },
+        "belcika": {
+          "title": "Belgium Diploma Equivalency",
+          "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Belgium Graduation and Turkey Equivalency</h2><p class=\"mb-6\">In the Belgian education system, which is divided into Flemish and French communities, accredited institutions of both regions have recognition by YÖK.</p>"
+        },
+        "hollanda": {
+          "title": "Netherlands Diploma Equivalency",
+          "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Netherlands Research vs Applied Sciences</h2><p class=\"mb-6\">The distinction between Research Universities (WO) and Universities of Applied Sciences (HBO) can affect your equivalency degree. Star Education Consulting guides you through this complex distinction.</p>"
+        },
+        "irlanda": {
+          "title": "Ireland Diploma Equivalency",
+          "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Ireland and Global Standards</h2><p class=\"mb-6\">Long-established universities in cities such as Dublin and Cork generally proceed with standard procedures because they provide education at European standards.</p>"
+        },
+        "polonya": {
+          "title": "Poland Diploma Equivalency",
+          "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Recognition of Polish Diplomas</h2><p class=\"mb-6\">Diplomas obtained from Poland, an EU member, are among the most applied for files by YÖK in recent years. STS (Exam) requirements exist in the fields of Medicine and Engineering.</p>"
+        }
+      }
+    },
+    "Mappings": {
+      "services": {
+        "egitim-koclugu": {
+          "title": "Education Coaching",
+          "desc": "Professional guidance for your individual academic roadmap and global career planning."
+        },
+        "yurtdisi-yuksek-lisans": {
+          "title": "Master's Abroad",
+          "desc": "Prestigious master's mentorship to take your career to a global dimension."
+        },
+        "yurtdisi-lise": {
+          "title": "High School Abroad",
+          "desc": "Open the doors to a global future in the world's most prestigious high schools."
+        },
+        "yurtdisi-universite": {
+          "title": "University Abroad",
+          "desc": "From Ivy League to technical universities, direct placement and foundation alternatives."
+        },
+        "yurtdisi-yaz-okullari": {
+          "title": "Summer Schools Abroad",
+          "desc": "Summer programs combining academic and social development on prestigious campuses."
+        },
+        "yurtdisi-dil-okullari": {
+          "title": "Language Schools Abroad",
+          "desc": "The most prestigious language schools to take your career to a global level."
+        }
+      },
+      "countries": {
+        "ingiltere": "United Kingdom",
+        "amerika": "USA",
+        "almanya": "Germany",
+        "kanada": "Canada",
+        "isvicre": "Switzerland",
+        "avustralya": "Australia",
+        "belcika": "Belgium",
+        "hollanda": "Netherlands",
+        "irlanda": "Ireland",
+        "polonya": "Poland",
+        "italya": "Italy",
+        "malta": "Malta",
+        "fransa": "France",
+        "ispanya": "Spain",
+        "dubai": "Dubai"
+      },
+      "exams": {
+        "ielts": {
+          "title": "IELTS",
+          "desc": "International English Language Testing System. The most widely accepted language proficiency exam."
+        },
+        "toefl": {
+          "title": "TOEFL iBT",
+          "desc": "Test of English as a Foreign Language. Preferred by US universities for academic English."
+        },
+        "sat": {
+          "title": "SAT",
+          "desc": "Scholastic Aptitude Test. Standardized entrance exam for undergraduate education in the USA."
+        },
+        "gre": {
+          "title": "GRE",
+          "desc": "Graduate Record Examinations. Required for graduate school applications in many countries."
+        },
+        "gmat": {
+          "title": "GMAT",
+          "desc": "Graduate Management Admission Test. Problem-solving exam for MBA and business master's."
+        },
+        "pte": {
+          "title": "PTE Academic",
+          "desc": "Pearson Test of English. Language exam popular for fast results and AI-based scoring."
+        },
+        "cambridge": {
+          "title": "Cambridge Exams",
+          "desc": "Prestigious certificates like FCE, CAE, CPE with lifelong validity."
+        }
+      },
+      "highSchoolCategories": {
+        "boarding": {
+          "title": "Classic Boarding Schools",
+          "desc": "Prestigious schools with on-campus accommodation, sports, and arts."
+        },
+        "private-day": {
+          "title": "Private Day Schools",
+          "desc": "Colleges offering 24/7 cultural immersion while staying with host families."
+        },
+        "exchange": {
+          "title": "State High School Exchange",
+          "desc": "Budget-friendly cultural exchange programs supported by the US Department of State."
+        },
+        "ib-ap": {
+          "title": "IB & AP Diploma Programs",
+          "desc": "Academic curricula serving as a golden key for entry to top universities."
+        }
+      }
+    },
+    "Terms": {
+      "label": "LEGAL DOCUMENTS",
+      "title": "Terms of Use",
+      "heroSubtitle": "By using the Star Education Consulting platform, you agree to the following terms and conditions. This document constitutes a binding contract that regulates the legal relationship between the parties.",
+      "lastUpdatedLabel": "Last Updated",
+      "lastUpdatedDate": "March 16, 2026",
+      "sectionsLabel": "Sections:",
+      "docInfoLabel": "Document Info",
+      "versionLabel": "Version",
+      "validityLabel": "Validity",
+      "jurisdictionLabel": "Jurisdiction",
+      "languageLabel": "Language",
+      "originalLanguage": "English (Primary)",
+      "relatedDocsLabel": "Related Documents",
+      "questionsLabel": "Have questions?",
+      "questionsDesc": "For any questions regarding the Terms of Use, you can contact our legal team.",
+      "disclaimerTitle": "General Legal Disclaimer",
+      "disclaimerText": "This document has been prepared for informational purposes only and does not constitute individual legal advice.",
+      "relatedDocs": {
+        "kvkk": {
+          "label": "KVKK & GDPR Policy",
+          "desc": "Data processing principles"
+        },
+        "cookies": {
+          "label": "Cookie Policy",
+          "desc": "Cookie management"
+        },
+        "contact": {
+          "label": "Contact",
+          "desc": "Official applications"
+        }
+      },
+      "sections": {
+        "taraflar": {
+          "title": "Parties and Subject of the Agreement",
+          "content": "<p>These Terms of Use (\"Terms\") constitute a legal agreement between Star Education Consulting (\"Star Education Consulting\", \"we\", or \"the company\") and individuals or legal entities (\"User\") visiting or using the address <strong>www.stareducon.co.uk</strong> and all connected subdomains (\"Platform\").</p><p>By using the Platform, you are deemed to have read, understood, and accepted these Terms. If you do not accept these Terms, we recommend that you do not use the Platform.</p><h4>Company Information</h4><ul><li><strong>Trade Name:</strong> Star Education Consulting</li><li><strong>Email:</strong> info@stareducon.co.uk</li></ul>"
+        },
+        "hizmet-kapsami": {
+          "title": "Scope and Nature of Services",
+          "content": "<p>Star Education Consulting is a licensed education consultancy firm offering the following services:</p><ul><li>Study abroad consultancy for high school, associate, undergraduate, and postgraduate levels</li><li>Language school and summer school program selection and application management</li><li>Information about visa and equivalency processes</li><li>Direction to study abroad scholarship opportunities</li><li>Provision of educational materials, guides, and digital content</li></ul><h4>Service Limitations</h4><p>All content on the Platform is for <strong>general information</strong> purposes only. Star Education Consulting:</p><ul><li>Does not guarantee admission to any university or school.</li><li>Does not guarantee visa approval; the final decision belongs to the relevant country's authorities.</li><li>Is not responsible for changes arising from the policies of third-party schools and institutions.</li><li>Cannot be held responsible for the content of external websites accessed through the Platform.</li></ul>"
+        },
+        "kullanici-yukumlulukler": {
+          "title": "User Obligations and Prohibitions",
+          "content": "<p>Platform users agree to comply with the following rules:</p><h4>General Obligations</h4><ul><li>Access and use the Platform only for legal purposes.</li><li>Enter personal information accurately and completely; do not present misleading information.</li><li>Protect account information if registered and report unauthorized use immediately.</li><li>Use respectful language in messages and requests sent through the Platform.</li></ul><h4>Prohibited Activities</h4><p>Users must strictly refrain from the following actions:</p><ul><li>Any attack that will damage the technical infrastructure of the Platform, uploading harmful software or data scraping with bots.</li><li>Copying, distributing, or modifying content in violation of intellectual property rights.</li><li>Impersonating other users or creating fake accounts.</li><li>Sending or sharing illegal, discriminatory, or harassing content.</li><li>Using automated access tools that would excessively consume Platform resources.</li><li>Unauthorized commercial advertising and promotion.</li></ul>"
+        },
+        "fikri-mulkiyet": {
+          "title": "Intellectual Property Rights",
+          "content": "<p>All content on the Platform — including text, graphics, logos, icons, images, audio recordings, digital downloads, data compilations, and software — is the property of Star Education Consulting and is protected under international copyright law.</p><h4>Permitted Use</h4><ul><li>Platform content can be viewed and printed for personal, non-commercial purposes.</li><li>Partial quotes and references can be made in social media posts by citing the source.</li></ul><h4>Prohibited Use</h4><ul><li>Reproduction, distribution, or publication of Platform content for commercial purposes is prohibited.</li><li>The Star Education Consulting brand, logo, and trade name cannot be used without written permission.</li><li>Republication of content by modifying or adapting it is subject to permission.</li></ul>"
+        },
+        "sorumluluk-sinirlamasi": {
+          "title": "Limitation of Liability and Disclaimer",
+          "content": "<p>Star Education Consulting accepts no liability to the maximum extent permitted by applicable law in the following matters:</p><h4>Indirect Damages</h4><p>Star Education Consulting cannot be held responsible for any indirect or unforeseen damages including loss of income, loss of data, loss of reputation, or loss of opportunity arising from the use of the Platform.</p><h4>Third Party Services</h4><p>Star Education Consulting is not responsible for the content, privacy policies, or services of third-party websites accessed via links on the Platform.</p><h4>Technical Disruptions</h4><p>Star Education Consulting cannot be held responsible for damages arising from service interruptions caused by server outages, cyber attacks, failures in communication infrastructure, or force majeure events.</p>"
+        },
+        "gizlilik": {
+          "title": "Privacy and Personal Data Processing",
+          "content": "<p>For detailed information regarding the processing of your personal data, please review our separate policy documents prepared as below:</p><ul><li><strong>KVKK & GDPR/DSGVO Clarification Text</strong> — Explains in detail for what purposes, on what legal grounds, and for how long your personal data is processed.</li><li><strong>Cookie Policy</strong> — Provides information about the types of cookies used on the Platform, their purposes, and management methods.</li></ul>"
+        },
+        "degisiklikler": {
+          "title": "Changes and Updates",
+          "content": "<p>Star Education Consulting reserves the right to change these Terms of Use without prior notice. Changes take effect on the date they are published on the Platform.</p><p>In case of significant changes, registered users will be informed via email or through the Platform.</p>"
+        },
+        "uyusmazlik": {
+          "title": "Dispute Resolution and Applicable Law",
+          "content": "<p>These Terms are subject to the laws of the Republic of Turkey, and <strong>Istanbul Courts and Execution Offices</strong> are authorized in any dispute arising from these Terms.</p><h4>Negotiation First</h4><p>Both parties undertake to try to resolve the dispute through negotiation before resorting to judicial means.</p>"
+        },
+        "iletisim": {
+          "title": "Contact and Legal Notices",
+          "content": "<p>For your questions, comments, or notifications regarding these Terms of Use, you can contact us through the following channels:</p><ul><li><strong>General Contact:</strong> info@stareducon.co.uk</li><li><strong>Legal Notices:</strong> info@stareducon.co.uk</li></ul>"
+        }
+      }
+    },
+    "Legal": {
+      "disclaimerTitle": "Legal Disclaimer",
+      "disclaimerText": "The information on this page is for informational purposes only and may change due to updates by the institutions. Star Education Consulting does not accept legal responsibility for the accuracy and timeliness of this information. For the most up-to-date information, please contact our advisors."
+    }
+  },
+  "KariyerServices": {
+    "yurtdisi-meslek-egitimi": {
+      "title": "Vocational Training Consultancy Abroad",
+      "description": "We provide full support for you to participate in dual vocational training (Ausbildung) systems, especially in countries like Germany. You can earn an income while studying and specializing."
+    },
+    "uluslararasi-kariyer": {
+      "title": "International Career Consultancy",
+      "description": "We draw career roadmaps for professionals who want to step into the global workforce market. We offer sectoral analysis and strategic guidance."
+    },
+    "profesyonel-cv": {
+      "title": "Professional CV Creation",
+      "description": "We prepare a professional, memorable resume (CV) and country-specific cover letter that best reflects your experiences in accordance with international standards."
+    },
+    "vize-belge-hazirlik": {
+      "title": "Visa Document Preparation Guidance",
+      "description": "We manage the process of filing all necessary documents for processes such as work visa, blue card, or opportunity card in a complete and error-free manner."
+    }
+  },
+  "Exams": {
+    "title": "International <span class='gold-text not-italic'>Academic Exams</span>",
+    "subtitle": "Key to Global Acceptance: Strategic Exam Preparation",
+    "heroDesc": "The path to the world's best universities goes through the right exam strategy. From IELTS to GMAT, we are with you in all processes that certify your academic success.",
+    "categories": {
+        "dil": {
+            "title": "Language Proficiency Exams",
+            "desc": "Prove your academic and general language competence at global standards."
+        },
+        "akademik": {
+            "title": "Academic Entrance Exams",
+            "desc": "Standardization exams required for undergraduate and graduate education."
+        }
+    },
+    "examsList": {
+        "ielts": {
+            "title": "IELTS (International English Language Testing System)",
+            "desc": "The most widely accepted language exam worldwide, especially in Europe and Australia.",
+            "badges": ["Academic", "General"]
+        },
+        "toefl": {
+            "title": "TOEFL (Test of English as a Foreign Language)",
+            "desc": "The gold standard especially for US and Canadian university applications.",
+            "badges": ["iBT", "Premium Online"]
+        },
+        "sat": {
+            "title": "SAT (Scholastic Assessment Test)",
+            "desc": "The primary criterion for candidates who want to receive undergraduate education at top universities in the USA.",
+            "badges": ["College Board", "Critical Thinking"]
+        },
+        "gre-gmat": {
+            "title": "GRE & GMAT",
+            "desc": "Analytical and mathematical competence measurement for graduate and MBA programs.",
+            "badges": ["Master", "MBA", "Global Success"]
+        }
+    },
+    "ctaTitle": "Which Exam is <span class='gold-text not-italic'>More Suitable</span> for You?",
+    "ctaDesc": "Consult with our academic advisors for a free preliminary interview to determine the exam that best fits your profile and goals.",
+    "ctaButton": "Get a Free Appointment"
+  },
+  "EvaluationForm": {
+    "steps": {
+      "goal": "GOAL",
+      "background": "BACKGROUND",
+      "preferences": "PREFERENCES",
+      "personal": "PERSONAL"
+    }
+  },
+  "CountriesHub": {
+    "title": "Global <span class='gold-text not-italic'>Education Routes</span>",
+    "description": "Discover academic opportunities that will shape your future in the world's most prestigious education centers.",
+    "label": "World Network",
+    "strategicHeader": "Strategic <span class='gold-text not-italic'>Academic Planning</span>",
+    "strategicDesc": "We are with you with our special visa, accommodation, and school placement strategies for each country."
+  },
+  "RichTextLayout": {
+    "ctaTitle": "Need specific consultation?",
+    "ctaDesc": "Our expert strategic advisors are ready to help you navigate through the complexities of international academic pathways.",
+    "ctaButton": "Speak with an Advisor",
+    "expertGuidance": "Expert Guidance",
+    "faqTitle": "Frequently Asked Questions",
+    "onThisPage": "On this page",
+    "faqLabel": "FAQs",
+    "contactSupport": "Contact Support"
+  }
+}

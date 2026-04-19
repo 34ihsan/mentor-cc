@@ -1,0 +1,15 @@
+/* TEAM */
+Organization: Star Beratung
+Contact: info@starberatung.com
+Location: Istanbul, Turkey
+Twitter: @starberatung
+
+/* SITE */
+Last update: 2026-03-16
+Language: Turkish / German
+Technology: Next.js, TypeScript, Tailwind CSS, Prisma
+Doctype: HTML5
+IDE: Visual Studio Code
+
+/* THANKS */
+To all our students who trusted us with their study abroad journey.
