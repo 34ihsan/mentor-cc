@@ -6,6 +6,15 @@ set -e
 
 echo "🚀 Starting StarEducation Production Deployment..."
 
+# 0. Sync with GitHub
+echo "🔄 Pulling latest changes from GitHub..."
+git fetch origin
+git reset --hard origin/master
+
+# 0.1 Firewall
+echo "🛡️ Opening port 3005..."
+sudo ufw allow 3005/tcp || true
+
 # 0. Health Check & Hardening: Swap Memory
 SWAP_SIZE=$(free -m | awk '/Swap/ {print $2}')
 if [ "$SWAP_SIZE" -lt 1024 ]; then

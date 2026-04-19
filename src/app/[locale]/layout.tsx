@@ -9,7 +9,7 @@ import OrganizationSchema from "@/components/seo/OrganizationSchema";
 import "../globals.css";
 import { getTranslations } from 'next-intl/server';
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'http://72.62.94.83:3001';
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'http://72.62.94.83:3005';
 
 export async function generateMetadata({ 
   params 

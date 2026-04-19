@@ -73,47 +73,6 @@ export async function middleware(request: NextRequest) {
         }
     }
 
-    // Content Security Policy (Hardened)
-    // Removed 'unsafe-eval' for production security. 
-    // Added specific connect-src for crypto-miner prevention and leak protection.
-    const cspHeader = `
-        default-src 'self';
-        script-src 'self' 'unsafe-inline' ${process.env.NODE_ENV === 'development' ? "'unsafe-eval'" : ""} https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/ https://static.cloudflareinsights.com;
-        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-        img-src 'self' blob: data: https://images.unsplash.com https://media.istockphoto.com https://wikitravel.org https://img.pikbest.com https://grainy-gradients.vercel.app;
-        font-src 'self' https://fonts.gstatic.com;
-        frame-src 'self' https://www.google.com/recaptcha/;
-        connect-src 'self' https://www.google.com/recaptcha/ https://cloudflareinsights.com https://*.sentry.io;
-        worker-src 'self' blob:;
-        object-src 'none';
-        base-uri 'self';
-        form-action 'self';
-        frame-ancestors 'none';
-    `.replace(/\s{2,}/g, ' ').trim();
-
-    // Unified Security Headers
-    response.headers.set('Content-Security-Policy', cspHeader);
-    response.headers.set('X-Frame-Options', 'DENY');
-    response.headers.set('X-Content-Type-Options', 'nosniff');
-    response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
-    response.headers.set('X-Permitted-Cross-Domain-Policies', 'none');
-    response.headers.set('X-XSS-Protection', '1; mode=block');
-    // Clear HSTS for testing on HTTP
-    response.headers.set('Strict-Transport-Security', 'max-age=0');
-    response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), interest-cohort=(), payment=()');
-    response.headers.set('X-DNS-Prefetch-Control', 'on');
-    response.headers.set('X-Robots-Tag', 'index, follow');
-
-    // Advanced Protection Headers
-    response.headers.set('Cross-Origin-Opener-Policy', 'same-origin');
-    response.headers.set('Cross-Origin-Resource-Policy', 'same-site');
-    response.headers.set('X-Download-Options', 'noopen');
-
-    // Cache Control for static assets (Handling what was in next.config.ts)
-    if (pathname.includes('/images/') || pathname.includes('/fonts/')) {
-        response.headers.set('Cache-Control', 'public, max-age=31536000, immutable');
-    }
-
     return response;
 }
 
