@@ -1,7 +1,7 @@
 /**
  * OrganizationSchema — JSON-LD structured data for the organization.
  * Helps Google AI Overview, Perplexity, and other AI systems identify
- * StarEducation as an authoritative source in the study abroad niche.
+ * Mentor Career Consulting as an authoritative source in the study abroad niche.
  */
 interface OrganizationSchemaProps {
   locale?: string;
@@ -9,13 +9,15 @@ interface OrganizationSchemaProps {
 
 export default function OrganizationSchema({ locale = 'tr' }: OrganizationSchemaProps) {
   const descriptions: Record<string, string> = {
-    tr: 'StarEducation, Türkiye\'den yurtdışı üniversite, dil okulu, lise ve yüksek lisans başvurularında profesyonel danışmanlık hizmetleri sunan premium bir eğitim platformudur.',
-    en: 'StarEducation is a premium education platform providing professional consultancy for university, language school, high school and master applications abroad from Turkey.',
+    tr: 'Mentor Career Consulting, Türkiye\'den yurtdışı üniversite, dil okulu, lise ve yüksek lisans başvurularında profesyonel danışmanlık hizmetleri sunan premium bir eğitim platformudur.',
+    en: 'Mentor Career Consulting is a premium education platform providing professional consultancy for university, language school, high school and master applications abroad from Turkey.',
+    de: 'Mentor Career Consulting ist eine hochwertige Bildungsplattform, die professionelle Beratung für Universitäts-, Sprachschul-, Highschool- und Masterbewerbungen im Ausland anbietet.',
   };
 
   const webSiteNames: Record<string, string> = {
-    tr: 'StarEducation — Yurtdışı Eğitim Danışmanlığı',
-    en: 'StarEducation — Study Abroad Consultancy',
+    tr: 'Mentor Career Consulting — Yurtdışı Eğitim Danışmanlığı',
+    en: 'Mentor Career Consulting — Study Abroad Consultancy',
+    de: 'Mentor Career Consulting — Auslandsstudienberatung',
   };
 
   const schema = {
@@ -23,51 +25,50 @@ export default function OrganizationSchema({ locale = 'tr' }: OrganizationSchema
     '@graph': [
       {
         '@type': 'Organization',
-        '@id': 'https://www.stareducon.co.uk/#organization',
-        name: 'StarEducation',
-        alternateName: ['Star Education', 'StarEducation Overseas Education'],
-        url: 'https://www.stareducon.co.uk',
+        '@id': 'https://www.mentor-cc.com/#organization',
+        name: 'Mentor Career Consulting',
+        alternateName: ['Mentor Career Consulting', 'Mentor Career Consulting Overseas Education'],
+        url: 'https://www.mentor-cc.com',
         logo: {
           '@type': 'ImageObject',
-          url: 'https://www.stareducon.co.uk/Services/Stareducation.png',
-          width: 160,
-          height: 52,
+          url: 'https://www.mentor-cc.com/images/MentorCareer.png',
+          width: 512,
+          height: 512,
         },
         sameAs: [
-          'https://www.linkedin.com/company/stareducon',
-          'https://www.instagram.com/stareducon',
-          'https://www.facebook.com/stareducon',
-          'https://twitter.com/stareducon',
+          'https://www.facebook.com/mentorcareer',
+          'https://www.instagram.com/mentorcareer',
+          'https://www.linkedin.com/company/mentorcareer',
         ],
         contactPoint: [
           {
             '@type': 'ContactPoint',
-            telephone: '+90-212-123-45-67',
+            telephone: '+447501412151',
+            contactType: 'customer service',
+            areaServed: 'GB',
+            availableLanguage: ['English', 'Turkish'],
+          },
+          {
+            '@type': 'ContactPoint',
+            telephone: '+447501412151',
             contactType: 'customer service',
             areaServed: 'TR',
             availableLanguage: ['Turkish', 'English'],
           },
           {
             '@type': 'ContactPoint',
-            telephone: '+44-20-1234-5678',
-            contactType: 'local support',
-            areaServed: 'GB',
-            availableLanguage: ['English', 'Turkish'],
+            telephone: '+447501412151',
+            contactType: 'customer service',
+            areaServed: 'DE',
+            availableLanguage: ['German', 'Turkish', 'English'],
           }
         ],
-        address: [
-          {
-            '@type': 'PostalAddress',
-            addressCountry: 'TR',
-            addressLocality: 'Istanbul',
-            streetAddress: 'Merkez Ofis',
-          },
-          {
-            '@type': 'PostalAddress',
-            addressCountry: 'GB',
-            addressLocality: 'London',
-          }
-        ],
+        address: {
+          '@type': 'PostalAddress',
+          addressCountry: 'GB',
+          addressLocality: 'London',
+          streetAddress: 'London / UK',
+        },
         description: descriptions[locale] || descriptions.tr,
         knowsAbout: [
           'Study Abroad',
@@ -83,27 +84,28 @@ export default function OrganizationSchema({ locale = 'tr' }: OrganizationSchema
         ],
         areaServed: [
           { '@type': 'Country', name: 'Turkey' },
+          { '@type': 'Country', name: 'Germany' },
           { '@type': 'Country', name: 'United Kingdom' }
         ],
       },
       {
         '@type': 'WebSite',
-        '@id': `https://www.stareducon.co.uk/${locale}/#website`,
-        url: `https://www.stareducon.co.uk/${locale}`,
+        '@id': `https://www.mentor-cc.com/${locale}/#website`,
+        url: `https://www.mentor-cc.com/${locale}`,
         name: webSiteNames[locale] || webSiteNames.tr,
         description: descriptions[locale] || descriptions.tr,
         publisher: {
-          '@id': 'https://www.stareducon.co.uk/#organization',
+          '@id': 'https://www.mentor-cc.com/#organization',
         },
-        inLanguage: locale === 'tr' ? 'tr-TR' : 'en-US',
+        inLanguage: locale === 'tr' ? 'tr-TR' : locale === 'de' ? 'de-DE' : 'en-US',
       },
       {
         '@type': 'EducationEvent',
-        '@id': 'https://www.stareducon.co.uk/#service',
-        name: locale === 'tr' ? 'Yurtdışı Eğitim Danışmanlığı' : 'Study Abroad Consultancy',
+        '@id': 'https://www.mentor-cc.com/#service',
+        name: locale === 'tr' ? 'Mentor Career Consulting' : 'Mentor Career Consulting',
         description: descriptions[locale] || descriptions.tr,
         organizer: {
-      '@id': 'https://www.stareducon.co.uk/#organization'
+          '@id': 'https://www.mentor-cc.com/#organization'
         }
       }
     ],
@@ -116,3 +118,4 @@ export default function OrganizationSchema({ locale = 'tr' }: OrganizationSchema
     />
   );
 }
+

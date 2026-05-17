@@ -11,13 +11,13 @@ async function main() {
     where: { slug: serviceSlug },
     data: {
       title_de: "Anerkennung von Diplomen",
-      content_de: "Bringen Sie Ihre im Ausland erworbene Ausbildung mit der Expertenberatung von Star Beratung in die Türkei. Wir begleiten Sie professionell bei Ihren Diplomanerkennungsverfahren beim YÖK.",
-      seoTitle_de: "Diplomanerkennung Türkei | YÖK Denklik Beratung | Star Beratung",
+      content_de: "Bringen Sie Ihre im Ausland erworbene Ausbildung mit der Expertenberatung von Mentor Career Consulting in die Türkei. Wir begleiten Sie professionell bei Ihren Diplomanerkennungsverfahren beim YÖK.",
+      seoTitle_de: "Diplomanerkennung Türkei | YÖK Denklik Beratung | Mentor Career Consulting",
       seoDescription_de: "Überlassen Sie Ihre Diplomanerkennung in der Türkei den Experten. Professionelle YÖK-Anerkennungsberatung, Unterlagenvorbereitung und Prozessverfolgung.",
       // Also updating English for completeness
       title_en: "Diploma Equivalency",
-      content_en: "Bring your education obtained abroad to Turkey with the expert consultancy of Star Beratung. We professionally guide you through your diploma equivalency procedures at YÖK.",
-      seoTitle_en: "Diploma Equivalency Turkey | YÖK Recognition Consultancy | Star Beratung",
+      content_en: "Bring your education obtained abroad to Turkey with the expert consultancy of Mentor Career Consulting. We professionally guide you through your diploma equivalency procedures at YÖK.",
+      seoTitle_en: "Diploma Equivalency Turkey | YÖK Recognition Consultancy | Mentor Career Consulting",
       seoDescription_en: "Leave your diploma equivalency in Turkey to the experts. Professional YÖK recognition consultancy, document preparation, and process tracking."
     }
   });

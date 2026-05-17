@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { ArrowUpRight, MapPin } from 'lucide-react';
 import MotionWrapper from './MotionWrapper';
 import { cn } from '@/lib/utils';
+import { countryMap } from '@/lib/mappings/countries';
 
 interface Country {
     id: string;
@@ -16,24 +17,11 @@ interface Country {
     image?: string;
 }
 
-const defaultImages: Record<string, string> = {
-    'almanya': 'https://images.unsplash.com/photo-1467269204594-9661b134dd2b',
-    'ingiltere': 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad',
-    'amerika': 'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200',
-    'kanada': 'https://images.unsplash.com/photo-1503614472-8c93d56e92ce',
-    'avustralya': 'https://images.unsplash.com/photo-1523482580672-f109ba8cb9be',
-    'irlanda': 'https://images.unsplash.com/photo-1590089415225-401ed6f9db8e', // Updated stable URL
-    'hollanda': 'https://images.unsplash.com/photo-1512470876302-972faa2aa9a4',
-    'isvicre': 'https://images.unsplash.com/photo-1531310197839-ccf54634509e',
-    'polonya': 'https://images.unsplash.com/photo-1519197924294-4ba991a11128',
-    'belcika': 'https://images.unsplash.com/photo-1491557348962-5447106edccb',
-};
-
 export default function PopularDestinations({ featuredNames }: { featuredNames?: string[] }) {
     const t = useTranslations('HomePage.Destinations');
     const commonT = useTranslations('Common');
     const params = useParams();
-    const locale = params?.locale as string;
+    const locale = params ? params.locale as string : "tr";
     
     const [countries, setCountries] = useState<Country[]>([]);
     const [loading, setLoading] = useState(true);
@@ -76,69 +64,93 @@ export default function PopularDestinations({ featuredNames }: { featuredNames?:
     );
 
     return (
-        <div className="container-content">
-            {/* Destinations Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
-                {countries.map((country, idx) => (
-                    <MotionWrapper key={country.id} delay={0.1 * idx}>
-                        <Link
-                            href={`/rotalar/${country.slug}`}
-                            className={cn(
-                                "group relative h-[550px] overflow-hidden border border-white/10 shadow-neon transition-all duration-1000 hover:-translate-y-4",
-                                idx % 2 === 0 ? "asymmetric-bold" : "asymmetric-reverse"
-                            )}
-                        >
-                            {/* Background Image Container */}
-                            <div className="absolute inset-0 z-0 bg-primary">
-                                <Image
-                                    src={country.image || defaultImages[country.slug] || "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=1200"}
-                                    alt={country.name}
-                                    fill
-                                    className="object-cover transition-transform duration-1000 group-hover:scale-110 grayscale group-hover:grayscale-0 opacity-40 group-hover:opacity-60"
-                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                                />
-                                {/* Contrast Overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent" />
-                            </div>
+        <section className="section-padding bg-white relative overflow-hidden">
+            <div className="container-content space-y-24">
+                {/* Section Header */}
+                <div className="text-center max-w-4xl mx-auto px-6">
+                    <MotionWrapper delay={0.1}>
+                        <div className="inline-flex items-center gap-3 bg-zinc-100 px-6 py-2.5 rounded-full mb-8">
+                            <div className="w-1.5 h-1.5 rounded-full bg-secondary" />
+                            <span className="text-[10px] font-black text-secondary uppercase tracking-[0.4em]">{t('label')}</span>
+                        </div>
+                    </MotionWrapper>
+                    
+                    <MotionWrapper delay={0.2}>
+                        <h2 
+                            className="text-fluid-h2 font-serif font-bold text-primary leading-[1.1] mb-10 italic"
+                            dangerouslySetInnerHTML={{ __html: t.raw('title') }}
+                        />
+                    </MotionWrapper>
+                    
+                    <MotionWrapper delay={0.3}>
+                        <p className="text-zinc-500 text-xl font-serif italic max-w-2xl mx-auto leading-relaxed">
+                            {t('desc')}
+                        </p>
+                    </MotionWrapper>
+                </div>
 
-                            {/* Content */}
-                            <div className="absolute inset-0 z-10 p-12 flex flex-col justify-end text-white">
-                                <div className="space-y-6 translate-y-6 group-hover:translate-y-0 transition-transform duration-700">
-                                    <div className="flex items-center gap-3 mb-2">
-                                        <div className="w-12 h-[1px] bg-secondary scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-1000" />
-                                        <span className="text-[10px] font-black text-secondary tracking-[0.4em] uppercase">GATEWAY</span>
-                                    </div>
-                                    <h3 className="text-4xl font-serif font-bold italic leading-tight group-hover:text-secondary transition-colors duration-500">
-                                        {country.name}
-                                    </h3>
-                                    <div className="h-[2px] w-16 bg-white/10 transition-all duration-700 group-hover:w-full group-hover:bg-secondary/40" />
-                                    <div className="flex items-center gap-4 text-[10px] font-black tracking-[0.4em] uppercase opacity-0 group-hover:opacity-100 transition-all duration-700 text-secondary">
-                                        {t('viewDetail')} <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                {/* Destinations Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                    {countries.map((country, idx) => (
+                        <MotionWrapper key={country.id} delay={0.1 * idx}>
+                            <Link
+                                href={`/rotalar/${country.slug}`}
+                                className="group relative h-[500px] overflow-hidden rounded-[2.5rem] border border-zinc-200/50 shadow-xl transition-all duration-700 hover:-translate-y-2 hover:shadow-2xl"
+                            >
+                                {/* Background Image Container */}
+                                <div className="absolute inset-0 z-0 bg-primary">
+                                    <Image
+                                        src={countryMap[country.slug]?.image || country.image || "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=1200"}
+                                        alt={country.name}
+                                        fill
+                                        className="object-cover transition-transform duration-1000 group-hover:scale-110 opacity-40 group-hover:opacity-60"
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                                    />
+                                    {/* Contrast Overlay */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent" />
+                                </div>
+
+                                {/* Content */}
+                                <div className="absolute inset-0 z-10 p-10 flex flex-col justify-end text-white">
+                                    <div className="space-y-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
+                                        <div className="flex items-center gap-2 mb-2">
+                                            <div className="w-8 h-[1px] bg-secondary transition-all duration-700 group-hover:w-16" />
+                                            <span className="text-[10px] font-black text-secondary tracking-[0.2em] uppercase">{t('rota')}</span>
+                                        </div>
+                                        <h3 className="text-3xl font-serif font-bold italic leading-tight group-hover:text-secondary transition-colors duration-500">
+                                            {country.name}
+                                        </h3>
+                                        <div className="h-[2px] w-12 bg-secondary/50 transition-all duration-700 group-hover:w-full" />
+                                        <div className="flex items-center gap-3 text-[10px] font-black tracking-[0.3em] uppercase opacity-0 group-hover:opacity-100 transition-all duration-700 text-secondary">
+                                            {t('viewDetails')} <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            
-                            {/* Top Accent Icon */}
-                            <div className="absolute top-10 right-10 w-14 h-14 rounded-full bg-secondary/10 backdrop-blur-md border border-secondary/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-1000 transform scale-50 group-hover:scale-100">
-                                <ArrowUpRight className="text-secondary" size={24} />
+                                
+                                {/* Top Accent Icon */}
+                                <div className="absolute top-8 right-8 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-700 transform rotate-45 group-hover:rotate-0">
+                                    <ArrowUpRight className="text-white" size={20} />
+                                </div>
+                            </Link>
+                        </MotionWrapper>
+                    ))}
+                </div>
+                
+                {/* View All Button */}
+                <div className="text-center pt-12">
+                    <MotionWrapper delay={0.4}>
+                        <Link 
+                            href="/rotalar"
+                            className="group inline-flex items-center gap-6 px-12 py-6 bg-primary hover:bg-zinc-900 text-white rounded-full transition-all duration-700 hover:shadow-2xl hover:-translate-y-1"
+                        >
+                            <span className="text-[11px] font-black uppercase tracking-[0.5em]">{t('viewDestinations')}</span>
+                            <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-secondary transition-colors duration-500">
+                                <ArrowUpRight size={18} className="group-hover:rotate-45 transition-transform duration-500" />
                             </div>
                         </Link>
                     </MotionWrapper>
-                ))}
+                </div>
             </div>
-            
-            {/* View All Button */}
-            <div className="text-center pt-24 pb-12">
-                <MotionWrapper delay={0.4}>
-                    <Link 
-                        href="/rotalar"
-                        className="group inline-flex items-center gap-8 px-16 py-7 bg-white/5 border border-white/10 hover:border-secondary hover:bg-secondary hover:text-primary text-secondary rounded-2xl transition-all duration-700 hover:shadow-neon hover:-translate-y-2 uppercase tracking-[0.6em] font-black text-xs asymmetric-reverse"
-                    >
-                        <span>{t('viewDestinations')}</span>
-                        <ArrowUpRight size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                    </Link>
-                </MotionWrapper>
-            </div>
-        </div>
+        </section>
     );
 }

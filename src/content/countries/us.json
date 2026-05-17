@@ -1,0 +1,14 @@
+{
+  "name": "United States",
+  "slug": "us",
+  "summary": "Study in the USA",
+  "body": "<p>US university pathways and summer schools...</p>",
+  "primary_image": "https://example.com/us.jpg",
+  "seo_title": "Study in the USA — Staredu",
+  "seo_description": "Comprehensive US placement support",
+  "services": [
+    "university-placement",
+    "summer-schools"
+  ],
+  "published": true
+}

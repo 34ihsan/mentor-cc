@@ -244,7 +244,7 @@ export default function MyDocumentsPage() {
                                     onChange={(e) => setIsLegalConfirmed(e.target.checked)}
                                 />
                                 <label htmlFor="page-legal" className="text-[10px] font-black text-zinc-600 cursor-pointer leading-relaxed uppercase tracking-widest">
-                                    Yükleyeceğim belgelerin doğruluğunu teyit ediyorum ve <span className="text-primary underline">StarEducation Veri Politikası / KVKK</span> metnini okuduğumu kabul ediyorum.
+                                    Yükleyeceğim belgelerin doğruluğunu teyit ediyorum ve <span className="text-primary underline">Mentor Career Veri Politikası / KVKK</span> metnini okuduğumu kabul ediyorum.
                                 </label>
                             </div>
 
@@ -409,6 +409,12 @@ export default function MyDocumentsPage() {
                                                 <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded text-[9px] font-black bg-red-100 text-red-600 border border-red-200 uppercase tracking-tighter">
                                                     Zorunlu
                                                 </span>
+                                            )}
+                                            {doc.status === "REJECTED" && doc.rejectionReason && (
+                                                <div className="mt-2 p-2 bg-red-50/50 dark:bg-red-500/5 border-l-2 border-red-500 rounded text-[9px] font-bold text-red-700 dark:text-red-400 max-w-[200px] animate-in fade-in slide-in-from-top-1">
+                                                    <span className="opacity-60 uppercase mr-1 italic">Not:</span>
+                                                    {doc.rejectionReason}
+                                                </div>
                                             )}
                                         </td>
                                         <td className="px-8 py-5 text-xs font-bold text-zinc-600 uppercase tracking-widest">

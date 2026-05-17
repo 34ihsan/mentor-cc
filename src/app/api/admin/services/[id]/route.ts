@@ -16,12 +16,23 @@ export async function PATCH(
             return new NextResponse("Unauthorized", { status: 401 });
         }
         const body = await req.json();
-        const { title, content, image, imageSettings, icon, allowsTargeting, active, seoTitle, seoDescription, slug } = body;
+        const { 
+            title, title_en, title_de, 
+            content, content_en, content_de, 
+            image, imageSettings, icon, 
+            allowsTargeting, active, 
+            seoTitle, seoTitle_en, seoTitle_de, 
+            seoDescription, seoDescription_en, seoDescription_de, 
+            slug 
+        } = body;
 
         const updateData: any = {
-            title, content, image,
-            imageSettings,
-            icon, allowsTargeting, active, seoTitle, seoDescription
+            title, title_en, title_de,
+            content, content_en, content_de,
+            image, imageSettings,
+            icon, allowsTargeting, active,
+            seoTitle, seoTitle_en, seoTitle_de,
+            seoDescription, seoDescription_en, seoDescription_de
         };
 
         if (slug) {

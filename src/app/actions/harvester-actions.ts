@@ -4,28 +4,38 @@ import { prisma } from "@/lib/prisma";
 import { HarvesterSchema } from "@/lib/schemas";
 import { auth } from "@/auth";
 
-export async function deepHarvestAction(url: string) {
+import { generateContent, extractInstitutionInfo } from "@/lib/openrouter";
+
+export async function deepHarvestAction(name: string, url: string, category: string) {
     const session = await auth();
     if (session?.user.role !== "ADMIN" && session?.user.role !== "CEO") {
         return { success: false, error: "Yetkisiz erişim" };
     }
 
-    // Validate Input
-    const validated = HarvesterSchema.safeParse({ url });
-    if (!validated.success) {
-        return { success: false, error: "Geçersiz URL formatı" };
-    }
-
     try {
-        // SECURITY REMOVAL: Python-based child_process spawning removed.
-        // Web scraping on the main server is a high-risk activity.
+        const result = await extractInstitutionInfo(name, url, category);
+        
+        if (result.success) {
+            try {
+                const parsed = JSON.parse(result.content);
+                return { success: true, data: parsed };
+            } catch (e) {
+                // If AI didn't return valid JSON, try to clean it
+                const jsonMatch = result.content.match(/\{[\s\S]*\}/);
+                if (jsonMatch) {
+                    const cleaned = JSON.parse(jsonMatch[0]);
+                    return { success: true, data: cleaned };
+                }
+                return { success: false, error: "AI geçersiz veri formatı döndürdü." };
+            }
+        }
         
         return { 
             success: false, 
-            error: "Veri toplama modülü güvenlik mimarisi gereği devre dışı bırakılmıştır. Lütfen güvenli bir API (Apify/Firecrawl) entegrasyonu talep ediniz." 
+            error: result.error || "Veri toplama başarısız oldu." 
         };
-    } catch (error) {
-        return { success: false, error: "Harvester şu an kullanılamıyor." };
+    } catch (error: any) {
+        return { success: false, error: error.message || "Harvester şu an kullanıalamıyor." };
     }
 }
 
@@ -36,6 +46,13 @@ export async function triggerHarvesterAction(id: string, url: string) {
     }
 
     try {
+        const inst = await prisma.institution.findUnique({
+            where: { id },
+            include: { service: true }
+        });
+
+        if (!inst) return { success: false, error: "Kurum bulunamadı" };
+
         await prisma.institution.update({
             where: { id },
             data: { 
@@ -44,12 +61,23 @@ export async function triggerHarvesterAction(id: string, url: string) {
             }
         });
 
-        const result: any = await deepHarvestAction(url);
+        const result: any = await deepHarvestAction(inst.name, url, inst.service?.title || "Eğitim");
 
         if (result.success) {
+            const data = result.data;
             await prisma.institution.update({
                 where: { id },
-                data: { harvestStatus: "SUCCESS" }
+                data: { 
+                    harvestStatus: "SUCCESS",
+                    description: data.description || inst.description,
+                    content: data.content || inst.content,
+                    city: data.city || inst.city,
+                    rank: data.rank || inst.rank,
+                    rating: data.rating || inst.rating,
+                    features: data.features || inst.features,
+                    stats: data.stats || inst.stats,
+                    tuition: data.tuition || inst.tuition,
+                }
             });
             return { success: true };
         } else {
@@ -65,34 +93,41 @@ export async function triggerHarvesterAction(id: string, url: string) {
     }
 }
 
-export async function processHarvestWithAI(rawData: any, category?: string) {
-    const session = await auth();
-    if (!session) return { error: "Oturum gerekli" };
-
-    try {
-        // SECURITY REMOVAL: Subprocess removed.
-        // AI processing should be done via secure SDKs, not local Python scripts.
-        return { error: "AI Ayrıştırma modülü güncellenmektedir." };
-    } catch (error) {
-        return { error: "Ayrıştırma şu an yapılamıyor." };
-    }
+export async function processHarvestWithAI(name: string, url: string, category: string) {
+    return deepHarvestAction(name, url, category);
 }
+
 
 export async function generateSalesCopyAction(programData: any) {
     const { name, category, price, currency, templateData } = programData;
-    const data = typeof templateData === 'string' ? JSON.parse(templateData) : templateData;
+    
+    const prompt = `Lütfen şu eğitim programı için etkileyici ve profesyonel bir satış metni (sales copy) yaz:
+    Program Adı: ${name}
+    Kategori: ${category}
+    Ücret: ${currency} ${price}
+    Ek Bilgiler: ${JSON.stringify(templateData)}
+    
+    Metin ikna edici, Mentor Career markasının premium vizyonunu yansıtan ve öğrenci odaklı olmalıdır. Dil Türkçe olmalıdır.`;
 
-    const templates: Record<string, string> = {
-        UNIVERSITY: `${name} size sadece bir diploma değil, küresel bir kariyerin anahtarını sunuyor. ${currency} ${price} bütçe ile katılabileceğiniz bu program...`,
-        MASTER: `${name} yüksek lisans programı, profesyonel gelişiminizi stratejik bir üstünlüğe dönüştürmek için tasarlandı...`,
-        LANGUAGE_SCHOOL: `${name} dil okulu ile sadece bir dil öğrenmekle kalmayıp, o dili yaşadığınız kültürün bir parçası olacaksınız...`,
-        SUMMER_SCHOOL: `${name} yaz kampı, genç zihinler için unutulmaz bir keşif ve gelişim fırsatı sunuyor...`,
-    };
-
-    const copy = templates[category] || `${name} programı, ${currency} ${price} maliyeti ve sunduğu eşsiz imkanlarla geleceğinizi şekillendirmek için sizi bekliyor.`;
-
-    return { 
-        success: true, 
-        copy: copy + "\n\nBu program StarEducation stratejik danışmanlığı ile size sunulmaktadır." 
-    };
+    try {
+        const result = await generateContent(prompt);
+        if (result.success) {
+            return { 
+                success: true, 
+                copy: result.content + "\n\nBu program Mentor Career stratejik danışmanlığı ile size sunulmaktadır." 
+            };
+        }
+        throw new Error(result.error);
+    } catch (error: any) {
+        // Fallback to static if AI fails
+        const templates: Record<string, string> = {
+            UNIVERSITY: `${name} size sadece bir diploma değil, küresel bir kariyerin anahtarını sunuyor.`,
+            LANGUAGE_SCHOOL: `${name} dil okulu ile sadece bir dil öğrenmekle kalmayıp, o dili yaşadığınız kültürün bir parçası olacaksınız.`,
+        };
+        return { 
+            success: true, 
+            copy: (templates[category] || `${name} programı sizi bekliyor.`) + "\n\n(Not: AI servisi geçici olarak kullanılamadığı için taslak metin sunulmuştur.)"
+        };
+    }
 }
+

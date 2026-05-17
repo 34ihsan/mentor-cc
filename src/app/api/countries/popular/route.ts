@@ -24,11 +24,11 @@ export async function GET(request: Request) {
 
         const localizedResult = countries.map(country => ({
             ...country,
-            name: locale === 'en' ? country.name_en || country.name : country.name
+            name: locale === 'en' ? country.name_en || country.name : locale === 'de' ? country.name_de || country.name : country.name
         }));
 
         const result = names
-            ? names.map(name => localizedResult.find(c => c.name === name || c.name_en === name)).filter(Boolean)
+            ? names.map(name => localizedResult.find(c => c.name === name || c.name_en === name || c.name_de === name)).filter(Boolean)
             : localizedResult;
 
         return NextResponse.json(result);

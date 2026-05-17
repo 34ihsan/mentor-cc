@@ -1,0 +1,16 @@
+{
+  "name": "Boston University",
+  "slug": "boston",
+  "country": "us",
+  "type": "University",
+  "summary": "Urban private research university",
+  "body": "<p>Programs and summer schools...</p>",
+  "website": "https://www.bu.edu",
+  "logo": "https://example.com/bu.png",
+  "programs": [
+    "Bachelor",
+    "Summer School"
+  ],
+  "contact_email": "info@bu.edu",
+  "published": true
+}

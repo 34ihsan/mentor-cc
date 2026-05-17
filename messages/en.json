@@ -1,17 +1,37 @@
 {
   "SEO": {
-    "title": "Study Abroad Consultancy | Star Education Consulting",
-    "template": "%s | Star Education Consulting",
-    "description": "Star Education Consulting offers professional consultancy for language schools, university, master and summer school programs abroad. Get free advice for Germany, UK, Canada and more.",
-    "keywords": "study abroad, university applications, study in germany, language school abroad, master's degree abroad, student visa, high school abroad, summer school, education consultancy, star education consulting",
-    "ogTitle": "Star Education Consulting | Your Strategic Partner for a Global Future",
-    "ogDescription": "Turn your study abroad dreams into reality with Star Education Consulting's expert academic mentorship.",
-    "twitterTitle": "Star Education Consulting | Global Study Abroad Consultancy",
+    "title": "Study Abroad Consultancy | Mentor Career Consulting",
+    "template": "%s | Mentor Career Consulting",
+    "description": "Mentor Career Consulting offers professional consultancy for language schools, university, master and summer school programs abroad. Get free advice for Germany, UK, Canada and more.",
+    "keywords": "study abroad, university applications, study in germany, language school abroad, master's degree abroad, student visa, high school abroad, summer school, education consultancy, Mentor Career Consulting",
+    "ogTitle": "Mentor Career Consulting | Your Strategic Partner for a Global Future",
+    "ogDescription": "Turn your study abroad dreams into reality with Mentor Career Consulting's expert academic mentorship.",
+    "twitterTitle": "Mentor Career Consulting | Global Study Abroad Consultancy",
     "twitterDescription": "Discover elite school placements and strategic education planning worldwide."
   },
+  "Navbar": {
+    "home": "Home",
+    "uni": "University Abroad",
+    "master": "Master Abroad",
+    "highschool": "High School Abroad",
+    "summer": "Summer Schools Abroad",
+    "language": "Language Schools Abroad",
+    "exams": "Exams",
+    "career": "Career",
+    "about": "About Us",
+    "blog": "Blog",
+    "corporate": "Corporate",
+    "contact": "Contact",
+    "cta": "Get Information",
+    "services": "Services",
+    "freeConsultation": "Get Free Consultation",
+    "viewAll": "View All",
+    "destinations": "Destinations",
+    "ulkeler": "Countries"
+  },
   "Common": {
-    "title": "Star Education Consulting",
-    "template": "%s | Star Education Consulting",
+    "title": "Mentor Career Consulting",
+    "template": "%s | Mentor Career Consulting",
     "description": "Study Abroad Consultancy",
     "loading": "Loading...",
     "error": "An error occurred",
@@ -24,230 +44,837 @@
     "tuition": "Annual Tuition",
     "getInformation": "Get Information",
     "programs": "Programs",
-    "viewDetails": "View Details"
+    "viewDetails": "View Details",
+    "institutionsCount": "Institutions",
+    "resultsFound": "Results Found",
+    "onlyStudentsCanApply": "Only student accounts can apply.",
+    "alreadyApplied": "You have already applied to this program.",
+    "applicationError": "An error occurred during application.",
+    "systemMaintenance": "System Maintenance",
+    "maintenanceDesc": "We are updating our system to provide you with a better experience. Please try again later.",
+    "refresh": "Refresh",
+    "backToHome": "Back to Home"
   },
-  "Navbar": {
-    "menu": "MENU",
-    "home": "Home",
-    "programlar": "Programs",
-    "sinavlar": "Exams",
-    "services": "Services",
-    "career": "Career",
-    "aboutUs": "About Us",
-    "cta": "Apply Now",
-    "globalHub": "Global Education Opportunities",
-    "viewAllInstitutions": "Explore All Institutions",
-    "freeConsultation": "Free Consultation",
-    "info": "General Information",
-    "usefulLinks": "Useful Links",
-    "categories": "Categories",
-    "types": "Education Types",
-    "opportunities": "Opportunities",
-    "guide": "Career Guide",
-    "yurtdisi-meslek-egitimi": "Vocational Training Consultancy Abroad",
-    "uluslararasi-kariyer": "International Career Consultancy",
-    "profesyonel-cv": "Professional CV Creation",
-    "vize-belge-hazirlik": "Visa Document Preparation Guide",
-    "staj-programlari": "Internship Programs",
-    "boarding": "Boarding Schools",
-    "private-day": "Private Day Schools",
-    "exchange": "Exchange Programs",
-    "ib-ap": "IB & AP Programs",
-    "contact": "Contact",
-    "blog": "Blog",
-    "details": "Details",
-    "getCounseling": "Get Counseling",
-    "searchCenter": "Search Center",
-    "searchDiscover": "Discover",
-    "searchPlaceholder": "Search program, university or city...",
-    "noResults": "No results found",
-    "popularSearches": "Popular Searches"
+  "AboutUs": {
+    "title": "Why Mentor Career Consulting?",
+    "content": "At every stage from high school to postgraduate education, Mentor Career Consulting leads you for better career planning and educational life. It lists study abroad schools, work & travel opportunities, and language schools that you can choose according to your education level. It guides you in making a choice suitable for your budget and needs. It provides you with up-to-date information by researching the countries where you want to receive education.",
+    "cta": "Call us now to make a career planning that can be globally valid with our education consultancy services!"
+  },
+  "Career": {
+    "meta": {
+      "title": "Career Planning | Self-Discovery | Mentor Career Consulting",
+      "description": "Shape your future with career coaching and individual recognition sessions. Get to know yourself and set your goals."
+    },
+    "hero": {
+      "label": "Plan Your Future",
+      "title": "Career <span class='gold-text'>Planning</span>",
+      "subtitle": "Discover yourself to take happier steps in your life journey."
+    },
+    "sections": {
+      "intro": {
+        "title": "Career Planning",
+        "content": "Self-discovery is a process conducted for an individual to primarily get to know themselves and know what they can do. A person who does not know themselves will eventually be unhappy in the tasks they perform. The most important reason for this is that the person does not weigh whether they are suitable for a job from the very beginning. For jobs that require a lot of social interaction, people who are more inclined to this, warm and sincere, and like to talk to people should work. However, when more introverted people apply for such jobs, they may want to quit after a while by not liking the job. This leads to a loss of time for both the employer and the employee."
+      },
+      "whySelfDiscovery": {
+        "title": "Why Should a Person Know Themselves?",
+        "content": "If a person knows themselves, they can better understand their life goals. For this purpose, we organize individual recognition sessions with a career coach. After the things the person enjoys doing, the things they do not like, and their strengths and weaknesses are determined, it becomes easier to find the jobs they can do specifically. This serves as a guide for people to hold on to life and love themselves. A person should first know and love themselves. After that, they can look at life more positively by loving their job, their life, the place they work, their home, and their neighborhood."
+      },
+      "strengthsAndWeaknesses": {
+        "title": "Strengths and Weaknesses",
+        "content": "Knowing one's strengths and weaknesses is the most important factor in moving towards the right job. By focusing on your strengths, you can increase your chances of success, and by developing your weaknesses, you can become more equipped. In career planning, this analysis sheds light on drawing the most suitable career path for you."
+      },
+      "roadmap": {
+        "title": "Roadmap with a Career Coach",
+        "content": "You are not alone in your career journey. Together with our expert career coaches, we evaluate the most suitable education and job opportunities for you and plan concrete steps to reach your goals. This roadmap is the safest route that will lead you to success."
+      },
+      "whoIsItFor": {
+        "title": "Who is Career Planning Suitable For?",
+        "content": "Career planning is of critical importance for students, recent graduates, or anyone who wants to make a change in their career. Whatever stage you are in, receiving professional support will save you time and energy."
+      },
+      "goals": {
+        "title": "Long-term and Short-term Goals",
+        "content": "The road to success goes through setting the right goals. Your short-term goals motivate you, while your long-term goals determine your vision. In our career planning sessions, we clarify these goals and secure your future."
+      },
+      "benefits": {
+        "title": "What Does a Person Gain from Individual Recognition?",
+        "content": "Most people actually live their lives and complete their lifespan without thinking about what they love. However, a more smiling and positive life is possible... We are not racehorses. Therefore, we should first remember why we came to life, love ourselves, and make the right decision about what we want to do. We should set goals by focusing on ourselves at our core, not by thinking about the environment. Thus, by doing the things we love, we can realize our goals in life and always protect our self-respect."
+      },
+      "howToDiscover": {
+        "title": "How Do You Recognize Yourself?",
+        "content": "Recognizing yourself may be easy to say but hard to implement. Sometimes a person finds it difficult to find their own mistakes and missing parts. Therefore, they need an external perspective to know themselves. Your career coach helps you understand your life purpose, the things you want to do, and the things you do not enjoy and do because others want them, from a completely neutral perspective. For this, they ask various questions and try to help you learn about the things you are satisfied with and not satisfied with about yourself."
+      },
+      "moveForward": {
+        "title": "Move Forward with Us in Your Career Journey",
+        "content": "Take the first step today for a happy and successful future. As Mentor Career Consulting, we are here to maximize your potential."
+      },
+      "footer": "If you also want to take happier steps in your life journey and receive an individual recognition session, you can contact us."
+    },
+    "cta": "Contact Us Now"
+  },
+  "Exams": {
+    "global": {
+      "title": "International Exam Preparation and Consultancy",
+      "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">International Exam Preparation and Consultancy</h2>\n      <p class=\"mb-6\">One of the most critical steps in achieving your study abroad and career goals is international language and academic proficiency exams. As Mentor Career Consulting, we do not leave your success to chance.</p>\n      <p class=\"mb-6\">We provide consultancy across a wide range of exams, from language proficiency exams like IELTS and TOEFL to academic competency exams like SAT, GRE, and GMAT. We are with you with our expert team in exam formats, strategic preparation methods, and application processes.</p>",
+      "advantages": [
+        {
+          "title": "Expert Instructor Staff",
+          "desc": "Opportunity to work with experienced and certified instructors who master exam formats."
+        },
+        {
+          "title": "Personalized Program",
+          "desc": "Special study plans focusing on your deficiencies and oriented towards your goals."
+        },
+        {
+          "title": "Up-to-date Materials",
+          "desc": "Realistic preparation with the latest exam questions and simulation tests."
+        }
+      ],
+      "process": [
+        {
+          "title": "Level Determination",
+          "desc": "Analysis of your current status and determination of the target score."
+        },
+        {
+          "title": "Strategic Planning",
+          "desc": "Intensive or regular study program according to the exam date."
+        },
+        {
+          "title": "Mock Exams",
+          "desc": "Periodic simulations for time management and stress control."
+        },
+        {
+          "title": "Application Support",
+          "desc": "Exam registration and the process of sending results to universities."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Which exam should I take?",
+          "a": "This depends on the country, university, and department you are targeting. Our consultants will determine the most suitable exam for you."
+        },
+        {
+          "q": "How long does exam preparation take?",
+          "a": "Depending on your current level and target score, it usually takes 2-6 months."
+        }
+      ]
+    },
+    "toefl": {
+      "title": "TOEFL iBT (Test of English as a Foreign Language)",
+      "shortTitle": "TOEFL",
+      "description": "An academic English exam widely accepted especially in US universities.",
+      "overview_short": "TOEFL iBT is administered by the Educational Testing Service (ETS). It is academic-oriented and can provide an advantage for candidates accustomed to digital exam formats due to its computer-based structure.",
+      "format": {
+        "duration": "2 hours",
+        "sections": [
+          {
+            "name": "Reading",
+            "desc": "Reading and understanding academic texts.",
+            "time": "35 min"
+          },
+          {
+            "name": "Listening",
+            "desc": "Understanding lecture and campus conversations.",
+            "time": "36 min"
+          },
+          {
+            "name": "Speaking",
+            "desc": "Voice response by recording over the computer.",
+            "time": "16 min"
+          },
+          {
+            "name": "Writing",
+            "desc": "Academic Discussion and Integrated tasks.",
+            "time": "29 min"
+          }
+        ]
+      },
+      "scoring_short": "Scored out of a total of 120 points.",
+      "validity": "2 Years",
+      "cost": "Approximately 157 USD",
+      "dates": "Once a week or more frequently",
+      "whyTake": [
+        "It is the gold standard for candidates applying for undergraduate or graduate programs in the USA.",
+        "Ideal for those who want to document academic-oriented English proficiency.",
+        "Accepted by more than 12,000 institutions worldwide."
+      ],
+      "serviceDetails": {
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">TOEFL iBT: Academic English Standard</h2>\n      <p class=\"mb-6\">TOEFL (Test of English as a Foreign Language) is the most preferred language exam, especially by universities in the USA and Canada. It measures your ability to use and understand English in an academic environment.</p>\n      <p class=\"mb-6\">The iBT (internet-Based Test) format is the most widely used version worldwide. It is based on measuring Reading, Listening, Speaking, and Writing skills in an integrated way.</p>",
+        "advantages": [
+          {
+            "title": "US Focused Admission",
+            "desc": "Primarily accepted by more than 90% of universities in the USA."
+          },
+          {
+            "title": "Comprehensive Assessment",
+            "desc": "Offers realistic academic scenarios where skills are used together."
+          },
+          {
+            "title": "Wide Exam Network",
+            "desc": "Exam centers are available at frequent intervals almost everywhere in the world."
+          }
+        ],
+        "process": [
+          {
+            "title": "Exam Strategy",
+            "desc": "Note-taking and synthesis techniques for integrated tasks."
+          },
+          {
+            "title": "Resource Provision",
+            "desc": "ETS approved official preparation guides and digital resources."
+          },
+          {
+            "title": "Simulation Tests",
+            "desc": "Adaptation to the exam atmosphere with full-time mock exams."
+          },
+          {
+            "title": "Score Reporting",
+            "desc": "Direct submission of results to target institutions."
+          }
+        ],
+        "faq": [
+          {
+            "q": "How is TOEFL iBT scored?",
+            "a": "The exam is scored out of a total of 120 points (30 points for each section)."
+          },
+          {
+            "q": "How long is the exam duration?",
+            "a": "With its new format, it takes approximately 2 hours."
+          }
+        ],
+        "structure": "<ul class=\"space-y-4\">\n        <li><strong>Reading (35 min):</strong> Understanding academic texts. 20 questions.</li>\n        <li><strong>Listening (36 min):</strong> Campus conversations and lectures. 28 questions.</li>\n        <li><strong>Speaking (16 min):</strong> 4 tasks measuring speaking performance.</li>\n        <li><strong>Writing (29 min):</strong> 2 tasks; Academic discussion and integrated writing.</li>\n      </ul>",
+        "scoring": "<p>TOEFL iBT is scored between 0 and 120 points. Each of the 4 sections is evaluated out of 30 points.</p>\n      <div class=\"mt-4 p-4 bg-white/10 rounded-xl\">\n        <strong>Note:</strong> With the MyBest® Scores feature, your highest section scores from the last 2 years can be combined.\n      </div>"
+      }
+    },
+    "ielts": {
+      "title": "IELTS (International English Language Testing System)",
+      "shortTitle": "IELTS",
+      "description": "The most popular exam for immigration and education, especially in the UK, Canada, Australia, and New Zealand.",
+      "overview_short": "IELTS is one of the most widely accepted English proficiency exams worldwide. It is co-managed by the British Council, IDP Education, and Cambridge Assessment English. It is an exam that directly measures communication skills, especially since the speaking part is conducted one-on-one.",
+      "format": {
+        "duration": "2 hours 45 minutes",
+        "sections": [
+          {
+            "name": "Listening",
+            "desc": "4 sections, 40 questions. Conversations in various accents.",
+            "time": "30 min"
+          },
+          {
+            "name": "Reading",
+            "desc": "3 long texts, 40 questions.",
+            "time": "60 min"
+          },
+          {
+            "name": "Writing",
+            "desc": "2 tasks (Graph interpretation/Letter + Essay)",
+            "time": "60 min"
+          },
+          {
+            "name": "Speaking",
+            "desc": "One-on-one interview with an examiner.",
+            "time": "11-14 min"
+          }
+        ]
+      },
+      "scoring_short": "A band system from 0 to 9 is applied.",
+      "validity": "2 Years",
+      "cost": "Approximately 4500-5000 TL",
+      "dates": "4-5 times a month",
+      "whyTake": [
+        "Primary choice for those who want to study in the UK, Australia, Canada, and Europe.",
+        "May be mandatory for immigration or registration applications (UKVI).",
+        "Can be taken on paper or computer."
+      ],
+      "serviceDetails": {
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">IELTS: Globally Valid English Test</h2>\n      <p class=\"mb-6\">IELTS (International English Language Testing System) is the most preferred English proficiency exam worldwide. It has two modules: Academic and General Training.</p>\n      <p class=\"mb-6\">It is accepted as a standard by universities and immigration offices in the UK, Australia, Canada, and New Zealand. The exam consists of Listening, Reading, Writing, and Speaking sections.</p>\n\n      <h3 class=\"text-2xl font-serif font-bold text-navy mb-4 mt-8 italic\">Why IELTS?</h3>\n      <ul class=\"space-y-4 mb-10 italic text-zinc-600\">\n          <li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-secondary\">✓</span> <strong>Wide Acceptance:</strong> Recognized by more than 11,000 institutions in more than 140 countries.</li>\n          <li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-secondary\">✓</span> <strong>Face-to-Face Speaking:</strong> The speaking test is conducted with a real examiner, providing a more natural interaction.</li>\n      </ul>",
+        "advantages": [
+          {
+            "title": "Flexible Format",
+            "desc": "Offers paper-based or computer-delivered exam options."
+          },
+          {
+            "title": "Fast Results",
+            "desc": "Computer-delivered exam results are announced within 3-5 days."
+          },
+          {
+            "title": "Education and Career",
+            "desc": "Valid for both university admissions and professional career applications."
+          }
+        ],
+        "process": [
+          {
+            "title": "Module Selection",
+            "desc": "Determining the Academic or General Training module based on the goal."
+          },
+          {
+            "title": "Exam Registration",
+            "desc": "Official registration for the appropriate date and center."
+          },
+          {
+            "title": "Preparation Course",
+            "desc": "Strategic question-solving techniques and time management training."
+          },
+          {
+            "title": "Result Tracking",
+            "desc": "Obtaining the TRF document and reporting to institutions."
+          }
+        ],
+        "faq": [
+          {
+            "q": "How long is the IELTS validity period?",
+            "a": "IELTS results are valid for 2 years."
+          },
+          {
+            "q": "How many times can I take the exam?",
+            "a": "There is no restriction on the number of exam entries."
+          }
+        ],
+        "structure": "<ul class=\"space-y-4\">\n        <li><strong>Listening (30 min):</strong> 4 sections, 40 questions. Daily and academic conversations.</li>\n        <li><strong>Reading (60 min):</strong> 3 texts, 40 questions. Analytical reading and comprehension.</li>\n        <li><strong>Writing (60 min):</strong> 2 tasks. Data interpretation and academic essay.</li>\n        <li><strong>Speaking (11-14 min):</strong> One-on-one interview. Ability to express oneself.</li>\n      </ul>",
+        "scoring": "<p>IELTS uses a scoring system between 1.0 and 9.0. The average of the scores obtained from each section determines the overall score.</p>\n      <div class=\"mt-4 p-4 bg-white/10 rounded-xl\">\n        <strong>Target Scores:</strong> Generally 6.0-6.5 for undergraduate, 6.5-7.5 for graduate programs.\n      </div>"
+      }
+    },
+    "sat": {
+      "title": "SAT (Scholastic Aptitude Test)",
+      "shortTitle": "SAT",
+      "description": "A standardized test used for undergraduate admissions in the US.",
+      "overview_short": "The SAT is organized by the College Board. Although many universities have a test-optional policy, a high SAT score can provide a significant advantage, especially in scholarship applications.",
+      "format": {
+        "duration": "2 hours 14 minutes",
+        "sections": [
+          {
+            "name": "Reading & Writing",
+            "desc": "Analysis and grammar through short texts.",
+            "time": "64 min"
+          },
+          {
+            "name": "Math",
+            "desc": "Algebra, problem solving, and data analysis.",
+            "time": "70 min"
+          }
+        ]
+      },
+      "scoring_short": "In the range of 400–1600 points.",
+      "validity": "5 Years (Generally accepted)",
+      "cost": "Approximately 60-100 USD (+ International fees)",
+      "dates": "7 times a year",
+      "whyTake": [
+        "The most important exam for students targeting undergraduate education in the USA.",
+        "For candidates who want to demonstrate academic success and analytical thinking skills.",
+        "Provides competitive advantage in scholarship applications."
+      ],
+      "serviceDetails": {
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Digital SAT: Key to University Entrance in the USA</h2>\n      <p class=\"mb-6\">SAT (Scholastic Assessment Test) is the most common standardized exam used for undergraduate applications to colleges and universities in the USA. It measures students' high school knowledge and their potential for success in university.</p>\n      <p class=\"mb-6\">Now conducted entirely in digital format, the SAT consists of Reading-Writing and Mathematics sections. It emphasizes critical thinking and problem-solving abilities.</p>",
+        "advantages": [
+          {
+            "title": "Scholarship Opportunities",
+            "desc": "High SAT scores increase the chance of receiving academic scholarships from prestigious universities."
+          },
+          {
+            "title": "Global Application",
+            "desc": "Accepted by many elite universities not only in the USA but worldwide."
+          },
+          {
+            "title": "Digital Convenience",
+            "desc": "Offers personalized difficulty levels and shorter exam times with an adaptive test structure."
+          }
+        ],
+        "process": [
+          {
+            "title": "Math Foundation",
+            "desc": "Specialization in algebra, problem solving, and data analysis."
+          },
+          {
+            "title": "Critical Reading",
+            "desc": "Developing the ability to understand and analyze challenging texts."
+          },
+          {
+            "title": "Bluebook App",
+            "desc": "Practicing with the official digital exam interface."
+          },
+          {
+            "title": "Time Management",
+            "desc": "Strategies to use the time allocated for each section most efficiently."
+          }
+        ],
+        "faq": [
+          {
+            "q": "How is SAT scored?",
+            "a": "The exam is scored out of a total of 1600 points (800 points for each section)."
+          },
+          {
+            "q": "How often is the exam held?",
+            "a": "For international students, it is usually held 7 times a year."
+          }
+        ],
+        "structure": "<ul class=\"space-y-4\">\n        <li><strong>Reading & Writing (64 min):</strong> Text analysis and grammar questions presented in two modules.</li>\n        <li><strong>Mathematics (70 min):</strong> Two modules. Algebra and data analysis questions where calculator use is permitted.</li>\n      </ul>",
+        "scoring": "<p>The SAT score is between 400 and 1600. Each of the two main sections is evaluated out of 800 points.</p>\n      <div class=\"mt-4 p-4 bg-white/10 rounded-xl\">\n        <strong>Important:</strong> Wrong answers do not affect correct answers; therefore, it is recommended to mark all questions.\n      </div>"
+      }
+    },
+    "pte": {
+      "title": "PTE Academic (Pearson Test of English)",
+      "shortTitle": "PTE Academic",
+      "description": "An English proficiency exam with an entirely computer-based and AI-powered evaluation system.",
+      "overview_short": "PTE Academic is administered by Pearson PLC. Results are usually announced within a few days, which is a great advantage for candidates who need to apply urgently.",
+      "format": {
+        "duration": "2 hours 15 minutes",
+        "sections": [
+          {
+            "name": "Speaking & Writing",
+            "desc": "Integrated language skills test.",
+            "time": "54-67 min"
+          },
+          {
+            "name": "Reading",
+            "desc": "Reading and fill-in-the-blank questions.",
+            "time": "29-30 min"
+          },
+          {
+            "name": "Listening",
+            "desc": "Dictation and listening-oriented questions.",
+            "time": "30-43 min"
+          }
+        ]
+      },
+      "scoring_short": "Scored between 10–90.",
+      "validity": "2 Years",
+      "cost": "Approximately 190-210 USD",
+      "dates": "Almost every day throughout the year",
+      "whyTake": [
+        "For candidates who want fast results (in 48-72 hours).",
+        "100% accepted for UK and Australia registration/education applications.",
+        "Provides more objective results thanks to AI-based scoring."
+      ],
+      "serviceDetails": {
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">PTE Academic: Fast and AI-Powered Language Exam</h2>\n      <p class=\"mb-6\">PTE (Pearson Test of English) Academic is a computer-based language exam scored by AI, with results announced in a very short time. It is accepted worldwide for university admissions and professional career applications.</p>\n      <p class=\"mb-6\">Its popularity is increasing rapidly among candidates due to more flexible appointment opportunities compared to traditional exams and an exam structure that reduces stress factors.</p>",
+        "advantages": [
+          {
+            "title": "Fast Results",
+            "desc": "Exam results are usually announced within 48 hours, sometimes even on the same day."
+          },
+          {
+            "title": "Objective Scoring",
+            "desc": "Human errors and biases are eliminated with AI-based assessment."
+          },
+          {
+            "title": "Global Validity",
+            "desc": "Accepted by thousands of institutions."
+          }
+        ],
+        "process": [
+          {
+            "title": "Exam Format",
+            "desc": "A 2-hour condensed exam structure completed in a single session."
+          },
+          {
+            "title": "Preparation Materials",
+            "desc": "Pearson's official interactive preparation platforms and mobile applications."
+          },
+          {
+            "title": "Practice Tests",
+            "desc": "Mock exams identical to the actual exam interface."
+          },
+          {
+            "title": "Booking",
+            "desc": "Ease of booking 365 days a year, up to 24 hours before the exam."
+          }
+        ],
+        "faq": [
+          {
+            "q": "How long is the PTE Academic score valid?",
+            "a": "PTE results are generally valid for 2 years."
+          },
+          {
+            "q": "How many times can I take the exam?",
+            "a": "There is no limit, but there must be at least 5 days between two exams."
+          }
+        ],
+        "structure": "<ul class=\"space-y-4\">\n        <li><strong>Speaking & Writing (54-67 min):</strong> Personal introduction, reading aloud, summarizing, and essay.</li>\n        <li><strong>Reading (29-30 min):</strong> Fill in the blanks, multiple choice questions, and paragraph ordering.</li>\n        <li><strong>Listening (30-43 min):</strong> Summarizing, dictation, and interpreting audio recordings.</li>\n      </ul>",
+        "scoring": "<p>PTE is scored between 10 and 90 points based on the Global Scale of English.</p>\n      <div class=\"mt-4 p-4 bg-white/10 rounded-xl\">\n        <strong>Advantage:</strong> All skills (grammar, fluency, pronunciation, etc.) are analyzed by AI in seconds.\n      </div>"
+      }
+    },
+    "gre": {
+      "title": "GRE (Graduate Record Examination)",
+      "shortTitle": "GRE",
+      "description": "An international exam used for master's and doctoral program applications.",
+      "overview_short": "The GRE is organized by the Educational Testing Service (ETS). It is designed for those planning an academic career in a wide range of fields from engineering to social sciences.",
+      "format": {
+        "duration": "1 hour 58 minutes",
+        "sections": [
+          {
+            "name": "Verbal Reasoning",
+            "desc": "Academic vocabulary and reading skills.",
+            "time": "41 min"
+          },
+          {
+            "name": "Quantitative Reasoning",
+            "desc": "Quantitative reasoning and data analytics.",
+            "time": "47 min"
+          },
+          {
+            "name": "Analytical Writing",
+            "desc": "Critical thinking and academic writing.",
+            "time": "30 min"
+          }
+        ]
+      },
+      "scoring_short": "Verbal: 130–170, Math: 130–170, Writing: 0–6.",
+      "validity": "5 Years",
+      "cost": "Approximately 220 USD",
+      "dates": "Every month throughout the year",
+      "whyTake": [
+        "For those who want to do a master's/doctorate in the USA and Europe.",
+        "Strengthens career goals in engineering, natural sciences, and social sciences.",
+        "The Quantitative score is of great importance in mathematical sections."
+      ],
+      "serviceDetails": {
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">GRE: Global Standard of Graduate Education</h2>\n      <p class=\"mb-6\">GRE (Graduate Record Examinations) is required for master's and doctoral applications across a wide range, from engineering to social sciences. It measures analytical writing, verbal reasoning, and quantitative abilities.</p>\n      <p class=\"mb-6\">Accepted by thousands of graduate and business schools worldwide. It tests candidates' abstract thinking ability and skill in interpreting complex data.</p>",
+        "advantages": [
+          {
+            "title": "Versatile Acceptance",
+            "desc": "Primary requirement for engineering, basic sciences, and social sciences programs."
+          },
+          {
+            "title": "Flexible Exam Format",
+            "desc": "User-friendly exam interface offering the possibility of moving between sections."
+          },
+          {
+            "title": "MBA Option",
+            "desc": "Now accepted by many prestigious business schools (MBA) as an alternative to GMAT."
+          }
+        ],
+        "process": [
+          {
+            "title": "Verbal Reasoning",
+            "desc": "Complex text analysis and advanced vocabulary studies."
+          },
+          {
+            "title": "Quantitative Ability",
+            "desc": "Gaining speed in geometry, arithmetic, and data interpretation."
+          },
+          {
+            "title": "Analytical Writing",
+            "desc": "Argument construction and critical analysis essay techniques."
+          },
+          {
+            "title": "ScoreSelect",
+            "desc": "Freedom to send your best results to universities."
+          }
+        ],
+        "faq": [
+          {
+            "q": "How long is the GRE score valid?",
+            "a": "Exam results remain valid for 5 years."
+          },
+          {
+            "q": "How long is the exam duration?",
+            "a": "With its shortened new format, it takes approximately 1 hour and 58 minutes."
+          }
+        ],
+        "structure": "<ul class=\"space-y-4\">\n        <li><strong>Analytical Writing (30 min):</strong> One essay task. Critical thinking and academic writing.</li>\n        <li><strong>Verbal Reasoning (41 min):</strong> Two sections. Vocabulary, reading, and comprehension skills.</li>\n        <li><strong>Quantitative Reasoning (47 min):</strong> Two sections. Basic math concepts and data analysis.</li>\n      </ul>",
+        "scoring": "<p>Verbal and Quantitative sections are scored between 130-170, and the Writing section is scored between 0-6 points.</p>\n      <div class=\"mt-4 p-4 bg-white/10 rounded-xl\">\n        <strong>Tip:</strong> With the ScoreSelect® service, you can choose to send only your best score to institutions.\n      </div>"
+      }
+    },
+    "gmat": {
+      "title": "GMAT Focus Edition",
+      "shortTitle": "GMAT",
+      "description": "An exam designed for candidates applying to business and MBA programs.",
+      "overview_short": "GMAT is administered by the Graduate Management Admission Council (GMAC). With the Focus Edition, it has taken on a more analytical and business-focused structure.",
+      "format": {
+        "duration": "2 hours 15 minutes",
+        "sections": [
+          {
+            "name": "Quantitative",
+            "desc": "Data sufficiency and problem solving.",
+            "time": "45 min"
+          },
+          {
+            "name": "Verbal",
+            "desc": "Critical reasoning and reading comprehension.",
+            "time": "45 min"
+          },
+          {
+            "name": "Data Insights",
+            "desc": "Graphics and table analysis, data synthesis.",
+            "time": "45 min"
+          }
+        ]
+      },
+      "scoring_short": "In the range of 205–805.",
+      "validity": "5 Years",
+      "cost": "Approximately 275 USD",
+      "dates": "Every month throughout the year",
+      "whyTake": [
+        "For candidates applying to MBA and business master's programs.",
+        "Critical for those aiming for a career in management, finance, and strategy.",
+        "The primary evaluation criterion in top-tier business schools."
+      ],
+      "serviceDetails": {
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">GMAT Focus Edition: Leadership Test of the Business World</h2>\n      <p class=\"mb-6\">GMAT (Graduate Management Admission Test) is the gold standard used by business schools (MBA) worldwide to evaluate candidates. It consists of Quantitative, Verbal, and Data Insights sections.</p>\n      <p class=\"mb-6\">GMAT Focus Edition offers a shorter and more focused exam experience optimized according to the changing needs of the business world. It measures candidates' strategic thinking and critical decision-making abilities.</p>",
+        "advantages": [
+          {
+            "title": "Top MBA Schools",
+            "desc": "The strongest weapon for entering giant schools like Harvard, Stanford, and INSEAD."
+          },
+          {
+            "title": "Data Focus",
+            "desc": "With its new format, it emphasizes data analysis skill, which is very critical in business life."
+          },
+          {
+            "title": "Question Review and Edit",
+            "desc": "Allows you to review questions you've answered and edit a specific number of them."
+          }
+        ],
+        "process": [
+          {
+            "title": "Quantitative Reasoning",
+            "desc": "Mathematical logic and problem-solving speed studies."
+          },
+          {
+            "title": "Verbal Reasoning",
+            "desc": "Critical reasoning and reading comprehension competency."
+          },
+          {
+            "title": "Data Insights",
+            "desc": "Techniques for interpreting graphics, tables, and complex data."
+          },
+          {
+            "title": "Section Selection",
+            "desc": "Strategy to determine the order of exam sections according to your personal preference."
+          }
+        ],
+        "faq": [
+          {
+            "q": "How is GMAT Focus scored?",
+            "a": "The exam is scored between 205 and 805 in 10-point increments."
+          },
+          {
+            "q": "How often can the exam be taken?",
+            "a": "You have the right to enter a maximum of 5 times a year and a total of 8 times in your lifetime."
+          }
+        ],
+        "structure": "<ul class=\"space-y-4\">\n        <li><strong>Quantitative Reasoning (45 min):</strong> 21 questions. Data sufficiency and problem solving.</li>\n        <li><strong>Verbal Reasoning (45 min):</strong> 23 questions. Critical reasoning and reading comprehension.</li>\n        <li><strong>Data Insights (45 min):</strong> 20 questions. Multi-source data analysis and graphics interpretation.</li>\n      </ul>",
+        "scoring": "<p>The GMAT Focus score is between 205 and 805. All sections are included in the scoring.</p>\n      <div class=\"mt-4 p-4 bg-white/10 rounded-xl\">\n        <strong>Innovation:</strong> You now have the right to review wrong answers and change answers for up to 3 questions in each section.\n      </div>"
+      }
+    },
+    "cambridge": {
+      "title": "Cambridge English Qualifications (B2 First, C1 Advanced, C2 Proficiency)",
+      "shortTitle": "Cambridge",
+      "description": "Exams offering internationally valid and indefinitely valid certificates.",
+      "overview_short": "Cambridge English exams are organized by Cambridge Assessment English. Unlike other exams, the certificates provided do not have an expiration date.",
+      "format": {
+        "duration": "Approximately 3.5 - 4 hours",
+        "sections": [
+          {
+            "name": "Reading & Use of English",
+            "desc": "Depth of grammar and vocabulary usage.",
+            "time": "90 min"
+          },
+          {
+            "name": "Writing",
+            "desc": "Letter, report, and essay writing.",
+            "time": "90 min"
+          },
+          {
+            "name": "Listening",
+            "desc": "Academic and general listening tracks.",
+            "time": "40 min"
+          },
+          {
+            "name": "Speaking",
+            "desc": "Interview conducted by pairing with another candidate.",
+            "time": "15 min"
+          }
+        ]
+      },
+      "scoring_short": "Cambridge English Scale (160-230+).",
+      "validity": "Lifetime",
+      "cost": "200-250 USD depending on the exam",
+      "dates": "Certain periods a year",
+      "whyTake": [
+        "Their certificates are valid for life (indefinitely).",
+        "Has a strong academic reputation and acceptance rate in Europe.",
+        "Suitable for academic and professional (business) use."
+      ],
+      "serviceDetails": {
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Cambridge English: Lifetime Valid Language Certificate</h2>\n      <p class=\"mb-6\">Cambridge English exams (B2 First, C1 Advanced, C2 Proficiency) are among the most prestigious documents proving your English language ability and never expire. Organized by the University of Cambridge, these exams are recognized by more than 25,000 institutions worldwide.</p>\n      <p class=\"mb-6\">In addition to academic education, these exams, which have great prestige in the professional business world, measure your language skills in depth and improve your practical usage ability.</p>",
+        "advantages": [
+          {
+            "title": "Lifetime Validity",
+            "desc": "Your certificates never expire, you only need to get them once."
+          },
+          {
+            "title": "In-depth Measurement",
+            "desc": "It doesn't just test grammar, it also measures correct usage."
+          },
+          {
+            "title": "Global Prestige",
+            "desc": "Preferred by elite universities worldwide, especially in Europe."
+          }
+        ],
+        "process": [
+          {
+            "title": "Level Analysis",
+            "desc": "Determining the targeted certificate level (B2, C1, C2)."
+          },
+          {
+            "title": "Comprehensive Training",
+            "desc": "Simultaneous development of reading, writing, listening, and speaking skills."
+          },
+          {
+            "title": "Paired Interview Practice",
+            "desc": "Dual interaction and scenario studies for the speaking exam."
+          },
+          {
+            "title": "Exam Session",
+            "desc": "Application with paper-based or computer-delivered exam options."
+          }
+        ],
+        "faq": [
+          {
+            "q": "How long are the exams valid?",
+            "a": "Cambridge certificates have no expiration date and are valid for life."
+          },
+          {
+            "q": "Which level should I start from?",
+            "a": "Our experts will determine your current level and set the most suitable certificate goal for you."
+          }
+        ],
+        "structure": "<ul class=\"space-y-4\">\n        <li><strong>Reading & Use of English (90 min):</strong> Text analysis and in-depth grammar knowledge.</li>\n        <li><strong>Writing (90 min):</strong> Writing articles, letters, or reports.</li>\n        <li><strong>Listening (40 min):</strong> Listening and understanding in various contexts.</li>\n        <li><strong>Speaking (15 min):</strong> Interview conducted by pairing with another candidate.</li>\n      </ul>",
+        "scoring": "<p>The Cambridge English Scale system is used. Your level (B2, C1, C2) is certified with scores between 160 and 230+.</p>"
+      }
+    }
   },
   "ServiceDetail": {
     "globalStrategy": "GLOBAL FUTURE STRATEGY",
-    "advantages": "Program <span class='gold-text not-italic'>Advantages</span>",
-    "process": "Application <span class='gold-text not-italic'>Process</span>",
-    "prestige": "STAR EDUCATION PRESTIGE",
+    "bestMatch": "THE BEST MATCH FOR YOU",
+    "advantages": "Program <span class='gold-text'>Advantages</span>",
+    "advantagesTitle": "Program <span class='gold-text'>Advantages</span>",
+    "process": "Application <span class='gold-text'>Process</span>",
+    "processTitle": "Application <span class='gold-text'>Process</span>",
+    "requiredDocs": "Required <span class='gold-text'>Documents</span>",
+    "prestige": "Mentor Career Consulting PRESTIGE",
     "destinationsLabel": "GLOBAL DESTINATIONS",
-    "destinationsTitle": "Academic <span class='gold-text not-italic'>Routes</span>",
+    "destinationsTitle": "Academic <span class='gold-text'>Routes</span>",
     "destinationsDesc": "You are not just choosing a location, but a global vision that will change your life. Explore the most prestigious academic centers.",
     "popularLabel": "ELITE ACADEMIC ROUTES",
-    "popularTitle": "Popular <span class='gold-text not-italic'>Cities & Institutions</span>",
+    "popularTitle": "Popular <span class='gold-text'>Cities & Institutions</span>",
     "viewDetails": "VIEW DETAILS",
     "faqLabel": "GUIDANCE & ACADEMIC INFO",
-    "faqTitle": "Frequently Asked <span class='gold-text not-italic'>Questions</span>",
+    "faqTitle": "Frequently Asked <span class='gold-text'>Questions</span>",
     "strategicStep": "STRATEGIC STEP",
     "formTitle": "{title} Strategic Application Form",
     "formDesc": "Discover the most exclusive programs and institutions with our expert staff on your global education journey.",
-    "seoDefaultDescription": "Get detailed information and consultancy about {title} programs.",
-    "heroFallback": "We are with you with prestigious institutions and our expert guidance to help you reach your academic goals.",
-    "prestigeItems": {
-      "visionaryTitle": "VISIONARY APPROACH",
-      "visionaryDesc": "ACADEMIC STRATEGIES THAT CULTIVATE FUTURE LEADERS",
-      "eliteTitle": "ELITE PORTFOLIO",
-      "eliteDesc": "GLOBAL ACADEMIC NETWORK WITH THE MOST DISTINGUISHED INSTITUTIONS",
-      "holisticTitle": "HOLISTIC GUIDANCE",
-      "holisticDesc": "UNINTERRUPTED SUPPORT FROM APPLICATION TO CAREER PLANNING"
-    }
-  },
-  "CountryDetail": {
-    "guideLabel": "Global Destination Guide",
-    "heroSub": "Your academic journey in {country} begins here. Shape your future with Star Education Consulting's expert guidance.",
-    "capital": "Capital",
-    "language": "Language",
-    "currency": "Currency",
-    "whyLabel": "WHY {country}?",
-    "lifeAndEducation": "Education and Life in <span class='gold-text not-italic'>{country}</span>",
-    "featuredLabel": "FEATURED",
-    "prestigiousSchools": "Prestigious Schools in <span class='gold-text not-italic'>{country}</span>",
-    "viewAll": "VIEW ALL",
-    "institution": "EDUCATION INSTITUTION",
-    "freeResources": "Free <span class='gold-text not-italic'>Guides and Resources</span>",
-    "resourceSubtitle": "Download our exclusive documents containing everything you need to know about {country}.",
-    "fileInfo": "Comprehensive information file",
-    "downloadNow": "Download Now",
-    "description": "Comprehensive guide to education opportunities, universities, language schools and living conditions in {country}."
-  },
-  "CountryServiceDetail": {
-    "guideLabel": "ACADEMIC GUIDE",
-    "heroSub": "Discover elite education opportunities and prestigious institutions in {country} with Star Education Consulting guidance.",
-    "comprehensiveGuide": "Comprehensive <span class='gold-text not-italic'>Academic Guide</span>",
-    "noContent": "Content is being planned for this category.",
-    "preparingGuide": "We are preparing the most up-to-date guide for this region with our academic expertise.",
-    "contactForDetails": "You can contact our experts for detailed information and a personalized academic strategy.",
-    "advantages": "Program <span class='gold-text not-italic'>Advantages</span>",
-    "process": "Application <span class='gold-text not-italic'>Process</span>",
-    "faq": "Frequently Asked <span class='gold-text not-italic'>Questions</span>",
-    "pricing": "Program <span class='gold-text not-italic'>Fees</span>",
-    "tuition": "Annual Fee (Estimated)",
-    "askUs": "Ask Us",
-    "pricingDisclaimer": "* FEES MAY VARY DEPENDING ON INSTITUTIONS AND PROGRAMS.",
-    "institutionsByCity": "Institutions by <span class='gold-text not-italic'>City</span>",
-    "institutionsDesc": "The most exclusive institutions selected with Star Education Consulting quality across {country}.",
-    "institutionsCount": "{count} Institutions Listed",
-    "prestigiousInstitution": "PRESTIGIOUS INSTITUTION",
-    "globalPrestige": "GLOBAL PRESTIGE",
-    "explore": "EXPLORE",
-    "estimatedAnnualFee": "Estimated Annual Fee",
-    "whyCountry": "Why {country}?",
-    "defaultWhyItems": [
-      "Academic prestige and depth at international standards",
-      "Global network and lifelong visionary gains",
-      "A career targeted by world giant companies after graduation",
-      "Cultural enrichment and global citizenship competence"
+    "academicOptions": "Academic Options",
+    "featuredUniversities": "Featured Universities",
+    "universityDescription": "Explore the most prestigious educational institutions in {country} for your dream career.",
+    "list": [
+      {
+        "country": "United Kingdom",
+        "city": "London Hub",
+        "address": "London / UK",
+        "phone": "+447501412151",
+        "email": "info@mentor-cc.com",
+        "hours": "Mon – Fri: 09:00 – 18:00 / Saturday: 09:00 – 15:30",
+        "image": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=1000",
+        "isComingSoon": false
+      },
+      {
+        "country": "Global",
+        "city": "Worldwide (Turkish Support)",
+        "address": "Online / Remote",
+        "phone": "+447501412151",
+        "email": "info@mentor-cc.com",
+        "hours": "24/7 Digital Access",
+        "image": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1000",
+        "isComingSoon": false
+      }
     ],
-    "academicStrategy": "Set Your Academic Strategy",
-    "academicStrategyDesc": "Select the most suitable program and institution for you in {country} together with our expert consultants.",
-    "startStrategySession": "START STRATEGY SESSION",
-    "consultantsOnline": "CONSULTANTS ONLINE",
-    "seoDefaultTitle": "{country} {service} | Star Education Consulting",
-    "seoDefaultDescription": "Explore the best {service} options and institutions in {country}.",
-    "courseDefaultDescription": "Comprehensive guide about the {service} program in {country}."
-  },
-  "RouteDetail": {
-    "prestigiousDestination": "PRESTIGIOUS DESTINATION",
-    "globalFuture": "Global Future",
-    "heroSub": "Explore elite academic opportunities and cultural richness with Star Education Consulting guidance.",
-    "academicPartner": "ACADEMIC PARTNER",
-    "strategicAnalysis": "Strategic <span class='gold-text not-italic'>Analysis</span>",
-    "academicEvaluation": "Academic Evaluation",
-    "partnersTitle": "Partner <span class='gold-text not-italic'>Institutions</span>",
-    "partnersDesc": "Partner institutions selected with Star Education Consulting academic precision in {country}.",
-    "resultsLabel": "ELITE ACADEMIC RESULTS",
-    "explore": "EXPLORE",
-    "countryGuide": "Country Guide",
-    "officialLanguage": "Official Language",
-    "population": "Approximate Population",
-    "processSupport": "Process Support",
-    "consultancy": "Academic Consultancy",
-    "visaManagement": "Visa Process Management",
-    "accommodation": "Accommodation Organization",
-    "orientation": "Cultural Orientation",
-    "formTitle": "{title} Consultancy Request",
-    "formDesc": "Get information from our experts about {title} academic opportunities."
-  },
-  "About": {
-    "loading": "Loading...",
-    "heritageLabel": "OUR ACADEMIC HERITAGE",
-    "heroSubtitle": "We offer not just consultancy, but an integrated <span class='gold-text italic font-serif'>future design</span> for you to make a difference in the global arena.",
-    "getCounseling": "GET STRATEGIC CONSULTANCY",
-    "stats": {
-      "experience": "Years of Experience",
-      "students": "Happy Students",
-      "partners": "Partner Schools",
-      "countries": "Countries"
+    "faqSubtitle": "{country} {service} süreci hakkında merak edilenler.",
+    "worldRanking": "Dünya Sıralaması",
+    "annualTuition": "Yıllık Ücret",
+    "location": "Lokasyon",
+    "corporateProfile": "Kurumsal Profil",
+    "popularDepartments": "Popüler Bölümler",
+    "quickApply": "Hızlı Başvuru",
+    "applyOrGetQuote": "{name}'e Başvur veya Teklif Al",
+    "responseTime": "24 saat içinde uzman danışmanımız sizi arayacak.",
+    "quickInfo": "Hızlı Bilgiler",
+    "applicationPeriod": "Başvuru Dönemi",
+    "applicationPeriodDesc": "Güz ve Bahar Dönemleri",
+    "educationLanguage": "Eğitim Dili",
+    "educationLanguageDesc": "İngilizce / Yerel Dil",
+    "internationalStudent": "Uluslararası Öğrenci",
+    "internationalStudentDesc": "Yüksek Oranlı Entegrasyon",
+    "officialProcess": "Resmi Süreç",
+    "startNow": "{name} İçin Hemen Başlayın",
+    "startNowDesc": "Başvuru talebi veya fiyat teklifi alın — uzman akademik danışmanımız 24 saat içinde sizinle iletişime geçecek.",
+    "whyMentor Career": "Neden Mentor Career Consulting?",
+    "reasons": {
+      "strategy": "Kişiye özel akademik strateji",
+      "filePrep": "Tam dosya hazırlama desteği",
+      "accommodation": "Konaklama organizasyonu",
+      "access": "Mesai saatlerinde danışman erişimi"
     },
-    "mission": "Our Mission",
-    "missionDesc": "To transform the intellectual and professional capital of our students into a strategic advantage in the most prestigious global institutions.",
-    "vision": "Our Vision",
-    "visionDesc": "To be the most visionary strategy house that raises the leaders of the future by building a bridge between global education elites.",
-    "principlesLabel": "OUR PRINCIPLES",
-    "valuesTitle": "Our Core <span class='gold-text not-italic'>Values</span>",
-    "valuesSubtitle": "Our unwavering principles that shape our global vision and ethical values.",
-    "whoWeAreLabel": "WHO WE ARE?",
-    "teamTitle": "Our Expert Academic <span class='gold-text not-italic'>Staff</span>",
-    "teamSummary": "The Star Education Consulting team consists of academic consultants who have been educated worldwide, each an expert and visionary in their field.",
-    "meetTeam": "MEET OUR CONSULTANTS",
-    "futureDesignLabel": "FUTURE DESIGN",
-    "ctaTitle": "Let's Turn Your Story Into a <span class='gold-text italic'>Global</span> Success",
-    "ctaSubtitle": "We are ready to be your unwavering academic partner in this journey from the application process to career.",
-    "startStrategy": "START THE STRATEGY SESSION",
-    "values": {
-      "transparency": "Strategic Transparency",
-      "transparencyDesc": "We share not only the processes but also the strategic rationality behind every decision.",
-      "careerDesign": "Individual Career Design",
-      "careerDesignDesc": "Every student is a project; we transform this project into a world-class future.",
-      "globalVision": "Global Visionary",
-      "globalVisionDesc": "We focus on academic competencies that will be in demand in tomorrow's world, not today's."
-    }
+    "stats": {
+      "years": "Yıl",
+      "success": "Başarı",
+      "institutions": "Kurum"
+    },
+    "backToOverview": "{country} Genel Bakış",
+    "seoDefaultDescription": "{title} programları hakkında detaylı bilgi ve danışmanlık alın.",
+    "heroFallback": "Akademik hedeflerinize ulaşmanız için prestijli kurumlar ve uzman rehberliğimizle yanınızdayız.",
+    "prestigeItems": {
+      "visionaryTitle": "VİZYONER YAKLAŞIM",
+      "visionaryDesc": "GELECEĞİN LİDERLERİNİ YETİŞTİREN AKADEMİK STRATEJİLER",
+      "eliteTitle": "ELİT PORTFOLYO",
+      "eliteDesc": "EN SEÇKİN KURUMLARLA GLOBAL AKADEMİK NETWORK",
+      "holisticTitle": "BÜTÜNCÜL REHBERLİK",
+      "holisticDesc": "BAŞVURUDAN KARİYER PLANLAMASINA KESİNTİSİZ DESTEK"
+    },
+    "overview": "Sürece Genel Bakış",
+    "needHelp": "Yardıma mı ihtiyacınız var?",
+    "contactPrompt": "Süreç hakkında daha fazla bilgi almak ve size özel bir plan oluşturmak için uzmanlarımızla görüşün.",
+    "getFreeConsultation": "Ücretsiz Danışmanlık Al",
+    "whyChooseUs": "NEDEN BİZİ SEÇMELİSİNİZ?",
+    "ourDifference": "Mentor Career Consulting Farkı",
+    "howItWorks": "SÜREÇ NASIL İŞLER?",
+    "stepByStep": "Adım Adım Yol Haritası",
+    "faq": "SSS"
   },
   "Hero": {
-    "title": "Star Education Consulting Academic Mentorship",
-    "subtitle": "Build your future abroad with expert educational guidance and strategic matching.",
-    "cta": "Apply Now",
-    "cta2": "Explore Programs",
-    "slider2": {
-      "title": "A Global Vision from the UK to the USA — The Choice is Yours",
-      "subtitle": "500+ partner schools in 9 countries. Corporate guidance at every education level from language schools to master's degrees.",
-      "cta": "Explore Countries"
-    },
-    "slider3": {
-      "title": "From IELTS to GRE — We Are With You in Exam Preparation Too",
-      "subtitle": "Expert academic strategy for language and proficiency exams required to reach your target score in the shortest way.",
-      "cta": "View Exam Guide"
-    },
-    "label": "Your Strategic Partner for a Global Future",
+    "title": "Mentor Career Consulting Academic Mentorship",
+    "subtitle": "Reach your dream university with strategic steps with our London-based expert staff and local support.",
+    "cta": "Start Official Process",
+    "label": "Strategy Partner of Your Global Future",
     "viewDetails": "View Details",
-    "contact": "Get in Touch",
+    "contact": "Contact Us",
     "badges": {
-      "experience": "Years Experience",
-      "students": "Students Placed",
-      "countries": "Countries & Regions",
-      "partners": "Partner Schools & Universities"
+      "experience": "Years of Experience",
+      "students": "Boarding Students",
+      "countries": "Countries & Regions"
     }
   },
   "WhatsApp": {
     "title": "Quick Support",
     "online": "Online",
-    "offline": "Responds Soon",
+    "offline": "Replies Soon",
     "greeting": "Hello! 👋",
-    "message": "You can start chatting with our expert consultant on WhatsApp right now.",
+    "message": "You can start chatting with our expert consultant immediately via WhatsApp.",
     "inputPlaceholder": "How should we address you? (Optional)",
-    "defaultMessage": "I'm reaching out via the Star Education Consulting website, can I get some information?",
+    "defaultMessage": "I'm reaching out through your Mentor Career Consulting website, can I get information?",
     "visitor": "Visitor",
     "footer": "Secure Communication Line",
     "topics": {
       "interest": "Your interests",
-      "request": "I'd like to get information about.",
+      "request": "I want information about.",
       "start": "START WITH SELECTED",
       "direct": "START DIRECT CHAT",
       "uni": {
         "label": "🎓 University",
-        "message": "Undergraduate education abroad"
+        "message": "University education abroad"
       },
       "master": {
         "label": "🎓 Master's",
-        "message": "Master's / Graduate studies abroad"
+        "message": "Master's / graduate abroad"
       },
       "lise": {
         "label": "🏫 High School",
@@ -268,15 +895,19 @@
       "general": {
         "label": "💬 Other",
         "message": "General information"
+      },
+      "sinavlar": {
+        "label": "📝 Sınavlar",
+        "message": "Uluslararası sınav hazırlığı"
       }
     },
     "appointment": {
       "title": "Schedule Appointment",
-      "back": "Go Back",
-      "selectDay": "Select a Day",
+      "back": "Back",
+      "selectDay": "Select Day",
       "selectTime": "Time Slot",
       "submit": "SEND APPOINTMENT REQUEST",
-      "request": "I'd like to schedule an appointment for this time slot.",
+      "request": "I'd like to schedule an appointment for the time slot.",
       "subject": "Appointment Request",
       "slots": {
         "morning": "Morning (09:00 - 12:00)",
@@ -287,134 +918,23 @@
   },
   "Auth": {
     "loginTitle": "Welcome Back",
-    "loginSubtitle": "Log in to track your offer.",
-    "registerTitle": "Create an Account",
-    "registerSubtitle": "Sign up to manage your offer via the dashboard.",
+    "loginSubtitle": "Log in to track your proposal.",
+    "registerTitle": "Create Account",
+    "registerSubtitle": "Sign up to manage your proposal via the dashboard.",
     "fullName": "Full Name",
-    "fullNamePlaceholder": "Jane Doe",
+    "fullNamePlaceholder": "John Doe",
     "email": "Email",
-    "emailPlaceholder": "jane@example.com",
+    "emailPlaceholder": "john@example.com",
     "password": "Password",
     "loginButton": "Log In",
     "registerButton": "Sign Up",
     "switch": {
-      "noAccount": "Don't have an account yet? Register",
+      "noAccount": "Don't have an account yet? Sign up",
       "haveAccount": "Already have an account? Log in"
     },
     "errors": {
-      "login": "Login failed. Please check your credentials.",
+      "login": "Login failed. Please check your information.",
       "register": "Registration error"
-    }
-  },
-  "HomePage": {
-    "AboutUs": {
-      "label": "Corporate Vision",
-      "title": "25 Years of <span class='gold-text not-italic'>Academic Guidance</span>",
-      "desc1": "As one of Turkey's most established study abroad consultancy institutions, Star Education Consulting has been providing technical and strategic guidance to thousands of students in their global career journeys for over a quarter of a century.",
-      "desc2": "We don’t just handle school placement; we provide personalized <span class='gold-text font-bold italic'>global future architecture</span>. We project dreams at international standards with our expertise.",
-      "stats": {
-        "experience": "Years Experience",
-        "partners": "Global Partners"
-      }
-    },
-    "SmartFinder": {
-      "label": "Smart Match",
-      "title": "Discover the <span class='gold-text not-italic'>Program</span> Best Suited for You"
-    },
-    "Methodology": {
-      "label": "Application Process",
-      "title": "A Strategic <span class='gold-text not-italic'>Journey</span> to Your Dreams",
-      "desc": "We don’t just plan your future; we <span class='gold-text italic font-serif'>redesign it</span> to the highest standards. Together, we draw the strategic roadmap you need to make a difference in the global world.",
-      "ctaTitle": "Let's Draw Your Strategic Roadmap",
-      "steps": {
-        "1": {
-          "title": "Career Architecture",
-          "desc": "Not just a school choice, but a strategic start where we construct the vision of ten years from now, today."
-        },
-        "2": {
-          "title": "Elite Portfolio Management",
-          "desc": "We meticulously structure every detail that will separate you from other candidates and take your acceptance chances to the top."
-        },
-        "3": {
-          "title": "Operational Perfection",
-          "desc": "We turn visa and bureaucratic processes from stress into a comfort zone where you will focus solely on success."
-        },
-        "4": {
-          "title": "Global Life Guidance",
-          "desc": "We are your strongest ally by your side to evaluate every opportunity you encounter throughout your education life."
-        }
-      }
-    },
-    "Process": {
-      "label": "What We Do for You",
-      "title": "Academic <span class='gold-text not-italic'>Services</span>",
-      "desc": "Our professional academic and career-oriented services offered to shape your future by global standards.",
-      "viewService": "View Service"
-    },
-    "Destinations": {
-      "label": "Destinations",
-      "title": "Popular <span class='gold-text not-italic'>Routes</span>",
-      "desc": "Discover boundary-pushing education hubs where academic prestige and career opportunities meet worldwide with our expert guidance.",
-      "viewDestinations": "Explore Routes",
-      "viewDetail": "View Details"
-    },
-    "Featured": {
-      "label": "Popular Study Abroad Programs",
-      "title": "The World's Best <br /> <span class='gold-text not-italic'>Educational Institutions</span>",
-      "viewAll": "Explore All"
-    },
-    "Consultation": {
-      "label": "Consultation",
-      "title": "Build Your <br /> Future with <span class='gold-text italic'>Strategy</span>.",
-      "desc": "Studying abroad is not just a diploma; it's an investment in a lifelong network and vision. Start your <span class='text-white italic font-serif'>academic strategy session</span> now.",
-      "offices": [
-        {
-          "city": "Stuttgart",
-          "country": "Germany"
-        },
-        {
-          "city": "London",
-          "country": "United Kingdom"
-        },
-        {
-          "city": "Turkey Nationwide",
-          "country": "30 Metropolitan Cities"
-        },
-        {
-          "city": "Worldwide",
-          "country": "All Turkish Speakers"
-        }
-      ],
-      "formTitle": "Consultation Request",
-      "starberatungText": "Your academic journey starts with a single step. <span class='gold-text font-bold italic'>Star Education Consulting</span> is with you every step of the way, from application to enrollment and beyond."
-    },
-    "Services": {
-      "vize": "Visa Consultancy",
-      "konaklama": "Accommodation Support",
-      "bilet": "Flight Tickets",
-      "denklik": "Equivalency",
-      "master-yuksek-lisans": "Master & Graduate",
-      "lise": "High School",
-      "universite": "University",
-      "yaz-okulu": "Summer Schools",
-      "dil-okullari": "Language Schools",
-      "YURTDISI-YUKSEK-LISANS": "Postgraduate & Master's",
-      "YURTDISI-LISE": "High School Abroad",
-      "YURTDISI-UNIVERSITE": "University Abroad",
-      "YURTDISI-YAZ-OKULLARI": "Summer Schools Abroad",
-      "YURTDISI-DIL-OKULLARI": "Language Schools Abroad",
-      "KARIYER": "Career",
-      "yurtdisi-yuksek-lisans": "Postgraduate & Master's",
-      "yurtdisi-lise": "High School Abroad",
-      "yurtdisi-universite": "University Abroad",
-      "yurtdisi-yaz-okullari": "Summer Schools Abroad",
-      "yurtdisi-dil-okullari": "Language Schools Abroad",
-      "kariyer": "Career",
-      "egitim-koclugu": "Education Coaching",
-      "ulkeler": "Countries",
-      "programlar": "Programs",
-      "subeler": "Branches",
-      "sinavlar": "Exams"
     }
   },
   "Card": {
@@ -425,7 +945,7 @@
   },
   "Blog": {
     "label": "Academic Perspective",
-    "title": "Elite Notes from the <br /> <span class='italic'>Education World</span>",
+    "title": "Elite Notes from the '<br />' '<span class=\"italic\">'Education World'</span>'",
     "viewAll": "View All",
     "readMore": "Start Reading",
     "empty": "The latest announcements and educational content will be shared here soon.",
@@ -439,17 +959,17 @@
     "contactLabel": "CONTACT",
     "title": "Start Your Strategy Session",
     "subtitle": "We are here to turn your study abroad dreams into reality with academic precision and our expert guidance.",
-    "description": "Let's determine a special roadmap for you with our expert team to reach your global goals.",
-    "officeTitle": "Our Academic <span class='gold-text not-italic'>Office</span>",
-    "officeDesc": "You can visit our office to meet our expert consultants face to face or reach us through our digital channels.",
-    "mainOffice": "Head Office",
-    "phone": "Phone",
+    "description": "Address: London /UK \n Phone: +447501412151 \n E-mail: info@mentor-cc.com",
+    "officeTitle": "Our Academic Office",
+    "officeDesc": "You can visit our office to meet face-to-face with our expert consultants or reach us through our digital channels.",
+    "mainOffice": "London Office",
+    "phone": "+447501412151",
     "email": "Email",
     "workingHours": "Working Hours",
     "weekdays": "Weekdays",
     "saturday": "Saturday",
-    "collaborationTitle": "Strategic <span class='gold-text not-italic'>Collaboration</span>",
-    "collaborationDesc": "We are here to turn your study abroad dreams into reality with academic precision and our expert guidance. You can take the first step by filling out the form below or contacting our office directly.",
+    "collaborationTitle": "Strategic Collaboration",
+    "collaborationDesc": "We are here to turn your study abroad dreams into reality with academic precision and our expert guidance. You can take the first step by filling out the form, sending an email, or contacting us via WhatsApp.",
     "formTitle": "Consultancy Request",
     "formData": {
       "name": "Full Name",
@@ -460,9 +980,9 @@
       "placeholders": {
         "name": "Jane Doe",
         "email": "jane@example.com",
-        "phone": "+44 7___ ______",
+        "phone": "+90 (5__) ___ __ __",
         "service": "Select Program",
-        "message": "Briefly mention your vision and expectations..."
+        "message": "Vision"
       }
     },
     "submit": "SEND STRATEGY REQUEST",
@@ -484,7 +1004,7 @@
       "0": {
         "name": "Zeynep K.",
         "program": "King's College London - Law",
-        "text": "Before meeting Star Education Consulting, studying law in London was just a dream. I got accepted thanks to their meticulous work on the application process and their touches on my letter of intent. It was the best decision of my life."
+        "text": "Before meeting Mentor Career Consulting, studying law in London was just a dream. I got accepted thanks to their meticulous work on the application process and their touches on my letter of intent. It was the best decision of my life."
       },
       "1": {
         "name": "Caner Y.",
@@ -494,7 +1014,7 @@
       "2": {
         "name": "Elif & Family",
         "program": "UCLA Summer School",
-        "text": "We were very worried when we sent our 15-year-old daughter abroad for the first time. However, Star Education Consulting's sensitivity to security and constant updates really relieved us. Our daughter returned with confidence."
+        "text": "We were very worried when we sent our 15-year-old daughter abroad for the first time. However, Mentor Career Consulting's sensitivity to security and constant updates really relieved us. Our daughter returned with confidence."
       },
       "3": {
         "name": "Mert T.",
@@ -504,11 +1024,23 @@
     }
   },
   "SmartFinder": {
-    "title": "Best Options for You",
+    "mainTitle": "Discover Your Academic Route with AI",
+    "mainSubtitle": "Find the most suitable education program for your goals, budget, and profile in seconds with the SmartFinder algorithm.",
+    "resultsTitle": "The Best <span class='gold-text italic'>Academic Options</span> for You",
+    "title": "Analysis Results",
     "searching": "Analyzing...",
     "compatibility": "%{score} Compatible",
     "details": "Details",
+    "secureApplication": "Secure Application",
     "applyNow": "Apply Now",
+    "fastProcessing": "Fast Processing",
+    "directAdmission": "Direct Admission",
+    "compatibilityLabel": "Compatibility",
+    "mentorshipIncluded": "Includes personalized mentorship",
+    "requirementsLabel": "Requirements",
+    "req_academic": "Academic Records",
+    "req_language": "Language Cert",
+    "req_personal": "Personal Statement",
     "noMatch": "Unfortunately, no exact match was found.",
     "noMatchDesc": "You can try again by relaxing your criteria or ask our consultant.",
     "retry": "Search Again",
@@ -518,6 +1050,25 @@
     "completeStep": "Complete Step",
     "prevStep": "Go Back",
     "nextStep": "Go to Final Step",
+    "sortBy": {
+      "compatibility": "Match Score",
+      "price": "Annual Tuition"
+    },
+    "result": {
+      "topMatch": "BEST MATCH",
+      "duration": "Education Period",
+      "fastTrack": "Fast Process",
+      "directAdmit": "Direct Admission",
+      "defaultDuration": "1-4 Years"
+    },
+    "modal": {
+      "admissionCriteria": "Admission Criteria",
+      "highlights": "Program Highlights",
+      "institutionalStats": "Institutional Data",
+      "minGpa": "Minimum GPA",
+      "langProficiency": "Language Proficiency",
+      "ranking": "RANKING"
+    },
     "steps": {
       "category": "Program Type",
       "profile": "Profile & Goal",
@@ -550,30 +1101,33 @@
       }
     },
     "fields": {
-      "gpa": "Academic Success (GPA)",
-      "gpaPlaceholder": "Ex: 3.4",
+      "gpa": "GPA / Grade Average",
+      "gpaPlaceholder": "0.0 - 4.0",
       "langProficiency": "Language Proficiency",
-      "specialization": "Target Specialization Area",
-      "highSchoolGpa": "GPA (over 100)",
-      "highSchoolGpaPlaceholder": "Ex: 88",
+      "specialization": "Specialization Area",
+      "highSchoolGpa": "High School GPA",
+      "highSchoolGpaPlaceholder": "50 - 100",
       "langLevel": "Language Level",
-      "schoolType": "School Type Preference",
-      "currentLangLevel": "Your Current Language Level",
+      "currentLangLevel": "Current Language Level",
       "eduFocus": "Education Focus",
-      "duration": "Target Duration",
-      "period": "Education Period",
-      "budgetPlan": "Budget Plan"
+      "duration": "Program Duration",
+      "period": "Study Period",
+      "budget": "Budget Range",
+      "country": "Target Country",
+      "category": "Program Type",
+      "preference": "Specialization",
+      "languageScore": "Language Score"
     },
     "durationLabels": {
-      "short_summer": "2-4 Weeks",
-      "med_summer": "6-8 Weeks",
-      "long_summer": "10-12 Weeks",
-      "short_lang": "4-8 Weeks",
-      "med_lang": "12-24 Weeks",
-      "long_lang": "36+ Weeks",
       "semester": "1 Semester",
-      "year": "1 Academic Year",
-      "full": "Full Program"
+      "year": "1 Year",
+      "full": "Full Program",
+      "short_lang": "2-4 Weeks",
+      "med_lang": "1-3 Months",
+      "long_lang": "3 Months+",
+      "short_summer": "2-3 Weeks",
+      "med_summer": "4-6 Weeks",
+      "long_summer": "6 Weeks+"
     },
     "budgetLabels": {
       "ECONOMY": {
@@ -595,169 +1149,139 @@
       "ingiltere": "UK",
       "amerika": "USA",
       "kanada": "Canada",
+      "italya": "Italy",
+      "fransa": "France",
+      "ispanya": "Spain",
       "isvicre": "Switzerland",
       "avustralya": "Australia",
       "belcika": "Belgium",
       "hollanda": "Netherlands",
       "irlanda": "Ireland",
-      "polonya": "Poland"
+      "polonya": "Poland",
+      "macaristan": "Hungary",
+      "malta": "Malta"
     },
     "areas": {
-      "Mühendislik": "Engineering",
-      "İşletme": "Business",
-      "Tıp": "Medicine",
-      "Sanat": "Art"
+      "ENGINEERING": "Engineering",
+      "BUSINESS": "Business",
+      "MEDICINE": "Medicine",
+      "ART": "Arts",
+      "OTHER": "Other"
     },
     "focus": {
-      "Genel": "General Language Education",
-      "Sinav": "Exam Preparation (IELTS/TOEFL)",
-      "Is": "Business English"
+      "GENERAL": "General English",
+      "EXAM": "Exam Preparation",
+      "BUSINESS": "Business English"
     },
     "schoolTypes": {
-      "devlet": "Public High School",
-      "ozel": "Private Boarding",
-      "spor": "Sports Oriented"
+      "PUBLIC": "Public High School",
+      "PRIVATE": "Private Boarding",
+      "SPORTS": "Sports Oriented",
+      "Devlet": "Public High School",
+      "Özel": "Private Boarding"
     }
   },
-  "Career": {
-    "meta": {
-      "title": "Career & Future | Work With Us | Star Education Consulting",
-      "description": "Join our visionary team raising the leaders of the future. We are growing with professionals who will make a difference in the global education sector."
-    },
-    "hero": {
-      "label": "Join Our Team",
-      "title": "Career & <span class='gold-text not-italic'>Future</span>",
-      "subtitle": "Join our visionary team raising the leaders of the future. We are growing with professionals who will make a difference in the global education sector."
-    },
-    "culture": {
-      "label": "OUR CULTURE",
-      "title": "Why <span class='gold-text not-italic'>Star Education Consulting</span>?",
-      "subtitle": "Do you want to be in a center of excellence where we are not just a workplace, but where we learn something new every day and shape the global academic world?"
-    },
-    "benefits": {
-      "global": {
-        "title": "Global Vision",
-        "desc": "Opportunity to work directly with the world's most prestigious educational institutions and be part of a global network."
-      },
-      "development": {
-        "title": "Continuous Development",
-        "desc": "Regular domestic and international training programs that will enable you to specialize in academic consultancy."
-      },
-      "culture": {
-        "title": "Culture & Commitment",
-        "desc": "A supportive working environment based on mutual trust, professionalism, and high ethical values."
-      }
-    },
-    "positions": {
-      "label": "OPEN POSITIONS",
-      "title": "We Are <span class='gold-text not-italic'>Waiting For You</span>",
-      "desc": "If a listed position is not suitable for you, we may still want to meet you.",
-      "apply": "APPLY NOW",
-      "generalTitle": "General Application",
-      "generalDesc": "Send us your CV and motivation letter, we will reach out to you first when a position opens up where you can add value to our team."
-    },
-    "openings": [
-      {
-        "title": "Senior Academic Consultant",
-        "location": "Istanbul (HQ)",
-        "type": "Full-Time",
-        "category": "Academic Services"
-      },
-      {
-        "title": "Overseas Education Coordinator",
-        "location": "Turkey (Metropolitan Field Coordination)",
-        "type": "Full-Time",
-        "category": "Operations"
-      },
-      {
-        "title": "Digital Marketing Specialist",
-        "location": "Remote / Istanbul (HQ)",
-        "type": "Full-Time",
-        "category": "Marketing"
-      }
-    ]
+  "ProgramDetail": {
+    "title": "Program Details",
+    "backToSearch": "Back to Search",
+    "applyNow": "Apply Now",
+    "institution": "Institution",
+    "location": "Location",
+    "category": "Category",
+    "duration": "Duration",
+    "price": "Price",
+    "description": "About Program",
+    "requirements": "Entry Requirements",
+    "features": "Program Features",
+    "stats": "Statistics",
+    "similarPrograms": "Similar Programs",
+    "notFound": "Program Not Found",
+    "notFoundDesc": "The program you are looking for does not exist or may have been removed.",
+    "viewAllPrograms": "View All Programs",
+    "applySuccess": "Your application has been received!",
+    "applySuccessDesc": "Our consultants will contact you as soon as possible."
   },
   "SuccessStories": {
-      "metaTitle": "Success Stories | Star Education Consulting",
-      "metaDesc": "Global academic achievements and experiences of our students who turned their study abroad dreams into reality.",
-      "heroLabel": "Success Stories",
-      "heroTitle": "Leaders of the <span>Future</span>",
-      "heroSubtitle": "Success stories and global academic achievements of thousands of students who accompanied us on our journey.",
-      "stats": {
-        "acceptance": {
-          "label": "Acceptance Rate",
-          "value": "99.2%"
-        },
-        "scholarship": {
-          "label": "Scholarship Gains",
-          "value": "$4.5M+"
-        },
-        "alumni": {
-          "label": "Number of Alumni",
-          "value": "8500+"
-        },
-        "partners": {
-          "label": "Global Partner",
-          "value": "450+"
-        }
+    "metaTitle": "Success Stories | Mentor Career Consulting",
+    "metaDesc": "Global academic achievements and experiences of our students who turned their study abroad dreams into reality.",
+    "heroLabel": "Success Stories",
+    "heroTitle": "Leaders of the <span>Future</span>",
+    "heroSubtitle": "Success stories and global academic achievements of thousands of students who accompanied us on our journey.",
+    "stats": {
+      "acceptance": {
+        "label": "Acceptance Rate",
+        "value": "99.2%"
       },
-      "testimonials": [
-        {
-          "name": "Selin Yılmaz",
-          "university": "University of Oxford",
-          "program": "MSc in Computer Science",
-          "quote": "Working with Star Education Consulting was the turning point of my life. They added an incredible vision not only in the application process but also in my career planning.",
-          "year": "2025"
-        },
-        {
-          "name": "Can Berk",
-          "university": "Harvard University",
-          "program": "MBA",
-          "quote": "Getting accepted to Harvard seemed impossible, but thanks to strategic portfolio management, my dream came true. I received professional support at every stage.",
-          "year": "2023"
-        },
-        {
-          "name": "Merve Demir",
-          "university": "University of Toronto",
-          "program": "Biomedical Engineering",
-          "quote": "The Canadian visa process and school admission went very smoothly with Star Education Consulting expertise. I always felt safe.",
-          "year": "2025"
-        },
-        {
-          "name": "Arda Erkan",
-          "university": "ETH Zurich",
-          "program": "Robotics and Intelligent Systems",
-          "quote": "The process of getting accepted to one of the best universities in Europe was very challenging. Star Education Consulting's academic depth made a difference.",
-          "year": "2024"
-        },
-        {
-          "name": "Zeynep Kaya",
-          "university": "Bayswater London",
-          "program": "Intensive English Portfolio",
-          "quote": "Their options and school connections were great in my decision to go to London for language education. It was a tremendous experience.",
-          "year": "2023"
-        },
-        {
-          "name": "Emre Aydın",
-          "university": "Columbia University",
-          "program": "Public Administration",
-          "quote": "My dream of studying in New York came true. Especially their guidance in scholarship applications was very valuable.",
-          "year": "2025"
-        }
-      ],
-      "galleryLabel": "GLOBAL NETWORK",
-      "galleryTitle": "Institutions Where Our <span>Alumni</span> Are",
-      "ctaTitle": "What Will Your <span>Story</span> Be?",
-      "ctaDesc": "Let's take the first step together today to build your future at a world-renowned university.",
-      "ctaBtn": "GET FREE CONSULTANCY",
-      "classOf": "Class of {year}"
+      "scholarship": {
+        "label": "Scholarship Gains",
+        "value": "$4.5M+"
+      },
+      "alumni": {
+        "label": "Number of Alumni",
+        "value": "8500+"
+      },
+      "partners": {
+        "label": "Global Partner",
+        "value": "450+"
+      }
     },
+    "testimonials": [
+      {
+        "name": "Selin Yılmaz",
+        "university": "University of Oxford",
+        "program": "MSc in Computer Science",
+        "quote": "Working with Mentor Career Consulting was the turning point of my life. They added an incredible vision not only in the application process but also in my career planning.",
+        "year": "2025"
+      },
+      {
+        "name": "Can Berk",
+        "university": "Harvard University",
+        "program": "MBA",
+        "quote": "Getting accepted to Harvard seemed impossible, but thanks to strategic portfolio management, my dream came true. I received professional support at every stage.",
+        "year": "2023"
+      },
+      {
+        "name": "Merve Demir",
+        "university": "University of Toronto",
+        "program": "Biomedical Engineering",
+        "quote": "The Canadian visa process and school admission went very smoothly with Mentor Career Consulting expertise. I always felt safe.",
+        "year": "2025"
+      },
+      {
+        "name": "Arda Erkan",
+        "university": "ETH Zurich",
+        "program": "Robotics and Intelligent Systems",
+        "quote": "The process of getting accepted to one of the best universities in Europe was very challenging. Mentor Career Consulting's academic depth made a difference.",
+        "year": "2024"
+      },
+      {
+        "name": "Zeynep Kaya",
+        "university": "Bayswater London",
+        "program": "Intensive English Portfolio",
+        "quote": "Their options and school connections were great in my decision to go to London for language education. It was a tremendous experience.",
+        "year": "2023"
+      },
+      {
+        "name": "Emre Aydın",
+        "university": "Columbia University",
+        "program": "Public Administration",
+        "quote": "My dream of studying in New York came true. Especially their guidance in scholarship applications was very valuable.",
+        "year": "2025"
+      }
+    ],
+    "galleryLabel": "GLOBAL NETWORK",
+    "galleryTitle": "Institutions Where Our <span>Alumni</span> Are",
+    "ctaTitle": "What Will Your <span>Story</span> Be?",
+    "ctaDesc": "Let's take the first step together today to build your future at a world-renowned university.",
+    "ctaBtn": "GET FREE CONSULTANCY",
+    "classOf": "Class of {year}"
+  },
   "ProgramFinder": {
     "title": "Smart School Finder | Find the Most Suitable Program in Seconds",
     "description": "Discover the most suitable study abroad programs, universities, and language schools for your budget and goals with real data.",
     "keywords": "study abroad finder, affordable schools, budget-friendly study abroad, smart school matching",
     "heroBadge": "AI Powered Matching",
-    "heroTitle": "Plan Your Future <br /> <span class='text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary)] to-blue-400'>With Data</span>.",
+    "heroTitle": "Plan Your Future <br /> <highlight>With Data</highlight>.",
     "heroSubtitle": "Find the shortest path between your dreams and your budget. <br /> Make your special analysis now with real school fees and admission criteria.",
     "trust": {
       "data": {
@@ -775,7 +1299,7 @@
     },
     "quote": {
       "text": "\"Study abroad is not an expense, but the most strategic investment that will pay dividends for a lifetime.\"",
-      "author": "Star Education Consulting Executive Guide"
+      "author": "Mentor Career Consulting Executive Guide"
     }
   },
   "Quote": {
@@ -826,8 +1350,9 @@
     "importantNotes": "Important Notes"
   },
   "Footer": {
-    "brandSummary": "Star Education Consulting - Study Abroad Consultancy",
-    "brandDescription": "As Turkey's most established study abroad consultancy, we have been turning dreams into reality for over 25 years. Global vision, local expertise. Let's build your future together with Star Education Consulting.",
+    "aboutTitle": "Why Mentor Career Consulting?",
+    "brandSummary": "Mentor Career Consulting - Study Abroad Consultancy",
+    "brandDescription": "At every stage from high school to postgraduate education, Mentor Career leads you for better career planning and educational life. It lists study abroad schools, work & travel opportunities, and language schools that you can choose according to your education level. It guides you in making a choice suitable for your budget and needs. It provides you with up-to-date information by researching the countries where you want to receive education.\n\n\"Call us now to make a career planning that can be globally valid with our education consultancy services!\"",
     "sections": {
       "programs": "Programs",
       "corporate": "Corporate",
@@ -840,7 +1365,8 @@
       "career": "Our Services",
       "legal": "KVKK",
       "terms": "Terms of Use",
-      "privacy": "Privacy Policy"
+      "privacy": "Privacy Policy",
+      "aboutUs": "Hakkımızda"
     },
     "copyright": "ALL RIGHTS RESERVED."
   },
@@ -848,7 +1374,7 @@
     "yurtdisi-universite": {
       "title": "University Education Abroad",
       "heroDesc": "Join the leaders of the future, from Oxford to Harvard. Build a global career with entrance without exams and scholarship opportunities.",
-      "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Doors to a Global Future</h2><p class=\"mb-6\">University education abroad with Star Education Consulting is not just a diploma, but opening the door to a life without borders. In the UK, you can graduate in 3 years and start your career early, discover your talents with the 'Liberal Arts' system in the USA, or receive free engineering education in Germany.</p><h2 class=\"text-3xl font-serif font-bold text-navy mb-10 italic underline underline-offset-8 decoration-gold/50\">Estimated Academic Fees (Annual)</h2><div class=\"overflow-x-auto mb-10 border border-gold/10 shadow-sm\"><table class=\"w-full text-left font-sans text-sm\"><thead class=\"bg-navy text-gold uppercase tracking-widest text-[10px]\"><tr><th class=\"p-6\">Country</th><th class=\"p-6\">Program Type</th><th class=\"p-6\">Average Fee</th></tr></thead><tbody class=\"divide-y divide-gold/5 italic\"><tr class=\"hover:bg-gold/5 transition-colors\"><td class=\"p-6 font-bold\">UK</td><td class=\"p-6\">Bachelor / Master</td><td class=\"p-6 text-gold font-bold\">£14,000 - £28,000</td></tr><tr class=\"hover:bg-gold/5 transition-colors\"><td class=\"p-6 font-bold\">USA</td><td class=\"p-6\">Bachelor (Incl. Scholarship)</td><td class=\"p-6 text-gold font-bold\">$22,000 - $55,000</td></tr><tr class=\"hover:bg-gold/5 transition-colors\"><td class=\"p-6 font-bold\">Poland / Hungary</td><td class=\"p-6\">Medicine / Engineering</td><td class=\"p-6 text-gold font-bold\">€4,000 - €12,000</td></tr><tr class=\"hover:bg-gold/5 transition-colors\"><td class=\"p-6 font-bold\">Ireland</td><td class=\"p-6\">Bachelor / Master</td><td class=\"p-6 text-gold font-bold\">€11,000 - €18,000</td></tr></tbody></table></div><h2 class=\"text-3xl font-serif font-bold text-navy mb-10 italic underline underline-offset-8 decoration-gold/30\">Academic Preparation and Pathway Programs</h2><ul class=\"grid grid-cols-1 md:grid-cols-2 gap-4 mb-10 italic text-sm\"><li class=\"p-4 bg-white/50 border-l-4 border-gold font-bold\"><strong>Foundation:</strong> 1-year academic bridge program before Bachelor's.</li><li class=\"p-4 bg-white/50 border-l-4 border-gold font-bold\"><strong>Pre-Master:</strong> Academic and language proficiency required for Master's.</li><li class=\"p-4 bg-white/50 border-l-4 border-gold font-bold\"><strong>IY1:</strong> Direct equivalent transition program to the first year.</li><li class=\"p-4 bg-white/50 border-l-4 border-gold font-bold\"><strong>Scholarship Counseling:</strong> Tracking achievement scholarships from 20% to 100%.</li></ul>",
+      "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Doors to a Global Future</h2><p class=\"mb-6\">University education abroad with Mentor Career Consulting is not just a diploma, but opening the door to a life without borders. In the UK, you can graduate in 3 years and start your career early, discover your talents with the 'Liberal Arts' system in the USA, or receive free engineering education in Germany.</p><h2 class=\"text-3xl font-serif font-bold text-navy mb-10 italic underline underline-offset-8 decoration-secondary/\">Estimated Academic Fees (Annual)</h2><div class=\"overflow-x-auto mb-10 border border-gold/10 shadow-sm\"><table class=\"w-full text-left font-sans text-sm\"><thead class=\"bg-navy text-gold uppercase tracking-widest text-[10px]\"><tr><th class=\"p-6\">Country</th><th class=\"p-6\">Program Type</th><th class=\"p-6\">Average Fee</th></tr></thead><tbody class=\"divide-y divide-gold/5 italic\"><tr class=\"hover:bg-gold/5 transition-colors\"><td class=\"p-6 font-bold\">UK</td><td class=\"p-6\">Bachelor / Master</td><td class=\"p-6 text-gold font-bold\">£14,000 - £28,000</td></tr><tr class=\"hover:bg-gold/5 transition-colors\"><td class=\"p-6 font-bold\">USA</td><td class=\"p-6\">Bachelor (Incl. Scholarship)</td><td class=\"p-6 text-gold font-bold\">$22,000 - $55,000</td></tr><tr class=\"hover:bg-gold/5 transition-colors\"><td class=\"p-6 font-bold\">Poland / Hungary</td><td class=\"p-6\">Medicine / Engineering</td><td class=\"p-6 text-gold font-bold\">€4,000 - €12,000</td></tr><tr class=\"hover:bg-gold/5 transition-colors\"><td class=\"p-6 font-bold\">Ireland</td><td class=\"p-6\">Bachelor / Master</td><td class=\"p-6 text-gold font-bold\">€11,000 - €18,000</td></tr></tbody></table></div><h2 class=\"text-3xl font-serif font-bold text-navy mb-10 italic underline underline-offset-8 decoration-secondary/\">Academic Preparation and Pathway Programs</h2><ul class=\"grid grid-cols-1 md:grid-cols-2 gap-4 mb-10 italic text-sm\"><li class=\"p-4 bg-white/50 border-l-4 border-gold font-bold\"><strong>Foundation:</strong> 1-year academic bridge program before Bachelor's.</li><li class=\"p-4 bg-white/50 border-l-4 border-gold font-bold\"><strong>Pre-Master:</strong> Academic and language proficiency required for Master's.</li><li class=\"p-4 bg-white/50 border-l-4 border-gold font-bold\"><strong>IY1:</strong> Direct equivalent transition program to the first year.</li><li class=\"p-4 bg-white/50 border-l-4 border-gold font-bold\"><strong>Scholarship Counseling:</strong> Tracking achievement scholarships from 20% to 100%.</li></ul>",
       "advantages": [
         {
           "title": "Admission Without Exam",
@@ -905,7 +1431,7 @@
       "faq": [
         {
           "q": "Can I get YÖK equivalency?",
-          "a": "Yes. When you graduate from universities in the top 1000 world rankings, you can get direct equivalency. For schools outside the top 1000, YGS/LYS requirements or a Level Placement Exam may be required. As Star Education Consulting, we only work with accredited and recognized schools."
+          "a": "Yes. When you graduate from universities in the top 1000 world rankings, you can get direct equivalency. For schools outside the top 1000, YGS/LYS requirements or a Level Placement Exam may be required. As Mentor Career Consulting, we only work with accredited and recognized schools."
         }
       ]
     },
@@ -928,11 +1454,15 @@
     "denklik": {
       "title": "Diploma Equivalency",
       "heroDesc": "Professional guidance for your foreign diploma to be recognized in Turkey."
+    },
+    "sinavlar": {
+      "title": "Uluslararası Sınavlar",
+      "heroDesc": "IELTS, TOEFL, SAT, GRE ve GMAT; global başarı için stratejik sınav hazırlık rehberliği."
     }
   },
   "Branches": {
     "title": "Our Global Network",
-    "subtitle": "Find the nearest Star Education Consulting office and start your journey to your dream education with our professional team.",
+    "subtitle": "Find the nearest Mentor Career Consulting office and start your journey to your dream education with our professional team.",
     "label": "Global Network",
     "ofislerimiz": "Our Offices & <span>Locations</span>",
     "iletisim": "Contact",
@@ -944,57 +1474,23 @@
     "onlineCta": "GET ONLINE APPOINTMENT",
     "list": [
       {
-        "country": "Germany",
-        "city": "Stuttgart Hub",
-        "address": "Stuttgart / Freiburg (Germany Local Support)",
-        "phone": "",
-        "hours": "Mon - Fri: 09:00 - 18:00",
-        "image": "https://images.unsplash.com/photo-1599946347341-6cd484b74085?q=80&w=1000",
-        "isComingSoon": false
-      },
-      {
         "country": "United Kingdom",
         "city": "London Hub",
-        "address": "London (Academic Liaison Centre)",
-        "phone": "",
-        "hours": "Mon - Fri: 09:00 - 17:30",
+        "address": "London / UK",
+        "phone": "+447501412151",
+        "email": "info@mentor-cc.com",
+        "hours": "Mon – Fri: 09:00 – 18:00 / Saturday: 09:00 – 15:30",
         "image": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=1000",
         "isComingSoon": false
       },
       {
-        "country": "Turkey",
-        "city": "Istanbul (HQ)",
-        "address": "Headquarters - Istanbul",
-        "phone": "",
-        "hours": "Mon - Sat: 09:00 - 19:00",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": false
-      },
-      {
-        "country": "Turkey",
-        "city": "Ankara",
-        "address": "Ankara (Nationwide Online/On-site Service)",
-        "phone": "",
-        "hours": "Mon - Sat: 09:00 - 18:30",
-        "image": "https://images.unsplash.com/photo-605634563478-f730248c5e63?q=80&w=1000",
-        "isComingSoon": false
-      },
-      {
-        "country": "Turkey",
-        "city": "Izmir",
-        "address": "Izmir (Aegean Regional Coordination)",
-        "phone": "",
-        "hours": "Mon - Sat: 09:00 - 18:30",
-        "image": "https://images.unsplash.com/photo-1542385151-efd9000785a0?q=80&w=1000",
-        "isComingSoon": false
-      },
-      {
-        "country": "Turkey",
-        "city": "Bursa",
-        "address": "Bursa (Marmara Regional Support)",
-        "phone": "",
-        "hours": "Mon - Sat: 09:00 - 18:30",
-        "image": "https://images.unsplash.com/photo-1589113316203-1e85ba4bc6c0?q=80&w=1000",
+        "country": "Global",
+        "city": "Worldwide (Turkish Support)",
+        "address": "Digital Consultancy for All Turkish Speakers Worldwide",
+        "phone": "+447501412151",
+        "email": "info@mentor-cc.com",
+        "hours": "24/7 Digital Access",
+        "image": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1000",
         "isComingSoon": false
       },
       {
@@ -1002,6 +1498,7 @@
         "city": "Antalya",
         "address": "Antalya (Mediterranean Regional Coordination)",
         "phone": "",
+        "email": "info@mentor-cc.com",
         "hours": "Mon - Sat: 09:00 - 18:30",
         "image": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=1000",
         "isComingSoon": false
@@ -1011,6 +1508,7 @@
         "city": "Samsun",
         "address": "Samsun (Black Sea Regional Support)",
         "phone": "",
+        "email": "info@mentor-cc.com",
         "hours": "Mon - Sat: 09:00 - 18:30",
         "image": "https://images.unsplash.com/photo-1587313627440-97693d3957ce?q=80&w=1000",
         "isComingSoon": false
@@ -1020,6 +1518,7 @@
         "city": "Eskisehir",
         "address": "Eskisehir",
         "phone": "",
+        "email": "info@mentor-cc.com",
         "hours": "Mon - Sat: 09:00 - 18:30",
         "image": "https://images.unsplash.com/photo-1543852786-1cf6624b9987?q=80&w=1000",
         "isComingSoon": false
@@ -1029,6 +1528,7 @@
         "city": "Adana",
         "address": "Adana",
         "phone": "",
+        "email": "info@mentor-cc.com",
         "hours": "Service Active",
         "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
         "isComingSoon": true
@@ -1038,6 +1538,7 @@
         "city": "Gaziantep",
         "address": "Gaziantep",
         "phone": "",
+        "email": "info@mentor-cc.com",
         "hours": "Service Active",
         "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
         "isComingSoon": true
@@ -1047,6 +1548,7 @@
         "city": "Kocaeli",
         "address": "Kocaeli",
         "phone": "",
+        "email": "info@mentor-cc.com",
         "hours": "Service Active",
         "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
         "isComingSoon": true
@@ -1056,6 +1558,7 @@
         "city": "Mersin",
         "address": "Mersin",
         "phone": "",
+        "email": "info@mentor-cc.com",
         "hours": "Service Active",
         "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
         "isComingSoon": true
@@ -1065,6 +1568,7 @@
         "city": "Diyarbakir",
         "address": "Diyarbakir",
         "phone": "",
+        "email": "info@mentor-cc.com",
         "hours": "Service Active",
         "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
         "isComingSoon": true
@@ -1074,6 +1578,7 @@
         "city": "Hatay",
         "address": "Hatay",
         "phone": "",
+        "email": "info@mentor-cc.com",
         "hours": "Service Active",
         "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
         "isComingSoon": true
@@ -1083,6 +1588,7 @@
         "city": "Manisa",
         "address": "Manisa",
         "phone": "",
+        "email": "info@mentor-cc.com",
         "hours": "Service Active",
         "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
         "isComingSoon": true
@@ -1092,6 +1598,7 @@
         "city": "Kayseri",
         "address": "Kayseri",
         "phone": "",
+        "email": "info@mentor-cc.com",
         "hours": "Service Active",
         "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
         "isComingSoon": true
@@ -1101,6 +1608,7 @@
         "city": "Konya",
         "address": "Konya",
         "phone": "",
+        "email": "info@mentor-cc.com",
         "hours": "Service Active",
         "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
         "isComingSoon": true
@@ -1110,6 +1618,7 @@
         "city": "Balikesir",
         "address": "Balikesir",
         "phone": "",
+        "email": "info@mentor-cc.com",
         "hours": "Service Active",
         "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
         "isComingSoon": true
@@ -1119,6 +1628,7 @@
         "city": "Kahramanmaras",
         "address": "Kahramanmaras",
         "phone": "",
+        "email": "info@mentor-cc.com",
         "hours": "Service Active",
         "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
         "isComingSoon": true
@@ -1128,6 +1638,7 @@
         "city": "Van",
         "address": "Van",
         "phone": "",
+        "email": "info@mentor-cc.com",
         "hours": "Service Active",
         "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
         "isComingSoon": true
@@ -1137,6 +1648,7 @@
         "city": "Aydin",
         "address": "Aydin",
         "phone": "",
+        "email": "info@mentor-cc.com",
         "hours": "Service Active",
         "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
         "isComingSoon": true
@@ -1146,6 +1658,7 @@
         "city": "Tekirdag",
         "address": "Tekirdag",
         "phone": "",
+        "email": "info@mentor-cc.com",
         "hours": "Service Active",
         "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
         "isComingSoon": true
@@ -1155,6 +1668,7 @@
         "city": "Sakarya",
         "address": "Sakarya",
         "phone": "",
+        "email": "info@mentor-cc.com",
         "hours": "Service Active",
         "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
         "isComingSoon": true
@@ -1164,6 +1678,7 @@
         "city": "Denizli",
         "address": "Denizli",
         "phone": "",
+        "email": "info@mentor-cc.com",
         "hours": "Service Active",
         "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
         "isComingSoon": true
@@ -1173,6 +1688,7 @@
         "city": "Mugla",
         "address": "Mugla",
         "phone": "",
+        "email": "info@mentor-cc.com",
         "hours": "Service Active",
         "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
         "isComingSoon": true
@@ -1182,6 +1698,7 @@
         "city": "Mardin",
         "address": "Mardin",
         "phone": "",
+        "email": "info@mentor-cc.com",
         "hours": "Service Active",
         "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
         "isComingSoon": true
@@ -1191,7 +1708,7 @@
         "city": "Trabzon",
         "address": "Trabzon",
         "phone": "",
-        "email": "info@stareducon.co.uk",
+        "email": "info@mentor-cc.com",
         "hours": "Service Active",
         "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
         "isComingSoon": true
@@ -1201,7 +1718,7 @@
         "city": "Malatya",
         "address": "Malatya",
         "phone": "",
-        "email": "info@stareducon.co.uk",
+        "email": "info@mentor-cc.com",
         "hours": "Service Active",
         "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
         "isComingSoon": true
@@ -1211,7 +1728,7 @@
         "city": "Ordu",
         "address": "Ordu",
         "phone": "",
-        "email": "info@stareducon.co.uk",
+        "email": "info@mentor-cc.com",
         "hours": "Service Active",
         "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
         "isComingSoon": true
@@ -1221,7 +1738,7 @@
         "city": "Erzurum",
         "address": "Erzurum",
         "phone": "",
-        "email": "info@stareducon.co.uk",
+        "email": "info@mentor-cc.com",
         "hours": "Service Active",
         "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
         "isComingSoon": true
@@ -1231,7 +1748,7 @@
         "city": "Sanliurfa",
         "address": "Sanliurfa",
         "phone": "",
-        "email": "info@stareducon.co.uk",
+        "email": "info@mentor-cc.com",
         "hours": "Service Active",
         "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
         "isComingSoon": true
@@ -1241,7 +1758,7 @@
         "city": "Worldwide (Turkish Support)",
         "address": "Digital Consultancy for All Turkish Speakers Worldwide",
         "phone": "",
-        "email": "info@stareducon.co.uk",
+        "email": "info@mentor-cc.com",
         "hours": "24/7 Digital Access",
         "image": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1000",
         "isComingSoon": false
@@ -1250,43 +1767,58 @@
   },
   "Privacy": {
     "title": "Privacy Policy",
-    "description": "Information regarding Star Education Consulting data processing purposes and the protection of your personal information.",
+    "description": "Information regarding Mentor Career Consulting data processing purposes and the protection of your personal information.",
     "lastUpdated": "Last Updated: March 2024",
     "genel": {
       "title": "General",
-      "content": "This website, www.stareducon.co.uk, is managed by Star Education Consulting, headquartered in the United Kingdom. When you visit this website, Star Education Consulting may collect personal information about you directly or indirectly where appropriate. Star Education Consulting uses this personal information in accordance with legal requirements and is committed to ensuring the protection of all collected personal information. This Privacy Policy describes Star Education Consulting's data processing purposes related to its website, the use of identification data, and how to exercise your rights regarding your personal information."
+      "content": "This website, www.mentor-cc.com, is managed as a Study Abroad and Consultancy based in the UK. When you visit this website, Mentor Career Consulting may collect personal information about you directly or indirectly where appropriate. Mentor Career Consulting uses this personal information in the manner and conditions it desires without being bound by consent and is obliged to ensure the protection of the collected personal information. This Privacy Policy mentions Mentor Career Consulting's data processing purposes related to its own website, the use of identification data, and how to establish your rights regarding your personal information."
     },
     "thirdParty": {
       "title": "Third-Party Sites",
-      "content": "Please note that this Privacy Policy does not cover third-party sites linked from this website. If you do not wish to be contacted by Star Education Consulting or receive marketing messages, you can contact us at any time. If you have questions about our data processing activities or your transactions related to this website, please reach out to us. Our email address is info@stareducon.co.uk"
+      "content": "Please note that this Privacy Policy does not cover third-party sites connected to this website. Establishment of Your Rights; if you do not want to contact Mentor Career Consulting or receive marketing messages from Mentor Career Consulting, you can contact us. You can always contact us if you have questions about our data processing activities or your transactions related to this website. Our e-mail address is info@mentor-cc.com"
     },
     "processing": {
       "title": "Data Processing",
-      "content": "Star Education Consulting collects and processes information about customers and visitors to the website for the execution of Study Abroad and Consultancy services, providing information about products and services you are interested in, and for the development of site statistics. The information you provide will be used to reach you when necessary and for uninterrupted communication. Star Education Consulting may send promotional materials, video content, etc., for informational and marketing purposes via email and SMS in line with the information provided. If you do not wish to receive such communications, please notify us via info@stareducon.co.uk."
+      "content": "Mentor Career Consulting collects and processes information about customers and visitors to the website for the execution of Study Abroad and Consultancy services, providing information about products and services you are interested in, and for the development of site statistics. The information you provide will be used to reach you when necessary and for uninterrupted communication. Mentor Career Consulting may send promotional brochures, video content, etc., for advertising purposes via e-mail and SMS in line with the information provided. If not requested, it should be reported to us via info@mentor-cc.com or by calling."
     },
     "data": {
       "title": "Data",
-      "content": "Star Education Consulting does not strive to collect critical personal information such as political opinions, religious beliefs, ethnic origins, health, or other issues through this site and has no such purpose. If Star Education Consulting requests such information, your personal permission is obtained. Please note that if you provide unsolicited personal data to Star Education Consulting, you have permitted us to use this information as described above."
+      "content": "Mentor Career Consulting does not strive to collect critical personal information such as political opinions, religious beliefs, ethnic origins, health, or other issues through this site and has no such purpose. If Mentor Career Consulting requests such information, your personal permission is obtained. Please note that if you provide unsolicited personal data to Mentor Career Consulting, you have permitted us to use this information as described above."
     },
     "identification": {
       "title": "Identification",
-      "content": "Star Education Consulting may collect and analyze data related to the use of this website, including domain name, number of entries to the site, pages visited, duration of stay, sites visited, and length of user session. This data can be collected using a cookie. Identification information will provide faster and easier use of this website."
+      "content": "Mentor Career Consulting may collect and analyze data related to the use of this website, including domain name, number of entries to the site, pages visited, duration of stay, sites visited, and length of user session. This data can be collected using a cookie. Identification information will provide faster and easier use of this website."
     },
     "compensation": {
       "title": "Indemnification",
-      "content": "In case of unauthorized use of the site and the services provided, or if you violate conditions or the law, you agree to pay compensation to Star Education Consulting, our employees, and third parties, and to cover legal defense expenses and all kinds of damages. You should cooperate with us in case of any compensation claim. We reserve the right to hire a separate lawyer and to undertake and provide exclusive defense for any issue that requires your indemnification."
+      "content": "In case of unauthorized use of the site and the services provided, or if you violate conditions or the law, you agree to pay compensation to Mentor Career Consulting, our employees, and third parties, and to cover legal defense expenses and all kinds of damages. You should cooperate with us in case of any compensation claim. We reserve the right to hire a separate lawyer and to undertake and provide exclusive defense for any issue that requires your indemnification."
     },
     "corrections": {
       "title": "Amendments",
-      "content": "Star Education Consulting reserves the right to make changes to the sections in this Privacy Policy at any time. Please check this Privacy Policy from time to time."
+      "content": "Mentor Career Consulting reserves the right to make changes to the sections in this Privacy Policy at any time. Please check this Privacy Policy from time to time."
+    },
+    "aiUsage": {
+      "title": "Yapay Zeka (AI) Kullanımı ve Veri İşleme",
+      "content": "Mentor Career Consulting platformu, kullanıcı deneyimini kişiselleştirmek, 'SmartFinder' gibi akıllı eşleştirme algoritmalarıyla size en uygun akademik programları sunmak ve içerik analizlerini otomatize etmek amacıyla gelişmiş Yapay Zeka (AI) teknolojilerini kullanmaktadır. Bu teknolojiler; akademik başarı şansınızı analiz etmek ve size özel danışmanlık rehberliği oluşturmak için verilerinizi (isimsizleştirilmiş veya doğrudan) işleyebilir. Yapay zeka sistemlerimiz, Avrupa Birliği Yapay Zeka Yasası (EU AI Act) ve KVKK prensiplerine tam uyumlu, şeffaf ve insan denetimli bir yapıda tasarlanmıştır."
     }
   },
   "CookieBanner": {
-    "title": "Cookie Policy",
-    "description": "We use cookies to enhance your experience. By using our site, you agree to our use of cookies.",
-    "accept": "Accept All",
-    "decline": "Decline",
-    "details": "Details"
+    "title": "Cookie and Data Policy",
+    "description": "We use cookies to enhance your experience. Your data is secured under the KVKK law No. 6698.",
+    "details": "View Policy",
+    "accept": "ACCEPT ALL",
+    "decline": "DECLINE",
+    "save": "SAVE PREFERENCES",
+    "settings": {
+      "necessary": "Necessary",
+      "necessaryDesc": "Essential functions for our site.",
+      "analytics": "Analytics",
+      "analyticsDesc": "Collects usage data.",
+      "marketing": "Marketing",
+      "marketingDesc": "Personalized offers for you.",
+      "ai": "Yapay Zeka Hizmetleri",
+      "aiDesc": "SmartFinder ve akıllı eşleştirme algoritmalarının optimizasyonu."
+    }
   },
   "Dashboard": {
     "Sidebar": {
@@ -1295,7 +1827,7 @@
       "leads": "Lead Tracking",
       "analytics": "Analysis & ROI",
       "pages": "Pages",
-      "home": "Home Page",
+      "home": "Home Layout",
       "services": "Services",
       "countries": "Countries",
       "institutions": "Institutions",
@@ -1310,6 +1842,7 @@
       "tasks": "My Tasks",
       "calendar": "Calendar",
       "applications": "Applications",
+      "visaTracking": "Visa Tracking Center",
       "agencyPanel": "Agency Panel",
       "myStudents": "My Students",
       "leadManagement": "Lead Management",
@@ -1319,14 +1852,104 @@
       "generalSettings": "General Settings",
       "regions": "Regions",
       "logs": "System Logs",
+      "socialAI": "Social Media AI",
       "myAccount": "My Account",
       "logout": "Logout"
+    },
+    "Sinavlar": {
+      "main": {
+        "title": "International Exam Preparation",
+        "heroDesc": "IELTS, TOEFL, SAT, GRE, and GMAT; strategic exam preparation guidance for global success.",
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Key to Global Success: International Exams</h2><p class=\"mb-6\">One of the most important steps to reaching your study abroad and career goals is international exams that prove your academic and language proficiency. At Mentor Career Consulting, we offer you special strategies to get the highest score in prestigious exams like IELTS, TOEFL, SAT, GRE, and GMAT.</p><p class=\"mb-6\">Each exam has its own unique structure, question types, and evaluation criteria. Our expert consultants draw the most suitable exam roadmap for you according to the requirements of the university and program you are targeting.</p><h3 class=\"text-2xl font-serif font-bold text-navy mb-4 mt-8 italic\">Which Exam Should You Take?</h3><ul class=\"space-y-4 mb-10 italic\"><li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> <strong>Language Proficiency:</strong> IELTS or TOEFL for education in English-speaking countries.</li><li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> <strong>Undergraduate Education (USA):</strong> SAT for prestigious universities in America.</li><li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> <strong>Graduate Education:</strong> GRE for engineering and social sciences, GMAT for Business (MBA).</li></ul>",
+        "advantages": [
+          {
+            "title": "Strategic Preparation",
+            "desc": "Special study programs focused not only on knowledge but also on exam technique and time management.",
+            "icon": "Target"
+          },
+          {
+            "title": "Resource Support",
+            "desc": "The most up-to-date practice exams, question banks, and interactive preparation materials.",
+            "icon": "BookOpen"
+          },
+          {
+            "title": "Practice Analysis",
+            "desc": "We identify your deficiencies and track your progress with real exam simulations.",
+            "icon": "BarChart3"
+          },
+          {
+            "title": "Official Registration",
+            "desc": "We manage your registration process by guiding you on exam centers and dates.",
+            "icon": "FileCheck"
+          }
+        ],
+        "destinations": {
+          "title": "Popular Exam Guides",
+          "desc": "Check out our guides to choose the most suitable exam for your goals and get detailed information.",
+          "cost": "Free Level Assessment",
+          "items": [
+            {
+              "name": "IELTS Preparation",
+              "slug": "ielts",
+              "subDesc": "The world standard for Academic and General English proficiency."
+            },
+            {
+              "name": "TOEFL iBT",
+              "slug": "toefl",
+              "subDesc": "The most preferred language exam for American universities."
+            },
+            {
+              "name": "SAT (Digital)",
+              "slug": "sat",
+              "subDesc": "Make a difference in US undergraduate applications."
+            },
+            {
+              "name": "GRE General",
+              "slug": "gre",
+              "subDesc": "Global standard in graduate education applications."
+            },
+            {
+              "name": "GMAT Focus",
+              "slug": "gmat",
+              "subDesc": "For MBA and Business master's worldwide."
+            }
+          ]
+        },
+        "steps": [
+          {
+            "title": "Level Assessment",
+            "desc": "We determine your deficiencies by analyzing your current knowledge level and target score."
+          },
+          {
+            "title": "Program Planning",
+            "desc": "We create your personalized intensive or standard study schedule that will last until the exam date."
+          },
+          {
+            "title": "Applied Training",
+            "desc": "We develop tactics for each exam section (Reading, Writing, Listening, Speaking) with our expert instructors and resources."
+          },
+          {
+            "title": "Exam and Results",
+            "desc": "We ensure you show your best performance in the real exam with exam stress management techniques."
+          }
+        ],
+        "faq": [
+          {
+            "q": "Should I take IELTS or TOEFL?",
+            "a": "This depends on the country and university you are targeting. The UK and Australia prefer IELTS, while the USA usually prefers TOEFL. However, most universities accept both. Our consultants will determine the most advantageous one for you."
+          },
+          {
+            "q": "What are the exam validity periods?",
+            "a": "IELTS and TOEFL are generally valid for 2 years, while SAT, GRE, and GMAT are valid for 5 years."
+          }
+        ]
+      }
     },
     "Denklik": {
       "main": {
         "title": "Diploma Equivalency",
         "heroDesc": "Professional guidance for the recognition of your foreign diploma in Turkey.",
-        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Diploma Equivalency Services</h2><p class=\"mb-6\">With our expert consultancy, we guide you through the process of determining the equivalency of your diplomas obtained abroad (Bachelor's, Master's, Associate's) to diplomas issued in Turkey.</p><p class=\"mb-6\">The equivalency application is a meticulous evaluation process carried out by YÖK (Higher Education Council). As Star Education Consulting, we provide professional support at every stage, from document preparation to application tracking.</p><h3 class=\"text-2xl font-serif font-bold text-navy mb-4 mt-8 italic\">Who needs an Equivalency Application?</h3><ul class=\"space-y-4 mb-10 italic\"><li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> Those who want to work in public institutions in Turkey.</li><li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> Holders of regulated professions such as doctors, engineers, or lawyers who want to practice in Turkey.</li><li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> Those who want to continue their postgraduate education in Turkey.</li></ul>",
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Diploma Equivalency Services</h2><p class=\"mb-6\">With our expert consultancy, we guide you through the process of determining the equivalency of your diplomas obtained abroad (Bachelor's, Master's, Associate's) to diplomas issued in Turkey.</p><p class=\"mb-6\">The equivalency application is a meticulous evaluation process carried out by YÖK (Higher Education Council). As Mentor Career Consulting, we provide professional support at every stage, from document preparation to application tracking.</p><h3 class=\"text-2xl font-serif font-bold text-navy mb-4 mt-8 italic\">Who needs an Equivalency Application?</h3><ul class=\"space-y-4 mb-10 italic\"><li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> Those who want to work in public institutions in Turkey.</li><li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> Holders of regulated professions such as doctors, engineers, or lawyers who want to practice in Turkey.</li><li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> Those who want to continue their postgraduate education in Turkey.</li></ul>",
         "advantages": [
           {
             "title": "Expert Analysis",
@@ -1554,7 +2177,7 @@
         },
         "hollanda": {
           "title": "Netherlands Diploma Equivalency",
-          "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Netherlands Research vs Applied Sciences</h2><p class=\"mb-6\">The distinction between Research Universities (WO) and Universities of Applied Sciences (HBO) can affect your equivalency degree. Star Education Consulting guides you through this complex distinction.</p>"
+          "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Netherlands Research vs Applied Sciences</h2><p class=\"mb-6\">The distinction between Research Universities (WO) and Universities of Applied Sciences (HBO) can affect your equivalency degree. Mentor Career Consulting guides you through this complex distinction.</p>"
         },
         "irlanda": {
           "title": "Ireland Diploma Equivalency",
@@ -1568,9 +2191,9 @@
     },
     "Mappings": {
       "services": {
-        "egitim-koclugu": {
-          "title": "Education Coaching",
-          "desc": "Professional guidance for your individual academic roadmap and global career planning."
+        "denklik": {
+          "title": "Diploma Equivalency",
+          "desc": "Professional guidance for the recognition of your foreign diploma in Turkey."
         },
         "yurtdisi-yuksek-lisans": {
           "title": "Master's Abroad",
@@ -1591,6 +2214,14 @@
         "yurtdisi-dil-okullari": {
           "title": "Language Schools Abroad",
           "desc": "The most prestigious language schools to take your career to a global level."
+        },
+        "kariyer": {
+          "title": "Career",
+          "desc": "Expert placement and consultancy for your professional future."
+        },
+        "sinavlar": {
+          "title": "Uluslararası Sınavlar",
+          "desc": "IELTS, TOEFL, SAT, GRE ve GMAT; global başarı için stratejik sınav hazırlık rehberliği."
         }
       },
       "countries": {
@@ -1662,7 +2293,7 @@
     "Terms": {
       "label": "LEGAL DOCUMENTS",
       "title": "Terms of Use",
-      "heroSubtitle": "By using the Star Education Consulting platform, you agree to the following terms and conditions. This document constitutes a binding contract that regulates the legal relationship between the parties.",
+      "heroSubtitle": "By using the Mentor Career Consulting platform, you agree to the following terms and conditions. This document constitutes a binding contract that regulates the legal relationship between the parties.",
       "lastUpdatedLabel": "Last Updated",
       "lastUpdatedDate": "March 16, 2026",
       "sectionsLabel": "Sections:",
@@ -1671,12 +2302,12 @@
       "validityLabel": "Validity",
       "jurisdictionLabel": "Jurisdiction",
       "languageLabel": "Language",
-      "originalLanguage": "English (Primary)",
+      "originalLanguage": "Turkish (Original)",
       "relatedDocsLabel": "Related Documents",
       "questionsLabel": "Have questions?",
       "questionsDesc": "For any questions regarding the Terms of Use, you can contact our legal team.",
       "disclaimerTitle": "General Legal Disclaimer",
-      "disclaimerText": "This document has been prepared for informational purposes only and does not constitute individual legal advice.",
+      "disclaimerText": "This document has been prepared for informational purposes only and does not constitute individual legal advice. In case of any ambiguity regarding the Terms, the Turkish text shall prevail.",
       "relatedDocs": {
         "kvkk": {
           "label": "KVKK & GDPR Policy",
@@ -1694,11 +2325,11 @@
       "sections": {
         "taraflar": {
           "title": "Parties and Subject of the Agreement",
-          "content": "<p>These Terms of Use (\"Terms\") constitute a legal agreement between Star Education Consulting (\"Star Education Consulting\", \"we\", or \"the company\") and individuals or legal entities (\"User\") visiting or using the address <strong>www.stareducon.co.uk</strong> and all connected subdomains (\"Platform\").</p><p>By using the Platform, you are deemed to have read, understood, and accepted these Terms. If you do not accept these Terms, we recommend that you do not use the Platform.</p><h4>Company Information</h4><ul><li><strong>Trade Name:</strong> Star Education Consulting</li><li><strong>Email:</strong> info@stareducon.co.uk</li></ul>"
+          "content": "<p>These Terms of Use (\"Terms\") constitute a legal agreement between Mentor Career Consulting Ltd (\"Mentor Career Consulting\", \"we\", or \"the company\") and individuals or legal entities (\"User\") visiting or using the address <strong>www.mentor-cc.com</strong> and all connected subdomains (\"Platform\").</p><p>By using the Platform, you are deemed to have read, understood, and accepted these Terms. If you do not accept these Terms, we recommend that you do not use the Platform.</p><h4>Company Information</h4><ul><li><strong>Trade Name:</strong> Mentor Career Consulting</li><li><strong>Email:</strong> info@mentor-cc.com</li></ul>"
         },
         "hizmet-kapsami": {
           "title": "Scope and Nature of Services",
-          "content": "<p>Star Education Consulting is a licensed education consultancy firm offering the following services:</p><ul><li>Study abroad consultancy for high school, associate, undergraduate, and postgraduate levels</li><li>Language school and summer school program selection and application management</li><li>Information about visa and equivalency processes</li><li>Direction to study abroad scholarship opportunities</li><li>Provision of educational materials, guides, and digital content</li></ul><h4>Service Limitations</h4><p>All content on the Platform is for <strong>general information</strong> purposes only. Star Education Consulting:</p><ul><li>Does not guarantee admission to any university or school.</li><li>Does not guarantee visa approval; the final decision belongs to the relevant country's authorities.</li><li>Is not responsible for changes arising from the policies of third-party schools and institutions.</li><li>Cannot be held responsible for the content of external websites accessed through the Platform.</li></ul>"
+          "content": "<p>Mentor Career Consulting is a licensed education consultancy firm offering the following services:</p><ul><li>Study abroad consultancy for high school, associate, undergraduate, and postgraduate levels</li><li>Language school and summer school program selection and application management</li><li>Information about visa and equivalency processes</li><li>Direction to study abroad scholarship opportunities</li><li>Provision of educational materials, guides, and digital content</li></ul><h4>Service Limitations</h4><p>All content on the Platform is for <strong>general information</strong> purposes only. Mentor Career Consulting:</p><ul><li>Does not guarantee admission to any university or school.</li><li>Does not guarantee visa approval; the final decision belongs to the relevant country's authorities.</li><li>Is not responsible for changes arising from the policies of third-party schools and institutions.</li><li>Cannot be held responsible for the content of external websites accessed through the Platform.</li></ul>"
         },
         "kullanici-yukumlulukler": {
           "title": "User Obligations and Prohibitions",
@@ -1706,11 +2337,11 @@
         },
         "fikri-mulkiyet": {
           "title": "Intellectual Property Rights",
-          "content": "<p>All content on the Platform — including text, graphics, logos, icons, images, audio recordings, digital downloads, data compilations, and software — is the property of Star Education Consulting and is protected under international copyright law.</p><h4>Permitted Use</h4><ul><li>Platform content can be viewed and printed for personal, non-commercial purposes.</li><li>Partial quotes and references can be made in social media posts by citing the source.</li></ul><h4>Prohibited Use</h4><ul><li>Reproduction, distribution, or publication of Platform content for commercial purposes is prohibited.</li><li>The Star Education Consulting brand, logo, and trade name cannot be used without written permission.</li><li>Republication of content by modifying or adapting it is subject to permission.</li></ul>"
+          "content": "<p>All content on the Platform — including text, graphics, logos, icons, images, audio recordings, digital downloads, data compilations, and software — is the property of Mentor Career Consulting and is protected under international copyright law.</p><h4>Permitted Use</h4><ul><li>Platform content can be viewed and printed for personal, non-commercial purposes.</li><li>Partial quotes and references can be made in social media posts by citing the source.</li></ul><h4>Prohibited Use</h4><ul><li>Reproduction, distribution, or publication of Platform content for commercial purposes is prohibited.</li><li>The Mentor Career Consulting brand, logo, and trade name cannot be used without written permission.</li><li>Republication of content by modifying or adapting it is subject to permission.</li></ul>"
         },
         "sorumluluk-sinirlamasi": {
           "title": "Limitation of Liability and Disclaimer",
-          "content": "<p>Star Education Consulting accepts no liability to the maximum extent permitted by applicable law in the following matters:</p><h4>Indirect Damages</h4><p>Star Education Consulting cannot be held responsible for any indirect or unforeseen damages including loss of income, loss of data, loss of reputation, or loss of opportunity arising from the use of the Platform.</p><h4>Third Party Services</h4><p>Star Education Consulting is not responsible for the content, privacy policies, or services of third-party websites accessed via links on the Platform.</p><h4>Technical Disruptions</h4><p>Star Education Consulting cannot be held responsible for damages arising from service interruptions caused by server outages, cyber attacks, failures in communication infrastructure, or force majeure events.</p>"
+          "content": "<p>Mentor Career Consulting accepts no liability to the maximum extent permitted by applicable law in the following matters:</p><h4>Indirect Damages</h4><p>Mentor Career Consulting cannot be held responsible for any indirect or unforeseen damages including loss of income, loss of data, loss of reputation, or loss of opportunity arising from the use of the Platform.</p><h4>Third Party Services</h4><p>Mentor Career Consulting is not responsible for the content, privacy policies, or services of third-party websites accessed via links on the Platform.</p><h4>Technical Disruptions</h4><p>Mentor Career Consulting cannot be held responsible for damages arising from service interruptions caused by server outages, cyber attacks, failures in communication infrastructure, or force majeure events.</p>"
         },
         "gizlilik": {
           "title": "Privacy and Personal Data Processing",
@@ -1718,27 +2349,142 @@
         },
         "degisiklikler": {
           "title": "Changes and Updates",
-          "content": "<p>Star Education Consulting reserves the right to change these Terms of Use without prior notice. Changes take effect on the date they are published on the Platform.</p><p>In case of significant changes, registered users will be informed via email or through the Platform.</p>"
+          "content": "<p>Mentor Career Consulting reserves the right to change these Terms of Use without prior notice. Changes take effect on the date they are published on the Platform.</p><p>In case of significant changes, registered users will be informed via email or through the Platform.</p>"
         },
         "uyusmazlik": {
           "title": "Dispute Resolution and Applicable Law",
-          "content": "<p>These Terms are subject to the laws of the Republic of Turkey, and <strong>Istanbul Courts and Execution Offices</strong> are authorized in any dispute arising from these Terms.</p><h4>Negotiation First</h4><p>Both parties undertake to try to resolve the dispute through negotiation before resorting to judicial means.</p>"
+          "content": "<p>These Terms are subject to the laws of the United Kingdom (UK), and <strong>London Courts</strong> are authorized in any dispute arising from these Terms.</p><h4>Negotiation First</h4><p>Both parties undertake to try to resolve the dispute through negotiation before resorting to judicial means.</p>"
         },
         "iletisim": {
           "title": "Contact and Legal Notices",
-          "content": "<p>For your questions, comments, or notifications regarding these Terms of Use, you can contact us through the following channels:</p><ul><li><strong>General Contact:</strong> info@stareducon.co.uk</li><li><strong>Legal Notices:</strong> info@stareducon.co.uk</li></ul>"
+          "content": "<p>For your questions, comments, or notifications regarding these Terms of Use, you can contact us through the following channels:</p><ul><li><strong>General Contact:</strong> info@mentor-cc.com</li><li><strong>Legal Notices:</strong> info@mentor-cc.com</li></ul>"
         }
       }
     },
-    "Legal": {
-      "disclaimerTitle": "Legal Disclaimer",
-      "disclaimerText": "The information on this page is for informational purposes only and may change due to updates by the institutions. Star Education Consulting does not accept legal responsibility for the accuracy and timeliness of this information. For the most up-to-date information, please contact our advisors."
+    "countries": {
+      "ingiltere": {
+        "title": "İngiltere Diploma Denklik",
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">İngiltere Diploma Denklik Süreci</h2><p class=\"mb-6\">Birleşik Krallık (İngiltere, İskoçya, Galler, Kuzey İrlanda) üniversiteleri, dünya sıralamalarında en üst sıralarda yer aldığı için YÖK tarafından genellikle doğrudan tanınmaktadır. Ancak mezuniyet sonrası Türkiye'de mesleğinizi icra edebilmek için resmi denklik belgesi almanız şarttır.</p><p class=\"mb-6\">İngiltere'den alınan diplomaların denkliği, özellikle 'Level' sistemine (NQF/QCF) göre değerlendirilir. Lisans (Bachelor's) ve Yüksek Lisans (Master's) dereceleri için farklı prosedürler uygulanabilmektedir.</p><h3 class=\"text-2xl font-serif font-bold text-navy mb-4 mt-8 italic\">Dikkat Edilmesi Gerekenler:</h3><ul class=\"space-y-4 mb-10 italic\"><li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> <strong>Süre Şartı:</strong> Lisans eğitiminin en az 3 yıl (veya hızlandırılmış programlarda kredi tamamlanmış olması), Yüksek Lisansın en az 1 tam yıl sürmüş olması beklenir.</li><li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> <strong>Apostil:</strong> İngiltere'deki eğitim belgelerinizin (Degree Certificate, Transcript) mutlaka UK Legalisation Office tarafından apostillenmiş olması gerekir.</li></ul>",
+        "advantages": [
+          {
+            "title": "Hızlı Onay",
+            "desc": "Top 400 listesindeki İngiliz üniversiteleri genellikle sınavsız (STS) onay alır.",
+            "icon": "Target"
+          },
+          {
+            "title": "Global Prestij",
+            "desc": "İngiltere diploması, Türkiye'deki iş dünyasında en yüksek kabul oranına sahiptir.",
+            "icon": "Award"
+          }
+        ],
+        "process": [
+          {
+            "step": 1,
+            "title": "Belgelerin UK'de Onaylanması",
+            "desc": "Diploma ve transkriptin Birleşik Krallık makamlarınca resmileştirilmesi."
+          },
+          {
+            "step": 2,
+            "title": "Tercüme ve Noter",
+            "desc": "Belgelerin Türkiye'de yeminli tercüme ve noter onayı yapılması."
+          },
+          {
+            "step": 3,
+            "title": "YÖK Başvurusu",
+            "desc": "Online ön başvuru ve fiziki evrak teslimi."
+          }
+        ],
+        "faq": [
+          {
+            "q": "Hızlandırılmış (2 yıllık) lisans programlarına denklik verilir mi?",
+            "a": "YÖK, Avrupa Kredi Transfer Sistemi (ECTS) ve toplam ders yüküne bakarak değerlendirme yapar. Kredi şartı sağlandığında denklik mümkündür."
+          }
+        ]
+      },
+      "amerika": {
+        "title": "Amerika Diploma Denklik",
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">ABD Diploma Denklik İşlemleri</h2><p class=\"mb-6\">Amerika Birleşik Devletleri'nden alınan diplomaların denkliği, üniversitenin Amerika'daki bölgesel akreditasyon kurumları (Regional Accreditation) tarafından tanınmış olmasına bağlıdır.</p><p class=\"mb-6\">ABD eğitim sistemi 4 yıllık lisans yapısına sahip olduğu için Türkiye'deki lisans sistemiyle tam uyumludur. Ancak online/uzaktan eğitimle alınan diplomaların denklik süreçleri çok daha titizlikle incelenmektedir.</p>",
+        "advantages": [
+          {
+            "title": "Akreditasyon Gücü",
+            "desc": "Bölgesel akreditasyonu olan tüm ABD üniversiteleri YÖK tarafından tanınma potansiyeline sahiptir.",
+            "icon": "Shield"
+          }
+        ],
+        "process": [
+          {
+            "step": 1,
+            "title": "US Secretary of State Onayı",
+            "desc": "Belgelerin eyalet veya federal düzeyde apostil onayı."
+          },
+          {
+            "step": 2,
+            "title": "Ders İçerikleri (Syllabus)",
+            "desc": "Özellikle teknik bölümler için ders içeriklerinin sunulmaya hazır olması."
+          }
+        ]
+      },
+      "almanya": {
+        "title": "Almanya Diploma Denklik",
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Almanya Mezunları İçin Denklik Rehberi</h2><p class=\"mb-6\">Almanya, Bologna Süreci'ne dahil olduğu için diplomaları Türkiye sistemiyle yüksek uyum gösterir. Fachhochschule (Uygulamalı Bilimler) ve Universität diplomaları farklı kategorilerde değerlendirilebilir.</p>",
+        "advantages": [
+          {
+            "title": "Bologna Uyumu",
+            "desc": "ECTS kredi sistemi sayesinde denklik süreci daha öngörülebilirdir.",
+            "icon": "Globe"
+          }
+        ],
+        "process": [
+          {
+            "step": 1,
+            "title": "Regierungspräsidium Onayı",
+            "desc": "Belgelerin ilgili Alman eyalet makamlarınca onaylanması."
+          },
+          {
+            "step": 2,
+            "title": "Diploma Eki (Diploma Supplement)",
+            "desc": "İngilizce veya Almanca diploma ekinin hazır edilmesi."
+          }
+        ]
+      },
+      "kanada": {
+        "title": "Kanada Diploma Denklik",
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Kanada Eğitim Sisteminin Tanınırlığı</h2><p class=\"mb-6\">Kanada üniversiteleri ve kolejleri (Colleges) arasındaki fark denklik sürecinde kritiktir. 3-4 yıllık lisans programları genellikle sorunsuz denklik alırken, 1-2 yıllık 'Diploma' programları 'Lisans' denkliği değil, 'Ön Lisans' veya 'Mesleki Eğitim' olarak değerlendirilebilir.</p>"
+      },
+      "isvicre": {
+        "title": "İsviçre Diploma Denklik",
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">İsviçre Özelinde Denklik Süreçleri</h2><p class=\"mb-6\">Özellikle Turizm ve Otel İşletmeciliği alanındaki İsviçre okullarının denkliği, okulun kanton yetkilileri tarafından mı yoksa federal düzeyde mi tanındığına göre büyük farklılık gösterir.</p>"
+      },
+      "avustralya": {
+        "title": "Avustralya Diploma Denklik",
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Avustralya Derecelerinin Eşdeğerliği</h2><p class=\"mb-6\">AQF (Australia Qualifications Framework) sistemi çerçevesinde alınan dereceler, YÖK tarafından seviye bazlı incelenir. Uzak mesafe nedeniyle pasaport giriş-çıkış kayıtlarının tespiti bu süreçte önemlidir.</p>"
+      },
+      "belcika": {
+        "title": "Belçika Diploma Denklik",
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Belçika Mezuniyeti ve Türkiye Denkliği</h2><p class=\"mb-6\">Flaman ve Fransız toplulukları olarak ikiye ayrılan Belçika eğitim sisteminde, her iki bölgenin de akredite kurumları YÖK nezdinde tanınırlığa sahiptir.</p>"
+      },
+      "hollanda": {
+        "title": "Hollanda Diploma Denklik",
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Hollanda Research vs Applied Sciences</h2><p class=\"mb-6\">Research Universities (WO) dan Universities of Applied Sciences (HBO) arasındaki ayrım, denklik derecenizi etkileyebilir. Mentor Career Consulting bu karmaşık ayrımda size yol gösterir.</p>"
+      },
+      "irlanda": {
+        "title": "İrlanda Diploma Denklik",
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">İrlanda ve Global Standartlar</h2><p class=\"mb-6\">Dublin ve Cork gibi şehirlerdeki köklü üniversiteler, Avrupa standartlarında eğitim verdiği için denklik süreci genellikle standart prosedürde ilerler.</p>"
+      },
+      "polonya": {
+        "title": "Polonya Diploma Denklik",
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Polonya Diplomalarının Tanınırlığı</h2><p class=\"mb-6\">AB üyesi olan Polonya'dan alınan diplomalar, son yıllarda YÖK tarafından en çok başvurulan dosyalar arasındadır. Tıp ve Mühendislik alanında STS (Sınav) gereklilikleri mevcuttur.</p>"
+      }
     }
+  },
+  "Legal": {
+    "disclaimerTitle": "Legal Disclaimer",
+    "disclaimerText": "The information on this page is for informational purposes only and may change due to updates by the institutions. Mentor Career Consulting does not accept legal responsibility for the accuracy and timeliness of this information. For the most up-to-date information, please contact our advisors."
   },
   "KariyerServices": {
     "yurtdisi-meslek-egitimi": {
       "title": "Vocational Training Consultancy Abroad",
-      "description": "We provide full support for you to participate in dual vocational training (Ausbildung) systems, especially in countries like Germany. You can earn an income while studying and specializing."
+      "description": "We provide full support for you to participate in international vocational training (Ausbildung) systems. You can earn an income while studying and specializing."
     },
     "uluslararasi-kariyer": {
       "title": "International Career Consultancy",
@@ -1753,69 +2499,253 @@
       "description": "We manage the process of filing all necessary documents for processes such as work visa, blue card, or opportunity card in a complete and error-free manner."
     }
   },
-  "Exams": {
-    "title": "International <span class='gold-text not-italic'>Academic Exams</span>",
-    "subtitle": "Key to Global Acceptance: Strategic Exam Preparation",
-    "heroDesc": "The path to the world's best universities goes through the right exam strategy. From IELTS to GMAT, we are with you in all processes that certify your academic success.",
-    "categories": {
-        "dil": {
-            "title": "Language Proficiency Exams",
-            "desc": "Prove your academic and general language competence at global standards."
-        },
-        "akademik": {
-            "title": "Academic Entrance Exams",
-            "desc": "Standardization exams required for undergraduate and graduate education."
-        }
-    },
-    "examsList": {
-        "ielts": {
-            "title": "IELTS (International English Language Testing System)",
-            "desc": "The most widely accepted language exam worldwide, especially in Europe and Australia.",
-            "badges": ["Academic", "General"]
-        },
-        "toefl": {
-            "title": "TOEFL (Test of English as a Foreign Language)",
-            "desc": "The gold standard especially for US and Canadian university applications.",
-            "badges": ["iBT", "Premium Online"]
-        },
-        "sat": {
-            "title": "SAT (Scholastic Assessment Test)",
-            "desc": "The primary criterion for candidates who want to receive undergraduate education at top universities in the USA.",
-            "badges": ["College Board", "Critical Thinking"]
-        },
-        "gre-gmat": {
-            "title": "GRE & GMAT",
-            "desc": "Analytical and mathematical competence measurement for graduate and MBA programs.",
-            "badges": ["Master", "MBA", "Global Success"]
-        }
-    },
-    "ctaTitle": "Which Exam is <span class='gold-text not-italic'>More Suitable</span> for You?",
-    "ctaDesc": "Consult with our academic advisors for a free preliminary interview to determine the exam that best fits your profile and goals.",
-    "ctaButton": "Get a Free Appointment"
+  "Errors": {
+    "somethingWentWrong": "Something Went Wrong!",
+    "errorDescription": "An unexpected error occurred while the application was running. Please try refreshing the page.",
+    "tryAgain": "Try Again",
+    "backToHome": "Back to Home"
   },
-  "EvaluationForm": {
-    "steps": {
-      "goal": "GOAL",
-      "background": "BACKGROUND",
-      "preferences": "PREFERENCES",
-      "personal": "PERSONAL"
+  "Celebration": {
+    "defaultTitle": "Congratulations!",
+    "defaultMessage": "Your application has been successfully created. You've taken a giant step toward your dreams.",
+    "redirecting": "Redirecting to Dashboard..."
+  },
+  "HomePage": {
+    "Destinations": {
+      "label": "POPULAR DESTINATIONS",
+      "title": "Most Preferred Educational Countries",
+      "desc": "Discover the most popular and advantageous countries where our students realize their dreams of studying abroad.",
+      "rota": "ROUTE",
+      "viewDetails": "View Details",
+      "viewDestinations": "View All Destinations"
+    },
+    "AboutUs": {
+      "label": "CORPORATE VISION",
+      "title": "A Strategic Touch to Your Future",
+      "desc1": "At Mentor Career Consulting, we provide a comprehensive career architecture, not just application support, for students to achieve their academic goals.",
+      "desc2": "With our years of experience and global partner network, we bring each student's potential to the highest level.",
+      "stats": {
+        "experience": "Years Experience",
+        "students": "Successful Students",
+        "countries": "Global Support"
+      }
+    },
+    "FinderIntro": {
+      "label": "SMART MATCHING",
+      "title": "Find Your Ideal Program in Seconds",
+      "desc": "Our SmartFinder algorithm analyzes the most suitable options for your profile among thousands of programs in seconds."
+    },
+    "Consultation": {
+      "label": "FREE CONSULTANCY",
+      "title": "Let's Design Your Global Future <span class='text-secondary'>Together</span>",
+      "desc": "Take the first step toward your academic goals with our expert consultants.",
+      "formTitle": "Get Information Now"
+    },
+    "Process": {
+      "label": "OUR SERVICES",
+      "title": "We Are with You at Every Step of Your Educational Journey",
+      "desc": "Professional support in all processes from application to admission, visa to accommodation.",
+      "viewService": "VIEW DETAILS"
+    },
+    "Services": {
+      "yurtdisi-universite": "University Abroad",
+      "yurtdisi-master": "Master's Degree Abroad",
+      "yurtdisi-lise-egitimi": "High School Abroad",
+      "yurtdisi-dil-okulu": "Language Schools Abroad",
+      "yurtdisi-yuksek-lisans": "Master's Degree Abroad",
+      "yurtdisi-lise": "High School Abroad",
+      "yurtdisi-yaz-okullari": "Summer Schools Abroad",
+      "yurtdisi-dil-okullari": "Language Schools Abroad",
+      "yurtdisi-kariyer": "Career Abroad",
+      "career": "Career",
+      "kariyer": "Career",
+      "konaklama": "Accommodation Support",
+      "bilet": "Flight Ticket",
+      "sinavlar": "Exams",
+      "vize": "Visa Consultancy",
+      "visa": "Visa Consultancy",
+      "denklik": "Equivalency Procedures",
+      "scholarship": "Scholarships",
+      "ulkeler": "Countries",
+      "programlar": "Programs",
+      "subeler": "Branches",
+      "yurtdisi-universite-detail": {
+        "categories": {
+          "ranking": "Ranking Oriented (Top 100)",
+          "scholarship": "Scholarship Guaranteed Programs",
+          "free": "Free Public Universities"
+        }
+      },
+      "yurtdisi-yuksek-lisans-detail": {
+        "categories": {
+          "mba": "MBA Programs",
+          "msc": "Master of Science (MSc)",
+          "art": "Art & Design Master"
+        }
+      },
+      "yurtdisi-lise-detail": {
+        "categories": {
+          "boarding": "Classic Boarding Schools",
+          "day": "Private Day Schools",
+          "exchange": "State High School Exchange",
+          "ibap": "IB & AP Diploma Programs"
+        }
+      },
+      "yurtdisi-yaz-okullari-detail": {
+        "categories": {
+          "academic": "Academic Summer School",
+          "sports": "Sports & Art",
+          "language": "Language & Activity"
+        }
+      },
+      "yurtdisi-dil-okullari-detail": {
+        "categories": {
+          "general": "General English",
+          "business": "Business English",
+          "pathway": "Academic Pathway"
+        }
+      },
+      "career-detail": {
+        "categories": {
+          "vocational": "Vocational Training Consultancy",
+          "career": "International Career Consultancy",
+          "cv": "Professional CV Creation"
+        }
+      },
+      "master-yuksek-lisans": "Yüksek Lisans",
+      "lise": "Lise",
+      "universite": "Üniversite",
+      "yaz-okulu": "Yaz Okulları",
+      "dil-okullari": "Dil Okulları",
+      "YURTDISI-YUKSEK-LISANS": "Yurtdışı Yüksek Lisans",
+      "YURTDISI-LISE": "Yurtdışı Lise",
+      "YURTDISI-UNIVERSITE": "Yurtdışı Üniversite",
+      "YURTDISI-YAZ-OKULLARI": "Yurtdışı Yaz Okulları",
+      "YURTDISI-DIL-OKULLARI": "Yurtdışı Dil Okulları",
+      "KARIYER": "Kariyer"
     }
   },
-  "CountriesHub": {
-    "title": "Global <span class='gold-text not-italic'>Education Routes</span>",
-    "description": "Discover academic opportunities that will shape your future in the world's most prestigious education centers.",
-    "label": "World Network",
-    "strategicHeader": "Strategic <span class='gold-text not-italic'>Academic Planning</span>",
-    "strategicDesc": "We are with you with our special visa, accommodation, and school placement strategies for each country."
-  },
   "RichTextLayout": {
-    "ctaTitle": "Need specific consultation?",
-    "ctaDesc": "Our expert strategic advisors are ready to help you navigate through the complexities of international academic pathways.",
-    "ctaButton": "Speak with an Advisor",
-    "expertGuidance": "Expert Guidance",
     "faqTitle": "Frequently Asked Questions",
-    "onThisPage": "On this page",
-    "faqLabel": "FAQs",
-    "contactSupport": "Contact Support"
+    "faqDefaultDesc": "Here you can find the answers to the most frequently asked questions about the program and processes.",
+    "disclaimerTitle": "Legal Disclaimer"
+  },
+  "CountryDetail": {
+    "guideLabel": "Global Destination Guide",
+    "heroSub": "Your academic journey in {country} starts here. Shape your future with the expert guidance of Mentor Career Consulting.",
+    "capital": "Capital",
+    "language": "Language",
+    "currency": "Currency",
+    "whyLabel": "WHY {country}?",
+    "lifeAndEducation": "Education and Life in <span class='gold-text'>{country}</span>",
+    "featuredLabel": "HIGHLIGHTS",
+    "prestigiousSchools": "Prestigious Schools in <span class='gold-text'>{country}</span>",
+    "viewAll": "VIEW ALL",
+    "institution": "EDUCATIONAL INSTITUTION",
+    "freeResources": "Free <span class='gold-text'>Guides and Resources</span>",
+    "resourceSubtitle": "Download our exclusive documents containing everything you need to know about {country}.",
+    "fileInfo": "Comprehensive information file",
+    "downloadNow": "Download Now",
+    "description": "Comprehensive guide to educational opportunities, universities, language schools, and living conditions in {country}."
+  },
+  "CountryServiceDetail": {
+    "guideLabel": "Guide",
+    "heroSub": "Everything you want to know about {country} {service} processes, requirements, and life.",
+    "comprehensiveGuide": "Comprehensive <span class='gold-text'>Guide</span>",
+    "noContent": "Content is being planned for this category.",
+    "preparingGuide": "Preparation <span class='gold-text'>Guide</span>",
+    "contactForDetails": "You can contact our experts for detailed information and a personalized academic strategy.",
+    "advantages": "Country-Specific <span class='gold-text'>Advantages</span>",
+    "process": "Application <span class='gold-text'>Roadmap</span>",
+    "faq": "FAQ",
+    "faqTitle": "Frequently Asked <span class='gold-text'>Questions</span>",
+    "pricing": "Program <span class='gold-text'>Fees</span>",
+    "tuition": "Annual Fee (Estimated)",
+    "askUs": "Get Information",
+    "pricingDisclaimer": "* FEES MAY VARY DEPENDING ON INSTITUTIONS AND PROGRAMS.",
+    "institutionsByCity": "Institutions <span class='gold-text'>by Cities</span>",
+    "institutionsDesc": "Our partner institutions and education centers across {country}.",
+    "institutionsCount": "Institution",
+    "prestigiousInstitution": "PRESTIGIOUS INSTITUTION",
+    "globalPrestige": "GLOBAL PRESTIGE",
+    "explore": "Explore Details",
+    "estimatedAnnualFee": "Estimated Annual Fee",
+    "whyCountry": "Why {country}?",
+    "defaultWhyItems": [
+      "Academic prestige and depth at international standards",
+      "Global network and lifelong visionary gains",
+      "A career targeted by world giant companies after graduation",
+      "Cultural enrichment and global citizenship competency"
+    ],
+    "academicStrategy": "Determine Your Academic Strategy",
+    "academicStrategyDesc": "Choose the most suitable program and institution in {country} together with our expert consultants.",
+    "startStrategySession": "START ACADEMIC STRATEGY SESSION",
+    "consultantsOnline": "CONSULTANTS ONLINE",
+    "seoDefaultTitle": "{country} {service} | Mentor Career Consulting",
+    "seoDefaultDescription": "Comprehensive consultancy service for {country} {service} programs, application requirements and processes.",
+    "courseDefaultDescription": "Detailed information about {country} {service} programs and application processes.",
+    "technicalDetails": "Technical <span class='gold-text'>Details</span>",
+    "requiredDocuments": "Required Documents",
+    "disclaimer": "Important Note",
+    "institutionalPartner": "INSTITUTIONAL PARTNER"
+  },
+  "RouteDetail": {
+    "guideLabel": "Academic Route Guide",
+    "prestigiousDestination": "PRESTIGIOUS DESTINATION",
+    "globalFuture": "Global Future",
+    "heroSub": "Discover select academic opportunities and cultural riches under the guidance of Mentor Career Consulting.",
+    "academicPartner": "ACADEMIC PARTNER",
+    "strategicAnalysis": "Strategic <span class='gold-text'>Analysis</span>",
+    "academicEvaluation": "Academic Evaluation",
+    "partnersTitle": "Partner <span class='gold-text'>Institutions</span>",
+    "partnersDesc": "Partner institutions selected with Mentor Career Consulting academic precision in {country}.",
+    "resultsLabel": "ELITE ACADEMIC RESULT",
+    "explore": "EXPLORE",
+    "countryGuide": "Country Guide",
+    "officialLanguage": "Official Language",
+    "population": "Approximate Population",
+    "processSupport": "Process Support",
+    "consultancy": "Academic Consultancy",
+    "accommodation": "Accommodation Organization",
+    "orientation": "Cultural Orientation",
+    "formTitle": "{title} Consultancy Request",
+    "formDesc": "Get information from our experts about {title} academic opportunities.",
+    "description": "Comprehensive guide about education opportunities, universities, and life in {country}."
+  },
+  "About": {
+    "loading": "Loading...",
+    "heritageLabel": "WHY MENTOR CAREER CONSULTING?",
+    "heritageDesc": "From high school to postgraduate education, Mentor Career leads you for a better career planning and educational life. It lists study abroad schools, work & travel opportunities, and language schools that you can choose according to your education level. It guides you in making a choice suitable for your budget and needs. It provides up-to-date information by researching the countries you want to study in.",
+    "heroSubtitle": "Call us now to make a career planning that can be globally valid with our education consultancy services!",
+    "getCounseling": "CONTACT US NOW",
+    "stats": {
+      "experience": "Years of Experience",
+      "students": "Happy Students",
+      "partners": "Partner Schools",
+      "countries": "Countries"
+    },
+    "mission": "Our Mission",
+    "missionDesc": "To offer equal opportunities in education and ensure each student is placed in the best educational institution matching their potential.",
+    "vision": "Our Vision",
+    "visionDesc": "To ensure our students acquire a global vision and to raise them as future leaders.",
+    "principlesLabel": "Mentor Career Consulting ADVANTAGES",
+    "valuesTitle": "Let's Plan Your Career <span class='gold-text'>Together</span>",
+    "valuesSubtitle": "As Mentor Career Consulting, we follow these steps when planning our students' careers:",
+    "whoWeAreLabel": "OUR CONSULTANCY PROCESS",
+    "teamTitle": "Professional <span class='gold-text'>Support</span>",
+    "teamSummary": "General goal setting, most in-demand professions, identification of professions suitable for you, strengths and weaknesses analysis, and final goal selection.",
+    "meetTeam": "CONTACT US",
+    "futureDesignLabel": "COUNTRIES WE SERVE",
+    "ctaTitle": "Let's Build Your Future with a <span class='gold-text italic'>Global</span> Vision",
+    "ctaSubtitle": "Education opportunities in UK, Ireland, Canada, USA, Australia, Poland, Germany, Belgium, Netherlands and Ukraine are waiting for you.",
+    "startStrategy": "CONTACT US",
+    "values": {
+      "transparency": "Comprehensive Analysis",
+      "transparencyDesc": "We perform detailed analyses to determine the most suitable country and program for you.",
+      "careerDesign": "Enrollment Support",
+      "careerDesignDesc": "We are with you at all bureaucratic stages from school registrations to acceptance processes.",
+      "globalVision": "Continuous Support",
+      "globalVisionDesc": "We continue to be with you with our consultancy service during and after your education process."
+    }
   }
 }

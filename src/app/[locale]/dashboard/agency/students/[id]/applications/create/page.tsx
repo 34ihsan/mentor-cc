@@ -16,7 +16,7 @@ export default function CreateApplicationPage({ params }: { params: Promise<{ id
     const { id } = use(params);
     const router = useRouter();
     const searchParams = useSearchParams();
-    const programId = searchParams.get("programId");
+    const programId = searchParams ? searchParams.get("programId") : null;
     const [status, setStatus] = useState<'loading' | 'success' | 'error'>('loading');
 
     useEffect(() => {

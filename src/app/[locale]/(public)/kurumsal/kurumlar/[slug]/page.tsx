@@ -15,13 +15,15 @@ import {
     ArrowRight,
     Building2,
     FileText,
-    Info
+    Info,
+    MessageCircle
 } from "lucide-react";
 import QuoteRequestForm from "@/components/public/QuoteRequestForm";
 import { getRelatedPostsAction } from "@/app/actions/link-actions";
 import { Metadata } from "next";
 import MotionWrapper from "@/components/public/MotionWrapper";
 import { getTranslations } from "next-intl/server";
+import AIMatchingTool from "@/components/public/AIMatchingTool";
 
 interface PageProps {
     params: Promise<{ locale: string; slug: string }>;
@@ -48,199 +50,112 @@ interface InstitutionMetadata {
 }
 
 const getInstitution = cache(async (slug: string) => {
-    return prisma.institution.findUnique({
-        where: { slug, active: true },
+    return await prisma.institution.findUnique({
+        where: { slug },
         include: {
+            country: true,
             programs: true,
-            country: true
-        }
+        },
     });
 });
 
-const getLocalizedDbField = (
-    obj: any,
-    field: string,
-    locale: string
-): string => {
-    if (!obj) return "";
-    return obj[`${field}_${locale}`] || obj[field] || "";
-};
-
-const ProgramCard = ({ prog, locale }: { prog: any, locale: string }) => (
-    <div className="p-10 bg-white border border-zinc-100 flex flex-col gap-8 group hover:border-secondary/30 transition-all duration-700 shadow-sm hover:shadow-premium-hover relative overflow-hidden rounded-[2.5rem]">
-        <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/5 -mr-16 -mt-16 rounded-full blur-3xl group-hover:bg-secondary/10 transition-colors" />
-        <div className="relative z-10 flex flex-col gap-8 flex-1">
-            <h4 className="font-serif font-bold text-primary text-2xl italic group-hover:text-secondary transition-colors block leading-tight pr-12">
-                {prog.localizedName || getLocalizedDbField(prog, "name", locale)}
-            </h4>
-            <div className="mt-auto flex items-center justify-between border-t border-zinc-100 pt-6">
-                <div className="flex flex-col gap-1">
-                    <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-zinc-400">Departman</span>
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-600">
-                        {prog.category?.replace('_', ' ')}
-                    </span>
-                </div>
-                <div className="w-12 h-12 bg-primary text-secondary flex items-center justify-center group-hover:bg-secondary group-hover:text-primary transition-all duration-500 shadow-lg rounded-xl">
-                    <ArrowRight size={20} />
-                </div>
-            </div>
-        </div>
-    </div>
-);
-
-const StatsBar = ({ stats }: { stats: any[] }) => (
-    <div className="bg-zinc-50 border-y border-zinc-100 py-20 relative z-30">
-        <div className="container mx-auto px-6">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-24">
-                {stats.map((stat, i) => (
-                    <MotionWrapper key={i} delay={i * 0.1}>
-                        <div className="flex flex-col items-center lg:items-start group">
-                            <div className="flex items-center gap-3 mb-4">
-                                <span className="text-zinc-400 group-hover:text-primary transition-colors">{stat.icon}</span>
-                                <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.4em]">{stat.label}</span>
-                            </div>
-                            <div className="text-5xl font-serif font-medium text-primary tracking-tighter italic">{stat.val}</div>
-                        </div>
-                    </MotionWrapper>
-                ))}
-            </div>
-        </div>
-    </div>
-);
-
-const RequirementsList = ({ items, emptyMessage }: { items: string[], emptyMessage: string }) => (
-    <ul className="space-y-6">
-        {items.length > 0 ? (
-            items.map((item, i) => (
-                <li key={i} className="flex items-start gap-4 text-base font-serif italic text-zinc-600 leading-relaxed group">
-                    <div className="w-1.5 h-1.5 rounded-full bg-zinc-300 group-hover:bg-primary transition-colors mt-2.5 shrink-0" />
-                    <span dangerouslySetInnerHTML={{ __html: item }} />
-                </li>
-            ))
-        ) : (
-            <li className="text-zinc-400 font-serif italic">{emptyMessage}</li>
-        )}
-    </ul>
-);
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-    const { locale, slug } = await params;
+    const { slug } = await params;
     const uni = await getInstitution(slug);
-    if (!uni) return { title: "StarEducation" };
-    const name = uni.name;
-    const description = getLocalizedDbField(uni, "description", locale);
+    if (!uni) return {};
+
     return {
-        title: `${name} | StarEducation`,
-        description: description?.substring(0, 160) || `${name} hakkında detaylı bilgi.`,
-        openGraph: {
-            images: uni.image ? [{ url: uni.image }] : [],
-        }
+        title: `${uni.name} | Mentor Career`,
+        description: uni.description,
     };
 }
 
-export default async function UniversityPage({ params }: PageProps) {
+const RequirementsList = ({ items, emptyMessage }: { items: string[]; emptyMessage: string }) => {
+    if (items.length === 0) return <p className="text-zinc-500 italic text-sm">{emptyMessage}</p>;
+    return (
+        <ul className="grid md:grid-cols-2 gap-6">
+            {items.map((item, idx) => (
+                <li key={idx} className="flex items-start gap-4 group">
+                    <div className="w-6 h-6 rounded-full bg-secondary/10 flex items-center justify-center shrink-0 mt-1 group-hover:bg-secondary/20 transition-colors">
+                        <CheckCircle2 size={12} className="text-primary" />
+                    </div>
+                    <span className="text-zinc-600 text-[15px] leading-relaxed font-serif italic">{item}</span>
+                </li>
+            ))}
+        </ul>
+    );
+};
+
+export default async function InstitutionPage({ params }: PageProps) {
     const { locale, slug } = await params;
-    const uniRaw = await getInstitution(slug);
+    const uni = await getInstitution(slug);
     const t_legal = await getTranslations('Legal');
 
-    if (!uniRaw || !uniRaw.active) notFound();
+    if (!uni) notFound();
 
-    const uni = {
-        ...uniRaw,
-        description: getLocalizedDbField(uniRaw, "description", locale),
-        content: getLocalizedDbField(uniRaw, "content", locale),
-        country: uniRaw.country ? {
-            ...uniRaw.country,
-            name: getLocalizedDbField(uniRaw.country, "name", locale)
-        } : null,
-        programs: uniRaw.programs.map((p) => ({
-            ...p,
-            localizedName: getLocalizedDbField(p, "name", locale),
-            description: getLocalizedDbField(p, "description", locale),
-            duration: getLocalizedDbField(p, "duration", locale),
-        }))
-    };
+    const meta = uni.metadata ? (JSON.parse(uni.metadata as string) as InstitutionMetadata) : null;
+    const relatedPosts = await getRelatedPostsAction(uni.id);
+    const academicPrograms = uni.programs;
 
-    const { posts: relatedPosts = [] } = await getRelatedPostsAction(uni.id);
-
-    let meta: InstitutionMetadata | null = null;
-    if (uni.metadata) {
-        try {
-            meta = JSON.parse(uni.metadata);
-        } catch (e) {
-            console.error("Metadata error", e);
-        }
-    }
-
-    const accommodationKeywords = ['homestay', 'rezidans', 'residence', 'konaklama', 'yurt', 'apart'];
-    const requirementKeywords = ['diploma', 'transkript', 'transcript', 'gpa', 'sat', 'act', 'ielts', 'toefl', 'ibt', 'portfolyo', 'portfolio', 'motivasyon', 'motivation', 'referans', 'reference', 'cv', 'pasaport', 'passport', 'vize', 'visa', 'skor', 'score', 'sart', 'kabul'];
-    const docKeywords = ['diploma', 'transkript', 'transcript', 'portfolyo', 'portfolio', 'cv', 'pasaport', 'passport', 'vize', 'visa'];
-
-    const checkKeywords = (name: string, keywords: string[]) => {
-        const lowerName = name.toLowerCase();
-        return keywords.some(key => lowerName.includes(key));
-    };
-
-    const extraReqsFromProgs = uni.programs.filter(p =>
-        checkKeywords(p.name, requirementKeywords) && !checkKeywords(p.name, accommodationKeywords)
-    );
-
-    const academicPrograms = uni.programs.filter(p =>
-        !checkKeywords(p.name, accommodationKeywords) && !checkKeywords(p.name, requirementKeywords)
-    );
-
-    const extraDocsList = extraReqsFromProgs.filter(p => checkKeywords(p.name, docKeywords));
-    const extraReqsList = extraReqsFromProgs.filter(p => !checkKeywords(p.name, docKeywords));
-
-    const mainCategory = uni.programs[0]?.category || 'UNIVERSITY';
-
-    const getStats = () => {
-        if (mainCategory === 'LANGUAGE_SCHOOL' || mainCategory === 'SUMMER_SCHOOL') {
-            return [
-                { icon: <Users size={20} />, val: "10-15", label: "Mevcut", color: "from-blue-400 to-indigo-600" },
-                { icon: <Globe size={20} />, val: "20+", label: "Millet", color: "from-purple-400 to-pink-600" },
-                { icon: <Clock size={20} />, val: "16+", label: "Min Yas", color: "from-emerald-400 to-teal-600" },
-                { icon: <CheckCircle2 size={20} />, val: "Akredite", label: "Egitim", color: "from-amber-400 to-orange-600" }
-            ];
-        }
-        return [
-            { icon: <Trophy size={20} />, val: uni.rank || "#1", label: "Siralama", color: "from-amber-400 to-orange-600" },
-            { icon: <Users size={20} />, val: meta?.studentCount || "36k+", label: "Ögrenci", color: "from-blue-400 to-indigo-600" },
-            { icon: <School size={20} />, val: uni.rating || "4.8", label: "Puan", color: "from-emerald-400 to-teal-600" },
-            { icon: <Globe size={20} />, val: "Aktif", label: "Denklik", color: "from-purple-400 to-pink-600" }
-        ];
-    };
+    const extraDocsList = [
+        { name: "Akademik Referans Mektubu (2 Adet)", icon: FileText },
+        { name: "İngilizce/Almanca Yeterlilik Belgesi", icon: Globe },
+        { name: "Finansal Yeterlilik Kanıtı", icon: Building2 }
+    ];
 
     return (
-        <div className="bg-white min-h-screen text-zinc-950 selection:bg-zinc-950 selection:text-white">
-
-
-            <section className="relative h-[85vh] min-h-[600px] flex items-center overflow-hidden bg-zinc-950">
-                <div className="absolute inset-0">
-                    {uni.image ? (
-                        <Image src={uni.image} alt={uni.name} fill priority className="object-cover opacity-60 scale-105" sizes="100vw" />
-                    ) : (
-                        <div className="w-full h-full bg-zinc-900" />
-                    )}
-                    <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/20 via-zinc-950/40 to-zinc-950 z-10" />
-                </div>
-
-                <div className="relative container mx-auto px-6 z-20 h-full flex flex-col justify-end pb-24">
+        <div className="min-h-screen bg-white selection:bg-primary selection:text-white">
+            {/* Hero Section */}
+            <section className="relative h-[85vh] lg:h-[95vh] flex items-center overflow-hidden bg-zinc-950">
+                <Image
+                    src={uni.image || "/images/placeholders/university-hero.jpg"}
+                    alt={uni.name}
+                    fill
+                    className="object-cover opacity-50 scale-105"
+                    priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-zinc-950" />
+                
+                <div className="container mx-auto px-6 relative z-20">
                     <MotionWrapper>
-                        <div className="max-w-6xl">
-                            <div className="flex items-center gap-6 mb-12">
-                                <div className="w-12 h-px bg-zinc-500" />
-                                <span className="text-zinc-400 font-bold uppercase tracking-[0.5em] text-[10px]">
-                                    {uni.country?.name?.toUpperCase()} GLOBAL ACADEMY
-                                </span>
+                        <div className="max-w-5xl">
+                            <div className="flex items-center gap-6 mb-10">
+                                <Link 
+                                    href={`/${locale}/kurumsal/kurumlar`}
+                                    className="px-6 py-2 bg-white/10 backdrop-blur-xl border border-white/20 text-white rounded-full text-[10px] font-bold uppercase tracking-[0.3em] hover:bg-white hover:text-zinc-950 transition-all"
+                                >
+                                    Tüm Kurumlar
+                                </Link>
+                                <span className="w-12 h-px bg-secondary" />
+                                <span className="text-secondary font-bold text-[10px] uppercase tracking-[0.4em]">{uni.country?.name}</span>
                             </div>
-                            <h1 className="text-[min(12vw,120px)] font-serif font-medium text-white mb-12 tracking-tight leading-[0.85] italic">
-                                {uni.name}
+                            
+                            <h1 className="text-6xl lg:text-[8rem] font-serif font-bold text-white leading-[0.9] tracking-tighter mb-12">
+                                {uni.name.split(' ').map((word, i) => (
+                                    <span key={i} className={i % 2 === 1 ? "italic text-secondary block lg:ml-20" : "block"}>
+                                        {word}
+                                    </span>
+                                ))}
                             </h1>
-                            <div className="flex flex-wrap items-center gap-12 pt-8 border-t border-white/10">
-                                <div className="flex items-center gap-4 text-zinc-400 font-bold uppercase tracking-[0.3em] text-[11px]">
-                                    <MapPin className="w-4 h-4 text-white" />
-                                    {uni.city}, {uni.country?.name}
+
+                            <div className="flex flex-wrap items-center gap-12 pt-12 border-t border-white/10">
+                                <div className="flex items-center gap-4">
+                                    <div className="w-14 h-14 bg-white/5 backdrop-blur-xl rounded-2xl flex items-center justify-center border border-white/10">
+                                        <MapPin className="text-secondary" size={24} />
+                                    </div>
+                                    <div>
+                                        <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-1">Lokasyon</p>
+                                        <p className="text-white font-medium">{uni.city}, {uni.country?.name}</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-4">
+                                    <div className="w-14 h-14 bg-white/5 backdrop-blur-xl rounded-2xl flex items-center justify-center border border-white/10">
+                                        <Users className="text-secondary" size={24} />
+                                    </div>
+                                    <div>
+                                        <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-1">Öğrenci</p>
+                                        <p className="text-white font-medium">{meta?.studentCount || "36k+"}</p>
+                                    </div>
                                 </div>
                                 {uni.rank && (
                                     <div className="text-white font-bold uppercase tracking-[0.3em] text-[11px] flex items-center gap-4">
@@ -249,71 +164,96 @@ export default async function UniversityPage({ params }: PageProps) {
                                     </div>
                                 )}
                             </div>
+                            <div className="mt-12 flex flex-wrap gap-6">
+                                <Link 
+                                    href="#quote-form-section" 
+                                    className="px-10 py-5 bg-secondary text-primary rounded-full font-bold uppercase tracking-[0.2em] text-[11px] hover:scale-105 transition-all shadow-xl shadow-secondary/20"
+                                >
+                                    Ücretsiz Ön Değerlendirme
+                                </Link>
+                                <a 
+                                    href={`https://wa.me/4917623360511?text=${encodeURIComponent(`${uni.name} hakkında bilgi almak istiyorum.`)}`}
+                                    target="_blank"
+                                    className="px-10 py-5 border border-white/20 text-white rounded-full font-bold uppercase tracking-[0.2em] text-[11px] hover:bg-white hover:text-zinc-900 transition-all backdrop-blur-sm"
+                                >
+                                    WhatsApp Destek
+                                </a>
+                            </div>
                         </div>
                     </MotionWrapper>
                 </div>
+
+                {/* Sticky Mobile CTA */}
+                <div className="lg:hidden fixed bottom-0 left-0 right-0 z-[60] bg-white/90 backdrop-blur-xl border-t border-zinc-100 p-4 flex gap-4 shadow-2xl">
+                    <Link 
+                        href="#quote-form-section" 
+                        className="flex-1 bg-primary text-secondary py-4 rounded-2xl font-bold uppercase tracking-widest text-[10px] text-center"
+                    >
+                        Başvuru Yap
+                    </Link>
+                    <a 
+                        href="https://wa.me/4917623360511"
+                        className="w-14 h-14 bg-emerald-500 text-white rounded-2xl flex items-center justify-center shadow-lg"
+                    >
+                        <MessageCircle size={24} />
+                    </a>
+                </div>
             </section>
 
-            <StatsBar stats={getStats()} />
-
-            <section className="py-40 bg-white relative overflow-hidden">
+            {/* Content Section */}
+            <section className="relative bg-white section-padding">
                 <div className="container mx-auto px-6">
-                    <div className="flex flex-col lg:flex-row gap-24">
-                        <div className="w-full lg:w-[65%] space-y-40">
+                    <div className="flex flex-col md:flex-row gap-24">
+                        {/* Main Content */}
+                        <div className="flex-1">
                             <MotionWrapper>
-                                <div className="flex flex-col gap-12">
-                                    <div className="flex items-center gap-6">
-                                        <div className="w-12 h-px bg-zinc-900" />
-                                        <h2 className="text-4xl font-serif font-medium text-zinc-900 italic tracking-tight">Akademik Vizyon</h2>
-                                    </div>
-                                    <div className="p-12 md:p-20 bg-zinc-50 rounded-[3rem] border border-zinc-100/60 shadow-xl overflow-hidden relative group">
-                                        <div className="absolute top-0 right-0 w-64 h-64 bg-white/50 -mr-32 -mt-32 rounded-full blur-3xl" />
-                                        <div
-                                            className="prose-premium lg:prose-xl italic text-zinc-600 leading-[1.8] font-serif relative z-10"
+                                <div className="space-y-32">
+                                    <div className="max-w-3xl">
+                                        <div className="flex items-center gap-4 mb-8">
+                                            <div className="w-10 h-px bg-primary" />
+                                            <h2 className="text-3xl font-serif font-medium italic text-zinc-900 tracking-tight">Akademik Vizyon</h2>
+                                        </div>
+                                        <div 
+                                            className="text-2xl font-serif italic text-zinc-600 leading-relaxed first-letter:text-7xl first-letter:font-bold first-letter:text-primary first-letter:mr-3 first-letter:float-left"
                                             dangerouslySetInnerHTML={{ __html: meta?.aboutText || uni.description || "" }}
                                         />
                                     </div>
-                                </div>
-                            </MotionWrapper>
 
-                            <MotionWrapper>
-                                <div className="flex flex-col gap-16">
-                                    <div className="flex items-center gap-6">
-                                        <div className="w-12 h-px bg-zinc-900" />
-                                        <h2 className="text-4xl font-serif font-medium text-zinc-900 italic tracking-tight">Egitim Programlari</h2>
-                                    </div>
-                                    {academicPrograms.length > 0 ? (
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                            {academicPrograms.map((prog) => (
-                                                <ProgramCard key={prog.id} prog={prog} locale={locale} />
-                                            ))}
-                                        </div>
-                                    ) : (
-                                        <div className="p-16 rounded-[3rem] bg-zinc-900 text-white flex flex-col items-center text-center gap-10">
-                                            <GraduationCap size={64} strokeWidth={1} className="opacity-20" />
-                                            <div className="max-w-xl">
-                                                <h3 className="text-3xl font-serif italic mb-6">Program Analizi Hazirlaniyor</h3>
-                                                <p className="text-zinc-400 text-lg leading-relaxed font-serif italic">Bu kurumun sundugu tüm fakülteler ve akademik dönemler hakkinda stratejik bilgi almak için egitim danismanlarimizla iletisime geçebilirsiniz.</p>
+                                    <div className="grid md:grid-cols-2 gap-10">
+                                        <div className="p-12 bg-zinc-950 rounded-[3rem] text-white space-y-10 relative overflow-hidden group hover:scale-[1.02] transition-all duration-700">
+                                            <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 -mr-16 -mt-16 rounded-full blur-2xl group-hover:bg-white/10 transition-colors" />
+                                            <div className="flex items-center gap-4">
+                                                <div className="p-4 rounded-2xl bg-white/10 text-secondary border border-white/10 shadow-inner">
+                                                    <Trophy size={24} />
+                                                </div>
+                                                <h3 className="text-2xl font-serif font-medium italic tracking-tight text-secondary">Kabul Sartlari</h3>
                                             </div>
-                                            <Link href="#quote-form-section" className="px-12 py-5 rounded-full border border-white/20 hover:bg-white hover:text-zinc-900 transition-all font-bold uppercase tracking-[0.3em] text-[10px]">REHBERLIK AL</Link>
+                                            <ul className="space-y-6">
+                                                {(meta?.admissionRequirements || ["Global standartlarda akademik yeterlilik gereklidir."]).map((req, i) => (
+                                                    <li key={i} className="flex items-center gap-4 group/item">
+                                                        <div className="w-1.5 h-1.5 bg-secondary rounded-full group-hover/item:scale-150 transition-transform" />
+                                                        <span className="text-zinc-300 text-sm font-medium group-hover/item:text-white transition-colors">{req}</span>
+                                                    </li>
+                                                ))}
+                                            </ul>
                                         </div>
-                                    )}
-                                </div>
-                            </MotionWrapper>
 
-                            <MotionWrapper>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                                    <div className="flex flex-col gap-10 p-12 bg-zinc-50 rounded-[3rem] border border-zinc-100 shadow-sm">
-                                        <div className="flex items-center gap-4">
-                                            <div className="p-4 rounded-2xl bg-white border border-zinc-100 text-zinc-900 shadow-sm">
-                                                <CheckCircle2 size={24} />
+                                        <div className="p-12 bg-zinc-50 rounded-[3rem] border border-zinc-100 shadow-sm space-y-10 relative overflow-hidden group hover:scale-[1.02] transition-all duration-700">
+                                            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 -mr-16 -mt-16 rounded-full blur-2xl group-hover:bg-primary/10 transition-colors" />
+                                            <div className="flex items-center gap-4">
+                                                <div className="p-4 rounded-2xl bg-white border border-zinc-100 text-primary shadow-sm">
+                                                    <GraduationCap size={24} />
+                                                </div>
+                                                <h3 className="text-2xl font-serif font-medium italic text-zinc-900 tracking-tight">Egitim Programlari</h3>
                                             </div>
-                                            <h3 className="text-2xl font-serif font-medium text-zinc-900 italic">Kabul Sartlari</h3>
+                                            <div className="flex flex-wrap gap-3">
+                                                {academicPrograms.map((prog, i) => (
+                                                    <div key={i} className="px-5 py-3 bg-white border border-zinc-200 rounded-2xl text-[11px] font-bold text-zinc-600 uppercase tracking-widest shadow-sm hover:border-primary hover:text-primary transition-all cursor-default">
+                                                        {prog.name}
+                                                    </div>
+                                                ))}
+                                            </div>
                                         </div>
-                                        <RequirementsList 
-                                            items={[...(meta?.admissionRequirements || []), ...extraReqsList.map(r => r.name)]} 
-                                            emptyMessage="Global standartlarda akademik yeterlilik gereklidir."
-                                        />
                                     </div>
 
                                     <div className="flex flex-col gap-10 p-12 bg-zinc-50 rounded-[3rem] border border-zinc-100 shadow-sm">
@@ -332,7 +272,7 @@ export default async function UniversityPage({ params }: PageProps) {
                             </MotionWrapper>
                         </div>
 
-                        <aside className="w-full lg:w-[35%]">
+                        <aside className="w-full md:w-[40%] lg:w-[35%]">
                             <div className="sticky top-40 space-y-12">
                                 {meta?.tuitionFees && (
                                     <MotionWrapper delay={0.2}>
@@ -340,24 +280,24 @@ export default async function UniversityPage({ params }: PageProps) {
                                             <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 -mr-16 -mt-16 rounded-full blur-3xl" />
                                             <div className="flex items-center gap-4 mb-12">
                                                 <div className="w-10 h-px bg-zinc-500" />
-                                                <h3 className="text-2xl font-serif font-medium italic tracking-tight">Finansal Analiz</h3>
+                                                <h3 className="text-2xl font-serif font-medium italic tracking-tight text-secondary">Finansal Analiz</h3>
                                             </div>
                                             <div className="space-y-12">
                                                 {meta.tuitionFees.undergraduate && (
                                                     <div className="space-y-3">
-                                                        <p className="text-[9px] font-bold text-zinc-500 uppercase tracking-[0.3em]">Tahmini Akademik Ücret</p>
+                                                        <p className="text-[9px] font-bold text-secondary/70 uppercase tracking-[0.3em]">Tahmini Akademik Ücret</p>
                                                         <p className="text-3xl font-serif italic text-white">{meta.tuitionFees.undergraduate}</p>
                                                     </div>
                                                 )}
                                                 {meta.tuitionFees.graduate && (
                                                     <div className="pt-10 border-t border-white/10 space-y-3">
-                                                        <p className="text-[9px] font-bold text-zinc-500 uppercase tracking-[0.3em]">Lisansüstü Ücret</p>
+                                                        <p className="text-[9px] font-bold text-secondary/70 uppercase tracking-[0.3em]">Lisansüstü Ücret</p>
                                                         <p className="text-3xl font-serif italic text-white">{meta.tuitionFees.graduate}</p>
                                                     </div>
                                                 )}
                                                 {meta.livingExpenses?.map((exp: any, i: number) => (
                                                     <div key={i} className="pt-10 border-t border-white/10 flex justify-between items-center group">
-                                                        <span className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">{exp.label}</span>
+                                                        <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">{exp.label}</span>
                                                         <span className="text-sm font-serif italic text-zinc-300 group-hover:text-white transition-colors">{exp.value}</span>
                                                     </div>
                                                 ))}
@@ -394,8 +334,43 @@ export default async function UniversityPage({ params }: PageProps) {
                 </div>
             </section>
 
+            {/* AI Matching Tool Section */}
+            <section className="bg-zinc-50 py-32">
+                <div className="container mx-auto px-6">
+                    <div className="grid md:grid-cols-2 gap-24 items-center">
+                        <div className="order-2 md:order-1">
+                            <AIMatchingTool />
+                        </div>
+                        <div className="order-1 md:order-2 space-y-10">
+                            <div className="w-20 h-1 bg-secondary rounded-full" />
+                            <h2 className="text-5xl lg:text-7xl font-serif font-bold text-zinc-900 leading-[1.1] tracking-tighter">
+                                Sizin İçin En Doğru <span className="text-primary italic">Akademik Rota</span> Hangisi?
+                            </h2>
+                            <p className="text-zinc-500 text-xl font-serif italic leading-relaxed">
+                                Gelişmiş AI algoritmalarımız, not ortalamanız, dil seviyeniz ve kariyer hedeflerinizi analiz ederek binlerce program arasından size en uygun olanları saniyeler içinde belirler.
+                            </p>
+                            <ul className="space-y-6">
+                                {[
+                                    "Kişiselleştirilmiş Başarı Analizi",
+                                    "Burs İhtimali Değerlendirmesi",
+                                    "Kurum Bazlı Kabul Kriteri Eşleşmesi"
+                                ].map(item => (
+                                    <li key={item} className="flex items-center gap-6 text-zinc-800 font-serif font-medium italic text-lg">
+                                        <div className="w-8 h-8 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center shrink-0 shadow-sm">
+                                            <CheckCircle2 size={16} />
+                                        </div>
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Disclaimer Section */}
             <MotionWrapper>
-                <div className="container mx-auto px-6 pb-24">
+                <div className="container mx-auto px-6 py-24">
                     <div className="max-w-4xl mx-auto">
                         <div className="bg-zinc-50 border border-zinc-100 rounded-[2rem] p-8 md:p-12 flex flex-col md:flex-row items-start gap-8 relative overflow-hidden group">
                             <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 -mr-16 -mt-16 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors" />
@@ -414,7 +389,6 @@ export default async function UniversityPage({ params }: PageProps) {
                     </div>
                 </div>
             </MotionWrapper>
-
 
         </div>
     );

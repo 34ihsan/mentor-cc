@@ -16,13 +16,15 @@ interface ContactFormProps {
     description?: string;
     showServiceSelect?: boolean;
     variant?: 'standard' | 'horizontal';
+    dark?: boolean;
 }
 
 export default function ContactForm({
     title,
     description,
     showServiceSelect = true,
-    variant = 'standard'
+    variant = 'standard',
+    dark = false
 }: ContactFormProps) {
     const { data: session } = useSession();
     const t = useTranslations('Contact');
@@ -37,6 +39,7 @@ export default function ContactForm({
         phone: '',
         service: '',
         message: '',
+        captchaToken: '',
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitted, setSubmitted] = useState(false);
@@ -53,26 +56,33 @@ export default function ContactForm({
             try {
                 const dynamicServices = await getNavServices();
                 const dynamicMap = new Map();
+                
+                // Map dynamic services from DB
                 dynamicServices.forEach((service: any) => {
                     const sTitle = serviceT(service.slug, { defaultValue: service.title });
                     dynamicMap.set(service.slug, { id: service.id || service.slug, slug: service.slug, title: sTitle });
                 });
+
+                // Merge with static mappings
                 Object.entries(serviceMap).forEach(([slug, s]) => {
                     if (!dynamicMap.has(slug)) {
                         const sTitle = serviceT(slug, { defaultValue: s.title });
                         dynamicMap.set(slug, { id: slug, slug: slug, title: sTitle });
                     }
                 });
-                const orderedSlugs = ['yurtdisi-yuksek-lisans', 'yurtdisi-lise', 'yurtdisi-universite', 'yurtdisi-yaz-okullari', 'yurtdisi-dil-okullari', 'sinavlar'];
+
+                const orderedSlugs = ['sinavlar', 'yurtdisi-yuksek-lisans', 'yurtdisi-lise', 'yurtdisi-universite', 'yurtdisi-yaz-okullari', 'yurtdisi-dil-okullari', 'kariyer'];
                 setServices(orderedSlugs.map(slug => dynamicMap.get(slug)).filter(Boolean));
             } catch (error) {
+                // Silently handle error or log once
                 console.error("Error fetching services:", error);
             } finally {
                 setIsLoadingServices(false);
             }
         };
         fetchServices();
-    }, [serviceT]);
+    }, [locale]); // Use locale instead of serviceT to prevent loops
+
 
     const handleSubmit = async (e?: React.FormEvent) => {
         if (e) e.preventDefault();
@@ -123,8 +133,8 @@ export default function ContactForm({
         );
     }
 
-    const PolicyLink = ({ children }: { children: React.ReactNode }) => (
-        <span className="text-secondary font-bold cursor-pointer hover:text-primary transition-all border-b border-secondary/30">
+    const PolicyLink = ({ children, dark }: { children: React.ReactNode, dark?: boolean }) => (
+        <span className={`text-secondary font-bold cursor-pointer transition-all border-b border-secondary/30 ${dark ? 'hover:text-white' : 'hover:text-primary'}`}>
             {children}
         </span>
     );
@@ -133,15 +143,15 @@ export default function ContactForm({
         <div className="relative group">
             <div className="mb-14">
                 <div className="flex items-center gap-4 mb-6">
-                    <span className="section-label !mb-0">{t('label')}</span>
+                    <span className={`section-label !mb-0 ${dark ? '!text-white' : ''}`}>{t('label')}</span>
                 </div>
-                <h3 className="text-4xl font-serif font-bold text-primary tracking-tight leading-tight italic">{displayTitle}</h3>
+                <h3 className={`text-4xl font-serif font-bold tracking-tight leading-tight italic ${dark ? 'text-white' : 'text-primary'}`}>{displayTitle}</h3>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-10">
                 <div className="grid md:grid-cols-2 gap-10">
                     <div className="space-y-3">
-                        <label className="text-[10px] uppercase tracking-[0.25em] font-black text-zinc-400 ml-1">{t('formData.name')}</label>
+                        <label className={`text-[10px] uppercase tracking-[0.25em] font-black ml-1 ${dark ? 'text-white/80' : 'text-zinc-400'}`}>{t('formData.name')}</label>
                         <input
                             type="text" name="name" value={formData.name} onChange={handleChange} required
                             className="w-full px-8 py-5 rounded-2xl bg-zinc-50 border border-zinc-100 focus:bg-white focus:border-secondary focus:ring-4 focus:ring-secondary/5 outline-none transition-all text-primary font-medium"
@@ -149,7 +159,7 @@ export default function ContactForm({
                         />
                     </div>
                     <div className="space-y-3">
-                        <label className="text-[10px] uppercase tracking-[0.25em] font-black text-zinc-400 ml-1">{t('formData.email')}</label>
+                        <label className={`text-[10px] uppercase tracking-[0.25em] font-black ml-1 ${dark ? 'text-white/80' : 'text-zinc-400'}`}>{t('formData.email')}</label>
                         <input
                             type="email" name="email" value={formData.email} onChange={handleChange} required
                             className="w-full px-8 py-5 rounded-2xl bg-zinc-50 border border-zinc-100 focus:bg-white focus:border-secondary focus:ring-4 focus:ring-secondary/5 outline-none transition-all text-primary font-medium"
@@ -160,7 +170,7 @@ export default function ContactForm({
 
                 <div className="grid md:grid-cols-2 gap-10">
                     <div className="space-y-3">
-                        <label className="text-[10px] uppercase tracking-[0.25em] font-black text-zinc-400 ml-1">{t('formData.phone')}</label>
+                        <label className={`text-[10px] uppercase tracking-[0.25em] font-black ml-1 ${dark ? 'text-white/80' : 'text-zinc-400'}`}>{t('formData.phone')}</label>
                         <input
                             type="tel" name="phone" value={formData.phone} onChange={handleChange} required
                             className="w-full px-8 py-5 rounded-2xl bg-zinc-50 border border-zinc-100 focus:bg-white focus:border-secondary focus:ring-4 focus:ring-secondary/5 outline-none transition-all text-primary font-medium"
@@ -170,7 +180,7 @@ export default function ContactForm({
 
                     {showServiceSelect && (
                         <div className="space-y-3">
-                            <label className="text-[10px] uppercase tracking-[0.25em] font-black text-zinc-400 ml-1">{t('formData.service')}</label>
+                            <label className={`text-[10px] uppercase tracking-[0.25em] font-black ml-1 ${dark ? 'text-white/60' : 'text-zinc-400'}`}>{t('formData.service')}</label>
                             <div className="relative">
                                 <select
                                     name="service" value={formData.service} onChange={handleChange} required
@@ -188,7 +198,7 @@ export default function ContactForm({
                 </div>
 
                 <div className="space-y-3">
-                    <label className="text-[10px] uppercase tracking-[0.25em] font-black text-zinc-400 ml-1">{t('formData.message')}</label>
+                    <label className={`text-[10px] uppercase tracking-[0.25em] font-black ml-1 ${dark ? 'text-white/60' : 'text-zinc-400'}`}>{t('formData.message')}</label>
                     <textarea
                         name="message" value={formData.message} onChange={handleChange} rows={4}
                         className="w-full px-8 py-5 rounded-2xl bg-zinc-50 border border-zinc-100 focus:bg-white focus:border-secondary focus:ring-4 focus:ring-secondary/5 outline-none transition-all text-primary font-medium resize-none"
@@ -198,7 +208,14 @@ export default function ContactForm({
 
                 <div className="flex flex-col items-center gap-10 py-4">
                     <div className="opacity-70 hover:opacity-100 transition-opacity transform scale-90">
-                        <ReCAPTCHA sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" onChange={(val) => setCaptchaVerified(!!val)} hl={locale} />
+                        <ReCAPTCHA 
+                            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"} 
+                            onChange={(val) => {
+                                setCaptchaVerified(!!val);
+                                setFormData(prev => ({ ...prev, captchaToken: val || '' }));
+                            }} 
+                            hl={locale} 
+                        />
                     </div>
 
                     <button
@@ -216,8 +233,8 @@ export default function ContactForm({
                         <div className={`mt-0.5 flex-shrink-0 w-5 h-5 rounded-lg border-2 transition-all flex items-center justify-center ${policyAccepted ? 'bg-secondary border-secondary' : 'border-zinc-200 bg-zinc-50'}`}>
                             {policyAccepted && <CheckCircle2 className="w-3 h-3 text-white" strokeWidth={3} />}
                         </div>
-                        <p className="text-[10px] text-zinc-500 leading-relaxed uppercase tracking-widest font-bold">
-                            {t.rich('policyNote', { policyLink: (chunks) => <PolicyLink>{chunks}</PolicyLink> })}
+                        <p className={`text-[10px] leading-relaxed uppercase tracking-widest font-bold ${dark ? 'text-white/80' : 'text-zinc-500'}`}>
+                            {t.rich('policyNote', { policyLink: (chunks) => <PolicyLink dark={dark}>{chunks}</PolicyLink> })}
                         </p>
                     </div>
                 </div>

@@ -11,13 +11,13 @@ export default function OffersPage() {
     const { data: session } = useSession();
     const params = useParams();
     const router = useRouter();
-    const applicationId = params.id as string;
+    const applicationId = params ? params.id as string : "";
 
     const [offers, setOffers] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetchOffers();
+        if (applicationId) fetchOffers();
     }, [applicationId]);
 
     const fetchOffers = async () => {

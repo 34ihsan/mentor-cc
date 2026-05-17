@@ -35,26 +35,45 @@ export async function POST(req: Request) {
         }
 
         const body = await req.json();
-        const { name, content, image, imageSettings, population, language, currency, capital, timezone, mapsUrl, active, serviceContents, isFeatured, videoUrl } = body;
+        const { 
+            name, name_en, name_de,
+            content, content_en, content_de,
+            image, imageSettings, 
+            population, 
+            language, language_en, language_de,
+            currency, 
+            capital, capital_en, capital_de,
+            timezone, mapsUrl, active, serviceContents, isFeatured, videoUrl,
+            visaInfo, visaInfo_en, visaInfo_de,
+            workPermit, workPermit_en, workPermit_de,
+            costRange, costRange_en, costRange_de,
+            overview, overview_en, overview_de,
+            shortDesc, shortDesc_en, shortDesc_de
+        } = body;
 
         const slug = slugify(name);
 
         const country = await prisma.country.create({
             data: {
-                name,
+                name, name_en, name_de,
                 slug,
-                content,
+                content, content_en, content_de,
                 image,
                 imageSettings,
                 population,
-                language,
+                language, language_en, language_de,
                 currency,
-                capital,
+                capital, capital_en, capital_de,
                 timezone,
                 mapsUrl,
                 active,
                 isFeatured: isFeatured || false,
                 videoUrl: videoUrl || null,
+                visaInfo, visaInfo_en, visaInfo_de,
+                workPermit, workPermit_en, workPermit_de,
+                costRange, costRange_en, costRange_de,
+                overview, overview_en, overview_de,
+                shortDesc, shortDesc_en, shortDesc_de,
                 serviceContents: {
                     create: serviceContents?.map((sc: any) => ({
                         serviceId: sc.serviceId,

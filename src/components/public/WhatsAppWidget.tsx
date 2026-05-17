@@ -6,9 +6,9 @@ import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X, Send, Clock, User, Calendar, ChevronLeft } from 'lucide-react';
 import { createLeadAction } from '@/app/actions/lead-actions';
-import SafeHTMLContent from './SafeHTMLContent';
+import { safeStorage } from '@/lib/storage';
 
-const PHONE_NUMBER = '447501412151';
+const PHONE_NUMBER = '4917623360511';
 const BUSINESS_HOURS = { start: 8, end: 19 };
 
 export default function WhatsAppWidget() {
@@ -54,7 +54,7 @@ export default function WhatsAppWidget() {
         { id: 'lise', label: t('topics.lise.label'), message: t('topics.lise.message') },
         { id: 'language', label: t('topics.language.label'), message: t('topics.language.message') },
         { id: 'summer', label: t('topics.summer.label'), message: t('topics.summer.message') },
-        { id: 'denklik', label: t('topics.denklik.label'), message: t('topics.denklik.message') },
+        { id: 'sinavlar', label: t('topics.sinavlar.label'), message: t('topics.sinavlar.message') },
         { id: 'general', label: t('topics.general.label'), message: t('topics.general.message') }
     ];
 
@@ -70,28 +70,29 @@ export default function WhatsAppWidget() {
         return () => clearInterval(interval);
     }, []);
 
-    // Auto-open after delay (once per session)
+    // Auto-open after delay (once per session/lifetime until closed)
     useEffect(() => {
+        const hasClosed = safeStorage.getItem('wa_widget_closed');
+        const hasShown = safeStorage.getItem('wa_widget_shown');
+        if (hasClosed || hasShown) return;
+
         const timer = setTimeout(() => {
-            const hasSeen = localStorage.getItem('wa_widget_seen');
-            if (!hasSeen && !isOpen) {
-                setIsOpen(true);
-                localStorage.setItem('wa_widget_seen', 'true');
-            }
-        }, 15000);
+            setIsOpen(true);
+            safeStorage.setItem('wa_widget_shown', 'true');
+        }, 3000); // Open after 3 seconds on first load
         return () => clearTimeout(timer);
-    }, [isOpen]);
+    }, []); // Only run once on mount
 
     const getContextMessage = () => {
         const GREETING = t('greeting');
         let base = GREETING + " ";
-        if (pathname.includes('/yurtdisi-universite')) base += t('topics.uni.message');
-        else if (pathname.includes('/yurtdisi-dil-okullari')) base += t('topics.language.message');
-        else if (pathname.includes('/yurtdisi-lise')) base += t('topics.lise.message');
-        else if (pathname.includes('/yurtdisi-yaz-okullari')) base += t('topics.summer.message');
-        else if (pathname.includes('/yurtdisi-yuksek-lisans')) base += t('topics.master.message');
-        else if (pathname.includes('/denklik')) base += t('topics.denklik.message');
-        else if (pathname.includes('/iletisim')) base += t('topics.general.message');
+        if (pathname?.includes('/yurtdisi-universite')) base += t('topics.uni.message');
+        else if (pathname?.includes('/yurtdisi-dil-okullari')) base += t('topics.language.message');
+        else if (pathname?.includes('/yurtdisi-lise')) base += t('topics.lise.message');
+        else if (pathname?.includes('/yurtdisi-yaz-okullari')) base += t('topics.summer.message');
+        else if (pathname?.includes('/yurtdisi-yuksek-lisans')) base += t('topics.master.message');
+        else if (pathname?.includes('/sinavlar')) base += t('topics.sinavlar.message');
+        else if (pathname?.includes('/iletisim')) base += t('topics.general.message');
         else base += t('defaultMessage');
         
         return base;
@@ -171,7 +172,10 @@ export default function WhatsAppWidget() {
                         {/* Header */}
                         <div className="bg-[#f8fafc] p-6 pt-8 text-navy relative border-b border-slate-100">
                             <button 
-                                onClick={() => setIsOpen(false)}
+                                onClick={() => {
+                                    setIsOpen(false);
+                                    safeStorage.setItem('wa_widget_closed', 'true');
+                                }}
                                 className="absolute top-4 right-4 text-navy/40 hover:text-navy transition-colors"
                             >
                                 <X size={20} />
@@ -204,10 +208,8 @@ export default function WhatsAppWidget() {
                                         <path d="M0.5 0.5V12.5L7.5 0.5H0.5Z" fill="white"/>
                                     </svg>
                                 </span>
-                                <SafeHTMLContent 
-                                    as="div"
-                                    html={`${t.raw('greeting')}<br />${t.raw('message')}`}
-                                />
+                                {t('greeting')} <br />
+                                {t('message')}
                             </div>
                         </div>
 
@@ -333,7 +335,7 @@ export default function WhatsAppWidget() {
 
                         {/* Footer info */}
                         <div className="p-3 text-center bg-white border-t border-slate-100">
-                            <p className="text-[10px] text-slate-400 font-medium">StarEducation © {t('footer')}</p>
+                            <p className="text-[10px] text-slate-400 font-medium">Mentor Career © {t('footer')}</p>
                         </div>
                     </motion.div>
                 )}

@@ -36,8 +36,8 @@ export default function CourseSchema({
     courseMode,
     provider: {
       '@type': 'Organization',
-      name: 'Star Education Consulting',
-      sameAs: 'https://www.stareducon.co.uk',
+      name: provider,
+      sameAs: 'https://www.mentor-cc.com',
     },
     offers: {
       '@type': 'Offer',

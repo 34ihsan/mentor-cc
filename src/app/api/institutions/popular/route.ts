@@ -18,10 +18,10 @@ export async function GET(request: Request) {
 
         const localizedInstitutions = institutions.map(inst => ({
             ...inst,
-            name: locale === 'en' ? inst.name_en || inst.name : inst.name,
+            name: locale === 'en' ? inst.name_en || inst.name : locale === 'de' ? inst.name_de || inst.name : inst.name,
             country: inst.country ? {
                 ...inst.country,
-                name: locale === 'en' ? inst.country.name_en || inst.country.name : inst.country.name
+                name: locale === 'en' ? inst.country.name_en || inst.country.name : locale === 'de' ? inst.country.name_de || inst.country.name : inst.country.name
             } : null
         }));
 

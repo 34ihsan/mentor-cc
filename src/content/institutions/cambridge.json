@@ -1,0 +1,16 @@
+{
+  "name": "Cambridge University",
+  "slug": "cambridge",
+  "country": "uk",
+  "type": "University",
+  "summary": "Prestigious university",
+  "body": "<p>Admissions cycles and support...</p>",
+  "website": "https://www.cam.ac.uk",
+  "logo": "https://example.com/cambridge.png",
+  "programs": [
+    "Bachelor",
+    "Masters"
+  ],
+  "contact_email": "info@cam.ac.uk",
+  "published": true
+}

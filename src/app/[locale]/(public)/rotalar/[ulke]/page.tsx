@@ -11,6 +11,7 @@ import {
     GraduationCap,
     Zap
 } from "lucide-react";
+import { countryMap } from "@/lib/mappings";
 import ContactForm from "@/components/public/ContactForm";
 import HeroSlider from "@/components/public/HeroSlider";
 import Image from "next/image";
@@ -22,7 +23,7 @@ interface DestinationPageProps {
     params: Promise<{ locale: string; ulke: string }>;
 }
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.stareducon.co.uk';
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.mentor-cc.com';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string; ulke: string }> }): Promise<import("next").Metadata> {
     const { locale, ulke } = await params;
@@ -31,18 +32,18 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     });
     const t = await getTranslations({ locale, namespace: 'RouteDetail' });
 
-    const title = (locale === 'en' ? (country as any)?.name_en : country?.name) || country?.name || ulke.charAt(0).toUpperCase() + ulke.slice(1);
-    const content = (locale === 'en' ? (country as any)?.content_en : country?.content) || country?.content;
+    const title = (locale === 'en' ? (country as any)?.name_en : locale === 'de' ? (country as any)?.name_de : country?.name) || country?.name || ulke.charAt(0).toUpperCase() + ulke.slice(1);
+    const content = (locale === 'en' ? (country as any)?.content_en : locale === 'de' ? (country as any)?.content_de : country?.content) || country?.content;
     
     const description = content 
         ? stripHtml(content).substring(0, 160)
         : t('description', { country: title });
 
     return {
-        title: `${title} ${t('guideLabel')} | StarEducation`,
+        title: `${title} ${t('guideLabel')} | Mentor Career`,
         description,
         openGraph: {
-            title: `${title}'da Eğitim | StarEducation`,
+            title: `${title}'da Eğitim | Mentor Career`,
             description,
             images: country?.image ? [{ url: country.image }] : [],
         },
@@ -67,11 +68,11 @@ export default async function DestinationPage({ params }: DestinationPageProps) 
     // Localize Country
     const localizedCountry = {
         ...country,
-        name: (locale === 'en' ? (country as any).name_en : country.name) || country.name,
-        content: (locale === 'en' ? (country as any).content_en : country.content) || country.content,
-        capital: (locale === 'en' ? (country as any).capital_en : country.capital) || country.capital,
-        currency: (locale === 'en' ? (country as any).currency_en : country.currency) || country.currency,
-        language: (locale === 'en' ? (country as any).language_en : country.language) || country.language,
+        name: (locale === 'en' ? (country as any).name_en : locale === 'de' ? (country as any).name_de : country.name) || country.name,
+        content: (locale === 'en' ? (country as any).content_en : locale === 'de' ? (country as any).content_de : country.content) || country.content,
+        capital: (locale === 'en' ? (country as any).capital_en : locale === 'de' ? (country as any).capital_de : country.capital) || country.capital,
+        currency: (locale === 'en' ? (country as any).currency_en : locale === 'de' ? (country as any).currency_de : country.currency) || country.currency,
+        language: (locale === 'en' ? (country as any).language_en : locale === 'de' ? (country as any).language_de : country.language) || country.language,
     };
 
     // Check for slides in this context
@@ -93,9 +94,9 @@ export default async function DestinationPage({ params }: DestinationPageProps) 
 
     const institutions = institutionsRaw.map(inst => ({
         ...inst,
-        name: (locale === 'en' ? (inst as any).name_en : inst.name) || inst.name,
-        description: (locale === 'en' ? (inst as any).description_en : inst.description) || inst.description,
-        city: (locale === 'en' ? (inst as any).city_en : inst.city) || inst.city,
+        name: (locale === 'en' ? (inst as any).name_en : locale === 'de' ? (inst as any).name_de : inst.name) || inst.name,
+        description: (locale === 'en' ? (inst as any).description_en : locale === 'de' ? (inst as any).description_de : inst.description) || inst.description,
+        city: (locale === 'en' ? (inst as any).city_en : locale === 'de' ? (inst as any).city_de : inst.city) || inst.city,
     }));
 
     const title = localizedCountry.name;
@@ -129,16 +130,14 @@ export default async function DestinationPage({ params }: DestinationPageProps) 
                             'h-[75vh] min-h-[650px]'
                     }`}>
                     <div className="absolute inset-0">
-                        {country?.image && (
-                            <Image
-                                src={country.image!}
-                                alt={title}
-                                fill
-                                priority
-                                className={`object-${imageSettings.size} object-${imageSettings.position} opacity-30 grayscale-[20%]`}
-                                sizes="100vw"
-                            />
-                        )}
+                        <Image
+                            src={countryMap[formattedSlug as keyof typeof countryMap]?.image || country?.image || "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200"}
+                            alt={title}
+                            fill
+                            priority
+                            className={`object-${imageSettings.size} object-${imageSettings.position} opacity-30 grayscale-[20%]`}
+                            sizes="100vw"
+                        />
                         {/* Elegant Gradient Overlay */}
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-50 via-slate-50/80 to-slate-50/40 z-10" />
                     </div>
@@ -171,10 +170,10 @@ export default async function DestinationPage({ params }: DestinationPageProps) 
             )}
 
             {/* --- MAIN CONTENT --- */}
-            <section className="py-32 relative z-20">
+            <section className="section-padding relative z-20">
                 <div className="container mx-auto px-6">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-24">
-                        <div className="lg:col-span-8 space-y-24">
+                    <div className="grid grid-cols-1 md:grid-cols-12 gap-24">
+                        <div className="md:col-span-8 space-y-24">
 
                             {/* Expert Insight / Dynamic Content */}
                             <div className="space-y-12">
@@ -290,7 +289,7 @@ export default async function DestinationPage({ params }: DestinationPageProps) 
                         </div>
 
                         {/* Sidebar */}
-                        <div className="lg:col-span-4">
+                        <div className="md:col-span-4">
                             <div className="sticky top-32 space-y-12">
                                 {country && (
                                     <div className="bg-white p-12 border border-gold/10 group shadow-xl">
@@ -322,7 +321,6 @@ export default async function DestinationPage({ params }: DestinationPageProps) 
                                     <div className="space-y-8">
                                         {[
                                             { icon: <GraduationCap size={18} />, title: t("consultancy") },
-                                            { icon: <ShieldCheck size={18} />, title: t("visaManagement") },
                                             { icon: <Globe size={18} />, title: t("accommodation") },
                                             { icon: <Clock size={18} />, title: t("orientation") }
                                         ].map((item, i) => (

@@ -1,10 +1,12 @@
 "use client";
 
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { useState } from 'react';
 import { signIn } from 'next-auth/react';
 import { X, Mail, Lock, User, Loader2, ArrowRight } from 'lucide-react';
+import { loginAction } from '@/app/actions/auth-actions';
 import { motion, AnimatePresence } from 'framer-motion';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 interface AuthModalProps {
     isOpen: boolean;
@@ -15,13 +17,16 @@ interface AuthModalProps {
 
 export default function AuthModal({ isOpen, onClose, onSuccess, initialMode = 'login' }: AuthModalProps) {
     const t = useTranslations('Auth');
+    const locale = useLocale();
     const [mode, setMode] = useState<'login' | 'register'>(initialMode);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState('');
+    const [captchaVerified, setCaptchaVerified] = useState(false);
     const [formData, setFormData] = useState({
         email: '',
         password: '',
         name: '',
+        captchaToken: '',
     });
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -40,19 +45,26 @@ export default function AuthModal({ isOpen, onClose, onSuccess, initialMode = 'l
                 if (!res.ok) throw new Error(data.error || t('errors.register'));
             }
 
-            const signInRes = await signIn('credentials', {
-                redirect: false,
-                email: formData.email,
-                password: formData.password,
-            });
+            const loginFormData = new FormData();
+            loginFormData.append("email", formData.email);
+            loginFormData.append("password", formData.password);
+            
+            const result = await loginAction(loginFormData);
 
-            if (signInRes?.error) {
-                throw new Error(t('errors.login'));
+            if (result?.error) {
+                console.error("Login error details:", result.error);
+                throw new Error(result.error);
             }
 
             onSuccess();
             onClose();
         } catch (err: any) {
+            // Redirect errors should be ignored as they indicate success in server actions
+            if (err.message?.includes("NEXT_REDIRECT")) {
+                onSuccess();
+                onClose();
+                return;
+            }
             setError(err.message);
         } finally {
             setIsLoading(false);
@@ -150,9 +162,22 @@ export default function AuthModal({ isOpen, onClose, onSuccess, initialMode = 'l
                                 </div>
                             </div>
 
+                            {mode === 'register' && (
+                                <div className="flex justify-center py-2 opacity-80 hover:opacity-100 transition-opacity">
+                                    <ReCAPTCHA 
+                                        sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"} 
+                                        onChange={(val) => {
+                                            setCaptchaVerified(!!val);
+                                            setFormData(prev => ({ ...prev, captchaToken: val || '' }));
+                                        }}
+                                        hl={locale}
+                                    />
+                                </div>
+                            )}
+
                              <button
                                 type="submit"
-                                disabled={isLoading}
+                                disabled={isLoading || (mode === 'register' && !captchaVerified)}
                                 className="w-full bg-primary text-secondary font-black py-5 rounded-2xl hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-primary/10 flex items-center justify-center gap-3 uppercase tracking-widest text-xs disabled:opacity-50 mt-4 group"
                             >
                                 {isLoading ? (

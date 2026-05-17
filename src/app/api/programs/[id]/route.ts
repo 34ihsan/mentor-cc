@@ -32,7 +32,14 @@ export async function PATCH(
 ) {
     const { id } = await params;
     const session = await auth();
-    if (!session || (session.user.role !== "SUPER_ADMIN" && session.user.role !== "AGENCY")) {
+    if (!session) {
+        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const isAdmin = session.user.role === "ADMIN" || session.user.role === "CEO";
+    const isAgency = session.user.role === "AGENCY_MANAGER";
+    
+    if (!isAdmin && !isAgency) {
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
@@ -42,9 +49,18 @@ export async function PATCH(
             where: { id },
             data: {
                 name: body.name,
+                name_en: body.name_en,
+                name_de: body.name_de,
                 category: body.category,
                 description: body.description,
+                description_en: body.description_en,
+                description_de: body.description_de,
+                content: body.content,
+                content_en: body.content_en,
+                content_de: body.content_de,
                 duration: body.duration,
+                duration_en: body.duration_en,
+                duration_de: body.duration_de,
                 price: body.price ? parseFloat(body.price) : null,
                 currency: body.currency,
                 institutionId: body.institutionId,
@@ -66,7 +82,14 @@ export async function DELETE(
 ) {
     const { id } = await params;
     const session = await auth();
-    if (!session || (session.user.role !== "SUPER_ADMIN" && session.user.role !== "AGENCY")) {
+    if (!session) {
+        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const isAdmin = session.user.role === "ADMIN" || session.user.role === "CEO";
+    const isAgency = session.user.role === "AGENCY_MANAGER";
+    
+    if (!isAdmin && !isAgency) {
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 

@@ -47,11 +47,11 @@ export default function CEOOverview() {
 
     if (loading) {
         return (
-            <div className="space-y-8 animate-pulse p-8">
-                <div className="h-40 bg-zinc-100 rounded-[40px]" />
+            <div className="space-y-8 animate-pulse">
+                <div className="h-32 bg-slate-100 dark:bg-slate-800 rounded-3xl" />
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {[1, 2, 3, 4].map((i) => (
-                        <div key={i} className="h-40 bg-zinc-100 rounded-3xl" />
+                        <div key={i} className="h-40 bg-slate-100 dark:bg-slate-800 rounded-3xl" />
                     ))}
                 </div>
             </div>
@@ -134,25 +134,24 @@ export default function CEOOverview() {
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="relative overflow-hidden group premium-card p-10 bg-white shadow-premium border-zinc-100"
+                className="relative overflow-hidden group premium-card p-10 bg-gradient-to-br from-white via-zinc-50 to-zinc-100/50 text-primary"
             >
-                <div className="absolute top-0 right-0 p-10 opacity-[0.05] group-hover:opacity-10 transition-all duration-1000 group-hover:scale-110">
-                    <TrendingUp size={220} strokeWidth={1} className="text-secondary" />
+                <div className="absolute top-0 right-0 p-10 opacity-[0.03] group-hover:scale-110 transition-transform duration-1000">
+                    <TrendingUp size={180} strokeWidth={1} />
                 </div>
                 <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-8">
                     <div className="max-w-2xl">
-                        <div className="flex items-center gap-3 mb-6">
+                        <div className="flex items-center gap-3 mb-4">
                             <span className="px-3 py-1 rounded-full bg-zinc-100 border border-zinc-200 text-[10px] font-black uppercase tracking-widest text-primary">
                                 CEO STRATEJİK PANEL
                             </span>
-                            <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
                         </div>
-                        <h1 className="text-5xl font-black italic text-primary uppercase tracking-tighter mb-4 leading-none">
-                            Stratejik Görünüm <br/> 
-                            <span className="text-secondary">& Kontrol Hub</span>
+                        <h1 className="text-4xl font-serif italic text-secondary mb-4">
+                            Stratejik Görünüm & Kontrol
                         </h1>
-                        <p className="text-zinc-500 font-medium text-lg max-w-lg leading-relaxed">
-                            Global operasyonlarınızı tek bir noktadan yönetin, finansal hedeflerinizi ve ekip performansınızı sarsılmaz bir disiplinle takip edin.
+                        <p className="text-zinc-600 font-medium text-lg max-w-lg leading-relaxed">
+                            Global operasyonlarınızı tek bir noktadan yönetin, finansal hedeflerinizi ve ekip performansınızı anlık takip edin.
                         </p>
                     </div>
                 </div>
@@ -221,58 +220,55 @@ export default function CEOOverview() {
                     <motion.div
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
-                        className="premium-card p-8 bg-zinc-50 border-zinc-100"
+                        className="premium-card p-8 bg-gradient-to-br from-secondary/10 to-white"
                     >
-                        <div className="flex items-center gap-2 text-secondary font-black text-[10px] uppercase tracking-widest mb-8 pb-4 border-b border-zinc-200">
-                            <Zap size={14} className="fill-secondary" />
-                            HAFTALIK ÖZET
+                        <div className="flex items-center gap-2 text-secondary font-black text-[10px] uppercase tracking-widest mb-6">
+                            <Zap size={14} />
+                            Haftalık Özet
                         </div>
                         <div className="space-y-6">
-                            <div className="flex items-center gap-4 group">
-                                <div className="w-12 h-12 rounded-2xl bg-white border border-zinc-200 flex items-center justify-center text-primary font-black shadow-sm group-hover:border-secondary transition-colors">
+                            <div className="flex items-center gap-4">
+                                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-bold">
                                     {stats?.applications?.distribution?.COMPLETED || "0"}
                                 </div>
                                 <div>
                                     <p className="text-xs font-black text-primary uppercase">Tamamlanan</p>
-                                    <p className="text-[9px] font-black text-zinc-400 uppercase tracking-widest">BAŞARILI BAŞVURU</p>
+                                    <p className="text-[8px] font-bold text-zinc-500 uppercase tracking-widest">BAŞARILI BAŞVURU</p>
                                 </div>
                             </div>
-                            <div className="flex items-center gap-4 group">
-                                <div className="w-12 h-12 rounded-2xl bg-white border border-zinc-200 flex items-center justify-center text-secondary font-black shadow-sm group-hover:border-secondary transition-colors">
+                            <div className="flex items-center gap-4">
+                                <div className="w-10 h-10 rounded-xl bg-secondary/20 flex items-center justify-center text-secondary font-bold">
                                     {stats?.offers?.accepted || "0"}
                                 </div>
                                 <div>
                                     <p className="text-xs font-black text-primary uppercase">Kabul Edilen</p>
-                                    <p className="text-[9px] font-black text-zinc-400 uppercase tracking-widest">GÖNDERİLEN TEKLİF</p>
+                                    <p className="text-[8px] font-bold text-zinc-500 uppercase tracking-widest">GÖNDERİLEN TEKLİF</p>
                                 </div>
                             </div>
                         </div>
-                        <div className="mt-10 pt-8 border-t border-zinc-200">
-                            <h4 className="text-[9px] font-black uppercase tracking-widest text-zinc-400 mb-6">ÜLKE BAZLI BAŞARI</h4>
-                            <div className="space-y-4">
+                        <div className="mt-10 pt-8 border-t border-zinc-100">
+                            <h4 className="text-[8px] font-bold uppercase tracking-widest text-zinc-400 mb-4">Ülke Bazlı Başarı</h4>
+                            <div className="space-y-3">
                                 {stats?.applications?.topCountries?.slice(0, 3).map((country: any, i: number) => (
                                     <div key={i} className="flex items-center justify-between">
-                                        <div className="flex items-center gap-2">
-                                            <div className="w-1.5 h-1.5 rounded-full bg-secondary opacity-40" />
-                                            <span className="text-[11px] font-black text-zinc-600 uppercase tracking-tighter">{country.name}</span>
-                                        </div>
-                                        <span className="text-[11px] font-black text-primary">{country.count}</span>
+                                        <span className="text-xs font-bold text-zinc-600">{country.name}</span>
+                                        <span className="text-xs font-black text-primary">{country.count}</span>
                                     </div>
                                 ))}
                             </div>
                         </div>
                     </motion.div>
 
-                    <div className="premium-card p-6 bg-primary text-white relative overflow-hidden group shadow-xl">
-                        <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 group-hover:scale-125 transition-all duration-700">
-                            <PieChart size={80} />
+                    <div className="premium-card p-6 bg-primary text-white relative overflow-hidden group">
+                        <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-125 transition-transform duration-700">
+                            <PieChart size={60} />
                         </div>
-                        <h4 className="text-[10px] font-black text-zinc-400 uppercase tracking-widest mb-6 border-b border-zinc-100 pb-2">HIZLI PERFORMANS</h4>
+                        <h4 className="text-[10px] font-black text-zinc-300 uppercase tracking-widest mb-4">Hızlı Performans</h4>
                         <div className="flex items-end gap-1 mb-2">
-                            <span className="text-4xl font-black italic text-secondary uppercase tracking-tighter">9.4</span>
-                            <span className="text-xs font-bold text-zinc-400 mb-2">/ 10.0</span>
+                            <span className="text-3xl font-serif italic text-secondary">9.4</span>
+                            <span className="text-xs font-bold text-zinc-300 mb-1.5">/ 10</span>
                         </div>
-                        <p className="text-[10px] font-black text-zinc-400 uppercase tracking-widest">Müşteri Memnuniyeti</p>
+                        <p className="text-[10px] font-bold text-zinc-400 uppercase">Müşteri Memnuniyeti</p>
                     </div>
                 </div>
             </div>

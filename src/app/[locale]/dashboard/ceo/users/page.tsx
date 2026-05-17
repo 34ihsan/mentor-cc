@@ -33,10 +33,10 @@ export default function UserManagement() {
             // Simulated delay for premium feel
             setTimeout(() => {
                 setUsers([
-                    { id: "1", name: "Mustafa Kemal Köksal", email: "mustafa@StarEducation.com", role: "CEO", location: "Merkez Ofis", status: "Active" },
-                    { id: "2", name: "Zeynep Demir", email: "zeynep@StarEducation.com", role: "ADMIN", location: "Avrupa Ofis", status: "Active" },
-                    { id: "3", name: "Caner Özkan", email: "caner@StarEducation.com", role: "ADVISOR", location: "Anadolu Ofis", status: "Active" },
-                    { id: "4", name: "Merve Yılmaz", email: "merve@StarEducation.com", role: "AGENCY_MANAGER", location: "Global", status: "Pending" },
+                    { id: "1", name: "Mustafa Kemal Köksal", email: "mustafa@Mentor Career.com", role: "CEO", location: "Merkez Ofis", status: "Active" },
+                    { id: "2", name: "Zeynep Demir", email: "zeynep@Mentor Career.com", role: "ADMIN", location: "Avrupa Ofis", status: "Active" },
+                    { id: "3", name: "Caner Özkan", email: "caner@Mentor Career.com", role: "ADVISOR", location: "Anadolu Ofis", status: "Active" },
+                    { id: "4", name: "Merve Yılmaz", email: "merve@Mentor Career.com", role: "AGENCY_MANAGER", location: "Global", status: "Pending" },
                     { id: "5", name: "Ahmet Akın", email: "ahmet@gmail.com", role: "STUDENT", location: "Uzaktan", status: "Active" }
                 ]);
                 setLoading(false);

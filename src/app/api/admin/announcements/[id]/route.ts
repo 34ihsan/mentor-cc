@@ -10,7 +10,7 @@ export async function PATCH(
     const params = await props.params;
     try {
         const session = await auth();
-        if (!session?.user || session.user.role !== "ADMIN") {
+        if (!session?.user || (session.user.role !== "ADMIN" && session.user.role !== "CEO")) {
             return new NextResponse("Unauthorized", { status: 401 });
         }
 
@@ -46,7 +46,7 @@ export async function DELETE(
     const params = await props.params;
     try {
         const session = await auth();
-        if (!session?.user || session.user.role !== "ADMIN") {
+        if (!session?.user || (session.user.role !== "ADMIN" && session.user.role !== "CEO")) {
             return new NextResponse("Unauthorized", { status: 401 });
         }
 

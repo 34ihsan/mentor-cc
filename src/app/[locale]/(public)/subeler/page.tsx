@@ -8,7 +8,7 @@ import BranchesClient from '@/components/public/BranchesClient';
 export async function generateMetadata() {
     const t = await getTranslations('Branches');
     return {
-        title: `${t('ofislerimiz').replace('<span>', '').replace('</span>', '')} | StarEducation`,
+        title: `${t('ofislerimiz').replace('<span>', '').replace('</span>', '')} | Mentor Career`,
         description: t('subtitle'),
     };
 }

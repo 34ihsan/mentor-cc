@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, Suspense } from "react";
+import { useState, useEffect, Suspense, use } from "react";
 import { useSearchParams } from "next/navigation";
 import dynamic from "next/dynamic";
 import { motion, AnimatePresence } from "framer-motion";
@@ -31,16 +31,26 @@ import ImageSettingsControl, { defaultImageSettings } from "@/components/admin/I
 import BlogSEOPanel from "@/components/admin/BlogSEOPanel";
 import "react-quill-new/dist/quill.snow.css";
 import Link from "next/link";
+import { generateAIBlogAction } from "@/app/actions/blog-actions";
+import { toast } from "sonner";
+
 
 // Dynamic import for React Quill to avoid SSR issues
 const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false });
 
-function BlogManagementContent() {
+function BlogManagementContent({ locale }: { locale: string }) {
+    const [mounted, setMounted] = useState(false);
     const [viewMode, setViewMode] = useState<"grid" | "list">("list");
     const [posts, setPosts] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
     const searchParams = useSearchParams();
     const [searchQuery, setSearchQuery] = useState("");
+
 
     // Editor State
     const [isEditorOpen, setIsEditorOpen] = useState(false);
@@ -49,23 +59,26 @@ function BlogManagementContent() {
     const [showSEO, setShowSEO] = useState(false);
     const [formData, setFormData] = useState({
         title: "",
+        title_en: "",
+        title_de: "",
         slug: "",
         content: "",
+        content_en: "",
+        content_de: "",
         image: "",
         imageSettings: defaultImageSettings,
         category: "Genel",
         published: false
     });
+    const [activeTab, setActiveTab] = useState<"tr" | "en" | "de">("tr");
+    const [isAIGenerating, setIsAIGenerating] = useState(false);
+
 
     useEffect(() => {
         if (searchParams?.get('add') === 'true') {
             openEditor();
         }
     }, [searchParams]);
-
-    useEffect(() => {
-        fetchPosts();
-    }, []);
 
     const fetchPosts = async () => {
         try {
@@ -81,6 +94,10 @@ function BlogManagementContent() {
             setLoading(false);
         }
     };
+
+    useEffect(() => {
+        fetchPosts();
+    }, []);
 
     const handleDelete = async (id: string) => {
         if (!confirm("Bu içeriği silmek istediğinize emin misiniz?")) return;
@@ -107,8 +124,12 @@ function BlogManagementContent() {
             setEditingPost(post);
             setFormData({
                 title: post.title,
+                title_en: post.title_en || "",
+                title_de: post.title_de || "",
                 slug: post.slug,
                 content: post.content,
+                content_en: post.content_en || "",
+                content_de: post.content_de || "",
                 image: post.image || "",
                 imageSettings: settings,
                 category: post.category || "Genel",
@@ -118,8 +139,12 @@ function BlogManagementContent() {
             setEditingPost(null);
             setFormData({
                 title: "",
+                title_en: "",
+                title_de: "",
                 slug: "",
                 content: "",
+                content_en: "",
+                content_de: "",
                 image: "",
                 imageSettings: defaultImageSettings,
                 category: "Genel",
@@ -187,14 +212,56 @@ function BlogManagementContent() {
         }
     };
 
-    const handlePreview = () => {
-        // Create a temporary preview by saving to local storage or just passing data?
-        // Since we need a public URL, we might need to save as draft first.
-        // Let's assume we save as draft (published: false) then open.
-        if (formData.slug) {
-            window.open(`/blog/${formData.slug}?preview=true`, '_blank');
-        } else {
-            alert("Önizleme için önce başlık girmelisiniz.");
+    const handlePreview = async () => {
+        if (!formData.title || !formData.content) {
+            toast.error("Önizleme için lütfen önce başlık ve içerik girin.");
+            return;
+        }
+
+        let currentSlug = formData.slug;
+        if (!currentSlug) {
+            currentSlug = generateSlug(formData.title);
+            setFormData(prev => ({ ...prev, slug: currentSlug }));
+        }
+
+        const url = editingPost
+            ? `/api/admin/blog/${editingPost.id}`
+            : "/api/admin/blog";
+        const method = editingPost ? "PATCH" : "POST";
+
+        const previewToast = toast.loading("Önizleme hazırlanıyor, lütfen bekleyin...");
+
+        try {
+            const res = await fetch(url, {
+                method,
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    ...formData,
+                    slug: currentSlug,
+                    imageSettings: JSON.stringify(formData.imageSettings)
+                })
+            });
+
+            if (res.ok) {
+                const savedPost = await res.json();
+                setEditingPost(savedPost);
+                toast.dismiss(previewToast);
+                toast.success("Taslak başarıyla kaydedildi! Önizleme açılıyor...");
+                
+                // Open preview page in a new window/tab
+                window.open(`/${locale}/blog/${currentSlug}?preview=true`, '_blank');
+                
+                // Refresh the post listing
+                fetchPosts();
+            } else {
+                const text = await res.text();
+                toast.dismiss(previewToast);
+                toast.error(`Taslak kaydedilemedi: ${text}`);
+            }
+        } catch (error) {
+            console.error("Preview save failed:", error);
+            toast.dismiss(previewToast);
+            toast.error("Önizleme için taslak kaydedilirken bir hata oluştu.");
         }
     };
 
@@ -233,6 +300,36 @@ function BlogManagementContent() {
         }
     };
 
+    const handleAIGenerate = async () => {
+        if (!formData.title && !searchQuery) {
+            toast.error("Lütfen bir başlık veya konu girin.");
+            return;
+        }
+
+        setIsAIGenerating(true);
+        try {
+            const topic = formData.title || searchQuery;
+            const res = await generateAIBlogAction(topic);
+            
+            if (res.success && res.data) {
+                setFormData(prev => ({
+                    ...prev,
+                    title: res.data.title || prev.title,
+                    content: res.data.content || prev.content,
+                    slug: res.data.title ? generateSlug(res.data.title) : prev.slug
+                }));
+                toast.success("İçerik başarıyla üretildi!");
+            } else {
+                toast.error(res.error || "AI içeriği üretilemedi.");
+            }
+        } catch (error) {
+            toast.error("AI servisine bağlanıalamadı.");
+        } finally {
+            setIsAIGenerating(false);
+        }
+    };
+
+
     const filteredPosts = posts.filter(post =>
         post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         post.category?.toLowerCase().includes(searchQuery.toLowerCase())
@@ -254,6 +351,8 @@ function BlogManagementContent() {
             ['clean']
         ],
     };
+
+    if (!mounted) return null;
 
     return (
         <div className="space-y-10 pb-12">
@@ -414,7 +513,11 @@ function BlogManagementContent() {
                                                 </td>
                                                 <td className="px-6 py-5">
                                                     <div className="flex items-center justify-end gap-2">
-                                                        <Link href={`/${post.slug}`} target="_blank" className="p-2 rounded-lg bg-slate-50 text-slate-400 hover:text-blue-500 transition-colors border border-slate-100">
+                                                        <Link 
+                                                            href={`/${locale}/blog/${post.slug}${post.published ? "" : "?preview=true"}`} 
+                                                            target="_blank" 
+                                                            className="p-2 rounded-lg bg-slate-50 text-slate-400 hover:text-blue-500 transition-colors border border-slate-100"
+                                                        >
                                                             <Eye size={16} />
                                                         </Link>
                                                         <button
@@ -575,19 +678,72 @@ function BlogManagementContent() {
 
                             {/* Editor Body */}
                             <form onSubmit={handleSave} className="flex-1 flex flex-col min-h-0 bg-slate-50/30">
+                                {/* Language Tabs */}
+                                <div className="px-10 pt-6 flex items-center gap-2">
+                                    {[
+                                        { id: "tr", label: "Türkçe", flag: "🇹🇷" },
+                                        { id: "en", label: "English", flag: "🇬🇧" },
+                                        { id: "de", label: "Deutsch", flag: "🇩🇪" }
+                                    ].map((tab) => (
+                                        <button
+                                            key={tab.id}
+                                            type="button"
+                                            onClick={() => setActiveTab(tab.id as any)}
+                                            className={`flex items-center gap-2 px-6 py-3 rounded-t-2xl text-[10px] font-black uppercase tracking-widest transition-all ${activeTab === tab.id
+                                                ? "bg-white text-[#DC2626] border-x border-t border-slate-200"
+                                                : "text-slate-400 hover:text-slate-600"
+                                                }`}
+                                        >
+                                            <span className="text-base">{tab.flag}</span>
+                                            {tab.label}
+                                        </button>
+                                    ))}
+                                </div>
                                 <div className="flex-1 overflow-y-auto custom-scrollbar">
                                     <div className="p-10 pb-4 grid grid-cols-1 md:grid-cols-2 gap-10 shrink-0">
                                         <div className="space-y-6">
                                             <div className="space-y-2">
-                                                <label className="text-[10px] font-black text-[#0B1751] uppercase tracking-widest ml-1">İçerik Başlığı</label>
-                                                <input
-                                                    required
-                                                    type="text"
-                                                    value={formData.title}
-                                                    onChange={handleTitleChange}
-                                                    className="w-full bg-white border border-slate-200 p-4 rounded-2xl outline-none focus:border-[#DC2626] text-sm font-bold text-black transition-all shadow-sm placeholder:text-slate-300"
-                                                    placeholder="Örn: Yurt Dışı Eğitim Rehberi"
-                                                />
+                                                <label className="text-[10px] font-black text-[#0B1751] uppercase tracking-widest ml-1">
+                                                    İçerik Başlığı ({activeTab.toUpperCase()})
+                                                </label>
+                                                <div className="flex gap-2">
+                                                    <input
+                                                        required={activeTab === "tr"}
+                                                        type="text"
+                                                        value={activeTab === "tr" ? formData.title : activeTab === "en" ? formData.title_en : formData.title_de}
+                                                        onChange={(e) => {
+                                                            const val = e.target.value;
+                                                            if (activeTab === "tr") {
+                                                                setFormData(prev => ({
+                                                                    ...prev,
+                                                                    title: val,
+                                                                    slug: prev.slug || generateSlug(val)
+                                                                }));
+                                                            } else {
+                                                                setFormData(prev => ({
+                                                                    ...prev,
+                                                                    [activeTab === "en" ? "title_en" : "title_de"]: val
+                                                                }));
+                                                            }
+                                                        }}
+                                                        className="flex-1 bg-white border border-slate-200 p-4 rounded-2xl outline-none focus:border-[#DC2626] text-sm font-bold text-black transition-all shadow-sm placeholder:text-slate-300"
+                                                        placeholder={activeTab === "tr" ? "Örn: Yurt Dışı Eğitim Rehberi" : "e.g. Study Abroad Guide"}
+                                                    />
+                                                    <button
+                                                        type="button"
+                                                        onClick={handleAIGenerate}
+                                                        disabled={isAIGenerating}
+                                                        className="w-14 h-14 bg-[#0B1751] text-white rounded-2xl flex items-center justify-center hover:bg-[#DC2626] transition-all shrink-0 disabled:opacity-50"
+                                                        title="AI ile İçerik Üret"
+                                                    >
+                                                        {isAIGenerating ? (
+                                                            <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                                                        ) : (
+                                                            <Zap size={20} />
+                                                        )}
+                                                    </button>
+                                                </div>
+
                                             </div>
                                             <div className="space-y-2">
                                                 <label className="text-[10px] font-black text-[#0B1751] uppercase tracking-widest ml-1">Kategori</label>
@@ -653,9 +809,12 @@ function BlogManagementContent() {
                                             <div className="flex-1 bg-white rounded-b-3xl overflow-hidden border-x border-b border-slate-200 shadow-xl flex flex-col relative min-h-[500px]">
                                                 {showSource ? (
                                                     <textarea
-                                                        required
-                                                        value={formData.content}
-                                                        onChange={(e) => setFormData({ ...formData, content: e.target.value })}
+                                                        required={activeTab === "tr"}
+                                                        value={activeTab === "tr" ? formData.content : activeTab === "en" ? formData.content_en : formData.content_de}
+                                                        onChange={(e) => setFormData({ 
+                                                            ...formData, 
+                                                            [activeTab === "tr" ? "content" : activeTab === "en" ? "content_en" : "content_de"]: e.target.value 
+                                                        })}
                                                         className="w-full h-full p-8 outline-none bg-slate-950 text-emerald-400 font-mono text-sm resize-none selection:bg-emerald-500/20"
                                                         spellCheck="false"
                                                         placeholder="<html>...</html>"
@@ -664,8 +823,11 @@ function BlogManagementContent() {
                                                     <div className="h-full flex flex-col">
                                                         <ReactQuill
                                                             theme="snow"
-                                                            value={formData.content}
-                                                            onChange={(content) => setFormData({ ...formData, content })}
+                                                            value={activeTab === "tr" ? formData.content : activeTab === "en" ? formData.content_en : formData.content_de}
+                                                            onChange={(content) => setFormData({ 
+                                                                ...formData, 
+                                                                [activeTab === "tr" ? "content" : activeTab === "en" ? "content_en" : "content_de"]: content 
+                                                            })}
                                                             modules={modules}
                                                             className="h-full flex flex-col [&_.ql-toolbar]:border-0 [&_.ql-toolbar]:border-b [&_.ql-toolbar]:border-slate-100 [&_.ql-toolbar]:bg-slate-50/50 [&_.ql-container]:border-0 [&_.ql-container]:font-sans [&_.ql-editor]:text-base [&_.ql-editor]:text-black [&_.ql-editor]:leading-relaxed [&_.ql-editor]:p-8 [&_.ql-editor]:min-h-[400px] prose-premium"
                                                         />
@@ -743,10 +905,13 @@ function BlogManagementContent() {
     );
 }
 
-export default function BlogManagement() {
+
+export default function BlogManagement({ params }: { params: Promise<{ locale: string }> }) {
+    const { locale } = use(params);
+    
     return (
         <Suspense fallback={<div>Yükleniyor...</div>}>
-            <BlogManagementContent />
+            <BlogManagementContent locale={locale} />
         </Suspense>
     );
 }

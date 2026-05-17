@@ -122,7 +122,7 @@ export default function ContractManager({ contract, onUpdate, role }: ContractMa
                                 onChange={(e) => setIsLegalConfirmed(e.target.checked)}
                             />
                             <label htmlFor="contract-legal" className="text-[10px] font-black text-slate-600 dark:text-slate-400 cursor-pointer leading-tight uppercase tracking-widest">
-                                Bu belgeyi imzaladığımı ve <span className="underline italic">StarEducation</span> veri gizliliği şartlarını kabul ettiğimi beyan ederim.
+                                Bu belgeyi imzaladığımı ve <span className="underline italic">Mentor Career</span> veri gizliliği şartlarını kabul ettiğimi beyan ederim.
                             </label>
                         </div>
                     )}
@@ -152,7 +152,7 @@ export default function ContractManager({ contract, onUpdate, role }: ContractMa
                                                 </head>
                                                 <body>
                                                     <div class="header">
-                                                                                                                 <img src="/Services/Stareducation.png" style="height: 60px; width: auto; margin-bottom: 10px;" alt="StarEducation Logo">
+                                                                                                                 <img src="/images/MentorCareer.png" style="height: 60px; width: auto; margin-bottom: 10px;" alt="Mentor Career Logo">
                                                         <h1>${contract.title || 'HİZMET SÖZLEŞMESİ'}</h1>
                                                         <div style="font-size: 12px; color: #666;">Tarih: ${new Date().toLocaleDateString('tr-TR')}</div>
                                                     </div>
@@ -163,7 +163,7 @@ export default function ContractManager({ contract, onUpdate, role }: ContractMa
                                                             <div style="margin-top: 40px; border-top: 1px solid #000; padding-top: 10px;">İmza / Kaşe</div>
                                                         </div>
                                                         <div class="signature-box">
-                                                            <div class="label">StarEducation (DANIŞMANLIK)</div>
+                                                            <div class="label">Mentor Career (DANIŞMANLIK)</div>
                                                             <div style="margin-top: 40px; border-top: 1px solid #000; padding-top: 10px;">İmza / Kaşe</div>
                                                         </div>
                                                     </div>
@@ -236,7 +236,7 @@ export default function ContractManager({ contract, onUpdate, role }: ContractMa
                             <div className="p-8 bg-slate-50 dark:bg-slate-900/50 border-t border-slate-100 dark:border-slate-800">
                                 <div className="max-w-4xl mx-auto bg-white p-12 rounded-[40px] shadow-2xl border border-slate-100 italic">
                                     <div className="flex justify-between items-center mb-10 border-b border-slate-100 dark:border-slate-800 pb-6">
-                                                                                 <img src="/Services/Stareducation.png" className="h-10 w-auto object-contain" alt="StarEducation Logo" />
+                                                                                 <img src="/images/MentorCareer.png" className="h-10 w-auto object-contain" alt="Mentor Career Logo" />
                                         <div className="flex items-center gap-2 text-slate-400">
                                             <AlertCircle size={14} />
                                             <span className="text-[10px] font-bold uppercase tracking-widest">Sözleşme Taslağı Önizleme</span>

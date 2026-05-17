@@ -19,6 +19,7 @@ import {
     ArrowLeft
 } from "lucide-react";
 import Link from "next/link";
+import NextImage from "next/image";
 
 type Role = "STUDENT" | "AGENCY_MANAGER";
 
@@ -116,7 +117,7 @@ export default function RegisterPage() {
                                     <div className="w-12 h-12 bg-[#B4943E] rounded-2xl flex items-center justify-center text-[#0B1751] shadow-lg">
                                         <ShieldCheck size={24} />
                                     </div>
-                                    <span className="text-2xl font-serif font-bold italic tracking-tighter">StarEducation</span>
+                                    <span className="text-2xl font-serif font-bold italic tracking-tighter">Mentor Career</span>
                                 </Link>
 
                                 <div className="space-y-8">
@@ -132,7 +133,15 @@ export default function RegisterPage() {
                             <div className="relative z-10 pt-20">
                                 <div className="bg-white rounded-3xl p-10 shadow-2xl shadow-black/50 border border-white/10 relative">
                                     <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-white p-4 rounded-2xl border border-gray-100 shadow-xl">
-                                        <img src="/images/stareducon-logo.svg" alt="Logo" className="w-16 h-16 object-contain" />
+                                        <NextImage 
+                                            src="/images/MentorCareer.png" 
+                                            alt="Logo" 
+                                            width={64} 
+                                            height={64} 
+                                            priority
+                                            className="w-16 h-16 object-contain" 
+                                            style={{ width: "auto", height: "auto" }}
+                                        />
                                     </div>
                                     <div className="flex items-center gap-4 mt-8">
                                         <div className="w-10 h-10 bg-[#B4943E]/20 rounded-xl flex items-center justify-center text-[#B4943E]">
@@ -326,7 +335,7 @@ export default function RegisterPage() {
 
                             <div className="mt-auto pt-12 text-center">
                                 <p className="text-[9px] text-gray-300 leading-relaxed uppercase tracking-widest">
-                                    StarEducation &copy; {new Date().getFullYear()} - Elit Eğitim Partneriniz
+                                    Mentor Career &copy; {new Date().getFullYear()} - Elit Eğitim Partneriniz
                                 </p>
                             </div>
                         </div>

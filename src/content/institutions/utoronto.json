@@ -1,0 +1,16 @@
+{
+  "name": "University of Toronto",
+  "slug": "utoronto",
+  "country": "ca",
+  "type": "University",
+  "summary": "Top Canadian university",
+  "body": "<p>Programs and international student services...</p>",
+  "website": "https://www.utoronto.ca",
+  "logo": "https://example.com/utoronto.png",
+  "programs": [
+    "Bachelor",
+    "Masters"
+  ],
+  "contact_email": "info@utoronto.ca",
+  "published": true
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Canada",
+  "slug": "ca",
+  "summary": "Study in Canada",
+  "body": "<p>Work and study routes in Canada...</p>",
+  "primary_image": "https://example.com/ca.jpg",
+  "seo_title": "Study in Canada — Staredu",
+  "seo_description": "Canada student visas and placements",
+  "services": [
+    "university-placement",
+    "visa-consultancy"
+  ],
+  "published": true
+}

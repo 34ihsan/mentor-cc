@@ -1,550 +1,527 @@
-
-import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { prisma } from '@/lib/prisma';
 import Image from 'next/image';
-import Link from 'next/link';
-import { Star, MapPin, CheckCircle2, ArrowRight, Building2, Globe2, Trophy, ArrowUpRight, Sparkles } from 'lucide-react';
-import RichTextLayout from '@/components/public/RichTextLayout';
-import { DENKLIK_DATA, UNIVERSITY_DATA, getProgramData, getUniversityCountryData, getDenklikCountryData } from '@/data/program-content';
-import { highSchoolCategoryMap } from '@/lib/mappings';
-import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
-import FAQSchema from '@/components/seo/FAQSchema';
-import CourseSchema from '@/components/seo/CourseSchema';
 import { getTranslations } from 'next-intl/server';
+import { 
+    CheckCircle2, 
+    ArrowRight, 
+    Sparkles, 
+    Compass, 
+    HelpCircle,
+    Info,
+    BookOpen,
+    GraduationCap,
+    Award,
+    Clock,
+    Calendar,
+    Globe
+} from 'lucide-react';
+import Link from 'next/link';
+import SafeHTMLContent from '@/components/public/SafeHTMLContent';
 import MotionWrapper from '@/components/public/MotionWrapper';
-import ScrollToContact from '@/components/public/ScrollToContact';
+import { countryMap, serviceMap } from '@/lib/mappings';
+import { examMap } from '@/lib/mappings/exams';
+import { masterServiceDetails } from '@/data/master-service-details';
+import { equivalenceServiceDetails } from '@/data/equivalence-service-details';
 
-type Props = { params: Promise<{ service: string; country: string; locale: string }> };
+import { highSchoolCategoryMap } from '@/lib/mappings/highschool';
+import { universityServiceDetails } from '@/data/university-service-details';
+import { careerServiceDetails } from '@/data/career-service-details';
+import { summerSchoolServiceDetails } from '@/data/summer-school-service-details';
+import { languageSchoolServiceDetails } from '@/data/language-school-service-details';
+import { examsServiceDetails } from '@/data/exams-service-details';
+import { prisma } from '@/lib/prisma';
 
-async function getData(serviceSlug: string, countrySlug: string, locale: string) {
-    const service = await prisma.service.findUnique({
-        where: { slug: serviceSlug },
-        include: {
-            countryContents: {
-                where: { country: { slug: countrySlug } },
-                include: { country: true }
-            }
-        }
-    });
-
-    if (!service) return null;
-
-    // 1. Handle Denklik Static Data
-    const denklikData = getDenklikCountryData(countrySlug, locale);
-    if (serviceSlug === 'denklik' && denklikData) {
-        const countryData = denklikData;
-        const country = await prisma.country.findUnique({ where: { slug: countrySlug } }) || { name: countryData.title.split(' ')[0], slug: countrySlug };
-
-        return {
-            service,
-            country,
-            content: {
-                content: countryData.overview,
-                seoTitle: countryData.title + " | StarEducation",
-                seoDesc: countryData.overview.replace(/<[^>]*>?/gm, '').substring(0, 160),
-                image: countryData.heroImage || service.image
-            },
-            staticContent: countryData,
-            institutions: [],
-            groupedData: countryData.destinations ? countryData.destinations.map((d: any) => ({
-                name: d.name,
-                overview: { content: d.desc },
-                schools: d.items.map((item: any, idx: number) => ({
-                    id: `static-${idx}`,
-                    name: item.name,
-                    description: item.subDesc,
-                    slug: item.slug
-                }))
-            })) : []
-        };
-    }
-
-    // 2. Handle High School Category Static Data
-    const isHighSchoolCategory = (serviceSlug === 'yurtdisi-lise' || serviceSlug === 'lise-egitimi') && highSchoolCategoryMap[countrySlug];
-
-    if (isHighSchoolCategory) {
-        const categoryData = highSchoolCategoryMap[countrySlug] as any;
-        const institutions = await prisma.institution.findMany({
-            where: {
-                serviceId: service.id,
-                programs: {
-                    some: {
-                        name: { contains: categoryData.matchKeyword || categoryData.title }
-                    }
-                }
-            },
-            include: { programs: true }
-        });
-
-        const cities = [...new Set(institutions.map(i => i.city).filter(Boolean) as string[])].sort();
-        const groupedData = cities.map(cityName => ({
-            name: cityName,
-            overview: null,
-            schools: institutions.filter(inst => inst.city === cityName)
-        }));
-
-        return {
-            service,
-            country: { name: categoryData.title, slug: countrySlug, image: categoryData.image },
-            content: {
-                content: categoryData.details?.intro || categoryData.desc,
-                seoTitle: categoryData.title + " | StarEducation",
-                seoDesc: categoryData.desc,
-                image: categoryData.details?.heroImage || categoryData.image
-            },
-            institutions,
-            groupedData,
-            isCategory: true
-        };
-    }
-
-    // 3. Handle University & Postgraduate Static Data
-    const universityRelatedServices = [
-        'yurtdisi-universite', 'universite-egitimi', 'yurtdisi-yuksek-lisans', 
-        'yuksek-lisans', 'master-egitimi', 'doktora-egitimi', 'lisans-egitimi',
-        'universite', 'master', 'doktora', 'hazirlik-egitimi'
-    ];
-    const universityData = getUniversityCountryData(countrySlug, locale);
-    const isUniversityRelated = universityRelatedServices.includes(serviceSlug) && universityData;
-
-    if (isUniversityRelated) {
-        const countryData = universityData;
-        const countryFromDb = await prisma.country.findUnique({ where: { slug: countrySlug } });
-        const country = countryFromDb || { 
-            name: countryData.title.split(' ')[0], 
-            slug: countrySlug,
-            image: countryData.heroImage 
-        };
-
-        const institutions = await prisma.institution.findMany({
-            where: {
-                serviceId: service.id,
-                countryId: countryFromDb?.id,
-                active: true
-            },
-            include: { programs: true, country: true },
-            orderBy: { name: 'asc' }
-        });
-
-        const cities = [...new Set(institutions.map(i => i.city).filter(Boolean) as string[])].sort();
-        const groupedData = cities.map(cityName => ({
-            name: cityName,
-            overview: null,
-            schools: institutions.filter(inst => inst.city === cityName)
-        }));
-
-        return {
-            service,
-            country,
-            content: {
-                content: countryData.overview,
-                seoTitle: countryData.title + " | StarEducation",
-                seoDesc: countryData.overview.replace(/<[^>]*>?/gm, '').substring(0, 160),
-                image: countryData.heroImage || service.image
-            },
-            staticContent: countryData,
-            institutions,
-            groupedData
-        };
-    }
-
-    const country = await prisma.country.findUnique({
-        where: { slug: countrySlug }
-    });
-
-    if (!country) return null;
-
-    const content = service.countryContents[0];
-
-    // 4. Generic Destination Fallback from Static Program Data
-    let staticContent = null;
-    if (!content) {
-        const programData = getProgramData(serviceSlug, locale);
-        if (programData?.destinations) {
-            // Find destination matching country slug or name
-            const destination = programData.destinations.find(d => 
-                d.name.toLowerCase().includes(country.name.toLowerCase()) || 
-                d.name.toLowerCase().includes(country.slug.toLowerCase())
-            );
-
-            if (destination) {
-                staticContent = {
-                    overview: destination.desc,
-                    title: `${country.name} - ${service.title}`,
-                    heroImage: destination.image,
-                    destinations: [destination]
-                };
-            }
-        }
-    }
-
-    const institutions = await prisma.institution.findMany({
-        where: {
-            serviceId: service.id,
-            countryId: country.id,
-            active: true
-        },
-        include: { 
-            programs: true,
-            country: true
-        },
-        orderBy: { name: 'asc' }
-    });
-
-    const cityOverviews = await prisma.institution.findMany({
-        where: {
-            serviceId: service.id,
-            countryId: country.id,
-            active: false
-        }
-    });
-
-    const cities = [...new Set(institutions.map(i => i.city).filter(Boolean) as string[])].sort();
-    const groupedData = cities.map(cityName => ({
-        name: cityName,
-        overview: cityOverviews.find(co => co.city === cityName),
-        schools: institutions.filter(inst => inst.city === cityName)
-    }));
-
-    return { 
-        service, 
-        country, 
-        content, 
-        groupedData, 
-        institutions,
-        staticContent: staticContent || undefined
-    };
+interface PageProps {
+    params: Promise<{ locale: string; service: string; country: string }>;
 }
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'http://72.62.94.83';
+export async function generateMetadata({ params }: PageProps) {
+    const { locale, service, country } = await params;
+    const countryKey = country.toLowerCase();
+    const serviceKey = service.toLowerCase();
+    
+    // Check countryMap, highSchoolCategoryMap, examMap and career categories
+    const countryData = countryMap[countryKey as keyof typeof countryMap] || 
+                       (serviceKey === 'yurtdisi-lise' ? highSchoolCategoryMap[countryKey] : null) ||
+                       (serviceKey === 'sinavlar' ? examMap[countryKey as keyof typeof examMap] : null) ||
+                       (serviceKey === 'kariyer' ? serviceMap['kariyer']?.categories?.find(c => c.slug === countryKey) : null);
+    
+    const serviceInfo = serviceMap[serviceKey];
+    
+    // Attempt to get from DB, but fallback to static map
+    const serviceItem = await prisma.service.findUnique({
+        where: { slug: serviceKey },
+        select: { title: true, title_en: true, title_de: true }
+    });
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const { service: serviceSlug, country: countrySlug, locale } = await params;
-    const data = await getData(serviceSlug, countrySlug, locale);
-    const t = await getTranslations({ locale, namespace: 'CountryServiceDetail' });
-    if (!data) return { title: t('seoDefaultTitle', { country: countrySlug, service: serviceSlug }) };
+    if (!countryData) return { title: 'Not Found' };
 
-    const { service, country, content } = data;
-    const title = content?.seoTitle || t('seoDefaultTitle', { country: country.name, service: service.title });
-    const description = content?.seoDesc || t('seoDefaultDescription', { country: country.name, service: service.title.toLowerCase() });
-    const canonical = `${BASE_URL}/${locale}/${serviceSlug}/${countrySlug}`;
+    const serviceTitle = (locale === 'de' ? (serviceItem?.title_de || serviceInfo?.title_de) : 
+                          locale === 'en' ? (serviceItem?.title_en || serviceInfo?.title_en) : 
+                          (serviceItem?.title || serviceInfo?.title)) || serviceKey.toUpperCase();
+                          
+    const countryName = countryData.title;
 
     return {
-        title,
-        description,
-        alternates: { canonical },
-        openGraph: {
-            type: 'website',
-            url: canonical,
-            title,
-            description,
-            siteName: 'StarEducation',
-            images: content?.image ? [{ url: content.image, width: 1200, height: 630 }] : [],
-        },
-        twitter: {
-            card: 'summary_large_image',
-            title,
-            description,
-            images: content?.image ? [content.image] : [],
-        },
+        title: `${serviceTitle} - ${countryName} | Mentor Career`,
+        description: `${countryName} için ${serviceTitle} hizmetimiz hakkında detaylı bilgi alın.`,
     };
 }
 
-export default async function CountryServicePage({ params }: Props) {
-    const { service: serviceSlug, country: countrySlug, locale } = await params;
-    const data = await getData(serviceSlug, countrySlug, locale);
-    const t = await getTranslations('CountryServiceDetail');
-    const ct = await getTranslations('Common');
-    const nt = await getTranslations('Navbar');
+export default async function ServiceCountryPage({ params }: PageProps) {
+    const { locale, service, country } = await params;
+    const t = await getTranslations('ServiceDetail');
+    const ct = await getTranslations('CountryDetail');
 
-    if (!data) {
-        notFound();
+    const countryKey = country.toLowerCase();
+    const serviceKey = service.toLowerCase();
+    const isDenklik = serviceKey === 'denklik';
+    const isExams = serviceKey === 'sinavlar';
+
+    // 1. Get fundamental mappings first
+    const countryInfo = countryMap[countryKey as keyof typeof countryMap] || 
+                        (serviceKey === 'yurtdisi-lise' ? highSchoolCategoryMap[countryKey] : null) ||
+                        (serviceKey === 'sinavlar' ? examMap[countryKey as keyof typeof examMap] : null) ||
+                        (serviceKey === 'kariyer' ? serviceMap['kariyer']?.categories?.find(c => c.slug === countryKey) : null);
+    const serviceInfo = serviceMap[serviceKey];
+
+    // 2. Define data map for static content
+    const serviceDataMap: Record<string, any> = {
+        'denklik': equivalenceServiceDetails,
+        'yurtdisi-yuksek-lisans': masterServiceDetails,
+
+        'yurtdisi-lise': highSchoolCategoryMap,
+        'yurtdisi-universite': universityServiceDetails,
+        'kariyer': careerServiceDetails,
+        'yurtdisi-yaz-okullari': summerSchoolServiceDetails,
+        'yurtdisi-dil-okullari': languageSchoolServiceDetails,
+        'sinavlar': examsServiceDetails,
+    };
+
+    const serviceEntry = serviceDataMap[serviceKey]?.[countryKey];
+    const et = await getTranslations('Exams');
+
+    // Improved selection logic for localized data (handles both high school and university patterns)
+    const serviceData = (() => {
+        // Handle Exams specifically with new i18n JSON structure
+        if (isExams) {
+            try {
+                // Check if the countryKey (exam slug) exists in the JSON
+                const examData = et.raw(countryKey);
+                if (examData && examData.serviceDetails) {
+                    const d = examData.serviceDetails;
+                    return {
+                        overview: d.overview,
+                        advantages: d.advantages || [],
+                        process: d.process || [],
+                        faq: d.faq || [],
+                        structure: d.structure || null,
+                        scoring: d.scoring || null,
+                        universities: []
+                    };
+                }
+            } catch (e) {
+                console.warn(`Translation key for exam ${countryKey} not found, falling back to static data.`);
+            }
+        }
+
+        // If we have a static service entry for this country, use it.
+        if (serviceEntry) {
+            // Handle exams specifically (Legacy Fallback)
+            if (isExams) {
+                return {
+                    overview: (locale === 'de' ? serviceEntry.overview_de : locale === 'en' ? serviceEntry.overview_en : serviceEntry.overview) || serviceEntry.overview,
+                    advantages: (locale === 'de' ? serviceEntry.advantages_de : locale === 'en' ? serviceEntry.advantages_en : serviceEntry.advantages) || [],
+                    process: (locale === 'de' ? serviceEntry.process_de : locale === 'en' ? serviceEntry.process_en : serviceEntry.process) || [],
+                    faq: (locale === 'de' ? serviceEntry.faq_de : locale === 'en' ? serviceEntry.faq_en : serviceEntry.faq) || [],
+                    structure: (locale === 'de' ? serviceEntry.structure_de : locale === 'en' ? serviceEntry.structure_en : serviceEntry.structure) || null,
+                    scoring: (locale === 'de' ? serviceEntry.scoring_de : locale === 'en' ? serviceEntry.scoring_en : serviceEntry.scoring) || null,
+                    universities: []
+                };
+            }
+
+            // If it's high school, data is in 'details'
+            if (serviceKey === 'yurtdisi-lise') {
+                const d = serviceEntry.details;
+                return {
+                    overview: (locale === 'de' ? d?.intro_de : locale === 'en' ? d?.intro_en : d?.intro) || serviceEntry.desc,
+                    advantages: (locale === 'de' ? d?.advantages_de : locale === 'en' ? d?.advantages_en : d?.advantages) || [],
+                    process: (locale === 'de' ? d?.process_de : locale === 'en' ? d?.process_en : d?.process) || [],
+                    faq: (locale === 'de' ? d?.faq_de : locale === 'en' ? d?.faq_en : d?.faq) || []
+                };
+            }
+
+            // If it's university or has root-level localized fields
+            return {
+                overview: (locale === 'de' ? serviceEntry.overview_de : locale === 'en' ? serviceEntry.overview_en : serviceEntry.overview) || serviceEntry.overview,
+                advantages: (locale === 'de' ? serviceEntry.advantages_de : locale === 'en' ? serviceEntry.advantages_en : serviceEntry.advantages) || [],
+                process: (locale === 'de' ? serviceEntry.process_de : locale === 'en' ? serviceEntry.process_en : serviceEntry.process) || [],
+                faq: (locale === 'de' ? serviceEntry.faq_de : locale === 'en' ? serviceEntry.faq_en : serviceEntry.faq) || [],
+                universities: serviceEntry.universities || []
+            };
+        }
+
+        // No static entry — generate a helpful default content for this service+country.
+        const countryName = countryInfo?.title || countryKey;
+        const serviceTitle = (locale === 'de' ? serviceInfo?.title_de : locale === 'en' ? serviceInfo?.title_en : serviceInfo?.title) || serviceKey;
+
+        const isSummerSchool = serviceKey === 'yurtdisi-yaz-okullari';
+        const isDilOkulu = serviceKey === 'yurtdisi-dil-okullari';
+        const isAcademic = !isSummerSchool && !isDilOkulu;
+
+        const genOverview = `
+            <h2 class="text-3xl font-serif font-bold text-navy mb-6 italic">${countryName} — ${serviceTitle}</h2>
+            <p class="mb-6 text-lg text-zinc-700">${countryName} için ${serviceTitle} alanında Mentor Career'ın uzman rehberliği ile hayallerinize bir adım daha yaklaşın. Her öğrencinin hedeflerine özel, şeffaf ve sonuç odaklı bir süreç yönetimi sunuyoruz.</p>
+            <p class="mb-4"><strong>Neden Biz?</strong> Yerel piyasa hakimiyeti, geniş partner ağımız ve kişiselleştirilmiş danışmanlık yaklaşımımızla fark yaratıyoruz.</p>
+        `;
+
+        const genAdvantages = [
+            { title: 'Uzman Danışmanlık', desc: `${countryName} için en güncel ve doğru bilgi akışını sağlıyoruz.` },
+            { title: 'Kişiselleştirilmiş Plan', desc: 'Hedeflerinize, bütçenize ve yeteneklerinize en uygun opsiyonları sunuyoruz.' },
+            { title: 'Uçtan Uca Destek', desc: 'Başvuru aşamasından yerleşime kadar her adımda yanınızdayız.' }
+        ];
+
+        const genProcess = isSummerSchool || isDilOkulu ? [
+            { title: 'İhtiyaç Analizi', desc: 'Öğrencinin seviyesine ve beklentilerine en uygun programın seçilmesi.' },
+            { title: 'Kayıt ve Kabul', desc: 'Okul başvurularının yapılması ve kabul belgelerinin alınması.' },
+            { title: 'Kayıt ve Lojistik', desc: 'Okul kaydı, konaklama ve uçuş planlamasının yapılması.' },
+            { title: 'Eğitim ve Destek', desc: 'Eğitim süresince her türlü ihtiyaçta yanınızda olmaya devam ediyoruz.' }
+        ] : [
+            { title: 'Program Seçimi', desc: `${countryName} için uygun program seviyesinin belirlenmesi.` },
+            { title: 'Başvuru Hazırlığı', desc: 'Gerekli evrakların toplanması ve güçlü bir dosya hazırlanması.' },
+            { title: 'Burs ve Finansman', desc: 'Mevcut destek ve finansal opsiyonların değerlendirilmesi.' },
+            { title: 'Kabul & Yerleşim', desc: 'Kabul sonrası kayıt ve yerleşim süreçlerinin yönetilmesi.' }
+        ];
+
+        const genFaq = isSummerSchool ? [
+            { q: 'Yaz okulları için yaş sınırı nedir?', a: 'Genellikle 8-17 yaş arası programlar sunulur; ancak yetişkinler için de özel yaz kursları mevcuttur.' },
+            { q: 'Güvenlik nasıl sağlanıyor?', a: 'Tüm programlarımız 24 saat gözetim altındadır; grup liderleri ve okul personeli güvenliği en üst seviyede tutar.' },
+            { q: 'Aktiviteler neleri kapsıyor?', a: 'Dil derslerinin yanı sıra spor, sanat, şehir gezileri ve akşam eğlenceleri programın parçasıdır.' }
+        ] : isDilOkulu ? [
+            { q: 'Dil eğitimi için belirli bir yaş sınırı var mı?', a: 'Hayır, yetişkin programları genellikle 16-18 yaşından başlar ve her yaştan öğrenciye açıktır.' },
+            { q: 'Hangi konaklama seçenekleri sunuluyor?', a: 'Aile yanı, öğrenci rezidansları ve paylaşımlı daire seçenekleri mevcuttur.' },
+            { q: 'Kayıt süreci ne kadar sürer?', a: 'Ülkeye göre değişmekle birlikte genellikle 4-8 hafta arasında sonuçlanmaktadır.' }
+        ] : [
+            { q: 'Başvuru şartları nelerdir?', a: 'Seçilen programa göre dil yeterliliği ve akademik geçmiş gibi farklı kriterler aranmaktadır.' },
+            { q: 'Süreç ne kadar sürer?', a: 'Başvurulan ülkeye ve program türüne göre 2-6 ay arasında bir hazırlık süreci öngörülmektedir.' },
+            { q: 'Maliyet aralıkları nasıldır?', a: 'Ücretler; program türü, süresi ve seçilen lokasyona göre değişiklik gösterir; danışmanlarımız size en uygun teklifi sunacaktır.' }
+        ];
+
+        return {
+            overview: genOverview,
+            advantages: genAdvantages,
+            process: genProcess,
+            faq: genFaq,
+            universities: []
+        };
+    })();
+
+    if (!serviceData || !countryInfo) {
+        return notFound();
     }
 
-    const { service, country, content, institutions, groupedData = [], staticContent } = data as any;
-    let meta: any = null;
-    try {
-        if (content?.metadata) meta = JSON.parse(content.metadata);
-    } catch (e) {
-        console.error('Metadata parse error:', e);
-    }
-
-    const heroImage = content?.image || country.image || service.image || 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2000';
-    const canonical = `${BASE_URL}/${locale}/${serviceSlug}/${countrySlug}`;
-    const faqs = meta?.faqs || staticContent?.faqs || [];
+    const { overview, advantages, process, faq, universities, structure, scoring } = serviceData;
+    const localizedServiceTitle = (locale === 'de' ? serviceInfo?.title_de : locale === 'en' ? serviceInfo?.title_en : serviceInfo?.title) || service.replace(/-/g, ' ').toUpperCase();
 
     return (
-        <div className="min-h-screen bg-white text-zinc-950 selection:bg-zinc-900 selection:text-white">
-            {/* JSON-LD Structured Data */}
-            <BreadcrumbSchema items={[
-                { name: nt('home'), url: `${BASE_URL}/${locale}` },
-                { name: service.title, url: `${BASE_URL}/${locale}/${serviceSlug}` },
-                { name: country.name, url: canonical },
-            ]} />
-            {faqs.length > 0 && <FAQSchema faqs={faqs} />}
-            <CourseSchema
-                name={`${country.name} ${service.title}`}
-                description={content?.seoDesc || t('courseDefaultDescription', { country: country.name, service: service.title })}
-                provider="StarEducation"
-                url={canonical}
-                country={country.name}
-                courseMode="onsite"
-            />
-
-            {/* Cinematic Hero Section */}
-            <section className="relative h-[90vh] min-h-[700px] flex items-center overflow-hidden bg-zinc-950">
+        <div className={`bg-zinc-50/50 min-h-screen pb-20 selection:bg-secondary selection:text-white ${isDenklik ? 'text-black' : ''}`}>
+            
+            {/* PREMIUM HERO SECTION */}
+            <section className="relative h-[70vh] min-h-[500px] flex items-center justify-center overflow-hidden bg-zinc-950">
                 <div className="absolute inset-0">
                     <Image
-                        src={heroImage}
-                        alt={`${country.name} ${service.title}`}
+                        src={countryMap[country.toLowerCase() as keyof typeof countryMap]?.image || countryInfo.image || 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2000'}
+                        alt={countryInfo.title}
                         fill
-                        className="object-cover opacity-50 scale-105"
+                        className="object-cover opacity-40 scale-105"
                         priority
-                        sizes="100vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/40 via-zinc-950/60 to-zinc-950 z-10" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent z-10" />
                 </div>
 
-                <div className="relative container mx-auto px-6 z-20 h-full flex flex-col justify-end pb-32">
-                    <MotionWrapper className="max-w-6xl">
-                        <div className="flex items-center gap-4 mb-8 text-zinc-100/60 uppercase tracking-[0.4em] text-[10px] font-bold">
-                            <span className="w-8 h-px bg-zinc-100/30" />
-                            {country.name} {t('guideLabel')}
+                <div className="relative container mx-auto px-6 z-20 text-center">
+                    <MotionWrapper>
+                        <div className="flex flex-col items-center">
+                            <div className="flex items-center gap-4 mb-8">
+                                <div className="w-12 h-[1px] bg-secondary" />
+                                <span className="text-secondary font-black tracking-[0.5em] text-[10px] uppercase">{countryInfo.title}</span>
+                                <div className="w-12 h-[1px] bg-secondary" />
+                            </div>
+                            <h1 className="text-6xl md:text-8xl font-serif font-bold text-white mb-8 tracking-tighter italic leading-tight uppercase">
+                                {localizedServiceTitle}
+                            </h1>
+                            <p className="text-xl md:text-2xl text-zinc-300 font-serif italic max-w-3xl leading-relaxed">
+                                {countryInfo.title} için uzman danışmanlık ve profesyonel süreç yönetimi.
+                            </p>
                         </div>
-
-                        <h1 className="text-[min(14vw,140px)] font-serif font-medium text-white mb-10 tracking-tight leading-[0.85]">
-                            {country.name} <br/>
-                            <span className="text-zinc-400 italic">
-                                {service.title}
-                            </span>
-                        </h1>
-
-                        <p className="text-xl md:text-2xl text-zinc-400 max-w-2xl font-serif italic border-l-2 border-zinc-100/20 pl-8 leading-relaxed">
-                            {t('heroSub', { country: country.name })}
-                        </p>
                     </MotionWrapper>
                 </div>
-                
-                {/* Scroll Indicator */}
-                <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 animate-bounce">
-                    <div className="w-px h-12 bg-gradient-to-b from-transparent to-zinc-400/50" />
+
+                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce">
+                    <div className="w-[1px] h-20 bg-gradient-to-b from-transparent to-secondary" />
                 </div>
             </section>
 
-            {/* Main Content & Sidebar Grid */}
-            <section className="py-24 md:py-32 bg-white relative">
+            {/* OVERVIEW SECTION */}
+            <section className="py-24 bg-white relative z-30">
                 <div className="container mx-auto px-6">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 xl:gap-32">
-                        
-                        {/* Left Column: Rich Content */}
-                        <div className="lg:col-span-8">
-                            <MotionWrapper className="space-y-24 md:space-y-32">
-                                {/* Intro Text */}
-                                <div className="space-y-12">
-                                    <h2 className="text-4xl md:text-6xl font-serif text-zinc-900 leading-tight italic" dangerouslySetInnerHTML={{ __html: t.raw('comprehensiveGuide') }} />
-                                    
-                                    {content?.content || staticContent?.overview ? (
-                                        <div className="prose-premium prose-zinc lg:prose-xl italic text-zinc-600 leading-[1.8]">
-                                            <RichTextLayout content={content?.content || staticContent?.overview} />
-                                        </div>
-                                    ) : (
-                                        <div className="bg-zinc-50 border border-zinc-100 rounded-[3rem] p-12 md:p-20 text-center max-w-4xl mx-auto shadow-sm">
-                                            <div className="w-20 h-20 bg-white rounded-2xl border border-zinc-100 flex items-center justify-center mx-auto mb-10 shadow-sm text-secondary text-gold">
-                                                <Sparkles size={32} strokeWidth={1.5} />
-                                            </div>
-                                            <h3 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-6 italic tracking-tight">
-                                                {t('preparingGuide')}
-                                            </h3>
-                                            <p className="text-zinc-500 text-lg font-serif italic leading-relaxed mb-12 max-w-2xl mx-auto opacity-80">
-                                                {t('contactForDetails')}
-                                            </p>
-                                            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                                                <ScrollToContact 
-                                                    text={t('contactForDetails').includes('experts') ? 'CONTACT US' : 'BİZE ULAŞIN'}
-                                                    className="!px-12 !py-5 !bg-zinc-900 !text-white !rounded-2xl shadow-xl hover:shadow-zinc-200 transition-all duration-700 font-bold uppercase tracking-[0.3em] text-[10px]" 
-                                                />
-                                            </div>
-                                        </div>
-                                    )}
+                    <div className="max-w-5xl mx-auto">
+                        <MotionWrapper>
+                            <div className="flex gap-16 flex-col lg:flex-row">
+                                <div className="lg:w-2/3">
+                                    <div className="flex items-center gap-3 text-secondary mb-6">
+                                        <Info size={20} />
+                                        <span className="text-[10px] font-black uppercase tracking-[0.3em]">{t('overview')}</span>
+                                    </div>
+                                    <div className={`prose prose-lg max-w-none prose-headings:font-serif prose-headings:italic prose-headings:text-primary ${isDenklik ? 'prose-p:text-black prose-li:text-black prose-strong:text-black' : 'prose-zinc'}`}> 
+                                        <SafeHTMLContent html={overview} />
+                                    </div>
                                 </div>
-
-                                {/* Advantages Section */}
-                                {(staticContent?.advantages || meta?.advantages) && (
-                                    <div className="space-y-16 pt-16 border-t border-zinc-100">
-                                        <h2 className="text-3xl md:text-5xl font-serif text-zinc-900 italic" dangerouslySetInnerHTML={{ __html: t.raw('advantages') }} />
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                            {(staticContent?.advantages || meta?.advantages)?.map((adv: any, i: number) => (
-                                                <div key={i} className="group p-10 rounded-[2.5rem] bg-zinc-50 hover:bg-zinc-950 transition-all duration-700">
-                                                    <div className="w-12 h-12 rounded-full border border-zinc-200 flex items-center justify-center text-zinc-400 mb-8 group-hover:scale-110 group-hover:bg-zinc-100 group-hover:text-zinc-900 transition-all duration-500">
-                                                        <Trophy size={20} />
-                                                    </div>
-                                                    <h3 className="text-xl font-serif font-bold text-zinc-900 mb-4 italic group-hover:text-white transition-colors">{adv.title}</h3>
-                                                    <p className="text-zinc-500 text-[15px] font-sans italic leading-relaxed group-hover:text-zinc-400 transition-colors">{adv.desc}</p>
-                                                </div>
-                                            ))}
+                                <div className="lg:w-1/3">
+                                    <div className="sticky top-32 p-10 bg-zinc-50 border border-zinc-100 rounded-[2.5rem] shadow-sm">
+                                        <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-secondary mb-8 shadow-sm">
+                                            <Compass size={24} strokeWidth={1.5} />
                                         </div>
+                                        <h3 className="text-2xl font-serif font-bold text-primary italic mb-4">{t('needHelp')}</h3>
+                                        <p className={`${isDenklik ? 'text-black' : 'text-zinc-500'} mb-8 text-sm leading-relaxed`}>{t('contactPrompt')}</p>
+                                        <button className="w-full btn-primary !py-4 rounded-2xl flex items-center justify-center gap-3 group">
+                                            {t('getFreeConsultation')}
+                                            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                                        </button>
                                     </div>
-                                )}
-
-                                {/* Process Section */}
-                                {(staticContent?.process || meta?.process) && (
-                                    <div className="space-y-16 pt-16 border-t border-zinc-100">
-                                        <h2 className="text-3xl md:text-5xl font-serif text-zinc-900 italic" dangerouslySetInnerHTML={{ __html: t.raw('process') }} />
-                                        <div className="space-y-6">
-                                            {(staticContent?.process || meta?.process)?.map((step: any, i: number) => (
-                                                <div key={i} className="flex items-start gap-10 p-10 rounded-[3rem] bg-white border border-zinc-100 hover:border-zinc-300 transition-all group">
-                                                    <div className="text-6xl font-serif font-medium text-zinc-100 group-hover:text-zinc-200 transition-colors">
-                                                        0{step.step || i + 1}
-                                                    </div>
-                                                    <div className="space-y-4 pt-4">
-                                                        <h3 className="text-2xl font-serif font-bold text-zinc-900 italic">{step.title}</h3>
-                                                        <p className="text-zinc-500 font-sans italic leading-relaxed">{step.desc}</p>
-                                                    </div>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                )}
-
-                                {/* Institutions Listing */}
-                                {groupedData.length > 0 && (
-                                    <div className="space-y-24 pt-16 border-t border-zinc-100">
-                                        <div className="space-y-8">
-                                            <h2 className="text-3xl md:text-5xl font-serif text-zinc-900 italic" dangerouslySetInnerHTML={{ __html: t.raw('institutionsByCity') }} />
-                                            <p className="text-zinc-500 font-sans italic text-lg max-w-2xl opacity-70">
-                                                {t('institutionsDesc', { country: country.name })}
-                                            </p>
-                                        </div>
-
-                                        <div className="space-y-32">
-                                            {groupedData.map((cityGroup: any) => (
-                                                <div key={cityGroup.name} className="space-y-12">
-                                                    <div className="flex items-center gap-6 pb-6 border-b border-zinc-100">
-                                                        <MapPin className="text-zinc-900 w-5 h-5" />
-                                                        <h3 className="text-4xl font-serif font-medium text-zinc-900 tracking-tight">{cityGroup.name}</h3>
-                                                        <span className="ml-auto px-4 py-1 rounded-full bg-zinc-50 text-[10px] font-bold uppercase tracking-widest text-zinc-400">
-                                                            {cityGroup.schools.length} {ct('institutionsCount')}
-                                                        </span>
-                                                    </div>
-
-                                                    {cityGroup.overview && (
-                                                        <div className="p-10 rounded-[3rem] bg-zinc-50 text-zinc-600 font-serif italic text-lg leading-relaxed">
-                                                            <RichTextLayout content={cityGroup.overview.content || ""} />
-                                                        </div>
-                                                    )}
-
-                                                    <div className="grid grid-cols-1 gap-12">
-                                                        {cityGroup.schools.map((inst: any) => (
-                                                            <div key={inst.id} className="group relative bg-white border border-zinc-100 rounded-[3rem] overflow-hidden hover:shadow-2xl hover:border-zinc-200 transition-all duration-1000">
-                                                                <div className="grid md:grid-cols-12 h-full">
-                                                                    <div className="md:col-span-5 relative h-80 md:h-auto overflow-hidden">
-                                                                        <Image
-                                                                            src={inst.image || 'https://images.unsplash.com/photo-1541339907198-e08759df93f3?w=800&q=80'}
-                                                                            alt={inst.name}
-                                                                            fill
-                                                                            className="object-cover group-hover:scale-110 transition-transform duration-[2000ms]"
-                                                                        />
-                                                                        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/20 to-transparent opacity-40" />
-                                                                    </div>
-                                                                    <div className="md:col-span-7 p-12 flex flex-col justify-between">
-                                                                        <div className="space-y-6">
-                                                                            <div className="flex items-center gap-3">
-                                                                                <Building2 className="w-4 h-4 text-zinc-900" />
-                                                                                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-400">Elite Institution</span>
-                                                                            </div>
-                                                                            <h3 className="text-3xl font-serif font-medium text-zinc-900 italic leading-tight group-hover:text-zinc-600 transition-colors">
-                                                                                {inst.name}
-                                                                            </h3>
-                                                                            <p className="text-zinc-500 font-sans italic line-clamp-3 leading-relaxed">
-                                                                                {inst.description}
-                                                                            </p>
-                                                                        </div>
-
-                                                                        <div className="mt-10 pt-8 border-t border-zinc-100 flex items-center justify-between">
-                                                                            <Link 
-                                                                                href={`/${locale}/kurumsal/kurumlar/${inst.slug}`}
-                                                                                className="flex items-center gap-2 text-zinc-900 font-bold text-[10px] uppercase tracking-widest group/btn"
-                                                                            >
-                                                                                {t('explore')}
-                                                                                <ArrowUpRight className="w-4 h-4 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
-                                                                            </Link>
-                                                                            <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">
-                                                                                {inst.city}
-                                                                            </span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        ))}
-                                                    </div>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                )}
-                            </MotionWrapper>
-                        </div>
-
-                        {/* Right Column: Sticky Sidebar */}
-                        <div className="lg:col-span-4">
-                            <aside className="sticky top-40 space-y-12">
-                                {/* Highlights Card */}
-                                <MotionWrapper delay={0.2} className="p-12 md:p-16 rounded-[3rem] bg-zinc-950 text-white relative overflow-hidden shadow-2xl">
-                                    <div className="relative z-10 space-y-12">
-                                        <div className="flex items-center gap-4">
-                                            <span className="w-8 h-px bg-white/20" />
-                                            <h3 className="text-2xl font-serif italic text-white/90">
-                                                {t('whyCountry', { country: country.name })}
-                                            </h3>
-                                        </div>
-                                        <ul className="space-y-8">
-                                            {(meta?.advantages && meta.advantages.length > 0
-                                                ? meta.advantages.slice(0, 6).map((item: any) => typeof item === 'string' ? item : item.title || item.desc)
-                                                : t.raw('defaultWhyItems')
-                                            ).map((item: string, i: number) => (
-                                                <li key={i} className="flex items-start gap-4">
-                                                    <div className="w-5 h-5 rounded-full border border-white/20 flex items-center justify-center shrink-0 mt-1">
-                                                        <CheckCircle2 size={10} className="text-zinc-400" />
-                                                    </div>
-                                                    <span className="text-sm text-zinc-400 font-sans italic leading-relaxed opacity-80">{item}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                    {/* Decorative UI element */}
-                                    <div className="absolute -bottom-20 -right-20 w-64 h-64 border border-white/5 rounded-full" />
-                                </MotionWrapper>
-
-                                {/* Conversion Card */}
-                                <MotionWrapper delay={0.4} className="p-12 md:p-16 rounded-[3rem] bg-zinc-50 border border-zinc-100 flex flex-col items-center text-center shadow-xl">
-                                    <div className="p-6 rounded-full bg-white border border-zinc-100 mb-8 shadow-sm">
-                                        <Globe2 size={32} className="text-zinc-900" />
-                                    </div>
-                                    <h3 className="text-3xl font-serif font-medium text-zinc-900 mb-6 italic">{t('academicStrategy')}</h3>
-                                    <p className="text-zinc-500 text-[15px] mb-10 leading-relaxed font-sans italic">
-                                        {t('academicStrategyDesc', { country: country.name })}
-                                    </p>
-                                    <Link
-                                        href={`/${locale}/iletisim`}
-                                        className="w-full py-6 rounded-full bg-zinc-900 text-white text-[10px] font-bold uppercase tracking-[0.3em] hover:bg-zinc-800 transition-colors shadow-lg"
-                                    >
-                                        {t('startStrategySession')}
-                                    </Link>
-                                    <div className="mt-8 flex items-center gap-3 text-[9px] font-bold text-zinc-400 uppercase tracking-widest">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                                        {t('consultantsOnline')}
-                                    </div>
-                                </MotionWrapper>
-                            </aside>
-                        </div>
+                                </div>
+                            </div>
+                        </MotionWrapper>
                     </div>
                 </div>
             </section>
+
+            {/* ADVANTAGES GRID */}
+            {advantages && advantages.length > 0 && (
+                <section className="py-24 bg-zinc-50/50">
+                    <div className="container mx-auto px-6">
+                        <div className="flex flex-col items-center text-center mb-16">
+                            <div className="flex items-center gap-4 mb-6">
+                                <div className="w-12 h-[1px] bg-secondary/30" />
+                                <span className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-400">{t('whyChooseUs')}</span>
+                                <div className="w-12 h-[1px] bg-secondary/30" />
+                            </div>
+                            <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary italic tracking-tight">{t('ourDifference')}</h2>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                            {advantages.map((adv: any, i: number) => (
+                                <MotionWrapper key={i} delay={i * 0.1}>
+                                    <div className="bg-white p-10 rounded-[2.5rem] border border-zinc-100 h-full hover:shadow-premium transition-all duration-700 group">
+                                        <div className="w-12 h-12 rounded-xl bg-zinc-50 text-secondary flex items-center justify-center mb-8 group-hover:bg-primary group-hover:text-white transition-all duration-700">
+                                            <CheckCircle2 size={24} />
+                                        </div>
+                                        <h4 className="text-xl font-serif font-bold text-primary italic mb-4 group-hover:text-secondary transition-colors duration-700">{adv.title}</h4>
+                                        <p className={`${isDenklik ? 'text-black' : 'text-zinc-500'} text-sm leading-relaxed`}>{adv.desc}</p>
+                                    </div>
+                                </MotionWrapper>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            )}
+
+            {/* EXAM STRUCTURE & SCORING (For Exams Only) */}
+            {isExams && (structure || scoring) && (
+                <section className="py-24 bg-white">
+                    <div className="container mx-auto px-6">
+                        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+                            {structure && (
+                                <MotionWrapper>
+                                    <div className="bg-zinc-50 p-12 rounded-[3rem] border border-zinc-100 h-full">
+                                        <div className="flex items-center gap-4 mb-8">
+                                            <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-secondary shadow-sm">
+                                                <BookOpen size={24} strokeWidth={1.5} />
+                                            </div>
+                                            <h3 className="text-3xl font-serif font-bold text-primary italic">Sınav Yapısı</h3>
+                                        </div>
+                                        <div className="prose prose-zinc prose-p:text-zinc-600 prose-li:text-zinc-600">
+                                            <SafeHTMLContent html={structure} />
+                                        </div>
+                                    </div>
+                                </MotionWrapper>
+                            )}
+                            {scoring && (
+                                <MotionWrapper delay={0.2}>
+                                    <div className="bg-zinc-950 p-12 rounded-[3rem] text-white h-full relative overflow-hidden">
+                                        <div className="absolute top-0 right-0 p-8 opacity-10">
+                                            <Award size={120} />
+                                        </div>
+                                        <div className="relative z-10">
+                                            <div className="flex items-center gap-4 mb-8">
+                                                <div className="w-12 h-12 rounded-2xl bg-zinc-800 flex items-center justify-center text-secondary">
+                                                    <GraduationCap size={24} strokeWidth={1.5} />
+                                                </div>
+                                                <h3 className="text-3xl font-serif font-bold italic text-white">Puanlama ve Değerlendirme</h3>
+                                            </div>
+                                            <div className="prose prose-invert prose-p:text-zinc-400 prose-li:text-zinc-400 max-w-none">
+                                                <SafeHTMLContent html={scoring} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </MotionWrapper>
+                            )}
+                        </div>
+                    </div>
+                </section>
+            )}
+
+            {/* UNIVERSITIES LIST SECTION */}
+            {universities && universities.length > 0 && (
+                <section className="py-24 bg-white">
+                    <div className="container mx-auto px-6">
+                        <div className="flex flex-col items-center text-center mb-16">
+                            <div className="flex items-center gap-4 mb-6">
+                                <div className="w-12 h-[1px] bg-secondary/30" />
+                                <span className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-400">Akademik Seçenekler</span>
+                                <div className="w-12 h-[1px] bg-secondary/30" />
+                            </div>
+                            <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary italic tracking-tight">Öne Çıkan Üniversiteler</h2>
+                            <p className="mt-4 text-zinc-500 font-serif italic max-w-2xl">Hayalinizdeki kariyer için {countryInfo.title}&apos;daki en prestijli eğitim kurumlarını inceleyin.</p>
+                        </div>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                            {universities.map((uni: any, i: number) => {
+                                const CardContent = (
+                                    <div className="group relative bg-zinc-50 rounded-[2.5rem] border border-zinc-100 p-8 hover:bg-white hover:shadow-premium transition-all duration-500 overflow-hidden h-full flex flex-col">
+                                        <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
+                                            <Sparkles size={80} />
+                                        </div>
+                                        
+                                        <div className="mb-6">
+                                            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary/10 text-secondary text-[10px] font-bold uppercase tracking-widest mb-4">
+                                                {uni.ranking}
+                                            </span>
+                                            <h3 className="text-2xl font-serif font-bold text-primary italic leading-tight group-hover:text-secondary transition-colors">
+                                                {uni.name}
+                                            </h3>
+                                        </div>
+                                        
+                                        <div className="flex-grow">
+                                            <div className="mb-6">
+                                                <h4 className="text-[10px] font-black uppercase tracking-widest text-zinc-400 mb-3">Öne Çıkanlar</h4>
+                                                <div className="flex flex-wrap gap-2">
+                                                    {uni.highlights.map((h: string, j: number) => (
+                                                        <span key={j} className="text-xs bg-white border border-zinc-100 px-3 py-1 rounded-lg text-zinc-600 italic">
+                                                            {h}
+                                                        </span>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                            
+                                            <div>
+                                                <h4 className="text-[10px] font-black uppercase tracking-widest text-zinc-400 mb-3">Popüler Bölümler</h4>
+                                                <div className="flex flex-wrap gap-2">
+                                                    {uni.departments.map((d: string, j: number) => (
+                                                        <span key={j} className="text-xs text-zinc-500 flex items-center gap-1.5">
+                                                            <div className="w-1 h-1 rounded-full bg-secondary" />
+                                                            {d}
+                                                        </span>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div className="mt-8 pt-6 border-t border-zinc-200/50 flex items-center justify-between opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
+                                            <span className="text-xs font-bold text-primary italic">Detaylı Bilgi Al</span>
+                                            <div className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center">
+                                                <ArrowRight size={14} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                );
+
+                                return (
+                                    <MotionWrapper key={i} delay={i * 0.05}>
+                                        {uni.slug ? (
+                                            <Link href={`/${locale}/${service}/${country}/${uni.slug}`}>
+                                                {CardContent}
+                                            </Link>
+                                        ) : CardContent}
+                                    </MotionWrapper>
+                                );
+                            })}
+                        </div>
+                    </div>
+                </section>
+            )}
+
+            {/* PROCESS SECTION */}
+            {process && process.length > 0 && (
+                <section className="py-32 bg-white overflow-hidden">
+                    <div className="container mx-auto px-6">
+                        <div className="max-w-6xl mx-auto">
+                            <div className="grid lg:grid-cols-2 gap-20 items-center">
+                                <div>
+                                    <div className="flex items-center gap-4 mb-8">
+                                        <div className="w-12 h-[1px] bg-secondary/30" />
+                                        <span className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-400">{t('howItWorks')}</span>
+                                    </div>
+                                    <h2 className="text-5xl md:text-6xl font-serif font-bold text-primary italic mb-10 tracking-tight leading-tight">{t('stepByStep')}</h2>
+                                    <p className={`${isDenklik ? 'text-black' : 'text-zinc-500'} text-lg font-serif italic mb-12`}>Süreci sizin için şeffaf, hızlı ve sonuç odaklı yönetiyoruz.</p>
+                                    <div className="w-20 h-20 bg-zinc-50 rounded-[2rem] border border-zinc-100 flex items-center justify-center text-secondary animate-pulse">
+                                        <Sparkles size={32} strokeWidth={1.5} />
+                                    </div>
+                                </div>
+                                <div className="space-y-12 relative">
+                                    <div className="absolute left-6 top-8 bottom-8 w-[1px] bg-zinc-100" />
+                                    {process.map((step: any, i: number) => (
+                                        <MotionWrapper key={i} delay={i * 0.1}>
+                                            <div className="flex gap-10 relative">
+                                                <div className="w-12 h-12 rounded-full bg-white border border-zinc-100 flex items-center justify-center text-secondary font-serif font-bold text-xl z-10 shadow-sm group-hover:border-secondary transition-all">
+                                                    {i + 1}
+                                                </div>
+                                                <div className="flex-1 pt-1">
+                                                    <h4 className="text-2xl font-serif font-bold text-primary italic mb-3">{step.title}</h4>
+                                                    <p className={`${isDenklik ? 'text-black' : 'text-zinc-500'} leading-relaxed`}>{step.desc}</p>
+                                                </div>
+                                            </div>
+                                        </MotionWrapper>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            )}
+
+            {/* FAQ SECTION */}
+            {faq && faq.length > 0 && (
+                <section className="py-32 bg-zinc-50/50">
+                    <div className="container mx-auto px-6">
+                        <div className="max-w-4xl mx-auto">
+                            <div className="flex flex-col items-center text-center mb-16">
+                                <div className="w-16 h-16 bg-white rounded-3xl flex items-center justify-center text-secondary mb-8 shadow-sm">
+                                    <HelpCircle size={32} strokeWidth={1.5} />
+                                </div>
+                                <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary italic tracking-tight mb-4">{t('faq')}</h2>
+                                <p className="text-zinc-400 font-serif italic">{countryInfo.title} {service.replace(/-/g, ' ')} süreci hakkında merak edilenler.</p>
+                            </div>
+                            <div className="space-y-6">
+                                {faq.map((item: any, i: number) => (
+                                    <MotionWrapper key={i} delay={i * 0.1}>
+                                        <div className="bg-white p-10 rounded-[2.5rem] border border-zinc-100 shadow-sm">
+                                            <h4 className="text-xl font-serif font-bold text-primary italic mb-4 flex items-start gap-4">
+                                                <span className="text-secondary mt-1">Q.</span>
+                                                {item.q}
+                                            </h4>
+                                            <div className={`${isDenklik ? 'text-black' : 'text-zinc-500'} leading-relaxed pl-9 flex items-start gap-4`}>
+                                                <span className="text-zinc-300 mt-1 italic">A.</span>
+                                                {item.a}
+                                            </div>
+                                        </div>
+                                    </MotionWrapper>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            )}
+
         </div>
     );
-}
-
-function isValidIcon(obj: any) {
-    return typeof obj === 'function' || (typeof obj === 'object' && obj !== null && '$$typeof' in obj);
 }

@@ -11,10 +11,35 @@ export async function PATCH(
     try {
         const { id } = await params;
         const body = await req.json();
-        const { name, content, image, imageSettings, population, language, currency, capital, timezone, mapsUrl, active, serviceContents } = body;
+        const { 
+            name, name_en, name_de,
+            content, content_en, content_de,
+            image, imageSettings, 
+            population, 
+            language, language_en, language_de,
+            currency, 
+            capital, capital_en, capital_de,
+            timezone, mapsUrl, active, serviceContents,
+            visaInfo, visaInfo_en, visaInfo_de,
+            workPermit, workPermit_en, workPermit_de,
+            costRange, costRange_en, costRange_de,
+            overview, overview_en, overview_de,
+            shortDesc, shortDesc_en, shortDesc_de
+        } = body;
 
         const updateData: any = {
-            name, content, image, imageSettings, population, language, currency, capital, timezone, mapsUrl, active
+            name, name_en, name_de,
+            content, content_en, content_de,
+            image, imageSettings, population, 
+            language, language_en, language_de,
+            currency, 
+            capital, capital_en, capital_de,
+            timezone, mapsUrl, active,
+            visaInfo, visaInfo_en, visaInfo_de,
+            workPermit, workPermit_en, workPermit_de,
+            costRange, costRange_en, costRange_de,
+            overview, overview_en, overview_de,
+            shortDesc, shortDesc_en, shortDesc_de
         };
 
         if (name) {

@@ -8,7 +8,7 @@ import { useParams } from 'next/navigation';
 export default function PopularUniversities({ featuredIds }: { featuredIds?: string[] }) {
     const t = useTranslations('Common');
     const params = useParams();
-    const locale = params?.locale as string;
+    const locale = params ? params.locale as string : "tr";
     
     const [universities, setUniversities] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);

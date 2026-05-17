@@ -1,0 +1,14 @@
+{
+  "name": "Australia",
+  "slug": "au",
+  "summary": "Study in Australia",
+  "body": "<p>Australian institutions and programs...</p>",
+  "primary_image": "https://example.com/au.jpg",
+  "seo_title": "Study in Australia — Staredu",
+  "seo_description": "Pathways for study and summer schools",
+  "services": [
+    "language-schools",
+    "summer-schools"
+  ],
+  "published": true
+}

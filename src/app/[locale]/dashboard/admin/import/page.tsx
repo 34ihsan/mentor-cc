@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { Upload, FileSpreadsheet, CheckCircle2, AlertCircle, RefreshCw, Loader2 } from "lucide-react";
-import { processExcelImportAction } from "@/app/actions/excel-actions";
+import { processExcelImportAction, processImportedFileAction } from "@/app/actions/excel-actions";
 import { toast } from "sonner";
+
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function BulkImportPage() {
@@ -30,10 +31,18 @@ export default function BulkImportPage() {
 
         try {
             const res = await processExcelImportAction(formData);
-            setResult(res as any);
-            if (res.success) {
-                toast.success(res.message);
+            if (res.success && res.fileName) {
+                toast.info("Dosya yüklendi, veriler işleniyor...");
+                const processRes = await processImportedFileAction(res.fileName!);
+                setResult(processRes as any);
+                if (processRes.success) {
+                    toast.success(processRes.message);
+                } else {
+                    toast.error(processRes.error || "İşleme hatası.");
+                }
             } else {
+
+                setResult(res as any);
                 toast.error(res.error || "Bir hata oluştu.");
             }
         } catch (error) {
@@ -42,6 +51,7 @@ export default function BulkImportPage() {
             setIsUploading(false);
         }
     };
+
 
     return (
         <div className="max-w-4xl mx-auto space-y-10 pb-20">

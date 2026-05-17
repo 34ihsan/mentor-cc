@@ -12,7 +12,7 @@ export default function ProgramsPage() {
     const [search, setSearch] = useState("");
     const [category, setCategory] = useState("ALL");
 
-    const canManage = session?.user?.role === "SUPER_ADMIN" || session?.user?.role === "AGENCY";
+    const canManage = session?.user?.role === "ADMIN" || session?.user?.role === "CEO" || session?.user?.role === "AGENCY_MANAGER";
 
     useEffect(() => {
         fetchPrograms();

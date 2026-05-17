@@ -1,0 +1,18 @@
+{
+  "title": "University Placement",
+  "slug": "university-placement",
+  "summary": "Program-matching & application support",
+  "body": "<p>Full description here</p>",
+  "hero_image": "https://example.com/hero1.jpg",
+  "seo_title": "University Placement — Staredu",
+  "seo_description": "Expert university placement support",
+  "categories": [
+    "Study",
+    "University"
+  ],
+  "related_case_studies": null,
+  "packages": null,
+  "contact_email": null,
+  "published": null,
+  "published_at": null
+}

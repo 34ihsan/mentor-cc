@@ -1,0 +1,14 @@
+{
+  "name": "United Kingdom",
+  "slug": "uk",
+  "summary": "Study in the UK with trusted partners",
+  "body": "<p>UK offers world-class universities...</p>",
+  "primary_image": "https://example.com/uk.jpg",
+  "seo_title": "Study in the UK — Staredu",
+  "seo_description": "Guides and placements for UK universities",
+  "services": [
+    "university-placement",
+    "visa-consultancy"
+  ],
+  "published": true
+}

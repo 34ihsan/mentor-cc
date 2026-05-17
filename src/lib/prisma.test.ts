@@ -4,7 +4,7 @@ import { Role } from "@prisma/client";
 
 describe("Prisma Integration Tests (Staging DB)", () => {
   const testUser = {
-    email: `test-${Date.now()}@starberatung.com`,
+    email: `test-${Date.now()}@mentor-cc.com`,
     name: "Integration Test User",
     password: "hashed_password_123",
     role: Role.CEO, // Using a valid role from the schema

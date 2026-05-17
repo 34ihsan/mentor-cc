@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Send, CheckCircle2 } from "lucide-react";
 import { forgotPasswordAction } from "@/app/actions/auth-actions";
+import NextImage from "next/image";
 
 export default function ForgotPasswordPage() {
     const [email, setEmail] = useState("");
@@ -54,7 +55,15 @@ export default function ForgotPasswordPage() {
 
                     <div className="bg-white rounded-3xl p-10 shadow-2xl shadow-black/50 border border-white/10 relative">
                         <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-white p-4 rounded-2xl border border-gray-100 shadow-xl">
-                            <img src="/images/stareducon-logo.svg" alt="Logo" className="w-16 h-16 object-contain" />
+                            <NextImage 
+                                src="/images/MentorCareer.png" 
+                                alt="Logo" 
+                                width={64} 
+                                height={64} 
+                                priority
+                                className="w-16 h-16 object-contain" 
+                                style={{ width: "auto", height: "auto" }}
+                            />
                         </div>
 
                         <div className="mt-8 text-center mb-10">

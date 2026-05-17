@@ -18,13 +18,17 @@ import {
     ExternalLink,
     MapPin,
     Briefcase,
-    Shield
+    Shield,
+    MessageSquare,
+    Trash2
 } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import ProcessTracker from "@/components/dashboard/ProcessTracker";
 import UpdateStatusModal from "@/components/dashboard/UpdateStatusModal";
+
+import { PlaneTakeoff } from "lucide-react";
 
 export default function StudentDetailPage({ params }: { params: Promise<{ id: string }> }) {
     const { id } = use(params);
@@ -33,10 +37,15 @@ export default function StudentDetailPage({ params }: { params: Promise<{ id: st
     const [student, setStudent] = useState<any>(null);
     const [loading, setLoading] = useState(true);
     const [updatingApp, setUpdatingApp] = useState<{ id: string, status: string } | null>(null);
+    const [rejectingDocId, setRejectingDocId] = useState<string | null>(null);
+    const [rejectionReason, setRejectionReason] = useState("");
+    const [mounted, setMounted] = useState(false);
+    const [activeTab, setActiveTab] = useState("applications");
 
     useEffect(() => {
-        fetchStudent();
-    }, [id]);
+        setMounted(true);
+    }, []);
+
 
     const fetchStudent = async () => {
         try {
@@ -54,6 +63,43 @@ export default function StudentDetailPage({ params }: { params: Promise<{ id: st
         }
     };
 
+    const handleDelete = async (documentId: string) => {
+        if (!confirm("Bu belgeyi kalıcı olarak silmek istediğinize emin misiniz?")) return;
+        try {
+            const response = await fetch(`/api/documents/${documentId}`, { method: "DELETE" });
+            if (response.ok) {
+                fetchStudent();
+            } else {
+                const data = await response.json();
+                alert(data.error || "Silme başarısız");
+            }
+        } catch (error) {
+            console.error("Delete failed:", error);
+        }
+    };
+
+    const handleStatusUpdate = async (documentId: string, status: string, reason?: string) => {
+        try {
+            const response = await fetch(`/api/documents/${documentId}`, {
+                method: "PATCH",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ status, rejectionReason: reason }),
+            });
+
+            if (response.ok) {
+                fetchStudent();
+                setRejectingDocId(null);
+                setRejectionReason("");
+            }
+        } catch (error) {
+            console.error("Status update failed:", error);
+        }
+    };
+
+    useEffect(() => {
+        fetchStudent();
+    }, [id]);
+
     if (loading) return (
         <div className="flex items-center justify-center min-h-[400px]">
             <div className="w-8 h-8 border-4 border-[var(--primary)] border-t-transparent rounded-full animate-spin" />
@@ -61,6 +107,9 @@ export default function StudentDetailPage({ params }: { params: Promise<{ id: st
     );
 
     if (!student) return null;
+
+    const role = session?.user?.role || "STUDENT";
+    const canApprove = role === "ADMIN" || role === "CEO" || role === "ADVISOR" || role === "AGENCY_MANAGER";
 
     const statusLabels: any = {
         DRAFT: "Taslak",
@@ -83,10 +132,17 @@ export default function StudentDetailPage({ params }: { params: Promise<{ id: st
                     ÖĞRENCİ LİSTESİNE DÖN
                 </Link>
                 <div className="flex gap-2">
+                    <Link 
+                        href={`/dashboard/messages?id=${student.id}`}
+                        className="premium-btn px-6 py-2.5 text-xs flex items-center gap-2"
+                    >
+                        <MessageSquare size={16} />
+                        Mesaj Gönder
+                    </Link>
                     {student.asStudent.length === 1 && (
                         <button 
                             onClick={() => setUpdatingApp({ id: student.asStudent[0].id, status: student.asStudent[0].status })}
-                            className="premium-btn px-6 py-2.5 text-xs flex items-center gap-2"
+                            className="premium-btn px-6 py-2.5 text-xs flex items-center gap-2 bg-secondary/10 text-secondary border-secondary/20 hover:bg-secondary/20"
                         >
                             <Activity size={16} />
                             Süreç Güncelle
@@ -148,17 +204,21 @@ export default function StudentDetailPage({ params }: { params: Promise<{ id: st
                 {/* Main Content - Applications */}
                 <div className="lg:col-span-2 space-y-8">
                     <section>
-                        <div className="flex items-center justify-between mb-6">
-                            <h2 className="text-xl font-black tracking-tight text-slate-950 dark:text-white flex items-center gap-2">
-                                <School size={22} className="text-[#003366] dark:text-blue-400" />
-                                Başvurular
-                            </h2>
-                            <span className="vivid-label !text-slate-400 !text-[9px]">
-                                TOPLAM {student.asStudent.length} KAYIT
-                            </span>
+                        <div className="flex items-center gap-4 border-b border-zinc-100 dark:border-zinc-800 mb-6">
+                            <button 
+                                onClick={() => setActiveTab("applications")}
+                                className={`pb-4 text-sm font-black uppercase tracking-widest transition-all relative ${
+                                    activeTab === "applications" ? "text-primary" : "text-zinc-400 hover:text-zinc-600"
+                                }`}
+                            >
+                                BAŞVURULAR
+                                {activeTab === "applications" && <motion.div layoutId="tab" className="absolute bottom-0 left-0 right-0 h-1 bg-primary rounded-full" />}
+                            </button>
+
                         </div>
 
-                        <div className="space-y-4">
+                        {activeTab === "applications" ? (
+                            <div className="space-y-4">
                             {student.asStudent.length === 0 ? (
                                 <div className="glass-card p-12 text-center opacity-40">
                                     <AlertCircle size={40} className="mx-auto mb-3" />
@@ -218,6 +278,13 @@ export default function StudentDetailPage({ params }: { params: Promise<{ id: st
                                                         <Activity size={12} />
                                                         SÜREÇ GÜNCELLE
                                                     </button>
+                                                    <Link 
+                                                         href={`/dashboard/messages?id=${student.id}`}
+                                                         className="flex items-center gap-1.5 text-[10px] font-black text-blue-600 hover:text-blue-700 transition-colors uppercase tracking-widest"
+                                                     >
+                                                         <MessageSquare size={12} />
+                                                         MESAJ GÖNDER
+                                                     </Link>
                                                     <div className="flex items-center gap-1.5 text-[10px] font-black text-[#003366] dark:text-blue-400 hover:text-blue-600 transition-colors uppercase tracking-widest">
                                                         DETAYLI GÖRÜNTÜLE
                                                         <ExternalLink size={12} />
@@ -229,6 +296,7 @@ export default function StudentDetailPage({ params }: { params: Promise<{ id: st
                                 ))
                             )}
                         </div>
+                        ) : null}
                     </section>
                 </div>
 
@@ -284,21 +352,93 @@ export default function StudentDetailPage({ params }: { params: Promise<{ id: st
                                 </div>
                             ) : (
                                 student.documents.map((doc: any) => (
-                                    <div key={doc.id} className="p-4 hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors flex items-center justify-between group">
-                                        <div className="flex items-center gap-3">
-                                            <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-900 dark:text-white group-hover:bg-[#003366] group-hover:text-white transition-all">
-                                                <FileText size={18} />
+                                    <div key={doc.id} className="p-4 hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors space-y-3 group">
+                                        <div className="flex items-center justify-between">
+                                            <div className="flex items-center gap-3">
+                                                <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-900 dark:text-white group-hover:bg-[#003366] group-hover:text-white transition-all">
+                                                    <FileText size={18} />
+                                                </div>
+                                                <div>
+                                                    <div className="flex items-center gap-2">
+                                                        <p className="text-xs font-black text-slate-900 dark:vivid-white tracking-tight leading-none">{doc.name}</p>
+                                                        <span className={`text-[8px] px-1.5 py-0.5 rounded-md font-bold uppercase ${
+                                                            doc.status === "APPROVED" ? "bg-green-100 text-green-700" :
+                                                            doc.status === "REJECTED" ? "bg-red-100 text-red-700" : "bg-orange-100 text-orange-700"
+                                                        }`}>
+                                                            {doc.status}
+                                                        </span>
+                                                    </div>
+                                                    <p className="vivid-label !text-slate-400 !text-[8px] mt-1">
+                                                        {new Date(doc.uploadedAt).toLocaleDateString('tr-TR')}
+                                                    </p>
+                                                </div>
                                             </div>
-                                            <div>
-                                                <p className="text-xs font-black text-slate-900 dark:vivid-white tracking-tight leading-none mb-1">{doc.name}</p>
-                                                <p className="vivid-label !text-slate-400 !text-[8px]">
-                                                    {new Date(doc.uploadedAt).toLocaleDateString('tr-TR')}
-                                                </p>
+                                            <div className="flex items-center gap-2">
+                                                {canApprove && (
+                                                    <div className="flex gap-1">
+                                                        {doc.status !== "APPROVED" && (
+                                                            <button 
+                                                                onClick={() => handleStatusUpdate(doc.id, "APPROVED")}
+                                                                className="p-1.5 text-green-600 hover:bg-green-50 rounded-lg transition-colors"
+                                                                title="Onayla"
+                                                            >
+                                                                <CheckCircle2 size={16} />
+                                                            </button>
+                                                        )}
+                                                        {doc.status !== "REJECTED" && (
+                                                            <button 
+                                                                onClick={() => setRejectingDocId(doc.id)}
+                                                                className="p-1.5 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                                                                title="Reddet"
+                                                            >
+                                                                <AlertCircle size={16} />
+                                                            </button>
+                                                        )}
+                                                    </div>
+                                                )}
+                                                <a href={doc.url} target="_blank" rel="noopener noreferrer" className="p-2 text-slate-400 hover:text-[#003366] dark:hover:text-blue-400 transition-colors">
+                                                    <ExternalLink size={16} />
+                                                </a>
+                                                {canApprove && (
+                                                    <button
+                                                        onClick={() => handleDelete(doc.id)}
+                                                        className="p-1.5 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                                                        title="Belgeyi Sil"
+                                                    >
+                                                        <Trash2 size={16} />
+                                                    </button>
+                                                )}
                                             </div>
                                         </div>
-                                        <a href={doc.url} target="_blank" rel="noopener noreferrer" className="p-2 text-slate-400 hover:text-[#003366] dark:hover:text-blue-400 transition-colors">
-                                            <ExternalLink size={16} />
-                                        </a>
+
+                                        {/* Rejection Form inside Student Page */}
+                                        {rejectingDocId === doc.id && (
+                                            <div className="mt-2 p-3 bg-red-50 dark:bg-red-900/10 border border-red-200 rounded-xl animate-in fade-in slide-in-from-top-2">
+                                                <textarea
+                                                    className="w-full p-2 border border-red-200 dark:border-red-900/40 rounded-lg bg-white dark:bg-slate-900 text-[10px] font-bold"
+                                                    placeholder="Red sebebi nedir?"
+                                                    value={rejectionReason}
+                                                    onChange={(e) => setRejectionReason(e.target.value)}
+                                                    rows={2}
+                                                />
+                                                <div className="flex justify-end gap-2 mt-2">
+                                                    <button onClick={() => setRejectingDocId(null)} className="text-[10px] font-black text-slate-500 uppercase">İptal</button>
+                                                    <button 
+                                                        onClick={() => handleStatusUpdate(doc.id, "REJECTED", rejectionReason)}
+                                                        className="bg-red-600 text-white px-3 py-1 rounded-lg text-[10px] font-black uppercase"
+                                                        disabled={!rejectionReason.trim()}
+                                                    >
+                                                        Reddet
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        )}
+
+                                        {doc.status === "REJECTED" && doc.rejectionReason && (
+                                            <div className="mt-1 text-[9px] text-red-600 font-bold bg-red-50 dark:bg-red-900/10 p-2 rounded-lg border-l-2 border-red-500">
+                                                RED SEBEBİ: {doc.rejectionReason}
+                                            </div>
+                                        )}
                                     </div>
                                 ))
                             )}

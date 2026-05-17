@@ -41,14 +41,23 @@ export async function PATCH(
         }
 
         const body = await req.json();
-        const { title, slug, content, image, published, category, imageSettings } = body;
+        const { 
+            title, title_en, title_de, 
+            slug, 
+            content, content_en, content_de, 
+            image, published, category, imageSettings 
+        } = body;
 
         const post = await prisma.post.update({
             where: { id: params.id },
             data: {
                 title,
+                title_en,
+                title_de,
                 slug,
                 content,
+                content_en,
+                content_de,
                 image,
                 imageSettings,
                 published,

@@ -4,6 +4,8 @@ import { prisma } from "@/lib/prisma";
 import { generateResetToken, generateTokenExpiry } from "@/lib/auth-tokens";
 import { sendEmail } from "@/lib/mail";
 import { hash } from "bcryptjs";
+import { signIn } from "@/auth";
+import { AuthError } from "next-auth";
 
 export async function forgotPasswordAction(email: string) {
     if (!email) return { error: "E-posta adresi gerekli." };
@@ -34,19 +36,19 @@ export async function forgotPasswordAction(email: string) {
         const emailHtml = `
             <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
                 <h2 style="color: #0B1751;">Şifre Sıfırlama İsteği</h2>
-                <p>StarEducation hesabınız için şifre sıfırlama talebi aldık. Şifrenizi sıfırlamak için aşağıdaki butona tıklayın:</p>
+                <p>Mentor Career hesabınız için şifre sıfırlama talebi aldık. Şifrenizi sıfırlamak için aşağıdaki butona tıklayın:</p>
                 <div style="margin: 30px 0;">
                     <a href="${resetLink}" style="background-color: #0B1751; color: #B4943E; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold;">Şifremi Sıfırla</a>
                 </div>
                 <p>Bu link 1 saat geçerlidir. Eğer bu talebi siz yapmadıysanız, bu e-postayı dikkate almayınız.</p>
                 <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;" />
-                <p style="font-size: 12px; color: #666;">StarEducation Ekibi</p>
+                <p style="font-size: 12px; color: #666;">Mentor Career Ekibi</p>
             </div>
         `;
 
         const emailResult = await sendEmail({
             to: email,
-            subject: "Şifre Sıfırlama - StarEducation",
+            subject: "Şifre Sıfırlama - Mentor Career",
             html: emailHtml,
         });
 
@@ -90,5 +92,33 @@ export async function resetPasswordAction(token: string, password: string) {
     } catch (error) {
         console.error("Reset password error:", error);
         return { error: "Şifre güncellenirken bir hata oluştu." };
+    }
+}
+
+export async function loginAction(formData: FormData) {
+    const email = formData.get("email") as string;
+    const password = formData.get("password") as string;
+
+    if (!email || !password) {
+        return { error: "E-posta ve şifre gerekli." };
+    }
+
+    try {
+        await signIn("credentials", {
+            email: email.trim().toLowerCase(),
+            password: password,
+            redirectTo: "/dashboard",
+        });
+        return { success: true };
+    } catch (error) {
+        if (error instanceof AuthError) {
+            switch (error.type) {
+                case "CredentialsSignin":
+                    return { error: "Hatalı e-posta veya şifre." };
+                default:
+                    return { error: "Bir hata oluştu." };
+            }
+        }
+        throw error; // Rethrow redirect or other internal errors
     }
 }

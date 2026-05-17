@@ -14,7 +14,7 @@ export interface ServiceExtra {
 }
 
 export const serviceExtras: Record<string, ServiceExtra> = {
-    "dil-okullari": {
+    "yurtdisi-dil-okullari": {
         faqs: [
             {
                 question: "Dil kursuna her yaşta gidilebilir mi?",
@@ -30,11 +30,11 @@ export const serviceExtras: Record<string, ServiceExtra> = {
             },
             {
                 question: "Yurtdışı Dil Okulu Seçiminde Nelere Dikkat Etmeliyim?",
-                answer: "Seçtiğiniz dil okulunun bulunduğu ülke, şehir ve sunduğu programların (Genel, İş, Akademik) sizin hedeflerinize uygun olup olmadığına dikkat etmelisiniz. StarEducation danışmanları okulun kalitesi, konumu ve sunduğu sosyal imkanlar konusunda size en iyi rehberliği sağlar."
+                answer: "Seçtiğiniz dil okulunun bulunduğu ülke, şehir ve sunduğu programların (Genel, İş, Akademik) sizin hedeflerinize uygun olup olmadığına dikkat etmelisiniz. Mentor Career danışmanları okulun kalitesi, konumu ve sunduğu sosyal imkanlar konusunda size en iyi rehberliği sağlar."
             },
             {
-                question: "Dil Okulu Vizesi Nasıl Alınır?",
-                answer: "Her ülkenin vize kriterleri farklıdır (F-1, Student Visitor, vb.). StarEducation olarak, niyet mektubunuzun yazılmasından dosya hazırlığına ve mülakat simülasyonuna kadar tüm süreci sizin adınıza yönetiyoruz."
+                question: "Dosya Hazırlığı Süreci Nasıl İlerler?",
+                answer: "Her ülkenin başvuru kriterleri farklıdır. Mentor Career olarak, niyet mektubunuzun yazılmasından dosya hazırlığına ve mülakat simülasyonuna kadar tüm süreci sizin adınıza profesyonelce yönetiyoruz."
             }
         ],
         cta: {
@@ -43,15 +43,15 @@ export const serviceExtras: Record<string, ServiceExtra> = {
             buttonText: "ÜCRETSİZ RANDEVU AL"
         }
     },
-    "universite-egitimi": {
+    "yurtdisi-universite": {
         faqs: [
             { question: "Yurtdışı Üniversite Yatay Geçiş Nasıl Olur?", answer: "Türkiye'deki ya da başka bir ülkedeki üniversite eğitiminizin bir kısmını tamamladıktan sonra, aldığınız dersleri saydırarak yurtdışındaki bir üniversiteye geçiş yapabilirsiniz. Ancak kabul tamamen karşı üniversitenin inisiyatifindedir." },
             { question: "Yurtdışında üniversite okumak için ne gerekli?", answer: "Temel şartlar lise diploması (veya mezuniyet durum belgesi) ve not dökümü (transkript). Ek olarak İngilizce yeterliliğiniz (IELTS/TOEFL) ve niyet mektubunuz gerekmektedir." },
             { question: "Yurtdışında üniversite okumak için hangi sınavlara girmek gerekir?", answer: "Ülkeye göre değişmekle birlikte genellikle IELTS, TOEFL, SAT veya ACT gibi dil ve akademik yeterlilik sınavları istenir." },
             { question: "Yurtdışında üniversite okumak pahalı mı?", answer: "Avrupa'daki birçok ülkede eğitim ücretsiz veya Türkiye'deki vakıf üniversitelerinden daha ekonomiktir. Ayrıca Amerika ve Kanada'da çeşitli burs imkanları bulunmaktadır." },
-            { question: "Yurtdışında üniversite okumak için vize almak zor mu?", answer: "Gerekli evraklar eksiksiz tamamlandığında, doğru bir danışmanlık süreci ile eğitim vizesi almak sanılanın aksine kolaydır." },
+
             { question: "Yurtdışında üniversite okurken çalışma izni alabilir miyim?", answer: "Evet, birçok ülke uluslararası öğrencilere eğitim süresince yarı zamanlı (haftada 20 saat) ve tatillerde tam zamanlı çalışma hakkı tanımaktadır." },
-            { question: "Mezun olduktan sonra yurtdışında kalabilir miyim?", answer: "Amerika'da OPT, İngiltere'de Graduate Route, Kanada'da PGWP gibi vizeler ile mezuniyet sonrası 1 ila 3 yıl arasında çalışma ve kalma izni alabilirsiniz." },
+            { question: "Mezun olduktan sonra yurtdışında kalabilir miyim?", answer: "Amerika'da OPT, İngiltere'de Graduate Route, Kanada'da PGWP gibi programlar ile mezuniyet sonrası 1 ila 3 yıl arasında yasal çalışma ve kalma hakkı elde edebilirsiniz." },
             { question: "Hangi ülkelerde sınavsız üniversite var?", answer: "İngiltere, İrlanda, Kanada, Amerika, Polonya, Macaristan gibi ülkeler Türkiye'deki üniversite sınavı (YKS) şartı aramaksızın doğrudan lise diploması ile öğrenci kabul etmektedir." }
         ],
         cta: {
@@ -60,7 +60,7 @@ export const serviceExtras: Record<string, ServiceExtra> = {
             buttonText: "ÜCRETSİZ DANIŞMANLIK AL"
         }
     },
-    "yuksek-lisans": {
+    "yurtdisi-yuksek-lisans": {
         faqs: [
             {
                 question: "Yüksek lisans için iş tecrübesi şart mı?",
@@ -73,7 +73,7 @@ export const serviceExtras: Record<string, ServiceExtra> = {
             buttonText: "DANIŞMANA DANIŞIN"
         }
     },
-    "lise-egitimi": {
+    "yurtdisi-lise": {
         faqs: [
             { question: "Online yurtdışı lise eğitimi var mı?", answer: "Evet, bazı ülkelerde online lise programları bulunmaktadır. Ancak kampüs deneyimi, dil gelişimi ve kültürel adaptasyon açısından yüz yüze eğitim çok daha avantajlıdır." },
             { question: "Liseyi yurtdışında okumak için ne yapmalıyım?", answer: "Öncelikle hedef ülke ve program belirlenir. Ardından okul başvurusu, seviye tespit sınavı, mülakat ve kabul süreci tamamlanır." },
@@ -83,7 +83,7 @@ export const serviceExtras: Record<string, ServiceExtra> = {
             { question: "Çocuğum İngilizce bilmiyor, yine de okuyabilir mi?", answer: "Evet, çoğu lise İngilizce seviyesi yeterli olmayanlar için ESL / hazırlık programları sunar." },
             { question: "10. veya 11. sınıftan yurtdışına geçiş yapılır mı?", answer: "Evet, yapılabilir. Birçok okul ara sınıflardan öğrenci kabul etmektedir." },
             { question: "IB mi A Level mı daha iyi?", answer: "IB çok yönlü bir yapı sunarken, A Level alan uzmanlaşması odaklıdır. Hedef üniversiteye göre seçim yapılmalıdır." },
-            { question: "Vize almak zor mu?", answer: "Doğru belgeler ve net bir eğitim amacı sunulduğu sürece vize almak zor değildir. StarEducation bu süreci profesyonelce yönetir." }
+
         ],
         cta: {
             title: "Geleceğiniz İçin Bugün Adım Atın",
@@ -91,7 +91,7 @@ export const serviceExtras: Record<string, ServiceExtra> = {
             buttonText: "ÜCRETSİZ DANIŞMANLIK AL"
         }
     },
-    "yaz-okulu": {
+    "yurtdisi-yaz-okullari": {
         faqs: [
             {
                 question: "Yaz okulları hangi yaş gruplarına hitap eder?",

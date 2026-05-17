@@ -61,15 +61,15 @@ export default async function StudentDashboard() {
                         </p>
                     </div>
                 </div>
-                <div className="premium-card p-6 flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-2xl bg-zinc-100 flex items-center justify-center text-primary">
+                <Link href="/dashboard/visa-tracking" className="premium-card p-6 flex items-center gap-4 hover:border-secondary transition-all group">
+                    <div className="w-12 h-12 rounded-2xl bg-emerald-50 flex items-center justify-center text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white transition-all">
                         <CheckCircle size={24} />
                     </div>
                     <div>
-                        <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">DURUM</p>
-                        <p className="text-2xl font-serif font-bold italic text-primary">Aktif</p>
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">VİZE TAKİBİ</p>
+                        <p className="text-2xl font-serif font-bold italic text-primary group-hover:text-secondary transition-all">Süreç İzle</p>
                     </div>
-                </div>
+                </Link>
             </div>
 
             {/* Applications List */}

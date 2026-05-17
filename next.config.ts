@@ -1,4 +1,3 @@
-import { withSentryConfig } from "@sentry/nextjs";
 import type { NextConfig } from "next";
 import createNextIntlPlugin from 'next-intl/plugin';
 
@@ -6,55 +5,36 @@ const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
   output: 'standalone',
-  poweredByHeader: false,
-  reactStrictMode: true,
   images: {
-    minimumCacheTTL: 60,
+    unoptimized: process.env.NODE_ENV === 'development',
     remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'media.istockphoto.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'wikitravel.org',
-      },
-      {
-        protocol: 'https',
-        hostname: 'img.pikbest.com',
-      },
+      { protocol: 'https', hostname: 'images.unsplash.com' },
+      { protocol: 'https', hostname: 'media.istockphoto.com' },
+      { protocol: 'https', hostname: 'wikitravel.org' },
+      { protocol: 'https', hostname: 'img.pikbest.com' },
+      { protocol: 'https', hostname: 'image.pollinations.ai' },
     ],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
-  transpilePackages: ['framer-motion'],
   typescript: {
-    // !! WARN !!
-    // Dangerously allow production builds to successfully complete even if
-    // your project has type errors.
-    // !! WARN !!
     ignoreBuildErrors: false,
   },
-  eslint: {
-    // Warning: This allows production builds to successfully complete even if
-    // your project has ESLint errors.
-    ignoreDuringBuilds: false,
-  },
   experimental: {
-    optimizePackageImports: ['framer-motion', 'lucide-react', 'recharts', 'date-fns'],
+    optimizePackageImports: ["lucide-react", "framer-motion"],
+  },
+  compress: true,
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          { key: 'X-XSS-Protection', value: '1; mode=block' },
+          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+        ],
+      },
+    ];
   },
 };
 
-export default withSentryConfig(withNextIntl(nextConfig), {
-  silent: true,
-  org: "starberatung",
-  project: "javascript-nextjs",
-  widenClientFileUpload: true,
-  tunnelRoute: "/monitoring",
-  // Suppress the warnings appearing in the console
-  disableLogger: true,
-});
+export default withNextIntl(nextConfig);

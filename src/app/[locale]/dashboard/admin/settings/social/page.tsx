@@ -20,11 +20,11 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function SocialSettings() {
     const [socials, setSocials] = useState([
-        { id: "fb", platform: "Facebook", icon: Facebook, url: "https://facebook.com/StarEducation", enabled: true, color: "#1877F2" },
-        { id: "ig", platform: "Instagram", icon: Instagram, url: "https://instagram.com/StarEducation", enabled: true, color: "#E4405F" },
-        { id: "tw", platform: "Twitter/X", icon: Twitter, url: "https://twitter.com/StarEducation", enabled: false, color: "#000000" },
-        { id: "li", platform: "LinkedIn", icon: Linkedin, url: "https://linkedin.com/company/StarEducation", enabled: true, color: "#0A66C2" },
-        { id: "yt", platform: "YouTube", icon: Youtube, url: "https://youtube.com/StarEducation", enabled: false, color: "#FF0000" },
+        { id: "fb", platform: "Facebook", icon: Facebook, url: "https://facebook.com/MentorCareerConsulting", enabled: true, color: "#1877F2" },
+        { id: "ig", platform: "Instagram", icon: Instagram, url: "https://instagram.com/mentorcareer", enabled: true, color: "#E4405F" },
+        { id: "tw", platform: "Twitter/X", icon: Twitter, url: "https://twitter.com/mentorcareer", enabled: false, color: "#000000" },
+        { id: "li", platform: "LinkedIn", icon: Linkedin, url: "https://linkedin.com/company/mentorcareer", enabled: true, color: "#0A66C2" },
+        { id: "yt", platform: "YouTube", icon: Youtube, url: "https://youtube.com/@mentorcareer", enabled: false, color: "#FF0000" },
     ]);
 
     const [saved, setSaved] = useState(false);

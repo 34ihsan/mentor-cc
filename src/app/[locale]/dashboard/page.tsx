@@ -1,9 +1,10 @@
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
+import NextLink from "next/link";
+import { getLocale } from "next-intl/server";
 import StatsCard from "@/components/dashboard/StatsCard";
 import ApplicationFeed from "@/components/dashboard/ApplicationFeed";
 import { prisma } from "@/lib/prisma";
-import Link from "next/link";
 import {
     Sparkles,
     ArrowUpRight,
@@ -13,42 +14,42 @@ import {
     Target,
     LayoutDashboard,
     Compass,
+    Mail
 } from "lucide-react";
 import JourneyTimeline from "@/components/dashboard/JourneyTimeline";
 import ManagerCommandCenter from "@/components/application/ManagerCommandCenter";
 import QuickCRMWidget from "@/components/dashboard/QuickCRMWidget";
 import RecentMessagesWidget from "@/components/dashboard/RecentMessagesWidget";
 import AdminQuickActions from "@/components/dashboard/AdminQuickActions";
-import AgencyOverview from "@/components/dashboard/AgencyOverview";
-import CEOOverview from "@/components/dashboard/CEOOverview";
 
 export default async function DashboardPage() {
     const session = await auth();
     const role = session?.user?.role as string;
     const userId = session?.user.id;
 
-    if (role === "STUDENT") {
-        redirect("/dashboard/student");
-    }
+    const locale = await getLocale();
 
-    // Role-specific specialized views that take over the layout
-    if (role === "CEO") {
-        return <CEOOverview />;
-    }
+    if (role === "ADMIN") redirect(`/${locale}/dashboard/admin`);
+    if (role === "CEO") redirect(`/${locale}/dashboard/ceo`);
+    if (role === "ADVISOR") redirect(`/${locale}/dashboard/advisor`);
+    if (role === "AGENCY_MANAGER") redirect(`/${locale}/dashboard/agency`);
+    if (role === "STUDENT") redirect(`/${locale}/dashboard/student`);
 
-    if (role === "AGENCY_MANAGER") {
-        return <AgencyOverview />;
-    }
-
-    // Default Grid/Admin/Advisor View
+    // Fallback logic if any role slips through
     let statsData = { total: 0, pending: 0, completed: 0, growth: "+12%" };
     const where: any = {};
 
     try {
         if (role === "ADMIN") {
             // Global view
+        } else if (role === "CEO") {
+            // Strategic view
         } else if (role === "ADVISOR") {
             where.consultantId = userId;
+        } else if (role === "AGENCY_MANAGER") {
+            where.agencyId = userId;
+        } else {
+            where.studentId = userId;
         }
 
         const [t, p, c, m] = await Promise.all([
@@ -63,7 +64,6 @@ export default async function DashboardPage() {
         console.error("Stats fetch error:", e);
     }
 
-    // Fetch recent applications for the feed
     const recentApplications = await prisma.application.findMany({
         where,
         take: 5,
@@ -127,8 +127,27 @@ export default async function DashboardPage() {
                 ))}
             </div>
 
+            {/* Student Journey Timeline */}
+            {role === "STUDENT" && recentApplications.length > 0 && (
+                <div className="premium-card p-12 overflow-hidden relative group">
+                    <div className="flex items-center justify-between mb-12 border-b border-zinc-50 pb-8">
+                        <div>
+                            <span className="text-[10px] uppercase tracking-[0.3em] text-secondary font-black mb-2 flex items-center gap-2">
+                                <Compass size={14} className="text-secondary/60" /> Görev Kontrol
+                            </span>
+                            <h3 className="text-2xl font-serif font-bold text-primary italic">Yurtdışı Yolculuğun</h3>
+                        </div>
+                        <div className="bg-primary/5 px-5 py-2 rounded-lg border border-primary/10">
+                            <span className="text-[10px] font-black text-primary uppercase tracking-widest">
+                                {recentApplications[0].program.name}
+                            </span>
+                        </div>
+                    </div>
+                    <JourneyTimeline status={recentApplications[0].status} />
+                </div>
+            )}
+
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-                {/* Main Workflow Registry */}
                 <div className="lg:col-span-8 space-y-8">
                     <div className="premium-card overflow-hidden">
                         <div className="p-8 bg-zinc-50 border-b border-zinc-100 flex items-center justify-between">
@@ -138,10 +157,10 @@ export default async function DashboardPage() {
                                     Canlı Akış & Aktivite Günlüğü
                                 </h3>
                             </div>
-                            <Link href="/dashboard/applications" className="text-[10px] font-black text-secondary hover:text-primary uppercase tracking-widest transition-colors flex items-center gap-2 group">
+                            <NextLink href="/dashboard/applications" className="text-[10px] font-black text-secondary hover:text-primary uppercase tracking-widest transition-colors flex items-center gap-2 group">
                                 TÜMÜNÜ GÖR
                                 <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                            </Link>
+                            </NextLink>
                         </div>
                         <div className="p-4">
                             <ApplicationFeed initialData={recentApplications} />
@@ -149,13 +168,54 @@ export default async function DashboardPage() {
                     </div>
                 </div>
 
-                {/* Sidebar Actions & Shortcuts */}
                 <div className="lg:col-span-4 space-y-10">
-                     <>
-                        {(role === "ADMIN") && <AdminQuickActions />}
-                        <RecentMessagesWidget />
-                        <QuickCRMWidget />
-                    </>
+                    {(role === "STUDENT" || role === "AGENCY_MANAGER") ? (
+                        <>
+                            <div className="premium-card p-10 relative overflow-hidden group">
+                                <div className="absolute -right-10 -top-10 w-32 h-32 bg-secondary/5 blur-3xl" />
+                                <h3 className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-400 mb-8 flex items-center gap-3">
+                                    <Target size={16} className="text-secondary" />
+                                    Hızlı İŞLEMLER
+                                </h3>
+                                <div className="space-y-4">
+                                    <NextLink href="/dashboard/applications/new" className="btn-primary w-full py-4 flex items-center justify-center gap-4 group/btn">
+                                        <UserPlus size={18} />
+                                        <span className="text-[10px] uppercase tracking-[0.2em] font-black">Yeni Başvuru Başlat</span>
+                                    </NextLink>
+                                    <NextLink href="/dashboard/messages" className="w-full py-4 flex items-center justify-center gap-4 border border-zinc-100 font-bold text-[10px] uppercase tracking-[0.2em] text-zinc-500 hover:bg-zinc-50 hover:text-primary transition-all duration-500">
+                                        <MessageSquare size={18} />
+                                        <span>Merkezi Mesajlaşma</span>
+                                    </NextLink>
+                                    <NextLink href="/dashboard/settings" className="w-full py-4 flex items-center justify-center gap-4 border border-dashed border-zinc-200 font-bold text-[9px] uppercase tracking-[0.2em] text-zinc-400 hover:text-primary hover:border-primary transition-all duration-500">
+                                        <Compass size={16} />
+                                        <span>Profil & Tercihler</span>
+                                    </NextLink>
+                                </div>
+                            </div>
+                            <div className="premium-card p-12 bg-primary text-white overflow-hidden relative group">
+                                <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:scale-110 transition-transform duration-1000 grayscale">
+                                    <LayoutDashboard size={140} strokeWidth={1} />
+                                </div>
+                                <div className="relative z-10 space-y-8">
+                                    <div>
+                                        <h3 className="text-2xl font-serif font-bold italic mb-4">Premium Destek</h3>
+                                        <p className="text-[13px] text-zinc-400 leading-relaxed font-serif italic border-l border-secondary/30 pl-6">
+                                            Süreçlerinizle ilgili yardıma mı ihtiyacınız var? Uzman ekibimiz saniyeler içinde yanınızda.
+                                        </p>
+                                    </div>
+                                    <NextLink href="/dashboard/messages" className="btn-secondary w-full py-4 text-[10px] uppercase tracking-[0.4em] font-black">
+                                        Destek Talebi Oluştur
+                                    </NextLink>
+                                </div>
+                            </div>
+                        </>
+                    ) : (
+                        <>
+                            {(role === "ADMIN" || role === "CEO") && <AdminQuickActions />}
+                            <RecentMessagesWidget />
+                            <QuickCRMWidget />
+                        </>
+                    )}
                 </div>
             </div>
         </div>

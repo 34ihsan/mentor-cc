@@ -21,7 +21,11 @@ import OfferBuilder from "@/components/application/OfferBuilder";
 import ActivityTimeline from "@/components/application/ActivityTimeline";
 import AgreementJourney from "@/components/application/AgreementJourney";
 import ChatWindow from "@/components/dashboard/ChatWindow";
-import { MessageSquare, X } from "lucide-react";
+import { MessageSquare, X, FileDown, ShieldCheck, Clock } from "lucide-react";
+import DynamicChecklist from "@/components/dashboard/DynamicChecklist";
+import InternalNotes from "@/components/dashboard/InternalNotes";
+import AppointmentScheduler from "@/components/dashboard/AppointmentScheduler";
+import { generateContractPDF } from "@/lib/pdf-generator";
 
 export default function ApplicationDetailPage() {
     const params = useParams();
@@ -32,6 +36,7 @@ export default function ApplicationDetailPage() {
     const [isChatOpen, setIsChatOpen] = useState(false);
 
     const fetchApplication = async () => {
+        if (!params) return;
         try {
             const response = await fetch(`/api/applications/${params.id}`);
             if (response.ok) {
@@ -48,8 +53,8 @@ export default function ApplicationDetailPage() {
     };
 
     useEffect(() => {
-        fetchApplication();
-    }, [params.id]);
+        if (params?.id) fetchApplication();
+    }, [params?.id]);
 
     if (loading) {
         return (
@@ -151,6 +156,14 @@ export default function ApplicationDetailPage() {
                         )}
                     </div>
 
+                    {/* Dynamic Document Checklist */}
+                    <div className="glass-card p-8">
+                        <DynamicChecklist 
+                            requirements={application.documentRequirements || []} 
+                            uploadedDocuments={application.documents || []} 
+                        />
+                    </div>
+
                     <DocumentList
                         applicationId={application.id}
                         documents={application.documents}
@@ -173,6 +186,21 @@ export default function ApplicationDetailPage() {
                                 OPERATÖR PANELİ
                             </h3>
                             <div className="space-y-4 relative z-10">
+                                <div className="flex gap-2">
+                                    <button
+                                        onClick={() => generateContractPDF({
+                                            studentName: application.student.name || "Öğrenci",
+                                            programName: application.program.name,
+                                            institutionName: application.program.institution.name,
+                                            amount: 1500, // Mock amount
+                                            currency: "EUR",
+                                            date: new Date()
+                                        })}
+                                        className="flex-1 flex items-center justify-center gap-2 py-3 bg-white/10 hover:bg-white/20 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all"
+                                    >
+                                        <FileDown size={14} /> Sözleşme Oluştur
+                                    </button>
+                                </div>
                                 <OfferBuilder application={application} onOfferCreated={fetchApplication} />
                                 <div className="pt-4 border-t border-white/10">
                                     <StatusControls
@@ -182,8 +210,22 @@ export default function ApplicationDetailPage() {
                                         onStatusChange={fetchApplication}
                                     />
                                 </div>
+                                <div className="pt-4 border-t border-white/10">
+                                    <AppointmentScheduler 
+                                        applicationId={application.id} 
+                                        studentName={application.student.name || "Öğrenci"} 
+                                        advisorName={session?.user?.name || "Danışman"} 
+                                    />
+                                </div>
                             </div>
                         </div>
+                    )}
+
+                    {canManageOffers && (
+                        <InternalNotes 
+                            applicationId={application.id} 
+                            initialNotes={application.messages?.filter((m: any) => m.isInternal) || []} 
+                        />
                     )}
 
                     <div className="glass-card p-6">
@@ -257,7 +299,7 @@ export default function ApplicationDetailPage() {
                                 onClose={() => setIsChatOpen(false)}
                                 otherUser={
                                     role === "STUDENT" 
-                                        ? (application.consultant || application.agency || { id: "admin", name: "StarEducation Destek", role: "ADMIN" })
+                                        ? (application.consultant || application.agency || { id: "admin", name: "Mentor Career Destek", role: "ADMIN" })
                                         : application.student
                                 }
                             />

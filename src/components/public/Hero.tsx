@@ -70,16 +70,22 @@ export default function Hero({
                         alt={title}
                         fill
                         priority
-                        className="object-cover opacity-90"
+                        className="object-cover opacity-95 transition-opacity duration-500"
                         sizes="100vw"
                     />
                 </div>
             )}
 
-            {/* Gradient overlay — navy fade from left, always applied */}
-            <div className="absolute inset-0 z-10 bg-gradient-to-r from-primary/85 via-primary/40 to-transparent" />
-            {/* Bottom fade for content legibility */}
-            <div className="absolute inset-0 z-10 bg-gradient-to-t from-zinc-950/60 via-transparent to-transparent" />
+            {/* Dynamic Custom Overlay based on admin panel imageSettings */}
+            <div 
+                className="absolute inset-0 z-10 transition-all duration-700 pointer-events-none"
+                style={{
+                    backgroundColor: settings.overlayColor || "#0B1751",
+                    opacity: settings.overlayOpacity !== undefined ? settings.overlayOpacity / 100 : 0.35
+                }}
+            />
+            {/* Soft bottom legibility gradient */}
+            <div className="absolute inset-0 z-10 bg-gradient-to-t from-zinc-950/30 via-transparent to-transparent pointer-events-none" />
 
             {/* Content */}
             <div className={`relative z-20 max-w-7xl mx-auto w-full px-6 sm:px-10 lg:px-16 py-20 flex ${textPositionClass}`}>
@@ -87,7 +93,7 @@ export default function Hero({
 
                     {/* Label */}
                     <div className="section-label !text-secondary/70">
-                        StarEducation
+                        Mentor Career
                     </div>
 
                     {/* Title */}

@@ -21,7 +21,7 @@ export default function ArticleSchema({
   image,
   publishedAt,
   modifiedAt,
-  authorName = 'StarEducation Editörü',
+  authorName = 'Mentor Career Editörü',
   category,
 }: ArticleSchemaProps) {
   const schema = {
@@ -35,26 +35,26 @@ export default function ArticleSchema({
     inLanguage: 'tr-TR',
     isPartOf: {
       '@type': 'Blog',
-      name: 'StarEducation Blog',
-      url: 'https://www.stareducon.co.uk/blog',
+      name: 'Mentor Career Blog',
+      url: 'https://www.mentor-cc.com/blog',
     },
     publisher: {
       '@type': 'Organization',
-      '@id': 'https://www.stareducon.co.uk/#organization',
-      name: 'Star Education Consulting',
+      '@id': 'https://www.mentor-cc.com/#organization',
+      name: 'Mentor Career',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://www.stareducon.co.uk/Services/Stareducation.png',
+        url: 'https://www.mentor-cc.com/images/MentorCareer.png',
       },
     },
     author: {
       '@type': 'Person',
       name: authorName,
       worksFor: {
-        '@id': 'https://www.stareducon.co.uk/#organization',
+        '@id': 'https://www.mentor-cc.com/#organization',
       },
       jobTitle: 'Yurtdışı Eğitim Danışmanı',
-      url: 'https://www.stareducon.co.uk/kurumsal',
+      url: 'https://www.mentor-cc.com/kurumsal',
     },
     ...(image && {
       image: {

@@ -10,13 +10,15 @@ import ArticleSchema from "@/components/seo/ArticleSchema";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 import { getRelatedInstitutionsAction } from "@/app/actions/link-actions";
 import MotionWrapper from "@/components/public/MotionWrapper";
+import RichTextLayout from "@/components/public/RichTextLayout";
+import SocialShare from "@/components/public/SocialShare";
 
 interface Props {
     params: Promise<{ slug: string; locale: string }>;
     searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.stareducon.co.uk';
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.mentor-cc.com';
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
     const params = await props.params;
@@ -33,7 +35,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     return {
         title: post.title,
         description,
-        authors: [{ name: post.author?.name || 'StarEducation' }],
+        authors: [{ name: post.author?.name || 'Mentor Career' }],
         openGraph: {
             type: 'article',
             url: canonical,
@@ -41,7 +43,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
             description,
             publishedTime: post.createdAt.toISOString(),
             modifiedTime: post.updatedAt.toISOString(),
-            authors: [post.author?.name || 'StarEducation'],
+            authors: [post.author?.name || 'Mentor Career'],
             section: post.category || 'Eğitim',
             images: post.image ? [{ url: post.image, width: 1200, height: 630 }] : [],
         },
@@ -58,21 +60,6 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 export default async function BlogPostPage(props: Props) {
     const searchParams = await props.searchParams;
     const params = await props.params;
-    const isPreview = searchParams.preview === "true";
-    let showDraft = false;
-
-    // Admin check for draft preview
-    if (isPreview) {
-        try {
-            const session = await auth();
-            if (session?.user?.role === "ADMIN") {
-                showDraft = true;
-            }
-        } catch (error) {
-            console.error("Auth check failed during preview:", error);
-        }
-    }
-
     const post = await prisma.post.findUnique({
         where: { slug: params.slug },
         include: {
@@ -84,6 +71,20 @@ export default async function BlogPostPage(props: Props) {
 
     if (!post) {
         notFound();
+    }
+
+    let showDraft = false;
+    
+    // Check if the user is an admin to show unpublished posts
+    if (!post.published) {
+        try {
+            const session = await auth();
+            if (session?.user?.role === "ADMIN" || session?.user?.role === "CEO") {
+                showDraft = true;
+            }
+        } catch (error) {
+            console.error("Auth check failed during preview:", error);
+        }
     }
 
     // Access control
@@ -105,7 +106,7 @@ export default async function BlogPostPage(props: Props) {
                 image={post.image || undefined}
                 publishedAt={post.createdAt.toISOString()}
                 modifiedAt={post.updatedAt.toISOString()}
-                authorName={post.author?.name || 'StarEducation Editörü'}
+                authorName={post.author?.name || 'Mentor Career Editörü'}
                 category={post.category || 'Yurtdışı Eğitim'}
             />
             <BreadcrumbSchema items={[
@@ -152,13 +153,22 @@ export default async function BlogPostPage(props: Props) {
                             </div>
                         </div>
 
-                        <h1 className="text-[min(10vw,100px)] font-serif font-medium text-white mb-10 tracking-tight leading-[0.9]">
+                        <h1 
+                            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-medium text-secondary mb-10 tracking-tight leading-[1.0] break-words [word-break:keep-all] [overflow-wrap:break-word] [hyphens:none] [-webkit-hyphens:none] [-ms-hyphens:none]"
+                            style={{
+                                wordBreak: 'keep-all',
+                                overflowWrap: 'break-word',
+                                hyphens: 'none',
+                                WebkitHyphens: 'none',
+                                msHyphens: 'none',
+                            }}
+                        >
                             {post.title}
                         </h1>
 
                         <div className="flex items-center gap-5">
                             <div className="w-12 h-px bg-white/20" />
-                            <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-[0.4em]">Star Education Strateji Merkezi</p>
+                            <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-[0.4em]">Mentor Career Strateji Merkezi</p>
                         </div>
                     </MotionWrapper>
                 </div>
@@ -170,30 +180,29 @@ export default async function BlogPostPage(props: Props) {
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
                         
                         {/* Main Article Body */}
-                        <div className="lg:col-span-8 lg:col-start-3">
-                            <MotionWrapper className="bg-white p-12 md:p-24 rounded-[3rem] shadow-2xl border border-zinc-100">
-                                <div className="max-w-3xl mx-auto">
+                        <div className="lg:col-span-12">
+                            <MotionWrapper className="bg-white p-6 md:p-16 lg:p-24 rounded-[3rem] shadow-2xl border border-zinc-100 overflow-hidden w-full">
+                                <div className="w-full">
                                     <div className="w-12 h-1 bg-zinc-900 mb-16 rounded-full" />
                                     
-                                    <div
-                                        className="prose-premium prose-zinc lg:prose-xl italic text-zinc-600 leading-[1.8] font-serif"
-                                        dangerouslySetInnerHTML={{ __html: formatPremiumContent(post.content || "", post.title) }}
-                                    />
+                                    <div className="mb-32">
+                                        <RichTextLayout content={formatPremiumContent(post.content || "", post.title)} />
+                                    </div>
 
                                     {/* Article Footer */}
                                     <div className="mt-24 pt-12 border-t border-zinc-100 flex flex-col md:flex-row items-center justify-between gap-8">
                                         <div className="flex items-center gap-4">
                                             <div className="w-10 h-px bg-zinc-200" />
                                             <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-400">
-                                                Kaynak: Star Education Strateji Merkezi
+                                                Kaynak: Mentor Career Strateji Merkezi
                                             </span>
                                         </div>
                                         
                                         <div className="flex items-center gap-8">
-                                            <button className="flex items-center gap-3 text-zinc-900 font-bold text-[10px] uppercase tracking-widest hover:text-zinc-500 transition-all group">
-                                                <Share2 size={16} className="group-hover:rotate-12 transition-transform" />
-                                                Paylaş
-                                            </button>
+                                            <SocialShare 
+                                                title={post.title} 
+                                                url={`/${params.locale}/blog/${post.slug}`} 
+                                            />
                                             <Link 
                                                 href={`/${params.locale}/iletisim`}
                                                 className="px-8 py-3 rounded-full bg-zinc-950 text-white text-[10px] font-bold uppercase tracking-widest hover:bg-zinc-800 transition-colors"

@@ -27,7 +27,7 @@ export default function CookiePolicy() {
                         Çerez <span className="gold-text not-italic">Politikası</span>
                     </motion.h1>
                     <p className="text-slate-400 text-lg max-w-3xl mx-auto italic leading-relaxed">
-                        StarEducation platformunda dijital deneyiminizi optimize etmek ve size özel akademik içerikler 
+                        Mentor Career platformunda dijital deneyiminizi optimize etmek ve size özel akademik içerikler 
                         sunmak adına kullandığımız çerez teknolojileri hakkında şeffaf bilgilendirme.
                     </p>
                 </div>
@@ -78,7 +78,7 @@ export default function CookiePolicy() {
                                     </div>
                                 </div>
 
-                                <div className="p-10 border border-gold/10 bg-slate-50/50 group hover:bg-white hover:shadow-2xl transition-all duration-700">
+                                 <div className="p-10 border border-gold/10 bg-slate-50/50 group hover:bg-white hover:shadow-2xl transition-all duration-700">
                                     <div className="flex gap-6">
                                         <div className="w-12 h-12 bg-navy text-gold flex items-center justify-center shrink-0 shadow-lg">
                                             <Cookie size={20} />
@@ -87,6 +87,21 @@ export default function CookiePolicy() {
                                             <h4 className="text-xl font-serif font-bold text-navy mb-3 italic">Pazarlama ve Hedefleme Çerezleri</h4>
                                             <p className="text-sm text-slate-500 italic leading-relaxed">
                                                 Size daha ilgi çekici ve kişiselleştirilmiş içerikler sunmak için kullanılır. İlgi alanlarınıza yönelik akademik program duyuruları ve kampanyaları optimize etmemize olanak tanır.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="p-10 border border-gold/10 bg-slate-50/50 group hover:bg-white hover:shadow-2xl transition-all duration-700">
+                                    <div className="flex gap-6">
+                                        <div className="w-12 h-12 bg-navy text-gold flex items-center justify-center shrink-0 shadow-lg relative">
+                                            <div className="absolute inset-0 bg-gold/20 animate-pulse rounded-full blur-xl" />
+                                            <Info size={20} className="relative z-10" />
+                                        </div>
+                                        <div>
+                                            <h4 className="text-xl font-serif font-bold text-navy mb-3 italic">Yapay Zeka (AI) ve Akıllı Tercihler</h4>
+                                            <p className="text-sm text-slate-500 italic leading-relaxed">
+                                                'SmartFinder' ve 'AI Program Eşleştirme' araçlarımızın algoritma performansını iyileştirmek, kullanıcı tercihlerini isimsizleştirilmiş şekilde analiz etmek ve size en doğru akademik rotayı sunmak amacıyla kullanılır.
                                             </p>
                                         </div>
                                     </div>

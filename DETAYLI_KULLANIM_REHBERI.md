@@ -1,12 +1,12 @@
-# Star Beratung - Detaylı Kullanım Rehberi 🚀
+# Mentor Career Consulting - Detaylı Kullanım Rehberi 🚀
 
-Bu rehber, Star Beratung platformunun dashboard yapısını, kullanıcı rollerini ve özellikle yönetici (Admin) işlemlerini detaylı bir şekilde açıklamaktadır.
+Bu rehber, Mentor Career Consulting platformunun dashboard yapısını, kullanıcı rollerini ve özellikle yönetici (Admin) işlemlerini detaylı bir şekilde açıklamaktadır.
 
 ---
 
 ## 1. Dashboard ve Navigasyon Yapısı
 
-Star Beratung Dashboard'u, her rol için özelleştirilmiş bir deneyim sunar. Ekranın sol tarafındaki **Kenar Çubuğu (Sidebar)** ana navigasyon merkezinizdir.
+Mentor Career Consulting Dashboard'u, her rol için özelleştirilmiş bir deneyim sunar. Ekranın sol tarafındaki **Kenar Çubuğu (Sidebar)** ana navigasyon merkezinizdir.
 
 ### 1.1. Genel Bileşenler
 - **Üst Panel (Header)**: Aktif kullanıcı adınızı, rolünüzü ve sistemin çevrimiçi durumunu gösterir.

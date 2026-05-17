@@ -2,7 +2,7 @@ import { prisma } from "./prisma";
 import { categoryRequirements, countryServiceRequirements, serviceMap } from "./mappings";
 
 export async function getRequiredDocuments(applicationId: string, locale: string = 'tr') {
-    const lang = locale === 'en' ? locale : 'tr';
+    const lang = (locale === 'en' || locale === 'de') ? locale : 'tr';
     
     const application = await prisma.application.findUnique({
         where: { id: applicationId },

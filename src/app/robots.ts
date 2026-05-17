@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 /**
- * Advanced robots.ts for StarEducation
+ * Advanced robots.ts for Mentor Career Consulting
  * Focuses on High-Level SEO and Security.
  * 
  * Includes:
@@ -11,7 +11,7 @@ import { MetadataRoute } from 'next';
  * - Decoy blocking for generic scanners
  */
 export default function robots(): MetadataRoute.Robots {
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.stareducon.co.uk';
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.mentor-cc.com';
     
     // Determine if we are in a production indexing environment
     const isProd = process.env.NODE_ENV === 'production' && 

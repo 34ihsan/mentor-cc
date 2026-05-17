@@ -1,0 +1,16 @@
+{
+  "name": "George Brown College",
+  "slug": "gbc",
+  "country": "ca",
+  "type": "College",
+  "summary": "Leading college in Toronto",
+  "body": "<p>Vocational and pathway programs...</p>",
+  "website": "https://www.georgebrown.ca",
+  "logo": "https://example.com/gbc.png",
+  "programs": [
+    "ESL",
+    "Diploma"
+  ],
+  "contact_email": "info@gbc.ca",
+  "published": true
+}

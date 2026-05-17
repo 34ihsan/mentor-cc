@@ -6,7 +6,6 @@ import { useTranslations } from 'next-intl';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import { Quote, Star } from 'lucide-react';
-import SafeHTMLContent from './SafeHTMLContent';
 
 const images = [
     "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200",
@@ -31,11 +30,9 @@ export default function Testimonials() {
                     <span className="section-label !justify-center">
                         {t('label')}
                     </span>
-                    <SafeHTMLContent 
-                        as="h2" 
-                        className="text-fluid-h2 font-serif font-bold italic tracking-tight text-primary mb-6 leading-tight"
-                        html={t.raw('title')}
-                    />
+                    <h2 className="text-fluid-h2 font-serif font-bold italic tracking-tight text-primary mb-6 leading-tight">
+                        {t('title')}
+                    </h2>
                     <p className="text-zinc-600 text-lg leading-relaxed max-w-xl mx-auto">
                         {t.rich('description', {
                             accent: (chunks) => (
@@ -72,11 +69,9 @@ export default function Testimonials() {
                                         </div>
 
                                         {/* Quote text */}
-                                        <SafeHTMLContent 
-                                            as="p"
-                                            className="text-zinc-700 mb-10 font-serif italic text-base leading-relaxed flex-grow"
-                                            html={`&ldquo;${t.raw(`items.${idx}.text`)}&rdquo;`}
-                                        />
+                                        <p className="text-zinc-700 mb-10 font-serif italic text-base leading-relaxed flex-grow">
+                                            &ldquo;{text}&rdquo;
+                                        </p>
 
                                         {/* Author */}
                                         <div className="flex items-center gap-5 pt-8 border-t border-zinc-100">

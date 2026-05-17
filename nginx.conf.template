@@ -1,38 +1,6 @@
 server {
     listen 80;
-    server_name yourdomain.com www.yourdomain.com;
-
-    # Gzip Compression
-    gzip on;
-    gzip_proxied any;
-    gzip_types text/plain text/xml text/css application/x-javascript application/javascript text/javascript application/json;
-    gzip_vary on;
-    gzip_disable "MSIE [1-6]\.(?!.*SV1)";
-
-    # Security & Limits
-    client_max_body_size 50M; # For large uploads if needed
-    server_tokens off;
-
-    # Anti-Intrusion & Exploit Filtering
-    # 1. Block common sensitive files & shell hunting
-    if ($request_uri ~* "(\.php|\.git|\.env|\.aspx|wp-admin|wp-login|\.htaccess|\.ssh|\.bak|\.config)") {
-        return 403;
-    }
-
-    # 2. Block common SQL injection patterns in query strings
-    if ($query_string ~* "(union|select|insert|drop|delete|update|cast|char|convert|declare|set)") {
-        return 403;
-    }
-
-    # 3. Block command injection attempts (LS, CAT, WGET, CURL, BASH, SH)
-    if ($query_string ~* "(ls\+|cat\+|wget\+|curl\+|bash\+|sh\+|rm\+|chmod\+|chown\+|system\+|exec\+)") {
-        return 403;
-    }
-
-    # 4. Block path traversal
-    if ($query_string ~ "(\.\.|;|%3B|%2E%2E)") {
-        return 403;
-    }
+    server_name yourdomain.com www.yourdomain.com; # Replace with your domain
 
     location / {
         proxy_pass http://localhost:3000;
@@ -41,17 +9,36 @@ server {
         proxy_set_header Connection 'upgrade';
         proxy_set_header Host $host;
         proxy_cache_bypass $http_upgrade;
+        # Cloudflare Real IP & proxy headers
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
-
-        # Standard timeouts
-        proxy_connect_timeout 60s;
-        proxy_send_timeout 60s;
-        proxy_read_timeout 60s;
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Forwarded-Server $host;
     }
 
-    # SSL configuration (Managed by Certbot usually)
+    # Security headers and caching for static assets
+    location ~* \.(?:css|js|jpg|jpeg|png|gif|svg|ico|webp|avif|woff2|woff|ttf|eot)$ {
+        root /var/www/yourdomain.com/html;
+        access_log off;
+        expires 30d;
+        add_header Cache-Control "public, max-age=2592000, immutable";
+        add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload" always;
+        add_header X-Frame-Options "SAMEORIGIN" always;
+        add_header X-Content-Type-Options "nosniff" always;
+        add_header Referrer-Policy "no-referrer-when-downgrade" always;
+        add_header X-XSS-Protection "1; mode=block" always;
+        add_header Permissions-Policy "geolocation=(), microphone=()" always;
+        add_header Content-Security-Policy "default-src 'self' https:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' https: data:;" always;
+    }
+
+    # Gzip compression for faster transfer
+    gzip on;
+    gzip_types text/plain text/css application/json application/javascript application/x-javascript text/xml application/xml application/xml+rss text/javascript image/svg+xml;
+    gzip_proxied any;
+    gzip_vary on;
+
+    # Optional: SSL configuration (After certbot)
     # listen 443 ssl;
     # ssl_certificate /etc/letsencrypt/live/yourdomain.com/fullchain.pem;
     # ssl_certificate_key /etc/letsencrypt/live/yourdomain.com/privkey.pem;

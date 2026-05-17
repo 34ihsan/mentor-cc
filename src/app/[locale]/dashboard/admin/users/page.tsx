@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import DeleteUserButton from "@/components/admin/DeleteUserButton";
+import ImpersonateButton from "@/components/admin/ImpersonateButton";
 
 export default async function AdminUserManagementPage() {
     const session = await auth();
@@ -139,15 +140,18 @@ export default async function AdminUserManagementPage() {
                                         {user.managedBy?.name || "Global"}
                                     </td>
                                     <td className="p-6 text-right">
-                                        <div className="flex items-center justify-end gap-2">
-                                            <Link 
-                                                href={`/dashboard/admin/users/${user.id}/edit`}
-                                                className="p-2.5 bg-white border border-slate-100 rounded-xl text-slate-400 hover:text-blue-600 hover:border-blue-100 transition-all shadow-sm"
-                                            >
-                                                <Edit3 size={14} />
-                                            </Link>
-                                            <DeleteUserButton userId={user.id} userName={user.name || ""} />
-                                        </div>
+                                            <div className="flex items-center justify-end gap-2">
+                                                {user.role !== 'ADMIN' && (
+                                                    <ImpersonateButton userId={user.id} userName={user.name || ""} />
+                                                )}
+                                                <Link 
+                                                    href={`/dashboard/admin/users/${user.id}/edit`}
+                                                    className="p-2.5 bg-white border border-slate-100 rounded-xl text-slate-400 hover:text-blue-600 hover:border-blue-100 transition-all shadow-sm"
+                                                >
+                                                    <Edit3 size={14} />
+                                                </Link>
+                                                <DeleteUserButton userId={user.id} userName={user.name || ""} />
+                                            </div>
                                     </td>
                                 </tr>
                             ))}

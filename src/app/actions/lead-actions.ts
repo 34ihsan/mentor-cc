@@ -138,10 +138,10 @@ export async function sendLeadEmailAction(leadId: string, subject: string, conte
             subject: subject,
             html: `
                 <div style="font-family: sans-serif; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
-                    <h2 style="color: #3b82f6;">StarEducation</h2>
+                    <h2 style="color: #3b82f6;">Mentor Career</h2>
                     <p>${content.replace(/\n/g, '<br>')}</p>
                     <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-                    <p style="font-size: 12px; color: #666;">Bu e-posta StarEducation CRM sistemi üzerinden gönderilmiştir.</p>
+                    <p style="font-size: 12px; color: #666;">Bu e-posta Mentor Career CRM sistemi üzerinden gönderilmiştir.</p>
                 </div>
             `
         });

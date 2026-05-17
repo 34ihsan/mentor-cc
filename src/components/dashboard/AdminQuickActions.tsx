@@ -68,32 +68,29 @@ export default function AdminQuickActions() {
     ];
 
     return (
-        <div className="bg-white p-10 h-full flex flex-col rounded-[2.5rem] border border-zinc-100 shadow-premium-hover transition-all duration-1000 relative overflow-hidden group">
-            {/* Background Texture */}
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,71,0,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(255,71,0,0.01)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none opacity-40" />
-
-            <div className="flex items-center justify-between mb-10 border-b border-zinc-100 pb-8 relative z-10">
+        <div className="premium-card p-10 h-full flex flex-col">
+            <div className="flex items-center justify-between mb-8 border-b border-zinc-50 pb-6">
                 <div>
-                    <span className="text-[10px] font-black text-secondary uppercase tracking-[0.5em] mb-2 block opacity-70">CORE CONSOLE</span>
-                    <h3 className="text-xl font-serif font-bold italic text-primary flex items-center gap-4 uppercase tracking-tighter">
-                        <Zap size={22} className="text-secondary fill-secondary animate-pulse" />
+                    <span className="text-[9px] font-black text-secondary uppercase tracking-[0.3em] mb-1 block">Yönetim Paneli</span>
+                    <h3 className="text-lg font-serif font-bold italic text-primary flex items-center gap-3">
+                        <Zap size={18} className="text-secondary" />
                         Hızlı Hizmetler
                     </h3>
                 </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-5 flex-1 relative z-10">
+            <div className="grid grid-cols-2 gap-4 flex-1">
                 {actions.map((action, idx) => (
-                    <Link key={idx} href={action.href} className="group/tile">
+                    <Link key={idx} href={action.href} className="group">
                         <motion.div 
-                            whileHover={{ scale: 1.05, y: -4 }}
+                            whileHover={{ y: -2 }}
                             whileTap={{ scale: 0.98 }}
-                            className="p-8 rounded-[2rem] border border-zinc-100 bg-zinc-50/50 hover:bg-white hover:border-secondary/20 hover:shadow-premium transition-all duration-500 flex flex-col items-center gap-4 text-center h-full justify-center group-hover/tile:backdrop-blur-sm"
+                            className="p-5 rounded-xl border border-zinc-100 bg-white group-hover:bg-zinc-50/50 group-hover:border-secondary/20 transition-all flex flex-col items-center gap-3 text-center h-full justify-center shadow-sm"
                         >
-                            <div className={`w-14 h-14 flex items-center justify-center rounded-2xl bg-white border border-zinc-100 group-hover/tile:bg-primary group-hover/tile:text-secondary group-hover/tile:border-primary transition-all duration-500 group-hover/tile:scale-110 shadow-sm text-secondary`}>
-                                <action.icon size={24} strokeWidth={2} />
+                            <div className={`w-10 h-10 flex items-center justify-center rounded-lg bg-zinc-50 border border-zinc-100 group-hover:bg-white group-hover:scale-110 transition-all duration-500 ${action.color}`}>
+                                <action.icon size={18} strokeWidth={1.5} />
                             </div>
-                            <span className="text-[10px] font-black text-zinc-400 uppercase tracking-[0.3em] group-hover/tile:text-primary transition-all duration-500">
+                            <span className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest group-hover:text-primary transition-colors">
                                 {action.label}
                             </span>
                         </motion.div>
@@ -101,8 +98,8 @@ export default function AdminQuickActions() {
                 ))}
             </div>
 
-            <p className="mt-10 text-[9px] font-black text-zinc-300 text-center uppercase tracking-[0.4em] border-t border-zinc-100 pt-8 relative z-10">
-                TERMINAL SHORTCUTS <span className="text-secondary opacity-50">v5.0</span>
+            <p className="mt-8 text-[9px] font-mono font-bold text-zinc-300 text-center uppercase tracking-[0.3em] border-t border-zinc-50 pt-6">
+                KONSOL KISAYOLLARI v4.0
             </p>
         </div>
     );

@@ -92,7 +92,7 @@ export default function NewUserForm() {
                                     required
                                     name="email"
                                     type="email" 
-                                    placeholder="ahmet@stareducon.co.uk"
+                                    placeholder="ahmet@mentor-cc.com"
                                     className="w-full bg-slate-50 border border-slate-100 pl-12 pr-5 py-4 rounded-2xl text-sm font-bold text-black focus:outline-none focus:border-[var(--primary)] focus:bg-white transition-all shadow-sm"
                                 />
                             </div>

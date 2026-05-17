@@ -29,6 +29,7 @@ export default function PrivacyPage() {
         { id: "processing", icon: <Database className="w-5 h-5" />, title: t('processing.title') },
         { id: "data", icon: <UserCheck className="w-5 h-5" />, title: t('data.title') },
         { id: "identification", icon: <Fingerprint className="w-5 h-5" />, title: t('identification.title') },
+        { id: "aiUsage", icon: <ShieldCheck className="w-5 h-5" />, title: t('aiUsage.title') },
         { id: "compensation", icon: <Scale className="w-5 h-5" />, title: t('compensation.title') },
         { id: "corrections", icon: <HelpCircle className="w-5 h-5" />, title: t('corrections.title') },
     ];
@@ -105,11 +106,11 @@ export default function PrivacyPage() {
                                         <Lock size={24} />
                                     </div>
                                     <h4 className="font-serif font-bold text-navy mb-4 italic text-2xl uppercase">Hukuk Masası</h4>
-                                    <p className="text-[10px] text-slate-400 leading-relaxed mb-10 uppercase tracking-[0.2em] font-black italic">StarEducation Legal & Compliance</p>
+                                    <p className="text-[10px] text-slate-400 leading-relaxed mb-10 uppercase tracking-[0.2em] font-black italic">Mentor Career Legal & Compliance</p>
                                     <div className="space-y-4">
                                         <div className="space-y-1">
                                             <span className="text-[9px] uppercase tracking-widest text-gold font-black">Email</span>
-                                            <a href="mailto:info@stareducon.co.uk" className="text-sm font-bold text-navy hover:text-gold transition-colors block border-b border-gold/10 pb-2">info@stareducon.co.uk</a>
+                                            <a href="mailto:info@mentor-cc.com" className="text-sm font-bold text-navy hover:text-gold transition-colors block border-b border-gold/10 pb-2">info@mentor-cc.com</a>
                                         </div>
                                     </div>
                                 </div>
@@ -148,7 +149,7 @@ export default function PrivacyPage() {
                                             <div>
                                                 <h5 className="text-xs font-black uppercase tracking-[0.2em] text-navy mb-2">Yasal Bilgilendirme</h5>
                                                 <p className="text-[12px] text-slate-400 italic leading-relaxed">
-                                                    Bu gizlilik politikası, global veri koruma standartları (KVKK & DSGVO) çerçevesinde hazırlanmıştır. Kişisel verileriniz StarEducation güvencesi altındadır.
+                                                    Bu gizlilik politikası, global veri koruma standartları (KVKK & DSGVO) çerçevesinde hazırlanmıştır. Kişisel verileriniz Mentor Career güvencesi altındadır.
                                                 </p>
                                             </div>
                                         </div>
@@ -157,7 +158,7 @@ export default function PrivacyPage() {
 
                                 <div className="mt-16 text-center">
                                     <p className="text-[10px] text-slate-300 uppercase tracking-[0.5em] font-black italic">
-                                        - StarEducation Trust & Security Office -
+                                        - Mentor Career Trust & Security Office -
                                     </p>
                                 </div>
                             </div>

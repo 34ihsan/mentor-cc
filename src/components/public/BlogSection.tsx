@@ -4,7 +4,7 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { Link } from "@/i18n/routing";
 import { useTranslations, useLocale } from "next-intl";
-import { Calendar, User, ArrowRight, Image as ImageIcon, Clock } from "lucide-react";
+import { Calendar, ArrowRight, Image as ImageIcon, Clock, ArrowUpRight } from "lucide-react";
 import SafeHTMLContent from "./SafeHTMLContent";
 import MotionWrapper from "./MotionWrapper";
 
@@ -28,16 +28,15 @@ export default function BlogSection() {
                 setLoading(false);
             }
         };
-
         fetchPosts();
     }, []);
 
     if (loading) return (
-        <section className="section-padding bg-[#050505]">
-            <div className="container mx-auto px-6">
+        <section className="section-padding bg-zinc-50">
+            <div className="container-content">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                     {[1, 2, 3].map(i => (
-                        <div key={i} className="aspect-[4/5] bg-zinc-900 animate-pulse rounded-[2.5rem]" />
+                        <div key={i} className="h-[480px] bg-zinc-100 animate-pulse rounded-[1.5rem]" />
                     ))}
                 </div>
             </div>
@@ -45,107 +44,162 @@ export default function BlogSection() {
     );
 
     if (posts.length === 0) return (
-        <section className="section-padding bg-[#050505]">
-            <div className="container mx-auto px-6 text-center">
-                <div className="inline-block p-12 lg:p-20 border border-dashed border-zinc-800 rounded-[3rem]">
-                    <p className="text-zinc-500 font-serif italic text-lg">{t('empty')}</p>
+        <section className="section-padding bg-zinc-50">
+            <div className="container-content text-center">
+                <div className="inline-block p-12 lg:p-20 border border-dashed border-zinc-200 rounded-[2rem]">
+                    <p className="text-zinc-400 font-serif italic text-lg">{t('empty')}</p>
                 </div>
             </div>
         </section>
     );
 
-    return (
-        <section className="section-padding bg-[#050505] relative overflow-hidden">
-            {/* Background Texture - Solar Flare */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_0%_0%,rgba(255,100,0,0.05)_0%,transparent_50%)]" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_100%_100%,rgba(255,0,50,0.03)_0%,transparent_50%)]" />
+    const featured = posts[0];
+    const rest = posts.slice(1);
 
-            <div className="container mx-auto px-6 relative z-10">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-10">
-                    <MotionWrapper className="max-w-2xl">
-                        <span className="section-label-solar">{t('label')}</span>
+    return (
+        <section className="section-padding bg-zinc-50 border-y border-zinc-100">
+            <div className="container-content space-y-20">
+
+                {/* Section Header */}
+                <div className="flex flex-col md:flex-row justify-between items-end gap-10">
+                    <MotionWrapper className="max-w-2xl space-y-5">
+                        <span className="section-label">{t('label')}</span>
                         <SafeHTMLContent
                             as="h2"
-                            className="text-fluid-h2 font-serif font-bold text-white leading-tight italic tracking-tight"
+                            className="text-fluid-h2 font-serif font-bold text-primary leading-tight italic"
                             html={t.raw('title')}
-                        />                    
+                        />
                     </MotionWrapper>
-                    
+
                     <MotionWrapper delay={0.2}>
                         <Link
                             href="/blog"
-                            className="group flex items-center gap-6 text-white font-bold text-[11px] uppercase tracking-[0.4em] pb-3 border-b-2 border-white/5 hover:border-secondary hover:text-secondary transition-all duration-700"
+                            className="group flex items-center gap-4 text-primary font-bold text-[11px] uppercase tracking-[0.4em] pb-3 border-b border-zinc-300 hover:border-secondary hover:text-secondary transition-all duration-500 whitespace-nowrap"
                         >
-                            {t('viewAll')} <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-3 text-secondary" />
+                            {t('viewAll')}
+                            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-2" />
                         </Link>
                     </MotionWrapper>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-                    {posts.map((post, idx) => (
-                        <MotionWrapper key={post.id} delay={idx * 0.1}>
-                            <Link
-                                href={`/blog/${post.slug}`}
-                                className="group flex flex-col bg-zinc-900/50 border border-white/5 p-4 asymmetric-bold hover:shadow-neon hover:-translate-y-3 hover:border-secondary transition-all duration-1000 h-full relative overflow-hidden"
-                            >
-                                {/* Neon Corner Accent */}
-                                <div className="absolute top-0 right-0 w-16 h-16 bg-secondary/10 asymmetric-reverse group-hover:bg-secondary/20 transition-colors duration-1000" />
+                {/* Editorial Grid — Featured + List */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
 
-                                <div className="aspect-[4/5] bg-zinc-800 relative overflow-hidden rounded-[2rem] mb-10 shadow-inner">
-                                    {post.image ? (
+                    {/* Featured Card (large) */}
+                    {featured && (
+                        <MotionWrapper className="lg:col-span-7">
+                            <Link
+                                href={`/blog/${featured.slug}`}
+                                className="group relative flex flex-col h-full bg-white border border-zinc-100 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-700 hover:-translate-y-1"
+                            >
+                                {/* Image */}
+                                <div className="relative h-72 lg:h-96 overflow-hidden bg-zinc-100">
+                                    {featured.image ? (
                                         <Image
-                                            src={post.image}
-                                            alt={post.title}
+                                            src={featured.image}
+                                            alt={featured.title}
                                             fill
-                                            className="object-cover group-hover:scale-110 transition-transform duration-1000 grayscale-[40%] group-hover:grayscale-0"
-                                            sizes="(max-width: 768px) 100vw, 33vw"
+                                            className="object-cover group-hover:scale-105 transition-transform duration-1000"
+                                            sizes="(max-width: 1024px) 100vw, 58vw"
+                                            priority
                                         />
                                     ) : (
-                                        <div className="w-full h-full flex items-center justify-center text-zinc-700">
+                                        <div className="w-full h-full flex items-center justify-center text-zinc-200">
                                             <ImageIcon size={48} strokeWidth={0.5} />
                                         </div>
                                     )}
-                                    <div className="absolute top-6 right-6 z-10">
-                                        <span className="bg-[#050505]/95 backdrop-blur-md text-white border border-secondary/40 px-6 py-3 text-[9px] font-black uppercase tracking-[0.3em] rounded-full shadow-neon">
-                                            {post.category || t('categoryDefault')}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/60 via-transparent to-transparent" />
+
+                                    {/* Category Badge */}
+                                    <div className="absolute top-6 left-6">
+                                        <span className="bg-secondary text-white px-5 py-2 text-[9px] font-black uppercase tracking-[0.3em]">
+                                            {featured.category || t('categoryDefault')}
                                         </span>
                                     </div>
-                                    {/* Hover Overlay */}
-                                    <div className="absolute inset-0 bg-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+
+                                    {/* Read more arrow */}
+                                    <div className="absolute bottom-6 right-6 w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
+                                        <ArrowUpRight className="text-white w-5 h-5" />
+                                    </div>
                                 </div>
 
-                                <div className="flex flex-col flex-1 px-8 pb-10">
-                                    <div className="flex items-center gap-10 text-[9px] font-black text-zinc-500 mb-8 uppercase tracking-[0.3em]">
-                                        <div className="flex items-center gap-3">
-                                            <Calendar size={14} className="text-secondary" />
-                                            <span>{new Date(post.createdAt).toLocaleDateString(locale === 'tr' ? 'tr-TR' : 'en-US')}</span>
+                                {/* Content */}
+                                <div className="p-8 lg:p-10 flex flex-col flex-1">
+                                    <div className="flex items-center gap-6 text-[9px] font-bold text-zinc-400 mb-5 uppercase tracking-[0.25em]">
+                                        <div className="flex items-center gap-2">
+                                            <Calendar size={11} className="text-secondary/60" />
+                                            <span>{new Date(featured.createdAt).toLocaleDateString(locale === 'tr' ? 'tr-TR' : 'en-US')}</span>
                                         </div>
-                                        <div className="flex items-center gap-3">
-                                            <Clock size={14} className="text-secondary" />
-                                            <span>{Math.ceil(post.content?.length / 500) || 5} MIN</span>
+                                        <div className="flex items-center gap-2">
+                                            <Clock size={11} className="text-secondary/60" />
+                                            <span>{Math.ceil(featured.content?.length / 500) || 5} MIN</span>
                                         </div>
                                     </div>
-                                    
-                                    <h3 className="text-3xl font-serif font-bold text-white leading-tight mb-10 group-hover:text-secondary transition-colors duration-700 italic tracking-tight">
-                                        {post.title}
+
+                                    <h3 className="text-2xl lg:text-3xl font-serif font-bold text-primary leading-snug mb-4 italic group-hover:text-zinc-700 transition-colors duration-500 flex-1">
+                                        {featured.title}
                                     </h3>
-                                    
-                                    <div className="mt-auto pt-10 border-t border-white/5 flex items-center justify-between">
-                                        <span className="text-[10px] font-black text-white uppercase tracking-[0.4em] group-hover:translate-x-2 transition-transform duration-700">
-                                            {t('readMore')}
-                                        </span>
-                                        <div className="w-14 h-14 rounded-2xl border border-white/5 flex items-center justify-center group-hover:bg-secondary group-hover:text-white group-hover:border-secondary group-hover:shadow-neon transition-all duration-700 group-hover:-rotate-12">
-                                            <ArrowRight size={20} />
-                                        </div>
+
+                                    <div className="flex items-center gap-3 text-[10px] font-black text-secondary uppercase tracking-[0.3em] mt-4 pt-4 border-t border-zinc-50">
+                                        {t('readMore')}
+                                        <ArrowRight size={14} className="transition-transform group-hover:translate-x-2" />
                                     </div>
                                 </div>
                             </Link>
                         </MotionWrapper>
-                    ))}
-                </div>
+                    )}
 
+                    {/* Secondary Cards Column */}
+                    {rest.length > 0 && (
+                        <div className="lg:col-span-5 flex flex-col gap-6">
+                            {rest.slice(0, 3).map((post, idx) => (
+                                <MotionWrapper key={post.id} delay={0.1 * (idx + 1)}>
+                                    <Link
+                                        href={`/blog/${post.slug}`}
+                                        className="group flex items-start gap-6 bg-white border border-zinc-100 rounded-2xl p-5 hover:shadow-lg hover:border-zinc-200 transition-all duration-500 hover:-translate-y-0.5"
+                                    >
+                                        {/* Thumbnail */}
+                                        <div className="relative w-24 h-24 flex-shrink-0 rounded-xl overflow-hidden bg-zinc-100">
+                                            {post.image ? (
+                                                <Image
+                                                    src={post.image}
+                                                    alt={post.title}
+                                                    fill
+                                                    className="object-cover group-hover:scale-110 transition-transform duration-700 grayscale-[20%] group-hover:grayscale-0"
+                                                    sizes="96px"
+                                                />
+                                            ) : (
+                                                <div className="w-full h-full flex items-center justify-center text-zinc-200">
+                                                    <ImageIcon size={24} strokeWidth={0.5} />
+                                                </div>
+                                            )}
+                                        </div>
+
+                                        {/* Text */}
+                                        <div className="flex-1 min-w-0 space-y-2">
+                                            <div className="flex items-center gap-3 text-[9px] font-bold text-zinc-400 uppercase tracking-[0.2em]">
+                                                <Calendar size={10} className="text-secondary/50 flex-shrink-0" />
+                                                <span>{new Date(post.createdAt).toLocaleDateString(locale === 'tr' ? 'tr-TR' : 'en-US')}</span>
+                                            </div>
+                                            <h3 className="text-base font-serif font-bold text-primary italic leading-snug group-hover:text-zinc-600 transition-colors duration-500 line-clamp-2">
+                                                {post.title}
+                                            </h3>
+                                            <div className="flex items-center gap-2 text-[9px] font-black text-secondary uppercase tracking-[0.25em] opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                                {t('readMore')} <ArrowRight size={10} />
+                                            </div>
+                                        </div>
+
+                                        {/* Arrow icon */}
+                                        <div className="flex-shrink-0 w-8 h-8 rounded-full border border-zinc-100 flex items-center justify-center text-zinc-300 group-hover:text-secondary group-hover:border-secondary/30 transition-all duration-500">
+                                            <ArrowRight size={12} />
+                                        </div>
+                                    </Link>
+                                </MotionWrapper>
+                            ))}
+                        </div>
+                    )}
+                </div>
             </div>
         </section>
-
     );
 }

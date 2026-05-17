@@ -59,7 +59,7 @@ const DEFAULT_CONFIG = {
             { title: "Kişisel Yaklaşım", desc: "Her öğrencinin hikayesi özeldir; çözümlerimiz de öyle olmalıdır." },
             { title: "Sürekli İnovasyon", desc: "Değişen dünya şartlarına ve eğitim trendlerine hızla uyum sağlarız." }
         ],
-        teamSummary: "StarEducation ekibi olarak..."
+        teamSummary: "Mentor Career Consulting ekibi olarak..."
     }
 };
 
@@ -188,7 +188,7 @@ export default function GeneralSettingsPage() {
                                 value={config.brandName}
                                 onChange={(e) => setConfig({ ...config, brandName: e.target.value })}
                                 className="w-full bg-slate-50 border border-slate-200 p-4 rounded-2xl outline-none focus:border-[#DC2626] text-sm font-bold text-black"
-                                placeholder="Örn: StarEducation"
+                                placeholder="Örn: Mentor Career Consulting"
                             />
                         </div>
                         <div className="space-y-2">

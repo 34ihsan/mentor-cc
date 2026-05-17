@@ -3,8 +3,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Cookie, X, Settings, ShieldCheck } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
+import { safeStorage } from '@/lib/storage';
 
 export default function CookieConsent() {
     const t = useTranslations('CookieBanner');
@@ -13,11 +14,12 @@ export default function CookieConsent() {
     const [preferences, setPreferences] = useState({
         necessary: true,
         analytics: true,
-        marketing: false
+        marketing: false,
+        ai: true
     });
 
     useEffect(() => {
-        const consent = localStorage.getItem('cookie-consent');
+        const consent = safeStorage.getItem('cookie-consent');
         if (!consent) {
             // Delay visibility for premium feel
             const timer = setTimeout(() => setIsVisible(true), 2000);
@@ -26,19 +28,19 @@ export default function CookieConsent() {
     }, []);
 
     const handleAcceptAll = () => {
-        const fullAccess = { necessary: true, analytics: true, marketing: true };
-        localStorage.setItem('cookie-consent', JSON.stringify(fullAccess));
+        const fullAccess = { necessary: true, analytics: true, marketing: true, ai: true };
+        safeStorage.setItem('cookie-consent', JSON.stringify(fullAccess));
         setIsVisible(false);
     };
 
     const handleDeclineAll = () => {
-        const minAccess = { necessary: true, analytics: false, marketing: false };
-        localStorage.setItem('cookie-consent', JSON.stringify(minAccess));
+        const minAccess = { necessary: true, analytics: false, marketing: false, ai: false };
+        safeStorage.setItem('cookie-consent', JSON.stringify(minAccess));
         setIsVisible(false);
     };
 
     const handleSavePreferences = () => {
-        localStorage.setItem('cookie-consent', JSON.stringify(preferences));
+        safeStorage.setItem('cookie-consent', JSON.stringify(preferences));
         setIsVisible(false);
         setShowSettings(false);
     };
@@ -78,7 +80,7 @@ export default function CookieConsent() {
                             <div className="space-y-1">
                                 <h4 className="text-lg font-bold text-navy">{t('title')}</h4>
                                 <p className="text-slate-500 text-sm leading-relaxed max-w-xl">
-                                    {t('description')} <Link href="/tr/gizlilik" className="text-gold border-b border-gold/20 hover:border-gold transition-all">{t('details')}</Link>
+                                    {t('description')} <Link href="/privacy" className="text-gold border-b border-gold/20 hover:border-gold transition-all">{t('details')}</Link>
                                 </p>
                             </div>
                         </div>
@@ -113,7 +115,7 @@ export default function CookieConsent() {
                                     exit={{ opacity: 0, height: 0 }}
                                     className="col-span-2 border-t border-gold/10 mt-6 pt-6 overflow-hidden w-full"
                                 >
-                                    <div className="grid md:grid-cols-3 gap-6 mb-8">
+                                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
                                         {/* Necessary */}
                                         <div className="p-5 bg-slate-50 border border-gold/5 rounded-xl relative overflow-hidden">
                                             <div className="flex items-center justify-between mb-3">
@@ -122,8 +124,8 @@ export default function CookieConsent() {
                                                     <div className="w-3 h-3 bg-white rounded-full translate-x-3" />
                                                 </div>
                                             </div>
-                                            <h5 className="text-[11px] font-bold uppercase tracking-widest text-navy mb-1">Zorunlu</h5>
-                                            <p className="text-[10px] text-slate-400 italic">Sitemiz için elzem fonksiyonlar.</p>
+                                            <h5 className="text-[11px] font-bold uppercase tracking-widest text-navy mb-1">{t('settings.necessary')}</h5>
+                                            <p className="text-[10px] text-slate-400 italic">{t('settings.necessaryDesc')}</p>
                                         </div>
 
                                         {/* Analytics */}
@@ -140,8 +142,8 @@ export default function CookieConsent() {
                                                     />
                                                 </div>
                                             </div>
-                                            <h5 className="text-[11px] font-bold uppercase tracking-widest text-navy mb-1">Analitik</h5>
-                                            <p className="text-[10px] text-slate-400 italic">Kullanım verilerini toplar.</p>
+                                            <h5 className="text-[11px] font-bold uppercase tracking-widest text-navy mb-1">{t('settings.analytics')}</h5>
+                                            <p className="text-[10px] text-slate-400 italic">{t('settings.analyticsDesc')}</p>
                                         </div>
 
                                         {/* Marketing */}
@@ -158,8 +160,29 @@ export default function CookieConsent() {
                                                     />
                                                 </div>
                                             </div>
-                                            <h5 className="text-[11px] font-bold uppercase tracking-widest text-navy mb-1">Pazarlama</h5>
-                                            <p className="text-[10px] text-slate-400 italic">Size özel teklifler.</p>
+                                            <h5 className="text-[11px] font-bold uppercase tracking-widest text-navy mb-1">{t('settings.marketing')}</h5>
+                                            <p className="text-[10px] text-slate-400 italic">{t('settings.marketingDesc')}</p>
+                                        </div>
+
+                                        {/* AI Services */}
+                                        <div
+                                            onClick={() => setPreferences(prev => ({ ...prev, ai: !prev.ai }))}
+                                            className={`p-5 border rounded-xl transition-all cursor-pointer ${preferences.ai ? 'bg-navy/5 border-gold/20' : 'bg-white border-slate-100'}`}
+                                        >
+                                            <div className="flex items-center justify-between mb-3">
+                                                <div className="flex items-center gap-2">
+                                                    <div className={`w-2 h-2 rounded-full ${preferences.ai ? 'bg-gold animate-pulse' : 'bg-slate-200'}`} />
+                                                    <span className={`text-[9px] font-black tracking-tighter ${preferences.ai ? 'text-gold' : 'text-slate-300'}`}>AI ENABLED</span>
+                                                </div>
+                                                <div className={`w-8 h-5 rounded-full p-1 transition-colors ${preferences.ai ? 'bg-gold' : 'bg-slate-200'}`}>
+                                                    <motion.div
+                                                        animate={{ x: preferences.ai ? 12 : 0 }}
+                                                        className="w-3 h-3 bg-white rounded-full shadow-sm"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <h5 className="text-[11px] font-bold uppercase tracking-widest text-navy mb-1">{t('settings.ai')}</h5>
+                                            <p className="text-[10px] text-slate-400 italic">{t('settings.aiDesc')}</p>
                                         </div>
                                     </div>
 
@@ -174,7 +197,7 @@ export default function CookieConsent() {
                                             onClick={handleSavePreferences}
                                             className="bg-navy text-white px-8 py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-gold transition-all rounded-lg"
                                         >
-                                            TERCİHLERİ KAYDET
+                                            {t('save')}
                                         </button>
                                     </div>
                                 </motion.div>

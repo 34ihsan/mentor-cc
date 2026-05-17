@@ -10,12 +10,12 @@ const sections = [
         icon: FileText,
         title: 'Taraflar ve Sözleşmenin Konusu',
         content: `
-            <p>Bu Kullanım Şartları ("Şartlar"), StarEducation Yurt Dışı Eğitim Danışmanlığı A.Ş. ("StarEducation", "biz" veya "şirket") ile <strong>www.stareducon.co.uk</strong> adresini ve bağlı tüm alt domainleri ("Platform") ziyaret eden veya kullanan gerçek ya da tüzel kişiler ("Kullanıcı") arasında kurulan yasal bir sözleşmeyi oluşturur.</p>
+            <p>Bu Kullanım Şartları ("Şartlar"), Mentor Career Yurt Dışı Eğitim Danışmanlığı A.Ş. ("Mentor Career", "biz" veya "şirket") ile <strong>www.mentor-cc.com</strong> adresini ve bağlı tüm alt domainleri ("Platform") ziyaret eden veya kullanan gerçek ya da tüzel kişiler ("Kullanıcı") arasında kurulan yasal bir sözleşmeyi oluşturur.</p>
             <p>Platformu kullandığınız anda bu Şartları okumuş, anlamış ve kabul etmiş sayılırsınız. Bu Şartları kabul etmiyorsanız Platformu kullanmamanızı tavsiye ederiz.</p>
             <h4>Şirket Bilgileri</h4>
             <ul>
-                <li><strong>Ticaret Unvanı:</strong> StarEducation Yurt Dışı Eğitim Danışmanlık</li>
-                <li><strong>E-posta:</strong> info@stareducon.co.uk</li>
+                <li><strong>Ticaret Unvanı:</strong> Mentor Career Yurt Dışı Eğitim Danışmanlık</li>
+                <li><strong>E-posta:</strong> info@mentor-cc.com</li>
             </ul>
         `
     },
@@ -24,7 +24,7 @@ const sections = [
         icon: Globe,
         title: 'Hizmet Kapsamı ve Niteliği',
         content: `
-            <p>StarEducation, aşağıda belirtilen danışmanlık hizmetlerini sunan lisanslı bir eğitim danışmanlık firmasıdır:</p>
+            <p>Mentor Career, aşağıda belirtilen danışmanlık hizmetlerini sunan lisanslı bir eğitim danışmanlık firmasıdır:</p>
             <ul>
                 <li>Yurt dışı lise, ön lisans, lisans ve lisansüstü eğitim danışmanlığı</li>
                 <li>Dil okulu ve yaz okulu program seçimi ve başvuru yönetimi</li>
@@ -33,7 +33,7 @@ const sections = [
                 <li>Eğitim materyalleri, rehberler ve dijital içerik sunumu</li>
             </ul>
             <h4>Hizmet Sınırlamaları</h4>
-            <p>Platformda yer alan tüm içerikler yalnızca <strong>genel bilgilendirme</strong> amaçlıdır. StarEducation:</p>
+            <p>Platformda yer alan tüm içerikler yalnızca <strong>genel bilgilendirme</strong> amaçlıdır. Mentor Career:</p>
             <ul>
                 <li>Üniversite veya okul kabulünü garanti etmez.</li>
                 <li>Vize onayını garanti etmez; nihai karar ilgili ülkenin yetkili makamına aittir.</li>
@@ -65,7 +65,7 @@ const sections = [
                 <li>Platformun kaynaklarını aşırı tüketecek otomatik erişim araçları kullanmak.</li>
                 <li>İzinsiz ticari reklam ve promosyon yapmak.</li>
             </ul>
-            <p>StarEducation, bu kurallara aykırı davranan kullanıcıların erişimini yasal yollara başvurma hakkını saklı tutarak tek taraflı olarak kısıtlama veya sonlandırma hakkına sahiptir.</p>
+            <p>Mentor Career, bu kurallara aykırı davranan kullanıcıların erişimini yasal yollara başvurma hakkını saklı tutarak tek taraflı olarak kısıtlama veya sonlandırma hakkına sahiptir.</p>
         `
     },
     {
@@ -73,7 +73,7 @@ const sections = [
         icon: Lock,
         title: 'Fikri Mülkiyet Hakları',
         content: `
-            <p>Platform üzerinde yer alan tüm içerikler — metin, grafik, logo, ikon, görsel, ses kaydı, dijital indirme, veri derlemeleri ve yazılım dahil — StarEducation'un mülkiyetindedir ve <strong>5846 sayılı Fikir ve Sanat Eserleri Kanunu</strong> ile uluslararası telif hukuku kapsamında koruma altındadır.</p>
+            <p>Platform üzerinde yer alan tüm içerikler — metin, grafik, logo, ikon, görsel, ses kaydı, dijital indirme, veri derlemeleri ve yazılım dahil — Mentor Career'un mülkiyetindedir ve <strong>5846 sayılı Fikir ve Sanat Eserleri Kanunu</strong> ile uluslararası telif hukuku kapsamında koruma altındadır.</p>
             <h4>İzin Verilen Kullanım</h4>
             <ul>
                 <li>Kişisel, ticari olmayan amaçlarla Platform içerikleri görüntülenebilir ve yazdırılabilir.</li>
@@ -82,10 +82,10 @@ const sections = [
             <h4>Yasaklanan Kullanım</h4>
             <ul>
                 <li>Platform içeriklerinin ticari amaçla çoğaltılması, dağıtılması veya yayınlanması yasaktır.</li>
-                <li>StarEducation markası, logosu ve ticari unvanı yazılı izin alınmadan kullanılamaz.</li>
+                <li>Mentor Career markası, logosu ve ticari unvanı yazılı izin alınmadan kullanılamaz.</li>
                 <li>İçeriklerin değiştirilerek veya uyarlanarak yeniden yayınlanması izne tabidir.</li>
             </ul>
-            <p>Fikri mülkiyet ihlali fark ettiğinizde lütfen <strong>info@stareducon.co.uk</strong> adresiyle iletişime geçiniz.</p>
+            <p>Fikri mülkiyet ihlali fark ettiğinizde lütfen <strong>info@mentor-cc.com</strong> adresiyle iletişime geçiniz.</p>
         `
     },
     {
@@ -93,15 +93,15 @@ const sections = [
         icon: AlertTriangle,
         title: 'Sorumluluk Sınırlaması ve Feragatname',
         content: `
-            <p>StarEducation, yürürlükteki mevzuatın izin verdiği azami ölçüde aşağıdaki konularda sorumluluk kabul etmez:</p>
+            <p>Mentor Career, yürürlükteki mevzuatın izin verdiği azami ölçüde aşağıdaki konularda sorumluluk kabul etmez:</p>
             <h4>Dolaylı Zararlar</h4>
-            <p>Platform kullanımından kaynaklanan gelir kaybı, veri kaybı, itibar kaybı veya fırsat kaybı dahil her türlü dolaylı ya da öngörülemeyen zararlardan StarEducation sorumlu tutulamaz.</p>
+            <p>Platform kullanımından kaynaklanan gelir kaybı, veri kaybı, itibar kaybı veya fırsat kaybı dahil her türlü dolaylı ya da öngörülemeyen zararlardan Mentor Career sorumlu tutulamaz.</p>
             <h4>Üçüncü Taraf Hizmetleri</h4>
-            <p>Platform üzerinde yer alan bağlantılar üzerinden erişilen üçüncü taraf web sitelerinin içeriği, gizlilik politikaları veya hizmetlerinden doğan zararlardan StarEducation sorumlu değildir.</p>
+            <p>Platform üzerinde yer alan bağlantılar üzerinden erişilen üçüncü taraf web sitelerinin içeriği, gizlilik politikaları veya hizmetlerinden doğan zararlardan Mentor Career sorumlu değildir.</p>
             <h4>Teknik Aksaklıklar</h4>
-            <p>Sunucu kesintileri, siber saldırılar, iletişim altyapısındaki arızalar veya mücbir sebepler nedeniyle oluşan hizmet kesintilerinden doğan zararlardan StarEducation sorumlu tutulamaz.</p>
+            <p>Sunucu kesintileri, siber saldırılar, iletişim altyapısındaki arızalar veya mücbir sebepler nedeniyle oluşan hizmet kesintilerinden doğan zararlardan Mentor Career sorumlu tutulamaz.</p>
             <h4>Okul ve Vize Kararları</h4>
-            <p>Danışmanlık sürecimiz sonucunda yapılan başvuruların okul tarafından kabul edilip edilmeyeceği tamamen ilgili eğitim kurumunun takdirindedir. Vize kararları ise tamamen ilgili ülkenin konsolosluğunun yetkisindedir. StarEducation, bu kararları etkileme veya garanti etme imkânına sahip değildir.</p>
+            <p>Danışmanlık sürecimiz sonucunda yapılan başvuruların okul tarafından kabul edilip edilmeyeceği tamamen ilgili eğitim kurumunun takdirindedir. Vize kararları ise tamamen ilgili ülkenin konsolosluğunun yetkisindedir. Mentor Career, bu kararları etkileme veya garanti etme imkânına sahip değildir.</p>
         `
     },
     {
@@ -116,7 +116,7 @@ const sections = [
             </ul>
             <p>Kişisel verilerinizin işlenmesine rıza gösterip göstermediğinizi ve varsa tercihlerinizi aşağıdaki adres üzerinden her zaman güncelleyebilirsiniz:</p>
             <ul>
-                <li><strong>E-posta:</strong> info@stareducon.co.uk</li>
+                <li><strong>E-posta:</strong> info@mentor-cc.com</li>
             </ul>
         `
     },
@@ -125,9 +125,9 @@ const sections = [
         icon: FileText,
         title: 'Değişiklikler ve Güncellemeler',
         content: `
-            <p>StarEducation, bu Kullanım Şartlarını önceden haber vermeksizin değiştirme hakkını saklı tutar. Değişiklikler Platformda yayınlandığı tarihte yürürlüğe girer.</p>
+            <p>Mentor Career, bu Kullanım Şartlarını önceden haber vermeksizin değiştirme hakkını saklı tutar. Değişiklikler Platformda yayınlandığı tarihte yürürlüğe girer.</p>
             <p>Önemli değişiklikler söz konusu olduğunda kayıtlı kullanıcılar e-posta yoluyla veya Platform üzerinden bilgilendirilir. Değişiklik sonrası Platformu kullanmaya devam etmeniz, güncellenmiş Şartları kabul ettiğiniz anlamına gelir.</p>
-            <p>Bu sayfanın en üstünde yer alan <strong>"Son Güncelleme"</strong> tarihi, Şartların geçerli versiyonuna ilişkin bilgi verir. Önceki versiyonlara erişim talep etmek için <strong>info@stareducon.co.uk</strong> ile iletişime geçebilirsiniz.</p>
+            <p>Bu sayfanın en üstünde yer alan <strong>"Son Güncelleme"</strong> tarihi, Şartların geçerli versiyonuna ilişkin bilgi verir. Önceki versiyonlara erişim talep etmek için <strong>info@mentor-cc.com</strong> ile iletişime geçebilirsiniz.</p>
         `
     },
     {
@@ -137,7 +137,7 @@ const sections = [
         content: `
             <p>Bu Şartlar, Türkiye Cumhuriyeti kanunlarına tabi olup, bu Şartlardan doğacak her türlü uyuşmazlıkta <strong>İstanbul Mahkemeleri ve İcra Daireleri</strong> yetkilidir.</p>
             <h4>Önce Müzakere</h4>
-            <p>Her iki taraf da yargı yoluna başvurmadan önce ihtilafı müzakere yoluyla çözmeye çalışmayı taahhüt eder. Kullanıcılar şikayetlerini öncelikli olarak <strong>info@stareducon.co.uk</strong> adresine iletebilir.</p>
+            <p>Her iki taraf da yargı yoluna başvurmadan önce ihtilafı müzakere yoluyla çözmeye çalışmayı taahhüt eder. Kullanıcılar şikayetlerini öncelikli olarak <strong>info@mentor-cc.com</strong> adresine iletebilir.</p>
             <h4>Tüketici Hakları</h4>
             <p>Tüketici sıfatını haiz kullanıcılar, uyuşmazlık çözümü için ilgili <strong>Tüketici Hakem Heyeti</strong> veya <strong>Tüketici Mahkemelerine</strong> de başvurabilir.</p>
             <h4>Uluslararası Kullanıcılar</h4>
@@ -151,9 +151,9 @@ const sections = [
         content: `
             <p>Bu Kullanım Şartlarına ilişkin soru, yorum veya bildirimleriniz için aşağıdaki kanallardan bizimle iletişime geçebilirsiniz:</p>
             <ul>
-                <li><strong>Genel İletişim:</strong> info@stareducon.co.uk</li>
-                <li><strong>Hukuki Bildirimler:</strong> info@stareducon.co.uk</li>
-                <li><strong>KVKK / Veri Koruma:</strong> info@stareducon.co.uk</li>
+                <li><strong>Genel İletişim:</strong> info@mentor-cc.com</li>
+                <li><strong>Hukuki Bildirimler:</strong> info@mentor-cc.com</li>
+                <li><strong>KVKK / Veri Koruma:</strong> info@mentor-cc.com</li>
             </ul>
             <p class="mt-6 text-sm italic text-gray-500">Yasal bildirimler yalnızca yazılı olarak ve yukarıda belirtilen hukuki bildirim kanalı üzerinden yapılması halinde geçerli sayılacaktır.</p>
         `
@@ -188,7 +188,7 @@ export default function TermsPage() {
                             Kullanım <span className="gold-text not-italic">Şartları</span>
                         </h1>
                         <p className="text-lg text-slate-600 font-serif italic border-l border-gold pl-8 max-w-3xl leading-relaxed">
-                            StarEducation platformunu kullanarak aşağıdaki hüküm ve koşulları kabul etmiş sayılırsınız.
+                            Mentor Career platformunu kullanarak aşağıdaki hüküm ve koşulları kabul etmiş sayılırsınız.
                             Bu belge, taraflar arasındaki hukuki ilişkiyi düzenleyen bağlayıcı bir sözleşmedir.
                         </p>
 
@@ -342,11 +342,11 @@ export default function TermsPage() {
                                     Kullanım Şartları hakkında sorularınız için hukuk ekibimizle iletişime geçebilirsiniz.
                                 </p>
                                 <Link
-                                    href="mailto:info@stareducon.co.uk"
+                                    href="mailto:info@mentor-cc.com"
                                     className="flex items-center gap-3 text-gold font-bold text-[11px] uppercase tracking-[0.3em] group"
                                 >
                                     <Mail size={14} />
-                                    info@stareducon.co.uk
+                                    info@mentor-cc.com
                                 </Link>
                             </div>
                         </div>
@@ -366,7 +366,7 @@ export default function TermsPage() {
                             <p className="text-slate-500 text-sm font-serif italic leading-relaxed max-w-4xl">
                                 Bu doküman yalnızca bilgilendirme amacıyla hazırlanmıştır ve bireysel hukuki tavsiye niteliği taşımaz.
                                 Şartlara ilişkin herhangi bir belirsizlik durumunda Türkçe metni esas alınır.
-                                StarEducation, işbu Şartları yürürlükteki mevzuata uygun biçimde her zaman güncelleme hakkını saklı tutar.
+                                Mentor Career, işbu Şartları yürürlükteki mevzuata uygun biçimde her zaman güncelleme hakkını saklı tutar.
                             </p>
                             <div className="flex flex-wrap gap-4 mt-6">
                                 <Link href="/kvkk" className="text-gold text-xs font-bold uppercase tracking-[0.3em] hover:underline">KVKK Politikası</Link>

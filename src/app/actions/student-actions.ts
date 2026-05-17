@@ -17,7 +17,12 @@ export async function getStudentApplicationsAction() {
             include: {
                 program: {
                     include: {
-                        institution: true
+                        institution: {
+                            include: {
+                                service: true,
+                                country: true
+                            }
+                        }
                     }
                 },
                 documents: true,
@@ -73,5 +78,50 @@ export async function uploadDocumentAction(formData: FormData) {
     } catch (error) {
         console.error("Upload failed:", error);
         return { success: false, error: "Belge kaydedilemedi" };
+    }
+}
+
+export async function createApplicationAction(programId: string) {
+    const session = await auth();
+    if (!session?.user || session.user.role !== "STUDENT") {
+        return { success: false, error: "Unauthorized" };
+    }
+
+    try {
+        // Check if already applied
+        const existing = await prisma.application.findFirst({
+            where: {
+                studentId: session.user.id,
+                programId: programId
+            }
+        });
+
+        if (existing) {
+            return { success: false, error: "ALREADY_APPLIED" };
+        }
+
+        const application = await prisma.application.create({
+            data: {
+                studentId: session.user.id,
+                programId: programId,
+                status: "DRAFT"
+            }
+        });
+
+        // Log activity
+        await prisma.activityLog.create({
+            data: {
+                applicationId: application.id,
+                action: "APPLICATION_CREATED",
+                details: "Öğrenci SmartFinder üzerinden başvuru yaptı.",
+                userId: session.user.id
+            }
+        });
+
+        revalidatePath("/dashboard/student");
+        return { success: true, application };
+    } catch (error) {
+        console.error("Application failed:", error);
+        return { success: false, error: "Başvuru oluşturulamadı" };
     }
 }

@@ -9,7 +9,7 @@ export default function Loading() {
             </div>
             <div className="space-y-4 max-w-xs">
                 <h2 className="text-2xl font-serif font-bold text-navy italic">
-                    Star <span className="gold-text not-italic">Beratung</span>
+                    Mentor <span className="gold-text not-italic">Career Consulting</span>
                 </h2>
                 <div className="h-1 bg-gold/10 rounded-full overflow-hidden">
                     <div className="h-full bg-gold w-1/3 animate-progress origin-left"></div>

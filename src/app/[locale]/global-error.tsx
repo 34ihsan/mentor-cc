@@ -12,6 +12,16 @@ export default function GlobalError({
 }) {
   useEffect(() => {
     Sentry.captureException(error);
+
+    // Check for ChunkLoadError (common after new deployments)
+    const isChunkError = error.message?.includes('Loading chunk') || 
+                        error.name === 'ChunkLoadError' ||
+                        error.message?.includes('ChunkLoadError');
+
+    if (isChunkError) {
+      console.warn('ChunkLoadError detected in GlobalError. Attempting automatic page reload...');
+      window.location.reload();
+    }
   }, [error]);
 
   return (

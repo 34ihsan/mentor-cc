@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { prisma } from '@/lib/prisma';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.stareducon.co.uk';
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.mentor-cc.com';
     const locales = ['tr', 'en', 'de'];
 
     const getLocalizedEntries = (path: string, lastModified: Date = new Date(), priority: number = 0.5) => {

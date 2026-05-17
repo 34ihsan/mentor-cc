@@ -32,7 +32,11 @@ function HeroManagementContent() {
     const [editingSlide, setEditingSlide] = useState<any>(null);
     const [formData, setFormData] = useState({
         title: "",
+        title_en: "",
+        title_de: "",
         subtitle: "",
+        subtitle_en: "",
+        subtitle_de: "",
         imageUrl: "",
         link: "",
         pageContext: "home",
@@ -135,7 +139,11 @@ function HeroManagementContent() {
             setEditingSlide(slide);
             setFormData({
                 title: slide.title || "",
+                title_en: slide.title_en || "",
+                title_de: slide.title_de || "",
                 subtitle: slide.subtitle || "",
+                subtitle_en: slide.subtitle_en || "",
+                subtitle_de: slide.subtitle_de || "",
                 imageUrl: slide.imageUrl || "",
                 link: slide.link || "",
                 pageContext: slide.pageContext || "home",
@@ -147,7 +155,11 @@ function HeroManagementContent() {
             setEditingSlide(null);
             setFormData({
                 title: "",
+                title_en: "",
+                title_de: "",
                 subtitle: "",
+                subtitle_en: "",
+                subtitle_de: "",
                 imageUrl: "",
                 link: "",
                 pageContext: "home",
@@ -207,102 +219,131 @@ function HeroManagementContent() {
                             <div key={i} className="glass-card p-4 h-80 animate-pulse border-white/40" />
                         ))
                     ) : (
-                        slides.map((slide, index) => (
-                            <motion.div
-                                key={slide.id}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: index * 0.1 }}
-                                className="bg-white group overflow-hidden border border-slate-200 rounded-3xl hover:shadow-2xl transition-all duration-500"
-                            >
-                                <div className="relative h-64 w-full overflow-hidden">
-                                    {slide.imageUrl?.match(/\.(mp4|webm|ogg)$/i) ? (
-                                        <video
-                                            src={slide.imageUrl}
-                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
-                                            autoPlay
-                                            loop
-                                            muted
-                                            playsInline
-                                        />
-                                    ) : (
-                                        <img
-                                            src={slide.imageUrl}
-                                            alt={slide.title}
-                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
-                                        />
-                                    )}
-                                    {/* Overlay Gradient */}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                        slides.map((slide, index) => {
+                            let slideSettings = defaultImageSettings;
+                            try {
+                                slideSettings = typeof slide.imageSettings === 'string' 
+                                    ? JSON.parse(slide.imageSettings) 
+                                    : (slide.imageSettings || defaultImageSettings);
+                            } catch (e) {}
 
-                                    <div className="absolute top-4 left-4 flex gap-2">
-                                        <div className="px-3 py-1.5 rounded-lg bg-black/40 backdrop-blur-md border border-white/10 text-[10px] font-black uppercase tracking-widest text-white">
-                                            {slide.pageContext}
-                                        </div>
-                                        {slide.active ? (
-                                            <div className="px-3 py-1.5 rounded-lg bg-emerald-500/80 backdrop-blur-md border border-white/10 text-[10px] font-black uppercase tracking-widest text-white flex items-center gap-1.5">
-                                                <div className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_8px_white]" />
-                                                Aktif
-                                            </div>
+                            const overlayOpacity = slideSettings.overlayOpacity !== undefined 
+                                ? slideSettings.overlayOpacity / 100 
+                                : 0.35;
+                            const overlayColor = slideSettings.overlayColor || '#0B1751';
+
+                            return (
+                                <motion.div
+                                    key={slide.id}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: index * 0.1 }}
+                                    className="bg-white group overflow-hidden border border-slate-200 rounded-3xl hover:shadow-2xl transition-all duration-500"
+                                >
+                                    <div className="relative h-64 w-full overflow-hidden" style={{ backgroundColor: slideSettings.size === 'contain' ? '#f8fafc' : 'transparent' }}>
+                                        {slide.imageUrl?.match(/\.(mp4|webm|ogg)$/i) ? (
+                                            <video
+                                                src={slide.imageUrl}
+                                                className={`w-full h-full group-hover:scale-110 transition-transform duration-1000 ${
+                                                    slideSettings.size === 'contain' ? 'object-contain' : 'object-cover'
+                                                }`}
+                                                style={{ objectPosition: slideSettings.position || 'center' }}
+                                                autoPlay
+                                                loop
+                                                muted
+                                                playsInline
+                                            />
                                         ) : (
-                                            <div className="px-3 py-1.5 rounded-lg bg-slate-500/80 backdrop-blur-md border border-white/10 text-[10px] font-black uppercase tracking-widest text-white">
-                                                Pasif
-                                            </div>
+                                            <img
+                                                src={slide.imageUrl}
+                                                alt={slide.title}
+                                                className={`w-full h-full group-hover:scale-110 transition-transform duration-1000 ${
+                                                    slideSettings.size === 'contain' ? 'object-contain' : 'object-cover'
+                                                }`}
+                                                style={{ objectPosition: slideSettings.position || 'center' }}
+                                            />
                                         )}
-                                    </div>
+                                        {/* Overlay Gradient */}
+                                        <div 
+                                            className="absolute inset-0"
+                                            style={{ 
+                                                background: `linear-gradient(to top, ${overlayColor} ${(overlayOpacity * 100).toFixed(0)}%, transparent)`
+                                            }}
+                                        />
 
-                                    <div className="absolute bottom-4 left-6 right-6">
-                                        <h3 className="text-xl font-black text-white tracking-tight mb-1">{slide.title}</h3>
-                                        <p className="text-xs font-medium text-white/70 line-clamp-1">{slide.subtitle}</p>
-                                    </div>
-                                </div>
-
-                                <div className="p-6 flex items-center justify-between bg-slate-50/50">
-                                    <div className="flex items-center gap-6">
-                                        <div className="flex flex-col">
-                                            <span className="text-[10px] font-black text-[#0B1751] uppercase tracking-tighter mb-0.5">Sıralama</span>
-                                            <span className="text-lg font-black text-[#0B1751] leading-none">#{slide.order}</span>
+                                        <div className="absolute top-4 left-4 flex gap-2">
+                                            <div className="px-3 py-1.5 rounded-lg bg-black/40 backdrop-blur-md border border-white/10 text-[10px] font-black uppercase tracking-widest text-white">
+                                                {slide.pageContext}
+                                            </div>
+                                            {slide.active ? (
+                                                <div className="px-3 py-1.5 rounded-lg bg-emerald-500/80 backdrop-blur-md border border-white/10 text-[10px] font-black uppercase tracking-widest text-white flex items-center gap-1.5">
+                                                    <div className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_8px_white]" />
+                                                    Aktif
+                                                </div>
+                                            ) : (
+                                                <div className="px-3 py-1.5 rounded-lg bg-slate-500/80 backdrop-blur-md border border-white/10 text-[10px] font-black uppercase tracking-widest text-white">
+                                                    Pasif
+                                                </div>
+                                            )}
                                         </div>
 
+                                        <div className="absolute bottom-4 left-6 right-6">
+                                            <h3 className="text-xl font-black text-white tracking-tight mb-1">{slide.title}</h3>
+                                            <p className="text-xs font-medium text-white/70 line-clamp-1">{slide.subtitle}</p>
+                                        </div>
                                     </div>
-                                     <div className="flex items-center gap-2">
-                                         <button
-                                             onClick={() => {
-                                                 const { id, createdAt, updatedAt, ...copyData } = slide;
-                                                 openEditor(null);
-                                                 setTimeout(() => {
-                                                     setEditingSlide(null);
-                                                     setFormData({
-                                                         ...copyData,
-                                                         title: `${slide.title} (Kopya)`,
-                                                         order: slides.length + 1,
-                                                         imageSettings: slide.imageSettings ? JSON.parse(slide.imageSettings) : defaultImageSettings
-                                                     });
-                                                     setIsEditorOpen(true);
-                                                 }, 50);
-                                             }}
-                                             className="p-3 hover:bg-white rounded-xl transition-all text-blue-400 hover:text-blue-500 hover:shadow-md border border-transparent hover:border-slate-100"
-                                             title="Kopyala"
-                                         >
-                                             <Copy size={18} />
-                                         </button>
-                                         <button
-                                             onClick={() => openEditor(slide)}
-                                             className="p-3 hover:bg-white rounded-xl transition-all text-slate-400 hover:text-[#0B1751] hover:shadow-md border border-transparent hover:border-slate-100" title="Düzenle">
-                                             <Edit2 size={18} />
-                                         </button>
-                                        <button
-                                            onClick={() => handleDelete(slide.id)}
-                                            className="p-3 hover:bg-red-50 rounded-xl transition-all text-slate-400 hover:text-red-500 hover:shadow-md border border-transparent hover:border-red-100" title="Sil">
-                                            <Trash2 size={18} />
-                                        </button>
+
+                                    <div className="p-6 flex items-center justify-between bg-slate-50/50">
+                                        <div className="flex items-center gap-6">
+                                            <div className="flex flex-col">
+                                                <span className="text-[10px] font-black text-[#0B1751] uppercase tracking-tighter mb-0.5">Sıralama</span>
+                                                <span className="text-lg font-black text-[#0B1751] leading-none">#{slide.order}</span>
+                                            </div>
+                                        </div>
+                                        <div className="flex items-center gap-2">
+                                            <button
+                                                onClick={() => {
+                                                    const { id, createdAt, updatedAt, ...copyData } = slide;
+                                                    openEditor(null);
+                                                    setTimeout(() => {
+                                                        setEditingSlide(null);
+                                                        setFormData({
+                                                            ...copyData,
+                                                            title: `${slide.title} (Kopya)`,
+                                                            order: slides.length + 1,
+                                                            imageSettings: slide.imageSettings ? JSON.parse(slide.imageSettings) : defaultImageSettings
+                                                        });
+                                                        setIsEditorOpen(true);
+                                                    }, 50);
+                                                }}
+                                                className="p-3 hover:bg-white rounded-xl transition-all text-blue-400 hover:text-blue-500 hover:shadow-md border border-transparent hover:border-slate-100"
+                                                title="Kopyala"
+                                            >
+                                                <Copy size={18} />
+                                            </button>
+                                            <button
+                                                onClick={() => openEditor(slide)}
+                                                className="p-3 hover:bg-white rounded-xl transition-all text-slate-400 hover:text-[#0B1751] hover:shadow-md border border-transparent hover:border-slate-100"
+                                                title="Düzenle"
+                                            >
+                                                <Edit2 size={18} />
+                                            </button>
+                                            <button
+                                                onClick={() => handleDelete(slide.id)}
+                                                className="p-3 hover:bg-red-50 rounded-xl transition-all text-slate-400 hover:text-red-500 hover:shadow-md border border-transparent hover:border-red-100"
+                                                title="Sil"
+                                            >
+                                                <Trash2 size={18} />
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                            </motion.div>
-                        ))
+                                </motion.div>
+                            );
+                        })
                     )}
                 </AnimatePresence>
             </div>
+
 
             {/* Editor Modal */}
             <AnimatePresence>
@@ -331,24 +372,46 @@ function HeroManagementContent() {
                             </div>
 
                             <form onSubmit={handleSave} className="p-8 overflow-y-auto space-y-6">
-                                <div className="grid grid-cols-2 gap-6">
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                                     <div className="space-y-2">
-                                        <label className="text-[10px] font-black text-black uppercase">Başlık</label>
+                                        <label className="text-[10px] font-black text-black uppercase">Başlık (TR)</label>
                                         <input
                                             type="text"
                                             value={formData.title}
                                             onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                                            className="w-full bg-slate-50 border border-slate-200 p-3 rounded-xl text-sm font-bold text-black placeholder:text-slate-400"
-                                            placeholder="Manşet başlığı"
+                                            className="w-full bg-slate-50 border border-slate-200 p-3 rounded-xl text-sm font-bold text-black"
+                                            placeholder="TR Başlık"
                                         />
                                     </div>
                                     <div className="space-y-2">
-                                        <label className="text-[10px] font-black text-black uppercase">Sayfa Bağlamı (Bölüm)</label>
-                                        <select
-                                            value={formData.pageContext}
-                                            onChange={(e) => setFormData({ ...formData, pageContext: e.target.value })}
+                                        <label className="text-[10px] font-black text-black uppercase">Başlık (EN)</label>
+                                        <input
+                                            type="text"
+                                            value={formData.title_en}
+                                            onChange={(e) => setFormData({ ...formData, title_en: e.target.value })}
                                             className="w-full bg-slate-50 border border-slate-200 p-3 rounded-xl text-sm font-bold text-black"
-                                        >
+                                            placeholder="EN Title"
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label className="text-[10px] font-black text-black uppercase">Başlık (DE)</label>
+                                        <input
+                                            type="text"
+                                            value={formData.title_de}
+                                            onChange={(e) => setFormData({ ...formData, title_de: e.target.value })}
+                                            className="w-full bg-slate-50 border border-slate-200 p-3 rounded-xl text-sm font-bold text-black"
+                                            placeholder="DE Titel"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="space-y-2">
+                                    <label className="text-[10px] font-black text-black uppercase">Sayfa Bağlamı (Bölüm)</label>
+                                    <select
+                                        value={formData.pageContext}
+                                        onChange={(e) => setFormData({ ...formData, pageContext: e.target.value })}
+                                        className="w-full bg-slate-50 border border-slate-200 p-3 rounded-xl text-sm font-bold text-black"
+                                    >
                                             <optgroup label="Genel">
                                                 <option value="home">Anasayfa</option>
                                                 <option value="about">Hakkımızda</option>
@@ -369,19 +432,39 @@ function HeroManagementContent() {
                                             )}
                                         </select>
                                     </div>
-                                </div>
 
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                                     <div className="space-y-2">
-                                        <label className="text-[10px] font-black text-black uppercase">Alt Başlık</label>
+                                        <label className="text-[10px] font-black text-black uppercase">Alt Başlık (TR)</label>
                                         <input
                                             type="text"
                                             value={formData.subtitle}
                                             onChange={(e) => setFormData({ ...formData, subtitle: e.target.value })}
                                             className="w-full bg-slate-50 border border-slate-200 p-3 rounded-xl text-sm font-bold text-black"
-                                            placeholder="Kısa açıklama..."
+                                            placeholder="TR Alt Başlık"
                                         />
                                     </div>
+                                    <div className="space-y-2">
+                                        <label className="text-[10px] font-black text-black uppercase">Alt Başlık (EN)</label>
+                                        <input
+                                            type="text"
+                                            value={formData.subtitle_en}
+                                            onChange={(e) => setFormData({ ...formData, subtitle_en: e.target.value })}
+                                            className="w-full bg-slate-50 border border-slate-200 p-3 rounded-xl text-sm font-bold text-black"
+                                            placeholder="EN Subtitle"
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label className="text-[10px] font-black text-black uppercase">Alt Başlık (DE)</label>
+                                        <input
+                                            type="text"
+                                            value={formData.subtitle_de}
+                                            onChange={(e) => setFormData({ ...formData, subtitle_de: e.target.value })}
+                                            className="w-full bg-slate-50 border border-slate-200 p-3 rounded-xl text-sm font-bold text-black"
+                                            placeholder="DE Untertitel"
+                                        />
+                                    </div>
+                                </div>
                                     <div className="space-y-2">
                                         <label className="text-[10px] font-black text-black uppercase">Yönlendirme Linki (CTA)</label>
                                         <div className="relative">
@@ -395,7 +478,6 @@ function HeroManagementContent() {
                                             />
                                         </div>
                                     </div>
-                                </div>
 
                                 <div className="space-y-2">
                                     <div className="space-y-2">

@@ -18,7 +18,7 @@ export default async function CustomPage({ params }: { params: Promise<{ slug: s
             {/* Hero Section */}
             <Hero
                 title={page.title}
-                subtitle="StarEducation ile eğitim yolculuğunuzu şekillendirin."
+                subtitle="Mentor Career ile eğitim yolculuğunuzu şekillendirin."
                 ctaText="İletişime Geçin"
                 ctaHref="/iletisim"
                 backgroundImage={page.image || "/images/hero-education-global.png"}

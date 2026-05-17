@@ -14,6 +14,7 @@ interface FAQSchemaProps {
 
 // Strip HTML tags for schema output (schema.org doesn't support HTML)
 function stripHtml(html: string): string {
+  if (!html) return '';
   return html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
 }
 
@@ -23,12 +24,12 @@ export default function FAQSchema({ faqs }: FAQSchemaProps) {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: faqs.map((faq) => ({
+    mainEntity: faqs.map((faq: any) => ({
       '@type': 'Question',
-      name: stripHtml(faq.question),
+      name: stripHtml(faq.question || faq.q),
       acceptedAnswer: {
         '@type': 'Answer',
-        text: stripHtml(faq.answer),
+        text: stripHtml(faq.answer || faq.a),
       },
     })),
   };

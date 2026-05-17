@@ -284,22 +284,28 @@ export default function DocumentList({
                                         {doc.status}
                                     </span>
 
-                                    {canApprove && doc.status === "PENDING" && (
+                                    {canApprove && (
                                         <div className="flex gap-2">
-                                            <button
-                                                onClick={() => handleStatusUpdate(doc.id, "APPROVED")}
-                                                className="text-green-600 hover:bg-green-50 p-2 rounded"
-                                                title="Onayla"
-                                            >
-                                                <CheckCircle size={18} />
-                                            </button>
-                                            <button
-                                                onClick={() => setRejectingDocId(doc.id)}
-                                                className="text-red-600 hover:bg-red-50 p-2 rounded"
-                                                title="Reddet"
-                                            >
-                                                <XCircle size={18} />
-                                            </button>
+                                            {doc.status !== "APPROVED" && (
+                                                <button
+                                                    onClick={() => handleStatusUpdate(doc.id, "APPROVED")}
+                                                    className="flex items-center gap-1 bg-green-50 text-green-700 hover:bg-green-100 px-3 py-1.5 rounded-xl font-black text-[10px] uppercase tracking-tighter transition-all border border-green-200"
+                                                    title="Onayla"
+                                                >
+                                                    <CheckCircle size={14} />
+                                                    Onayla
+                                                </button>
+                                            )}
+                                            {doc.status !== "REJECTED" && (
+                                                <button
+                                                    onClick={() => setRejectingDocId(doc.id)}
+                                                    className="flex items-center gap-1 bg-red-50 text-red-700 hover:bg-red-100 px-3 py-1.5 rounded-xl font-black text-[10px] uppercase tracking-tighter transition-all border border-red-200"
+                                                    title="Reddet"
+                                                >
+                                                    <XCircle size={14} />
+                                                    Reddet
+                                                </button>
+                                            )}
                                         </div>
                                     )}
 
@@ -349,9 +355,12 @@ export default function DocumentList({
 
                             {/* Display Reason if Rejected */}
                             {doc.status === "REJECTED" && doc.rejectionReason && (
-                                <div className="p-3 bg-red-50 dark:bg-red-900/10 border-l-4 border-red-500 rounded text-xs">
-                                    <p className="font-bold text-red-800 dark:text-red-200">Red Nedeni:</p>
-                                    <p className="text-red-700 dark:text-red-300">{doc.rejectionReason}</p>
+                                <div className="p-4 bg-red-50/50 dark:bg-red-500/5 border border-red-100 dark:border-red-900/20 border-l-4 border-l-red-500 rounded-2xl text-xs animate-in fade-in slide-in-from-top-1">
+                                    <div className="flex items-center gap-2 mb-1">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+                                        <p className="font-black text-red-800 dark:text-red-200 uppercase tracking-widest text-[9px]">Red Gerekçesi</p>
+                                    </div>
+                                    <p className="text-red-700 dark:text-red-300 font-medium pl-3.5 leading-relaxed">{doc.rejectionReason}</p>
                                 </div>
                             )}
                         </div>

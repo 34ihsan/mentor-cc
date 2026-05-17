@@ -12,15 +12,15 @@ interface Props {
     params: Promise<{ locale: string }>;
 }
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.stareducon.co.uk';
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.mentor-cc.com';
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { locale } = await params;
     const t = await getTranslations({ locale, namespace: 'Blog' });
     
     return {
-        title: t('title').replace(/<[^>]*>?/gm, ''),
-        description: t('label') + ' - StarEducation Akademik Perspektif',
+        title: String(t.raw('title')).replace(/<[^>]*>?/gm, ''),
+        description: t('label') + ' - Mentor Career Akademik Perspektif',
         alternates: {
             canonical: `${BASE_URL}/blog`
         }

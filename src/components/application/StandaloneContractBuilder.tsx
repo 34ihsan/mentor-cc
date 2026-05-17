@@ -3,7 +3,7 @@
 import { FileText, Send, X, Eye, User, Globe, Building2, BookOpen, Clock, DollarSign, Printer, Download, Edit3, Save } from "lucide-react";
 import { toast } from "sonner";
 import { useState, useEffect } from "react";
-import { CONTRACT_TEMPLATES } from "@/lib/templates";
+import { getContractTemplateHtml } from "@/app/actions/template-actions";
 
 interface StandaloneContractBuilderProps {
     student?: any;
@@ -37,32 +37,40 @@ export default function StandaloneContractBuilder({ student, onContractCreated, 
     const [manualContent, setManualContent] = useState("");
 
     // Dynamic Preview Content
-    const previewData = {
-        studentName,
-        studentEmail,
-        nationality,
-        parentName,
-        passportId,
-        phone,
-        birthDate,
-        address,
-        country,
-        serviceType,
-        institutionName,
-        programName,
-        price: amount || "0.00",
-        currency,
-        date: new Date().toLocaleDateString('tr-TR'),
-    };
-
-    const previewContent = CONTRACT_TEMPLATES[templateKey]?.content(previewData) || "";
-
-    // Sync manual content with template when not in manual mode
     useEffect(() => {
-        if (!isManualEdit) {
-            setManualContent(previewContent);
-        }
-    }, [previewContent, isManualEdit]);
+        const timer = setTimeout(async () => {
+            if (!isManualEdit) {
+                const data = {
+                    studentName,
+                    studentEmail,
+                    nationality,
+                    parentName,
+                    passportId,
+                    phone,
+                    birthDate,
+                    address,
+                    country,
+                    serviceType,
+                    institutionName,
+                    programName,
+                    price: amount || "0.00",
+                    currency,
+                    date: new Date().toLocaleDateString('tr-TR'),
+                };
+                
+                const html = await getContractTemplateHtml(templateKey, data);
+                if (html) {
+                    setManualContent(html);
+                }
+            }
+        }, 500); // 500ms debounce
+
+        return () => clearTimeout(timer);
+    }, [
+        templateKey, studentName, studentEmail, nationality, parentName, 
+        passportId, phone, birthDate, address, country, serviceType, 
+        institutionName, programName, amount, currency, isManualEdit
+    ]);
 
     const handlePrint = () => {
         const printWindow = window.open('', '_blank');
@@ -83,7 +91,7 @@ export default function StandaloneContractBuilder({ student, onContractCreated, 
                 </head>
                 <body class="p-10 bg-white">
                     <div class="max-w-4xl mx-auto border p-12 shadow-sm">
-                        ${previewContent}
+                        ${manualContent}
                     </div>
                     <script>
                         setTimeout(() => {

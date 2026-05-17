@@ -1,106 +1,147 @@
 import React from 'react';
 import Image from 'next/image';
-import { Sparkles, Heart, Rocket } from 'lucide-react';
+import { Sparkles, Heart, Rocket, Target, Map, Users, BarChart3, ArrowRightCircle } from 'lucide-react';
 import { Metadata } from 'next';
-import CareerClient from '@/components/public/CareerClient';
+import { Link } from '@/i18n/routing';
 import { getTranslations } from 'next-intl/server';
 import SafeHTMLContent from '@/components/public/SafeHTMLContent';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
     const { locale } = await params;
-    const t = await getTranslations({ locale, namespace: 'Career' });
+    const t = await getTranslations({ locale, namespace: 'Career.meta' });
+
     return {
-        title: t('meta.title'),
-        description: t('meta.description'),
+        title: t('title'),
+        description: t('description'),
     };
 }
 
-export default async function Career({ params }: { params: Promise<{ locale: string }> }) {
+export default async function CareerPage({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = await params;
     const t = await getTranslations({ locale, namespace: 'Career' });
 
-    const benefits = [
+    const sections = [
         {
-            title: t('benefits.global.title'),
-            desc: t('benefits.global.desc'),
-            icon: <Sparkles className="w-6 h-6" />
+            key: 'intro',
+            icon: Sparkles,
+            label: t('hero.label')
         },
         {
-            title: t('benefits.development.title'),
-            desc: t('benefits.development.desc'),
-            icon: <Rocket className="w-6 h-6" />
+            key: 'whySelfDiscovery',
+            icon: Heart,
+            label: t('sections.whySelfDiscovery.title')
         },
         {
-            title: t('benefits.culture.title'),
-            desc: t('benefits.culture.desc'),
-            icon: <Heart className="w-6 h-6" />
+            key: 'strengthsAndWeaknesses',
+            icon: BarChart3,
+            label: t('sections.strengthsAndWeaknesses.title')
+        },
+        {
+            key: 'roadmap',
+            icon: Map,
+            label: t('sections.roadmap.title')
+        },
+        {
+            key: 'whoIsItFor',
+            icon: Users,
+            label: t('sections.whoIsItFor.title')
+        },
+        {
+            key: 'goals',
+            icon: Target,
+            label: t('sections.goals.title')
+        },
+        {
+            key: 'benefits',
+            icon: Rocket,
+            label: t('sections.benefits.title')
+        },
+        {
+            key: 'howToDiscover',
+            icon: Sparkles,
+            label: t('sections.howToDiscover.title')
+        },
+        {
+            key: 'moveForward',
+            icon: ArrowRightCircle,
+            label: t('sections.moveForward.title')
         }
     ];
 
-    const openings = t.raw('openings');
-
     return (
-        <main className="min-h-screen bg-background text-navy">
+        <main className="min-h-screen bg-white">
             {/* Hero Section */}
-            <div className="relative pt-48 pb-32 bg-slate-50 overflow-hidden">
-                <div className="absolute inset-0 z-0 opacity-10">
+            <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-b from-[#fdfcfb] to-white">
+                <div className="absolute top-0 right-0 w-1/2 h-full opacity-5 pointer-events-none">
                     <Image
-                        src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2000"
-                        alt="Kariyer"
+                        src="/images/decoration/pattern.svg"
+                        alt="Background Pattern"
                         fill
-                        priority
                         className="object-cover"
-                        sizes="100vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-50 via-slate-50/50 to-transparent" />
                 </div>
-
-                <div className="container mx-auto px-6 relative z-10 text-center">
-                    <div className="section-label !justify-center mb-8">
-                        {t('hero.label')}
-                    </div>
-                    <SafeHTMLContent 
-                        as="h1" 
-                        className="text-5xl md:text-8xl font-serif font-bold text-navy mb-10 italic"
-                        html={t.raw('hero.title')}
-                    />
-                    <p className="text-slate-600 text-xl max-w-3xl mx-auto font-sans italic">
-                        {t('hero.subtitle')}
-                    </p>
-                </div>
-            </div>
-
-            {/* Why StarEducation? */}
-            <section className="py-40 bg-white">
-                <div className="container mx-auto px-6">
-                    <div className="text-center max-w-4xl mx-auto mb-24">
-                        <span className="section-label !justify-center mb-8">{t('culture.label')}</span>
-                        <SafeHTMLContent 
-                            as="h2" 
-                            className="text-4xl md:text-6xl font-serif font-bold text-navy mb-10 italic"
-                            html={t.raw('culture.title')}
-                        />
-                        <p className="text-slate-500 text-lg italic leading-relaxed">
-                            {t('culture.subtitle')}
+                
+                <div className="container px-4 mx-auto relative z-10">
+                    <div className="max-w-4xl mx-auto text-center">
+                        <span className="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wider text-[#B8860B] uppercase bg-[#B8860B]/5 rounded-full border border-[#B8860B]/10">
+                            {t('hero.label')}
+                        </span>
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1a1a1a] mb-8 leading-tight">
+                            <SafeHTMLContent html={t.raw('hero.title')} />
+                        </h1>
+                        <p className="text-xl text-gray-600 mb-10 leading-relaxed max-w-2xl mx-auto">
+                            {t('hero.subtitle')}
                         </p>
                     </div>
+                </div>
+            </section>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-                        {benefits.map((benefit, i) => (
-                            <div key={i} className="p-16 border border-gold/10 bg-slate-50/50 group hover:bg-white hover:shadow-2xl hover:border-gold/30 transition-all duration-700">
-                                <div className="w-16 h-16 bg-white shadow-xl flex items-center justify-center text-gold mb-10 group-hover:bg-gold group-hover:text-white transition-all duration-500">
-                                    {benefit.icon}
+            {/* Dynamic Sections */}
+            <section className="py-24 relative overflow-hidden">
+                <div className="container px-4 mx-auto">
+                    <div className="flex flex-col gap-24 max-w-5xl mx-auto">
+                        {sections.map((section, index) => (
+                            <div 
+                                key={section.key} 
+                                className={`flex flex-col md:flex-row gap-12 items-start ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}
+                            >
+                                <div className="flex-1 w-full text-center md:text-left">
+                                    <div className="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#B8860B]/10 text-[#B8860B]">
+                                        <section.icon className="w-7 h-7" />
+                                    </div>
+                                    <h2 className="text-3xl font-bold text-[#1a1a1a] mb-6">
+                                        {t(`sections.${section.key}.title`)}
+                                    </h2>
+                                    <div className="text-lg text-gray-600 leading-relaxed whitespace-pre-line space-y-4">
+                                        <SafeHTMLContent html={t.raw(`sections.${section.key}.content`)} />
+                                    </div>
                                 </div>
-                                <h3 className="text-2xl font-serif font-bold text-navy mb-6 italic">{benefit.title}</h3>
-                                <p className="text-slate-500 text-sm leading-relaxed italic">{benefit.desc}</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Current Openings - Interactive Client Component */}
-            <CareerClient openings={openings} />
+            {/* CTA Section */}
+            <section className="py-24 bg-[#1a1a1a] relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#B8860B] rounded-full blur-[120px]" />
+                </div>
+                
+                <div className="container px-4 mx-auto relative z-10">
+                    <div className="max-w-4xl mx-auto text-center px-4">
+                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
+                            {t('sections.footer')}
+                        </h2>
+                        <Link 
+                            href="/iletisim"
+                            className="inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-white transition-all duration-300 rounded-full bg-[#B8860B] hover:bg-[#967109] hover:scale-105 active:scale-95 shadow-xl shadow-[#B8860B]/20"
+                        >
+                            {t('cta')}
+                        </Link>
+                    </div>
+                </div>
+            </section>
         </main>
     );
 }

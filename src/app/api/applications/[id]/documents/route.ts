@@ -19,8 +19,8 @@ export async function POST(
         const file = formData.get("file") as File;
         const name = formData.get("name") as string;
 
-        if (!file) {
-            return NextResponse.json({ error: "No file provided" }, { status: 400 });
+        if (!file || typeof file === "string") {
+            return NextResponse.json({ error: "No file provided or invalid file" }, { status: 400 });
         }
 
         // Check application access

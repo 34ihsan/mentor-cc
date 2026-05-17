@@ -1,5 +1,7 @@
 User-agent: *
+Disallow: /admin/
+Disallow: /private/
 Allow: /
 
-# Sitemap
-Sitemap: https://stareducation.com/sitemap.xml
+Sitemap: https://yourdomain.com/sitemap.xml
+Host: yourdomain.com

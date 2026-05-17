@@ -14,22 +14,43 @@ export async function PATCH(
         }
 
         const body = await req.json();
-        const { title, slug, content, excerpt, image, imageSettings, category, published, seoTitle, seoDescription, keywords } = body;
+        const { 
+            title, title_en, title_de,
+            slug, 
+            content, content_en, content_de,
+            excerpt, excerpt_en, excerpt_de,
+            image, imageSettings, category, published, 
+            seoTitle, seoTitle_en, seoTitle_de,
+            seoDescription, seoDescription_en, seoDescription_de,
+            keywords, keywords_en, keywords_de
+        } = body;
 
         const page = await prisma.page.update({
             where: { id },
             data: {
                 title,
+                title_en,
+                title_de,
                 slug,
                 content,
+                content_en,
+                content_de,
                 excerpt,
+                excerpt_en,
+                excerpt_de,
                 image,
                 imageSettings,
                 category,
                 published: published !== undefined ? published : undefined,
                 seoTitle,
+                seoTitle_en,
+                seoTitle_de,
                 seoDescription,
-                keywords
+                seoDescription_en,
+                seoDescription_de,
+                keywords,
+                keywords_en,
+                keywords_de
             }
         });
 

@@ -12,47 +12,81 @@ async function main() {
   }
   const backupData = JSON.parse(fs.readFileSync(backupPath, 'utf8'));
 
+  // Clean the database before restoring to avoid unique constraint violations
+  console.log('Cleaning database...');
+  await prisma.countryServiceContent.deleteMany();
+  await prisma.program.deleteMany();
+  await prisma.institution.deleteMany();
+  await prisma.country.deleteMany();
+  await prisma.service.deleteMany();
+  await prisma.heroSlide.deleteMany();
+
   const translationMap: Record<string, { en: string; de: string }> = {
-    // Services
+    // Services Titles
     "Denklik": { en: "Equivalency", de: "Gleichwertigkeit" },
     "Master & Yüksek Lisans": { en: "Master & Postgraduate", de: "Master & Postgraduierte" },
     "Lise Eğitimi": { en: "High School Education", de: "Gymnasiale Ausbildung" },
     "Yurtdışı Üniversite": { en: "University Education Abroad", de: "Universitätsstudium im Ausland" },
     "Yaz Okulları": { en: "Summer Schools", de: "Sommerschulen" },
     "Dil Okulu": { en: "Language School", de: "Sprachschule" },
+    "Vize Danışmanlığı": { en: "Visa Consultancy", de: "Visum-Beratung" },
+    "Mesleki Denklik & Kariyer": { en: "Vocational Recognition & Career", de: "Berufliche Anerkennung & Karriere" },
 
-    // HeroSlides
+    // HeroSlides Titles
     "Yurtdışı Üniversite Eğitimi": { en: "University Education Abroad", de: "Studium im Ausland" },
-    "Global arenada akademik prestijin kapılarını stratejik rehberliğimizle aralayın. En iyi üniversitelere kusursuz başvuru süreci.": { en: "Open the doors to academic prestige in the global arena with our strategic guidance. A seamless application process to the best universities.", de: "Öffnen Sie mit unserer strategischen Beratung die Türen zu akademischem Prestige im globalen Umfeld. Ein reibungsloser Bewerbungsprozess für die besten Universitäten." },
-    "Yurtdışı Yüksek Lisans & MBA": { en: "Master's & MBA Abroad", de: "Master & MBA im Ausland" },
-    "Akademik derinlik ve profesyonel ağınızı dünya standartlarında bir lisansüstü eğitimi ile zirveye taşıyın.": { en: "Bring your academic depth and professional network to the top with a world-class postgraduate education.", de: "Bringen Sie Ihre akademische Tiefe und Ihr berufliches Netzwerk mit einem erstklassigen Aufbaustudium an die Spitze." },
-    "Almanya'da Kariyer & Ausbildung": { en: "Career & Vocational Training in Germany", de: "Karriere & Ausbildung in Deutschland" },
-    "Avrupa'nın kalbinde mesleki uzmanlık ve profesyonel gelecek. Maaşlı eğitim ve iş garantili kariyer yolculuğu.": { en: "Vocational expertise and a professional future in the heart of Europe. Paid training and a career journey with a job guarantee.", de: "Fachliche Expertise und eine berufliche Zukunft im Herzen Europas. Bezahlte Ausbildung und eine Karrierereise mit Arbeitsplatzgarantie." },
-    "Yurtdışı Lise & Boarding School": { en: "High School & Boarding School Abroad", de: "Gymnasium & Internat im Ausland" },
-    "Geleceğin liderleri için prestijli yatılı okullarda global bir temel. IB ve AP programları ile elite üniversitelere hazırlık.": { en: "A global foundation in prestigious boarding schools for the leaders of the future. Preparation for elite universities with IB and AP programs.", de: "Ein globales Fundament in renommierten Internaten für die Führungskräfte der Zukunft. Vorbereitung auf Eliteuniversitäten mit IB- und AP-Programmen." },
-    "Global Dil Eğitimi & Kültür": { en: "Global Language Education & Culture", de: "Globale Sprachbildung & Kultur" },
-    "Dili en doğal ortamında, dünyanın en ilham verici şehirlerinde yaşayarak öğrenin. Lokal deneyim, global vizyon.": { en: "Learn the language in its most natural environment, living in the world's most inspiring cities. Local experience, global vision.", de: "Lernen Sie die Sprache in ihrer natürlichsten Umgebung und leben Sie in den inspirierendsten Städten der Welt. Lokale Erfahrung, globale Vision." },
-    "Akademik Yaz Okulları": { en: "Academic Summer Schools", de: "Akademische Sommerschulen" },
-    "Dünyanın en saygın kampüslerinde akademik gelişim ve unutulmaz bir yaz deneyimi. Bir yazda hayatınızı değiştirin.": { en: "Academic development and an unforgettable summer experience on the world's most respected campuses. Change your life in one summer.", de: "Akademische Weiterentwicklung und ein unvergessliches Sommererlebnis auf den angesehensten Campussen der Welt. Verändern Sie Ihr Leben in einem Sommer." },
-    "Akademik Denklik Uzmanlığı": { en: "Academic Equivalency Expertise", de: "Akademische Anerkennungsexpertise" },
-    "Global diplomalarınızın resmiyetini profesyonel rehberliğimizle koruyun. Stratejik dosya yönetimi ve tam süreç takibi.": { en: "Protect the official status of your global diplomas with our professional guidance. Strategic file management and full process tracking.", de: "Schützen Sie den offiziellen Status Ihrer globalen Diplome mit unserer professionellen Anleitung. Strategisches Dateimanagement und vollständige Prozessverfolgung." },
-    "Geleceğinizi Yurtdışında İnşa Edin": { en: "Build Your Future Abroad", de: "Bauen Sie Ihre Zukunft im Ausland auf" },
-    "Profesyonel eğitim danışmanlığı ile hayallerinizdeki üniversiteye bir adım daha yaklaşın.": { en: "Get one step closer to your dream university with professional education consultancy.", de: "Kommen Sie Ihrer Wunschuniversität mit einer professionellen Bildungsberatung einen Schritt näher." },
-    "Global Kariyer Yolculuğu": { en: "Global Career Journey", de: "Globale Karrierereise" },
-    "Dünyanın en iyi üniversitelerinde eğitim alma fırsatını kaçırmayın.": { en: "Don't miss the opportunity to study at the world's best universities.", de: "Verpassen Sie nicht die Gelegenheit, an den besten Universitäten der Welt zu studieren." },
+    "Yüksek Lisans ve Master": { en: "Master's & MBA Abroad", de: "Master & MBA im Ausland" },
+    "Dil Okulları ve Dil Eğitimi": { en: "Global Language Education & Culture", de: "Globale Sprachbildung & Kultur" },
+    "Yurtdışı Lise Eğitimi": { en: "High School & Boarding School Abroad", de: "Gymnasium & Internat im Ausland" },
+    "Yurtdışı Yaz Okulları": { en: "Academic Summer Schools", de: "Akademische Sommerschulen" },
+    "Mesleki Denklik ve Kariyer": { en: "Academic Equivalency Expertise", de: "Akademische Anerkennungsexpertise" },
+
+    // HeroSlides Subtitles
+    "Dünyanın en iyi üniversitelerinde lisans eğitimi alarak geleceğinizi garantiye alın.": { 
+      en: "Secure your future by getting undergraduate education in the world's best universities.", 
+      de: "Sichern Sie Ihre Zukunft durch ein Bachelor-Studium an den besten Universitäten der Welt." 
+    },
+    "Global kariyer yolculuğunuzda uzmanlaşın. Avrupa ve Amerika'da saygın yüksek lisans programları.": { 
+      en: "Specialize in your global career journey. Respectable master's programs in Europe and America.", 
+      de: "Spezialisieren Sie sich auf Ihrer globalen Karrierereise. Angesehene Masterprogramme in Europa und Amerika." 
+    },
+    "İngilizce, Almanca ve daha fazlası. Dilinizi yerinde, en iyi okullarda öğrenin.": { 
+      en: "English, German and more. Learn your language on-site, in the best schools.", 
+      de: "Englisch, Deutsch und mehr. Lernen Sie Ihre Sprache vor Ort in den besten Schulen." 
+    },
+    "Çocuğunuzun geleceğine erken yatırım yapın. Uluslararası standartlarda lise eğitimi.": { 
+      en: "Invest early in your child's future. High school education at international standards.", 
+      de: "Investieren Sie frühzeitig in die Zukunft Ihres Kindes. Gymnasiale Ausbildung nach internationalen Standards." 
+    },
+    "Eğlenceli ve öğretici bir yaz tatili. Çocuklar ve gençler için global kamp programları.": { 
+      en: "A fun and educational summer vacation. Global camp programs for children and youth.", 
+      de: "Ein unterhaltsamer und lehrreicher Sommerurlaub. Globale Campprogramme für für Kinder und Jugendliche." 
+    },
+    "Almanya ve Avrupa'da diplomanızı tanıtalım, mesleğinizi icra etmeye başlayın.": { 
+      en: "Let us recognize your diploma in Germany and Europe, start practicing your profession.", 
+      de: "Lassen Sie uns Ihr Diplom in Deutschland und Europa anerkennen, beginnen Sie mit der Ausübung Ihres Berufs." 
+    },
+
+    // Denklik Service Content (Full HTML)
+    "\n            <h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Uluslararası Diploma Denklik ve Tanıma</h2>\n            <p class=\"mb-6\">Sahip olduğunuz diploma ve sertifikaların hedef ülkede (Almanya, İngiltere, ABD vb.) tanınması, oradaki karşılığı olan diplomalarla eşdeğer olduğunun tespit edilmesi sürecinde uzman danışmanlığımızla yanınızdayız.</p>\n            <p class=\"mb-6\">Denklik süreci, mesleğinizi yurt dışında icra edebilmeniz, çalışma izni alabilmeniz ve iş hayatına doğrudan giriş yapabilmeniz için en kritik adımdır. Mentor Career Consulting olarak, Almanya için ZAB ve Anabin, İngiltere için UK ENIC (NARIC) gibi otoriteler üzerinden sürecinizi profesyonelce yönetiyoruz.</p>\n            <h3 class=\"text-2xl font-serif font-bold text-navy mb-4 mt-8 italic\">Denklik Hizmetimiz Size Neler Kazandırır?</h3>\n            <ul class=\"space-y-4 mb-10 italic\">\n                <li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> Mesleğinizi yurt dışında yasal olarak icra etme hakkı.</li>\n                <li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> Diplomalarınızın hedef ülke standartlarında tescil edilmesi.</li>\n                <li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> İş arama ve çalışma vizesi süreçlerinde tam uyumluluk.</li>\n                <li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> Kariyerinize yurt dışında kaldığınız yerden, kendi uzmanlık alanınızda devam etme şansı.</li>\n            </ul>\n        ": {
+      en: "\n            <h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">International Diploma Equivalency and Recognition</h2>\n            <p class=\"mb-6\">We are by your side with our expert consultancy during the process of recognizing your diplomas and certificates in the target country (Germany, UK, USA, etc.) and determining their equivalence with the corresponding diplomas there.</p>\n            <p class=\"mb-6\">The equivalency process is the most critical step for you to practice your profession abroad, obtain a work permit, and directly enter professional life. As Mentor Career Consulting, we professionally manage your process through authorities such as ZAB and Anabin for Germany, and UK ENIC (NARIC) for the UK.</p>\n            <h3 class=\"text-2xl font-serif font-bold text-navy mb-4 mt-8 italic\">What Does Our Equivalency Service Gain You?</h3>\n            <ul class=\"space-y-4 mb-10 italic\">\n                <li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> The right to legally practice your profession abroad.</li>\n                <li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> Registration of your diplomas according to the target country standards.</li>\n                <li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> Full compliance in job search and work visa processes.</li>\n                <li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> The chance to continue your career abroad from where you left off, in your own area of expertise.</li>\n            </ul>\n        ",
+      de: "\n            <h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Internationale Diplomanerkennung und Gleichwertigkeit</h2>\n            <p class=\"mb-6\">Wir stehen Ihnen mit unserer Expertenberatung bei der Anerkennung Ihrer Diplome und Zertifikate im Zielland (Deutschland, Großbritannien, USA etc.) und der Feststellung der Gleichwertigkeit mit den entsprechenden dortigen Diplomen zur Seite.</p>\n            <p class=\"mb-6\">Das Anerkennungsverfahren ist der wichtigste Schritt, um Ihren Beruf im Ausland ausüben zu können, eine Arbeitserlaubnis zu erhalten und direkt in das Berufsleben einzusteigen. Als Mentor Career Consulting verwalten wir Ihren Prozess professionell über Behörden wie ZAB und Anabin für Deutschland sowie UK ENIC (NARIC) für Großbritannien.</p>\n            <h3 class=\"text-2xl font-serif font-bold text-navy mb-4 mt-8 italic\">Was bringt Ihnen unser Anerkennungsservice?</h3>\n            <ul class=\"space-y-4 mb-10 italic\">\n                <li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> Das Recht, Ihren Beruf im Ausland legal auszuüben.</li>\n                <li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> Registrierung Ihrer Diplome nach den Standards des Ziellandes.</li>\n                <li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> Volle Übereinstimmung in Arbeitsplatzsuche und Arbeitsvisum-Prozessen.</li>\n                <li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> Die Chance, Ihre Karriere im Ausland dort fortzusetzen, wo Sie aufgehört haben, in Ihrem eigenen Fachgebiet.</li>\n            </ul>\n        "
+    },
 
     // Countries
     "Malta": { en: "Malta", de: "Malta" },
     "Belçika": { en: "Belgium", de: "Belgien" },
     "Almanya": { en: "Germany", de: "Deutschland" },
     "Hollanda": { en: "Netherlands", de: "Niederlande" },
+    "İtalya": { en: "Italy", de: "Italien" },
     "Italya": { en: "Italy", de: "Italien" },
     "İrlanda": { en: "Ireland", de: "Irland" },
     "Amerika": { en: "USA", de: "USA" },
-    "İngiltere": { en: "UK", de: "Vereinigtes Königreich" },
-    "Avustralya": { en: "Australia", de: "Australien" },
+    "İngiltere": { en: "UK", de: "United Kingdom" },
+    "Avustralya": { en: "Australia", de: "Australia" },
     "Polonya": { en: "Poland", de: "Polen" },
     "Kanada": { en: "Canada", de: "Kanada" },
+    "İspanya": { en: "Spain", de: "Spanien" },
+    "Fransa": { en: "France", de: "Frankreich" },
     
     "Schengen vizesi gereklidir. Yeşil pasaporta vize yoktur.": { en: "Schengen visa is required. No visa for green passport.", de: "Schengen-Visum ist erforderlich. Kein Visum für den grünen Pass." },
     "Haftalık €600 - €1,000 (Her şey dahil)": { en: "Weekly €600 - €1,000 (All inclusive)", de: "Wöchentlich 600 € - 1.000 € (Alles inklusive)" },
@@ -68,118 +102,128 @@ async function main() {
     "Ekonomik eğitim maliyetleri ve prestijli üniversiteleri ile Avrupa'nın parlayan yıldızı.": { en: "The shining star of Europe with economic education costs and prestigious universities.", de: "Der leuchtende Stern Europas mit wirtschaftlichen Bildungskosten und renommierten Universitäten." },
     "Güvenli, misafirperver ve yüksek yaşam standartlarına sahip eğitim dünyası.": { en: "A safe, hospitable education world with high standards of living.", de: "Eine sichere, gastfreundliche Bildungswelt mit hohem Lebensstandard." },
     
-    // Page Overviews
-    "Malta, hem tatil yapıp hem İngilizce öğrenmek isteyenler için mükemmeldir. Deniz, güneş ve eğlenceli aktivitelerle dolu paket programlar sunulur.": { en: "Malta is perfect for those who want to both have a holiday and learn English. Package programs full of sea, sun and fun activities are offered.", de: "Malta ist perfekt für diejenigen, die sowohl Urlaub machen als auch Englisch lernen möchten. Es werden Paketprogramme voller Meer, Sonne und lustigen Aktivitäten angeboten." },
-    "Almanya, devlet üniversitelerinde eğitimin ücretsiz olması (sadece harç ödenir) ve teknik alanlardaki (Mühendislik vb.) üstünlüğü ile bilinir. İngilizce bölüm seçenekleri de artmaktadır.": { en: "Germany is known for its free education in public universities (only tuition fees are paid) and its superiority in technical fields (Engineering, etc.). English department options are also increasing.", de: "Deutschland ist bekannt für sein kostenloses Studium an staatlichen Universitäten (es fallen nur Semesterbeiträge an) und seine Überlegenheit in technischen Bereichen (Ingenieurwesen etc.). Auch die englischsprachigen Fachbereichsangebote nehmen zu." },
-    "Hollanda, uygun maliyetli kaliteli eğitimi ve uluslararası ortamı ile fark yaratır.": { en: "The Netherlands makes a difference with its affordable quality education and international environment.", de: "Die Niederlande zeichnen sich durch ihre erschwingliche Bildungsqualität und ihr internationales Umfeld aus." },
-    "İtalya, dünyanın en eski üniversitelerine ev sahipliği yapar. Özellikle Mimarlık, Tıp, Moda ve Tasarım alanlarında İngilizce eğitim seçenekleri çoktur. Devlet üniversiteleri ekonomiktir.": { en: "Italy is home to the world's oldest universities. There are many English education options, especially in the fields of Architecture, Medicine, Fashion and Design. Public universities are economical.", de: "Italien beheimatet die ältesten Universitäten der Welt. Vor allem in den Bereichen Architektur, Medizin, Mode und Design gibt es viele englischsprachige Bildungsangebote. Staatliche Universitäten sind preiswert." },
-    "İrlanda, özellikle Dublin, teknoloji devlerinin Avrupa merkezi olmasıyla dikkat çeker. 25 hafta ve üzeri kayıtlarda yasal çalışma izni sunması en büyük avantajıdır.": { en: "Ireland, especially Dublin, attracts attention as the European headquarter of technology giants. Its biggest advantage is that it offers a legal work permit for registrations of 25 weeks or more.", de: "Irland, insbesondere Dublin, zieht die Aufmerksamkeit als europäischer Hauptsitz von Technologiegiganten auf sich. Sein größter Vorteil ist, dass es für Anmeldungen ab 25 Wochen eine legale Arbeitserlaubnis bietet." },
-    "Amerika Birleşik Devletleri, akademik mükemmeliyet ve inovasyonun küresel merkezidir.": { en: "The United States of America is the global center for academic excellence and innovation.", de: "Die Vereinigten Staaten von Amerika sind das globale Zentrum für akademische Exzellenz und Innovation." },
-    "İngiltere, yüzyıllardır süregelen akademik mükemmellik geleneği ile öğrencilere sadece bir diploma değil, küresel bir vizyon sunar.": { en: "With its centuries-old tradition of academic excellence, England offers students not just a diploma, but a global vision.", de: "Mit seiner jahrhundertelangen Tradition akademischer Exzellenz bietet England seinen Studenten nicht nur ein Diplom, sondern eine globale Vision." },
-    "Avustralya, araştırma odaklı üniversiteleri ve eşsiz doğal güzellikleri ile ideal bir eğitim rotasıdır.": { en: "With its research-oriented universities and unique natural beauties, Australia is an ideal educational route.", de: "Australien ist mit seinen forschungsorientierten Universitäten und einzigartigen Naturschönheiten eine ideale Bildungsroute." },
-    "Polonya, Bolonya Süreci'ne uygun eğitimi ve zengin kültürel mirası ile uluslararası öğrenciler için ideal bir destinasyondur.": { en: "With its education in line with the Bologna Process and its rich cultural heritage, Poland is an ideal destination for international students.", de: "Mit seiner Ausbildung im Einklang mit dem Bologna-Prozess und seinem reichen kulturellen Erbe ist Polen ein ideales Ziel für internationale Studenten." },
-    "Kanada, kaliteli eğitimi ve mezuniyet sonrası sunduğu göçmenlik yolları ile öne çıkar.": { en: "Canada stands out for its high quality education and the immigration pathways it offers after graduation.", de: "Kanada zeichnet sich durch seine erstklassige Ausbildung und die Einwanderungsmöglichkeiten aus, die es nach dem Abschluss bietet." }
+    // Country Short Descriptions
+    "Akdeniz'in ortasında, tatil tadında İngilizce eğitimi.": { en: "English education in the middle of the Mediterranean, like a holiday.", de: "Englischunterricht inmitten des Mittelmeers, wie ein Urlaub." },
+    "Avrupa'nın ekonomi ve mühendislik devinde kariyer odaklı bir eğitim deneyimi.": { en: "A career-oriented educational experience in Europe's economic and engineering giant.", de: "Eine karriereorientierte Bildungserfahrung im Wirtschafts- und Ingenieurriesen Europas." },
+    "Akademik geleneğin modern inovasyonla buluştuğu global eğitim merkezi.": { en: "Global education center where academic tradition meets modern innovation.", de: "Globales Bildungszentrum, in dem akademische Tradition auf moderne Innovation trifft." },
+    "Güvenli, çok kültürlü ve göçmen dostu yapısıyla geleceğinizi inşa edeceğiniz ülke.": { en: "The country where you will build your future with its safe, multicultural and immigrant-friendly structure.", de: "Das Land, in dem Sie Ihre Zukunft mit seiner sicheren, multikulturellen und einwanderungsfreundlichen Struktur aufbauen werden." },
+    "Yenilikçi, açık fikirli ve İngilizce dostu bir eğitim vizyonu.": { en: "An innovative, open-minded and English-friendly educational vision.", de: "Eine innovative, aufgeschlossene und englischfreundliche Bildungsvision." },
+    "Avrupa'nın güneşli kapısı, prestijli işletme okulları ve canlı bir kültür.": { en: "Europe's sunny gate, prestigious business schools and a vibrant culture.", de: "Europas sonniges Tor, renommierte Business Schools und eine lebendige Kultur." },
+    "Bilim ve sanatın buluştuğu nokta, Avrupa'nın entelektüel merkezi.": { en: "The point where science and art meet, the intellectual center of Europe.", de: "Der Treffpunkt von Wissenschaft und Kunst, das intellektuelle Zentrum Europas." },
+    "Avrupa'nın kalbinde uygun fiyatlı, yüksek kaliteli ve dinamik eğitim.": { en: "Affordable, high-quality and dynamic education in the heart of Europe.", de: "Erschwingliche, qualitativ hochwertige und dynamische Bildung im Herzen Europas." }
   };
 
-  const getTranslation = (text: string | null | undefined, lang: 'en' | 'de') => {
+  const getTranslation = (item: any, field: string, lang: 'en' | 'de') => {
+    const text = item[field];
     if (!text) return null;
+    
+    // 1. Try translation map
     if (translationMap[text]) return translationMap[text][lang];
+    
+    // 2. Try map with trimmed text (common for HTML)
+    const trimmedText = text.trim();
+    if (translationMap[trimmedText]) return translationMap[trimmedText][lang];
+
+    // 3. Fallback to existing translation in backup if present
+    const existingField = `${field}_${lang}`;
+    if (item[existingField]) return item[existingField];
+    
     return null;
   };
 
-  // Restore HeroSlide
+  console.log('Restoring HeroSlides...');
   for (const item of backupData.HeroSlide) {
     await prisma.heroSlide.create({
       data: {
         ...item,
-        title_en: getTranslation(item.title, 'en'),
-        title_de: getTranslation(item.title, 'de'),
-        subtitle_en: getTranslation(item.subtitle, 'en'),
-        subtitle_de: getTranslation(item.subtitle, 'de'),
+        title_en: getTranslation(item, 'title', 'en'),
+        title_de: getTranslation(item, 'title', 'de'),
+        subtitle_en: getTranslation(item, 'subtitle', 'en'),
+        subtitle_de: getTranslation(item, 'subtitle', 'de'),
       }
     });
   }
 
-  // Restore Service
+  console.log('Restoring Services...');
   for (const item of backupData.Service) {
     await prisma.service.create({
       data: {
         ...item,
-        title_en: getTranslation(item.title, 'en'),
-        title_de: getTranslation(item.title, 'de'),
-        content_en: getTranslation(item.content, 'en'),
-        content_de: getTranslation(item.content, 'de'),
-        seoTitle_en: getTranslation(item.seoTitle, 'en'),
-        seoTitle_de: getTranslation(item.seoTitle, 'de'),
-        seoDescription_en: getTranslation(item.seoDescription, 'en'),
-        seoDescription_de: getTranslation(item.seoDescription, 'de'),
+        title_en: getTranslation(item, 'title', 'en'),
+        title_de: getTranslation(item, 'title', 'de'),
+        content_en: getTranslation(item, 'content', 'en'),
+        content_de: getTranslation(item, 'content', 'de'),
+        seoTitle_en: getTranslation(item, 'seoTitle', 'en'),
+        seoTitle_de: getTranslation(item, 'seoTitle', 'de'),
+        seoDescription_en: getTranslation(item, 'seoDescription', 'en'),
+        seoDescription_de: getTranslation(item, 'seoDescription', 'de'),
       }
     });
   }
 
-  // Restore Country
+  console.log('Restoring Countries...');
   for (const item of backupData.Country) {
     await prisma.country.create({
       data: {
         ...item,
-        name_en: getTranslation(item.name, 'en'),
-        name_de: getTranslation(item.name, 'de'),
-        shortDesc_en: getTranslation(item.shortDesc, 'en'),
-        shortDesc_de: getTranslation(item.shortDesc, 'de'),
-        overview_en: getTranslation(item.overview, 'en'),
-        overview_de: getTranslation(item.overview, 'de'),
-        visaInfo_en: getTranslation(item.visaInfo, 'en'),
-        visaInfo_de: getTranslation(item.visaInfo, 'de'),
-        workPermit_en: getTranslation(item.workPermit, 'en'),
-        workPermit_de: getTranslation(item.workPermit, 'de'),
-        costRange_en: getTranslation(item.costRange, 'en'),
-        costRange_de: getTranslation(item.costRange, 'de'),
+        name_en: getTranslation(item, 'name', 'en'),
+        name_de: getTranslation(item, 'name', 'de'),
+        shortDesc_en: getTranslation(item, 'shortDesc', 'en'),
+        shortDesc_de: getTranslation(item, 'shortDesc', 'de'),
+        overview_en: getTranslation(item, 'overview', 'en'),
+        overview_de: getTranslation(item, 'overview', 'de'),
+        visaInfo_en: getTranslation(item, 'visaInfo', 'en'),
+        visaInfo_de: getTranslation(item, 'visaInfo', 'de'),
+        workPermit_en: getTranslation(item, 'workPermit', 'en'),
+        workPermit_de: getTranslation(item, 'workPermit', 'de'),
+        costRange_en: getTranslation(item, 'costRange', 'en'),
+        costRange_de: getTranslation(item, 'costRange', 'de'),
       }
     });
   }
 
-  // Restore Institution
-  for (const item of backupData.Institution) {
+  console.log('Restoring Institutions...');
+  for (const item of (backupData.Institution || [])) {
     await prisma.institution.create({
       data: {
         ...item,
-        description_en: getTranslation(item.description, 'en'),
-        description_de: getTranslation(item.description, 'de'),
-        content_en: getTranslation(item.content, 'en'),
-        content_de: getTranslation(item.content, 'de'),
+        description_en: getTranslation(item, 'description', 'en'),
+        description_de: getTranslation(item, 'description', 'de'),
+        content_en: getTranslation(item, 'content', 'en'),
+        content_de: getTranslation(item, 'content', 'de'),
       }
     });
   }
 
-  // Restore Program
-  for (const item of backupData.Program) {
+  console.log('Restoring Programs...');
+  for (const item of (backupData.Program || [])) {
     await prisma.program.create({
       data: {
         ...item,
-        name_en: getTranslation(item.name, 'en'),
-        name_de: getTranslation(item.name, 'de'),
-        description_en: getTranslation(item.description, 'en'),
-        description_de: getTranslation(item.description, 'de'),
-        content_en: getTranslation(item.content, 'en'),
-        content_de: getTranslation(item.content, 'de'),
-        duration_en: getTranslation(item.duration, 'en'),
-        duration_de: getTranslation(item.duration, 'de'),
+        name_en: getTranslation(item, 'name', 'en'),
+        name_de: getTranslation(item, 'name', 'de'),
+        description_en: getTranslation(item, 'description', 'en'),
+        description_de: getTranslation(item, 'description', 'de'),
+        content_en: getTranslation(item, 'content', 'en'),
+        content_de: getTranslation(item, 'content', 'de'),
+        duration_en: getTranslation(item, 'duration', 'en'),
+        duration_de: getTranslation(item, 'duration', 'de'),
       }
     });
   }
 
-  // Restore CountryServiceContent
-  for (const item of backupData.CountryServiceContent) {
+  console.log('Restoring CountryServiceContents...');
+  for (const item of (backupData.CountryServiceContent || [])) {
     await prisma.countryServiceContent.create({
       data: {
         ...item,
-        content_en: getTranslation(item.content, 'en'),
-        content_de: getTranslation(item.content, 'de'),
+        content_en: getTranslation(item, 'content', 'en'),
+        content_de: getTranslation(item, 'content', 'de'),
       }
     });
   }
 
-  console.log('Restoration and initial translation completed!');
+  console.log('Restoration and translation completed successfully!');
 }
 
 main().catch(console.error).finally(() => prisma.$disconnect());

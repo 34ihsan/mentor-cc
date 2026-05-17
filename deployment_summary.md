@@ -1,6 +1,6 @@
-# Star Beratung - VPS Canlıya Alma Özeti
+# Mentor Career Consulting - VPS Canlıya Alma Özeti
 
-Star Beratung platformu Hostinger VPS (Ubuntu 24.04) üzerine başarıyla kuruldu ve yayına alındı.
+Mentor Career Consulting platformu Hostinger VPS (Ubuntu 24.04) üzerine başarıyla kuruldu ve yayına alındı.
 
 ## 🚀 Başarı ile Tamamlanan Adımlar
 1.  **Sunucu Hazırlığı:** Node.js v20 ve PM2 kuruldu.
@@ -22,4 +22,4 @@ Star Beratung platformu Hostinger VPS (Ubuntu 24.04) üzerine başarıyla kuruld
 -   Şu an site **HTTP** üzerinden çalışmaktadır. Bir domain yönlendirildiğinde **Certbot (SSL)** kurulumu yapılması önerilir.
 -   `DATABASE_URL` sunucudaki `.env` dosyasında güvenli bir şekilde saklanmaktadır.
 
-**Star Beratung artık yayında!**
+**Mentor Career Consulting artık yayında!**

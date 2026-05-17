@@ -14,7 +14,7 @@ const complianceSections = [
                 <div>
                     <h3 class="text-3xl font-serif font-bold text-navy mb-8 italic">6698 Sayılı KVKK ve Stratejik Tasarruf İlkeleri</h3>
                     <p class="text-lg opacity-80 leading-relaxed italic border-l-4 border-gold pl-8">
-                        StarEducation, akademik danışmanlık süreçlerinde toplanan her bir veri parçasını, "Stratejik Şeffaflık" ilkesi gereği sadece kanuni bir zorunluluk olarak değil, bir güven emaneti olarak görür. 
+                        Mentor Career, akademik danışmanlık süreçlerinde toplanan her bir veri parçasını, "Stratejik Şeffaflık" ilkesi gereği sadece kanuni bir zorunluluk olarak değil, bir güven emaneti olarak görür. 
                     </p>
                 </div>
 
@@ -25,7 +25,7 @@ const complianceSections = [
                             Veri Sorumlusu Kimliği
                         </h4>
                         <p class="text-sm text-slate-500 leading-relaxed italic opacity-80">
-                            StarEducation Yurtdışı Eğitim Danışmanlığı, veri sorumlusu sıfatıyla, kurumsal kimliğimiz altında işlenen tüm verilerin güvenliğini uluslararası siber güvenlik protokolleri çerçevesinde temin eder.
+                            Mentor Career Yurtdışı Eğitim Danışmanlığı, veri sorumlusu sıfatıyla, kurumsal kimliğimiz altında işlenen tüm verilerin güvenliğini uluslararası siber güvenlik protokolleri çerçevesinde temin eder.
                         </p>
                     </div>
                     <div class="space-y-4">
@@ -50,6 +50,13 @@ const complianceSections = [
                         <li class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-gold rounded-full"></div> Silme & Yok Etme</li>
                     </ul>
                 </div>
+
+                <div class="p-10 border-l-4 border-navy bg-slate-50">
+                    <h4 class="text-xl font-serif font-bold text-navy mb-4 italic">Algoritmik Şeffaflık</h4>
+                    <p class="text-sm text-slate-500 italic leading-relaxed">
+                        Üniversite eşleştirme ve kabul olasılığı analizlerinde kullanılan <strong>Yapay Zeka (AI) algoritmalarımız</strong>, tamamen veri güvenliği protokollerine tabidir. Bu sistemler, adayların profillerini objektif kriterlerle analiz ederek karar destek mekanizması olarak çalışır; son karar daima uzman danışmanlarımızın denetimindedir.
+                    </p>
+                </div>
             </div>
         `
     },
@@ -62,7 +69,7 @@ const complianceSections = [
                 <div>
                     <h3 class="text-3xl font-serif font-bold text-navy mb-8 italic">Global Standards: GDPR & DSGVO Compliance</h3>
                     <p class="text-lg opacity-80 leading-relaxed italic border-l-4 border-gold pl-8">
-                        Operating at the intersection of global education, StarEducation strictly integrates European Council standards into every data touchpoint for our EU-based students and partner institutions.
+                        Operating at the intersection of global education, Mentor Career strictly integrates European Council standards into every data touchpoint for our EU-based students and partner institutions.
                     </p>
                 </div>
 
@@ -109,7 +116,7 @@ const complianceSections = [
                 <div>
                     <h3 class="text-3xl font-serif font-bold text-navy mb-8 italic">Mükemmeliyetçi Veri Koruma Protokolleri</h3>
                     <p class="text-lg opacity-80 leading-relaxed italic border-l-4 border-gold pl-8">
-                        Akademik verileriniz, StarEducation siber savunma mimarisinin en kalbinde, en yüksek şifreleme katmanlarıyla korunur. Güvenlik, bizim için dijital bir dekordan öte, operasyonel bir varlık sebebidir.
+                        Akademik verileriniz, Mentor Career siber savunma mimarisinin en kalbinde, en yüksek şifreleme katmanlarıyla korunur. Güvenlik, bizim için dijital bir dekordan öte, operasyonel bir varlık sebebidir.
                     </p>
                 </div>
 
@@ -127,7 +134,7 @@ const complianceSections = [
                 <div class="p-10 border-l-4 border-gold bg-slate-50">
                     <h4 class="text-xl font-serif font-bold text-navy mb-4 italic">Veri İhlal Yönetimi</h4>
                     <p class="text-sm text-slate-500 italic leading-relaxed">
-                        Olası bir güvenlik açığı durumunda, StarEducation "72 Saat Kuralı"nı uygulayarak hem ilgili makamlara hem de size anında stratejik bildirim yapmayı taahhüt eder.
+                        Olası bir güvenlik açığı durumunda, Mentor Career "72 Saat Kuralı"nı uygulayarak hem ilgili makamlara hem de size anında stratejik bildirim yapmayı taahhüt eder.
                     </p>
                 </div>
             </div>
@@ -171,6 +178,11 @@ const complianceSections = [
                                 <td class="py-6 px-8">Size özel akademik içerik ve hizmet önerilerinin sunulması.</td>
                                 <td class="py-6 px-8 text-xs">6 Ay</td>
                             </tr>
+                            <tr class="border-t border-gold/5 bg-slate-50/30">
+                                <td class="py-6 px-8 font-bold text-navy">Yapay Zeka</td>
+                                <td class="py-6 px-8">SmartFinder ve AI eşleştirme algoritmalarının optimizasyonu ve analitiği.</td>
+                                <td class="py-6 px-8 text-xs">1 Yıl</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -210,7 +222,7 @@ export default function KVKK() {
                         Veri <span className="gold-text not-italic">Egemenliği</span> <br /> & Global Uyum
                     </motion.h1>
                     <p className="text-slate-400 text-xl max-w-4xl mx-auto italic leading-relaxed mt-10">
-                        StarEducation; Türkiye (KVKK), Avrupa Birliği (GDPR) ve Almanya (DSGVO/BDSG) prensipleri ekseninde,
+                        Mentor Career; Türkiye (KVKK), Avrupa Birliği (GDPR) ve Almanya (DSGVO/BDSG) prensipleri ekseninde,
                         kurumsal verinizi dijital bir kalede koruyan en disiplinli hukuk ve güvenlik ekosistemlerinden birine sahiptir.
                     </p>
                 </div>
@@ -268,11 +280,11 @@ export default function KVKK() {
                                     <div className="space-y-6">
                                         <div className="space-y-1">
                                             <span className="text-[9px] uppercase tracking-widest text-gold font-black">Legal Department</span>
-                                            <a href="mailto:info@stareducon.co.uk" className="text-sm font-bold text-navy hover:text-gold transition-colors block border-b border-gold/10 pb-2">info@stareducon.co.uk</a>
+                                            <a href="mailto:info@mentor-cc.com" className="text-sm font-bold text-navy hover:text-gold transition-colors block border-b border-gold/10 pb-2">info@mentor-cc.com</a>
                                         </div>
                                         <div className="space-y-1">
                                             <span className="text-[9px] uppercase tracking-widest text-gold font-black">Data Protection</span>
-                                            <a href="mailto:info@stareducon.co.uk" className="text-sm font-bold text-navy hover:text-gold transition-colors block border-b border-gold/10 pb-2">info@stareducon.co.uk</a>
+                                            <a href="mailto:info@mentor-cc.com" className="text-sm font-bold text-navy hover:text-gold transition-colors block border-b border-gold/10 pb-2">info@mentor-cc.com</a>
                                         </div>
                                     </div>
                                 </div>
@@ -308,7 +320,7 @@ export default function KVKK() {
                                             <div>
                                                 <h5 className="text-xs font-black uppercase tracking-[0.2em] text-navy mb-2">Hukuki Bildirim</h5>
                                                 <p className="text-[12px] text-slate-400 italic leading-relaxed">
-                                                    Bu platformdaki metinler genel rehber niteliğindedir. StarEducation, dinamik yasal süreçler kapsamında içeriği önceden bildirmeksizin revize etme hakkını saklı tutar.
+                                                    Bu platformdaki metinler genel rehber niteliğindedir. Mentor Career, dinamik yasal süreçler kapsamında içeriği önceden bildirmeksizin revize etme hakkını saklı tutar.
                                                 </p>
                                             </div>
                                         </div>
@@ -317,7 +329,7 @@ export default function KVKK() {
 
                                 <div className="mt-16 text-center">
                                     <p className="text-[10px] text-slate-300 uppercase tracking-[0.5em] font-black italic">
-                                        - StarEducation Academic Excellence & Security Office -
+                                        - Mentor Career Academic Excellence & Security Office -
                                     </p>
                                 </div>
                             </div>

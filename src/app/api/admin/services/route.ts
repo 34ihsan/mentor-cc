@@ -34,22 +34,37 @@ export async function POST(req: Request) {
             return new NextResponse("Unauthorized", { status: 401 });
         }
         const body = await req.json();
-        const { title, content, image, imageSettings, icon, allowsTargeting, active, seoTitle, seoDescription } = body;
+        const { 
+            title, title_en, title_de, 
+            content, content_en, content_de, 
+            image, imageSettings, icon, 
+            allowsTargeting, active, 
+            seoTitle, seoTitle_en, seoTitle_de, 
+            seoDescription, seoDescription_en, seoDescription_de 
+        } = body;
 
         const slug = body.slug || slugify(title);
 
         const service = await prisma.service.create({
             data: {
                 title,
+                title_en,
+                title_de,
                 slug,
                 content,
+                content_en,
+                content_de,
                 image,
                 imageSettings,
                 icon,
                 allowsTargeting,
                 active,
                 seoTitle,
-                seoDescription
+                seoTitle_en,
+                seoTitle_de,
+                seoDescription,
+                seoDescription_en,
+                seoDescription_de
             }
         });
 

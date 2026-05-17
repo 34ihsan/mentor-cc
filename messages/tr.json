@@ -1,120 +1,821 @@
 {
   "SEO": {
-    "title": "Star Education Consulting | Yeni Nesil Yurtdışı Eğitim Danışmanlığı Platformu",
-    "template": "%s | Star Education Consulting",
-    "description": "Star Education Consulting, dünya çapında 9 ülkede 500+ akredite partner kurumu ile lise, üniversite ve yüksek lisans seviyelerinde kurumsal akademik danışmanlık sunan bir mükemmeliyet merkezidir.",
-    "keywords": "yurtdışı eğitim danışmanlığı, ingiltere üniversite başvurusu, global eğitim stratejisi, ielts hazırlık, yurtdışı yüksek lisans danışmanlığı, star education consulting, akademik yerleştirme",
-    "ogTitle": "Star Education Consulting | Geleceğinizi Dünyada Şekillendirin",
-    "ogDescription": "Doğru ülke, doğru okul ve stratejik kariyer planlaması ile yurtdışı eğitim yolculuğunuzun her adımında sarsılmaz akademik müttefikiniziz.",
-    "twitterTitle": "Star Education Consulting | Global Akademik Rehberlik",
-    "twitterDescription": "Akademik yerleştirmeden vize onayına kadar profesyonel sürecinizi yönetiyoruz."
+    "title": "Yurtdışı Eğitim Danışmanlığı | Mentor Career Consulting",
+    "template": "%s | Mentor Career Consulting",
+    "description": "Mentor Career Consulting ile yurtdışında dil okulu, üniversite, yüksek lisans ve yaz okulu programlarına başvurun. Almanya, İngiltere, Kanada ve daha fazlası için ücretsiz danışmanlık alın.",
+    "keywords": "yurtdışı eğitim danışmanlığı, almanya üniversite başvuru şartları 2026, almanya'da ücretsiz üniversite, yurtdışı yüksek lisans bursları, Mentor Career Consulting eğitim, almanya eğitim danışmanlığı istanbul, akademik danışmanlık, kvkk uyumlu eğitim danışmanlığı",
+    "ogTitle": "Mentor Career Consulting | Global Eğitim Geleceğiniz",
+    "ogDescription": "Yurtdışında eğitim hayallerinizi Mentor Career Consulting’ın profesyonel danışmanlığıyla hayata geçirin.",
+    "twitterTitle": "Mentor Career Consulting | Yurtdışı Eğitim Danışmanlığı",
+    "twitterDescription": "Yurtdışında okul yerleştirmesi ve stratejik eğitim danışmanlığı."
+  },
+  "Navbar": {
+    "home": "Anasayfa",
+    "uni": "Yurtdışı Üniversite",
+    "master": "Yurtdışı Master",
+    "highschool": "Yurtdışı Lise Eğitimi",
+    "summer": "Yurtdışı Yaz Okulları",
+    "language": "Yurtdışı Dil Okulu",
+    "exams": "Sınavlar",
+    "career": "Kariyer",
+    "about": "Hakkımızda",
+    "blog": "Blog",
+    "corporate": "Kurumsal",
+    "contact": "İletişim",
+    "cta": "Hemen Bilgi Al",
+    "services": "Hizmetler",
+    "freeConsultation": "Ücretsiz Danışmanlık Al",
+    "viewAll": "Tümünü Gör",
+    "destinations": "Rotalar",
+    "ulkeler": "Ülkeler"
+  },
+  "CookieBanner": {
+    "title": "Çerez ve Veri Politikası",
+    "description": "Size daha iyi bir deneyim sunabilmek için çerezleri kullanıyoruz. Verileriniz 6698 sayılı KVKK kapsamında güvence altındadır.",
+    "details": "Politikayı İncele",
+    "accept": "TÜMÜNÜ KABUL ET",
+    "decline": "REDDET",
+    "save": "TERCİHLERİ KAYDET",
+    "settings": {
+      "necessary": "Zorunlu",
+      "necessaryDesc": "Sitemiz için elzem fonksiyonlar.",
+      "analytics": "Analitik",
+      "analyticsDesc": "Kullanım verilerini toplar.",
+      "marketing": "Pazarlama",
+      "marketingDesc": "Size özel teklifler.",
+      "ai": "Yapay Zeka Hizmetleri",
+      "aiDesc": "SmartFinder ve akıllı eşleştirme algoritmalarının optimizasyonu."
+    }
   },
   "Common": {
-    "title": "Star Education Consulting",
-    "template": "%s | Star Education Consulting",
-    "description": "Yeni Nesil Yurtdışı Eğitim Danışmanlığı",
+    "title": "Mentor Career Consulting",
+    "template": "%s | Mentor Career Consulting",
+    "description": "Yurtdışı Eğitim Danışmanlığı",
     "loading": "Yükleniyor...",
     "error": "Bir hata oluştu",
     "comingSoon": "Yakında Eklenecek",
     "soon": "Yakında...",
     "announcement": "DUYURU",
     "details": "DETAYLAR",
-    "login": "Giriş Yap",
-    "register": "Kayıt Ol",
+    "login": "Giriş",
+    "register": "Kayıt",
     "tuition": "Yıllık Ücret",
     "getInformation": "Bilgi Al",
-    "programs": "Programlar",
-    "viewDetails": "Detaylı İncele"
+    "programs": "Program",
+    "viewDetails": "Detaylı İncele",
+    "institutionsCount": "Kurum",
+    "resultsFound": "Sonuç Bulundu",
+    "onlyStudentsCanApply": "Sadece öğrenci hesabı ile başvuru yapılabilir.",
+    "alreadyApplied": "Bu programa zaten başvurdunuz.",
+    "applicationError": "Başvuru sırasında bir hata oluştu.",
+    "systemMaintenance": "Sistem Bakımı",
+    "maintenanceDesc": "Size daha iyi bir deneyim sunmak için sistemimizi güncelliyoruz. Lütfen daha sonra tekrar deneyiniz.",
+    "refresh": "Yenile",
+    "backToHome": "Anasayfaya Dön"
   },
-  "About": {
-    "loading": "Yükleniyor...",
-    "heritageLabel": "15 YILLIK AKADEMİK MİRAS",
-    "title": "Star Education Consulting: <span class='gold-text not-italic'>Global Akademik Vizyon</span>",
-    "heroSubtitle": "Merkezi Londra'da bulunan Star Education Consulting, geleceğin liderlerini dünya çapındaki en prestijli eğitim kurumlarıyla buluşturan bir akademik mükemmeliyet merkezidir.",
-    "getCounseling": "Stratejik Danışmanlık Al",
-    "stats": {
-      "experience": "15+",
-      "students": "5000+",
-      "partners": "350+",
-      "countries": "12+"
-    },
-    "mission": "Misyonumuz",
-    "missionDesc": "Karmaşık akademik süreçleri teknoloji ve tecrübe ile basitleştirerek, her öğrencinin potansiyeline en uygun global eğitim fırsatına ulaşmasını sarsılmaz bir disiplinle sağlamak.",
-    "vision": "Vizyonumuz",
-    "visionDesc": "Dünya standartlarında, yenilikçi và erişilebilir akademik danışmanlık hizmetleri ile Türkiye ve dünya arasında eğitim köprüleri kuran lider bir SaaS platformu olmak.",
-    "principlesLabel": "KURUMSAL İLKELERİMİZ",
-    "valuesTitle": "Akademik <span class='gold-text not-italic'>Dürüstlük ve Mükemmeliyet</span>",
-    "valuesSubtitle": "Yurtdışı eğitimi sadece bir yerleştirme süreci değil, uzun vadeli bir kariyer tasarımı olarak görüyoruz.",
-    "values": {
-        "transparency": "Şeffaf Süreç Yönetimi",
-        "transparencyDesc": "Tüm başvuru süreçlerinizi anlık olarak takip edebileceğiniz güvenilir bir altyapı sunuyoruz.",
-        "careerDesign": "Stratejik Kariyer Tasarımı",
-        "careerDesignDesc": "Sadece okul değil, gelecekteki mesleki konumlandırmanız üzerine bir yol haritası çiziyoruz.",
-        "globalVision": "Geniş Partner Ağı",
-        "globalVisionDesc": "Dünyanın en prestijli universite ve liseleriyle doğrudan akademik köprüler kuruyoruz."
-    },
-    "whoWeAreLabel": "BİZ KİMİZ?",
-    "teamTitle": "Akademik <span class='gold-text not-italic'>Kurul ve Uzman Kadro</span>",
-    "teamSummary": "Eski kabul memurları, akademisyenler ve kariyer danışmanlarından oluşan ekibimizle, sadece başvuru yapmıyor; kabul şansınızı maksimize ediyoruz.",
-    "meetTeam": "Ekibimizle Tanışın",
-    "futureDesignLabel": "GELECEĞİNİZİ ŞEKİLLENDİRİN",
-    "ctaTitle": "Global Başarı İçin <span class='gold-text not-italic'>Strateji Değiştirin</span>",
-    "ctaSubtitle": "Yurtdışı eğitim yolculuğunuzda sarsılmaz bir müttefikle yürümeye hazır mısınız? İlk adımı bugün atın.",
-    "startStrategy": "Stratejik Başvuruya Başla"
+  "AboutUs": {
+    "title": "Neden Mentor Career Consulting?",
+    "content": "Liseden lisansüstü eğitime kadar her aşamada, Mentor Career Consulting size daha iyi bir kariyer planlaması ve eğitim hayatı için öncülük eder. Eğitim seviyenize uygun olarak seçebileceğiniz yurt dışı okulları, work & travel imkânlarını ve dil okullarını sizin için listeler. Bütçenize ve ihtiyaçlarınıza uygun bir seçim yapmanızda size rehberlik eder. Eğitim almak istediğiniz ülkeler hakkında araştırma yaparak size güncel bilgiler sunar.",
+    "cta": "Eğitim danışmanlığı hizmetlerimizle uluslararası alanda geçerliliği olabilecek bir kariyer planlaması yapmak için şimdi bizi arayın!"
   },
-  "Navbar": {
-    "menu": "MENÜ",
-    "home": "Anasayfa",
-    "programlar": "Programlar",
-    "sinavlar": "Sınavlar",
-    "services": "Hizmetler",
-    "cta": "Ön Kayıt",
-    "globalHub": "Global Eğitim Fırsatları",
-    "viewAllInstitutions": "Tüm Kurumları İncele",
-    "freeConsultation": "Ücretsiz Danışmanlık",
-    "info": "Genel Bilgi",
-    "usefulLinks": "Faydalı Linkler",
-    "categories": "Kategoriler",
-    "types": "Eğitim Türleri",
-    "opportunities": "Fırsatlar",
-    "guide": "Kariyer Rehberi",
-    "yurtdisi-meslek-egitimi": "Yurtdışı Meslek Eğitimi Danışmanlığı",
-    "uluslararasi-kariyer": "Uluslararası Kariyer Danışmanlığı",
-    "profesyonel-cv": "Profesyonel CV Oluşturma",
-    "vize-belge-hazirlik": "Vize Belge Hazırlık Rehberliği",
-    "staj-programlari": "Uluslararası Staj",
-    "boarding": "Boarding (Yatılı Okullar)",
-    "private-day": "Private Day (Özel Günübirlik)",
-    "exchange": "Exchange (Değişim Programları)",
-    "ib-ap": "IB & AP Diploma Programları",
-    "contact": "İletişim",
-    "aboutUs": "Hakkımızda",
-    "blog": "Blog",
-    "details": "Detaylar",
-    "getCounseling": "Danışmanlık Al",
-    "searchCenter": "Arama Merkezi",
-    "searchDiscover": "Keşfet",
-    "searchPlaceholder": "Program, üniversite veya şehir ara...",
-    "noResults": "Sonuç bulunamadı",
-    "popularSearches": "Popüler Aramalar",
-    "career": "Kariyer"
+  "Career": {
+    "meta": {
+      "title": "Kariyer Planlaması | Mentor Career Consulting",
+      "description": "Bireysel tanıma seansları ve kariyer koçluğu ile geleceğinizi şekillendirin. Kendinizi tanıyın, hedeflerinizi belirleyin ve mutlu bir kariyer inşa edin."
+    },
+    "hero": {
+      "label": "Kariyer Yolculuğunuz",
+      "title": "Kariyer <span class='gold-text'>Planlaması</span>",
+      "subtitle": "Kendinizi tanıyarak hayattaki hedeflerinizi daha iyi belirleyin ve geleceğinize güvenle adım atın."
+    },
+    "sections": {
+      "intro": {
+        "title": "Kariyer Planlaması Nedir?",
+        "content": "Bireysel tanıma, kişinin öncelikle kendini tanıması ve ne yapabileceğini bilmesi için yapılan çalışmadır. Kendini tanımayan bir kişi, neticede yapacağı işlerde mutsuz olur. Bunun en önemli nedeni ise kişinin bir işe uygun olup olmadığını en baştan ölçüp tartmamasıdır.\n\nÇok fazla sosyal olunması gereken işler için buna daha yatkın sıcak ve samimi insanlarla konuşmayı seven kişiler çalışmalıdır. Ancak daha kendi içine dönük kişiler, böyle işlere başvurduğunda bir süre sonra işi sevmeyerek bırakmak isteyebilir. Bu da hem işveren hem de çalışan için bir zaman kaybına yol açar."
+      },
+      "whySelfDiscovery": {
+        "title": "Kişi Neden Kendini Tanmalı?",
+        "content": "Kişi kendini tanırsa, hayattaki hedeflerini daha iyi bilebilir. Bunun için bir kariyer koçuyla bireysel tanıma seansı düzenleriz. Kişinin yapmaktan zevk aldığı şeyler, sevmediği şeyler, güçlü ve zayıf yönleri bu seanslarda ele alınır.\n\nKişinin kendini tanıması aynı zamanda özgüvenini artırır. Hangi alanda başarılı olabileceğini bilen bir birey, o alana odaklanarak enerjisini doğru yönde kullanır."
+      },
+      "strengthsAndWeaknesses": {
+        "title": "Güçlü ve Zayıf Yönlerin Analizi",
+        "content": "Kariyer planlaması yaparken kişinin güçlü ve zayıf yönlerini bilmesi, doğru sektörü seçmesinde büyük rol oynar. Güçlü yönlerinizi daha da geliştirmek, zayıf yönleriniz için ise stratejik iyileştirmeler yapmak kariyer basamaklarını daha hızlı tırmanmanızı sağlar."
+      },
+      "roadmap": {
+        "title": "Kariyer Planı Nasıl Yapılır?",
+        "content": "Bir kariyer planı yaparken kişi ne yapmak istediğini ve bu hedefe ulaşmak için neler yapması gerektiğini bir yol haritasına döker. Bu süreçte sadece kısa vadeli değil, 5 ve 10 yıllık uzun vadeli projeksiyonlar da oluşturulur."
+      },
+      "whoIsItFor": {
+        "title": "Kariyer Planlaması Kimler İçindir?",
+        "content": "Sadece üniversite mezunları değil, lise aşamasındaki öğrenciler de kariyer planlaması yapmalıdır. Hatta kariyerinde değişikliğe gitmek isteyen profesyoneller de bu hizmetten yararlanabilir."
+      },
+      "goals": {
+        "title": "Stratejik Hedef Belirleme",
+        "content": "Kişi bir hedef belirlediğinde ona ulaşmak için daha fazla çaba sarf eder. Hedeflerin somut, ölçülebilir ve gerçekçi olması başarının anahtarıdır. Biz bu hedefleri belirlerken global trendleri ve sektörel beklentileri de göz önünde bulunduruyoruz."
+      },
+      "benefits": {
+        "title": "Kariyer Planlamasının Faydaları",
+        "content": "• Kişinin kendine olan güveni artar.\n• Zaman ve enerji israfı önlenir.\n• Doğru işe doğru insan prensibiyle mutsuzluk riski azalır.\n• Finansal ve manevi tatmin düzeyi yükselir."
+      },
+      "howToDiscover": {
+        "title": "Kendimizi Nasıl Keşfederiz?",
+        "content": "Bireysel tanıma seanslarımızda çeşitli kişilik envanterleri, yetenek testleri ve birebir mülakat teknikleri kullanıyoruz. Bu süreç sonunda size özel bir 'Potansiyel Analiz Raporu' sunuyoruz."
+      },
+      "moveForward": {
+        "title": "Kariyer Yolculuğunda Bir Sonraki Adım",
+        "content": "Kariyer yolculuğu sadece iş hayatıyla sınırlı değildir; sürekli bir öğrenme ve gelişim sürecidir. Mentor Career Consulting olarak bu yolculuğun her aşamasında yanınızdayız."
+      },
+      "footer": "Sizin İçin En Doğru Kariyer Yolunu Birlikte Çizelim"
+    },
+    "cta": "Uzmanımızdan Randevu Alın"
+  },
+  "Exams": {
+    "global": {
+      "title": "Uluslararası Sınav Hazırlık ve Danışmanlık",
+      "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Uluslararası Sınav Hazırlık ve Danışmanlık</h2>\n      <p class=\"mb-6\">Yurt dışı eğitim ve kariyer hedeflerinize ulaşmanızda en kritik basamaklardan biri, uluslararası geçerliliği olan dil ve akademik yeterlilik sınavlarıdır. Mentor Career Consulting olarak, başarınızı şansa bırakmıyoruz.</p>\n      <p class=\"mb-6\">IELTS, TOEFL gibi dil yeterlilik sınavlarından SAT, GRE, GMAT gibi akademik yetkinlik sınavlarına kadar geniş bir yelpazede danışmanlık sağlıyoruz. Sınav formatları, stratejik hazırlık yöntemleri ve başvuru süreçlerinde uzman ekibimizle yanınızdayız.</p>",
+      "advantages": [
+        {
+          "title": "Uzman Eğitmen Kadrosu",
+          "desc": "Sınav formatlarına hakim, deneyimli ve sertifikalı eğitmenlerle çalışma imkanı."
+        },
+        {
+          "title": "Kişiselleştirilmiş Program",
+          "desc": "Eksiklerinize odaklanan, hedeflerinize yönelik özel çalışma planları."
+        },
+        {
+          "title": "Güncel Materyaller",
+          "desc": "En yeni sınav soruları ve simülasyon testleriyle gerçekçi hazırlık."
+        }
+      ],
+      "process": [
+        {
+          "title": "Seviye Belirleme",
+          "desc": "Mevcut durumunuzun analizi ve hedef puanın belirlenmesi."
+        },
+        {
+          "title": "Stratejik Planlama",
+          "desc": "Sınav tarihine göre yoğunlaştırılmış veya düzenli çalışma programı."
+        },
+        {
+          "title": "Deneme Sınavları",
+          "desc": "Zaman yönetimi ve stres kontrolü için periyodik simülasyonlar."
+        },
+        {
+          "title": "Başvuru Desteği",
+          "desc": "Sınav kaydı ve sonuçların üniversitelere gönderilmesi süreci."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Hangi sınava girmeliyim?",
+          "a": "Bu, hedeflediğiniz ülkeye, üniversiteye ve bölüme göre değişir. Danışmanlarımız size en uygun sınavı belirleyecektir."
+        },
+        {
+          "q": "Sınav hazırlığı ne kadar sürer?",
+          "a": "Mevcut seviyeniz ve hedef puanınıza bağlı olarak genellikle 2-6 ay arası sürer."
+        }
+      ]
+    },
+    "toefl": {
+      "title": "TOEFL iBT (Test of English as a Foreign Language)",
+      "shortTitle": "TOEFL",
+      "description": "Özellikle ABD üniversitelerinde yaygın olarak kabul edilen akademik İngilizce sınavıdır.",
+      "overview_short": "TOEFL iBT, Educational Testing Service (ETS) tarafından uygulanmaktadır. Akademik odaklıdır ve bilgisayar tabanlı yapısı sayesinde dijital sınav formatına alışkın adaylar için avantaj sağlayabilir.",
+      "format": {
+        "duration": "2 saat",
+        "sections": [
+          {
+            "name": "Reading",
+            "desc": "Akademik metinleri okuma ve anlama.",
+            "time": "35 dk"
+          },
+          {
+            "name": "Listening",
+            "desc": "Ders ve kampüs konuşmalarını anlama.",
+            "time": "36 dk"
+          },
+          {
+            "name": "Speaking",
+            "desc": "Bilgisayar üzerinden kayıt yapılarak sesli yanıt.",
+            "time": "16 dk"
+          },
+          {
+            "name": "Writing",
+            "desc": "Akademik Discussion ve Integrated görevleri.",
+            "time": "29 dk"
+          }
+        ]
+      },
+      "scoring_short": "Toplam 120 puan üzerinden değerlendirilir.",
+      "validity": "2 Yıl",
+      "cost": "Yaklaşık 157 USD",
+      "dates": "Haftada bir veya daha sık",
+      "whyTake": [
+        "ABD’de lisans veya yüksek lisans başvurusu yapacak adaylar için altın standarttır.",
+        "Akademik odaklı İngilizce yeterliliğini belgelemek isteyenler için idealdir.",
+        "Dünya çapında 12.000’den fazla kurum tarafından kabul edilir."
+      ],
+      "serviceDetails": {
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">TOEFL iBT: Akademik İngilizce Standardı</h2>\n      <p class=\"mb-6\">TOEFL (Test of English as a Foreign Language), özellikle ABD ve Kanada'daki üniversitelerin en çok tercih ettiği dil sınavıdır. Akademik ortamdaki İngilizceyi kullanma ve anlama yeteneğinizi ölçer.</p>\n      <p class=\"mb-6\">İnternet üzerinden yapılan iBT (internet-Based Test) formatı, dünya genelinde en yaygın kullanılan versiyondur. Okuma, Dinleme, Konuşma ve Yazma becerilerinin entegre bir şekilde ölçülmesine dayanır.</p>",
+        "advantages": [
+          {
+            "title": "ABD Odaklı Kabul",
+            "desc": "ABD'deki üniversitelerin %90'ından fazlası tarafından öncelikli olarak kabul edilir."
+          },
+          {
+            "title": "Kapsamlı Değerlendirme",
+            "desc": "Becerilerin bir arada kullanıldığı gerçekçi akademik senaryolar sunar."
+          },
+          {
+            "title": "Geniş Sınav Ağı",
+            "desc": "Dünyanın hemen her yerinde sık aralıklarla sınav merkezleri bulunur."
+          }
+        ],
+        "process": [
+          {
+            "title": "Sınav Stratejisi",
+            "desc": "Entegre görevlere yönelik not alma ve sentezleme teknikleri."
+          },
+          {
+            "title": "Kaynak Temini",
+            "desc": "ETS onaylı resmi hazırlık rehberleri ve dijital kaynaklar."
+          },
+          {
+            "title": "Simülasyon Testleri",
+            "desc": "Tam zamanlı deneme sınavları ile sınav atmosferine uyum."
+          },
+          {
+            "title": "Skor Raporlama",
+            "desc": "Sonuçların doğrudan hedef kurumlara gönderilmesi."
+          }
+        ],
+        "faq": [
+          {
+            "q": "TOEFL iBT kaç puan üzerinden değerlendirilir?",
+            "a": "Sınav toplam 120 puan üzerinden değerlendirilir (her bölüm 30 puan)."
+          },
+          {
+            "q": "Sınav süresi ne kadardır?",
+            "a": "Yeni formatıyla yaklaşık 2 saat sürmektedir."
+          }
+        ],
+        "structure": "<ul class=\"space-y-4\">\n        <li><strong>Reading (35 dk):</strong> Akademik metinleri anlama. 20 soru.</li>\n        <li><strong>Listening (36 dk):</strong> Kampüs konuşmaları ve dersler. 28 soru.</li>\n        <li><strong>Speaking (16 dk):</strong> 4 görev üzerinden konuşma performansı.</li>\n        <li><strong>Writing (29 dk):</strong> 2 görev; Akademik tartışma ve entegre yazım.</li>\n      </ul>",
+        "scoring": "<p>TOEFL iBT 0 ile 120 puan arasındadır. Her 4 bölüm 30 puan üzerinden değerlendirilir.</p>\n      <div class=\"mt-4 p-4 bg-white/10 rounded-xl\">\n        <strong>Not:</strong> MyBest® Scores özelliği ile son 2 yıldaki en yüksek bölüm puanlarınız birleştirilebilir.\n      </div>"
+      }
+    },
+    "ielts": {
+      "title": "IELTS (International English Language Testing System)",
+      "shortTitle": "IELTS",
+      "description": "İngiltere, Kanada, Avustralya ve Yeni Zelanda başta olmak üzere göçmenlik ve eğitim için en popüler sınavdır.",
+      "overview_short": "IELTS, dünya genelinde en yaygın kabul gören İngilizce yeterlilik sınavlarından biridir. Sınav; British Council, IDP Education ve Cambridge Assessment English iş birliğiyle düzenlenmektedir. Özellikle konuşma bölümünün birebir yapılması nedeniyle iletişim becerilerini doğrudan ölçen bir sınavdır.",
+      "format": {
+        "duration": "2 saat 45 dakika",
+        "sections": [
+          {
+            "name": "Listening",
+            "desc": "4 bölüm, 40 soru. Çeşitli aksanlarda konuşmalar.",
+            "time": "30 dk"
+          },
+          {
+            "name": "Reading",
+            "desc": "3 uzun metin, 40 soru.",
+            "time": "60 dk"
+          },
+          {
+            "name": "Writing",
+            "desc": "2 görev (Grafik yorumlama/Mektup + Kompozisyon)",
+            "time": "60 dk"
+          },
+          {
+            "name": "Speaking",
+            "desc": "Sınav görevlisi ile yüz yüze mülakat.",
+            "time": "11-14 dk"
+          }
+        ]
+      },
+      "scoring_short": "0-9 arası band sistemi uygulanır.",
+      "validity": "2 Yıl",
+      "cost": "Yaklaşık 4500-5000 TL",
+      "dates": "Ayda 4-5 kez",
+      "whyTake": [
+        "İngiltere, Avustralya, Kanada ve Avrupa’da eğitim almak isteyenler için birincil tercihtir.",
+        "Göçmenlik veya kayıt başvurusu (UKVI) için zorunlu olabilir.",
+        "Kağıt veya bilgisayar üzerinden alınabilir."
+      ],
+      "serviceDetails": {
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">IELTS: Global Geçerliliği Olan İngilizce Testi</h2>\n      <p class=\"mb-6\">IELTS (International English Language Testing System), dünya çapında en çok tercih edilen İngilizce yeterlilik sınavıdır. Akademik ve Genel Eğitim olmak üzere iki modülü bulunur.</p>\n      <p class=\"mb-6\">İngiltere, Avustralya, Kanada ve Yeni Zelanda'daki üniversiteler ve göçmenlik büroları tarafından standart olarak kabul edilir. Sınav; Dinleme, Okuma, Yazma ve Konuşma bölümlerinden oluşur.</p>\n\n      <h3 class=\"text-2xl font-serif font-bold text-navy mb-4 mt-8 italic\">Neden IELTS?</h3>\n      <ul class=\"space-y-4 mb-10 italic text-zinc-600\">\n          <li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-secondary\">✓</span> <strong>Geniş Kabul:</strong> 140'tan fazla ülkede 11.000'den fazla kurum tarafından tanınır.</li>\n          <li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-secondary\">✓</span> <strong>Yüz Yüze Konuşma:</strong> Konuşma testi, gerçek bir sınav görevlisi ile yapılır, bu da daha doğal bir etkileşim sağlar.</li>\n      </ul>",
+        "advantages": [
+          {
+            "title": "Esnek Format",
+            "desc": "Kağıt üzerinde veya bilgisayarlı sınav seçeneği sunar."
+          },
+          {
+            "title": "Hızlı Sonuç",
+            "desc": "Bilgisayarlı sınav sonuçları 3-5 gün içinde açıklanır."
+          },
+          {
+            "title": "Eğitim ve Kariyer",
+            "desc": "Üniversite kabulleri ve profesyonel kariyer başvuruları için geçerlidir."
+          }
+        ],
+        "process": [
+          {
+            "title": "Modül Seçimi",
+            "desc": "Hedefe göre Akademik veya Genel Eğitim modülünün belirlenmesi."
+          },
+          {
+            "title": "Sınav Kaydı",
+            "desc": "Uygun tarih ve merkez için resmi kayıt işlemlerinin yapılması."
+          },
+          {
+            "title": "Hazırlık Kursu",
+            "desc": "Stratejik soru çözüm teknikleri ve zaman yönetimi eğitimi."
+          },
+          {
+            "title": "Sonuç Takibi",
+            "desc": "TRF belgesinin alınması ve kurumlara raporlanması."
+          }
+        ],
+        "faq": [
+          {
+            "q": "IELTS geçerlilik süresi ne kadardır?",
+            "a": "IELTS sonuçları 2 yıl boyunca geçerlidir."
+          },
+          {
+            "q": "Kaç kez sınava girebilirim?",
+            "a": "Sınava giriş sayısında herhangi bir kısıtlama yoktur."
+          }
+        ],
+        "structure": "<ul class=\"space-y-4\">\n        <li><strong>Listening (30 dk):</strong> 4 bölüm, 40 soru. Günlük ve akademik konuşmalar.</li>\n        <li><strong>Reading (60 dk):</strong> 3 metin, 40 soru. Analitik okuma ve anlama.</li>\n        <li><strong>Writing (60 dk):</strong> 2 görev. Grafik yorumlama ve akademik kompozisyon.</li>\n        <li><strong>Speaking (11-14 dk):</strong> Birebir mülakat. Kendini ifade etme yeteneği.</li>\n      </ul>",
+        "scoring": "<p>IELTS 1.0 ile 9.0 arasında bir puanlama sistemi kullanır. Her bölümden alınan puanların ortalaması genel skoru belirler.</p>\n      <div class=\"mt-4 p-4 bg-white/10 rounded-xl\">\n        <strong>Hedef Skorlar:</strong> Lisans için genellikle 6.0-6.5, yüksek lisans için 6.5-7.5 arası beklenir.\n      </div>"
+      }
+    },
+    "sat": {
+      "title": "SAT (Scholastic Aptitude Test)",
+      "shortTitle": "SAT",
+      "description": "ABD’de lisans eğitimi başvurularında kullanılan standart bir sınavdır.",
+      "overview_short": "SAT, College Board tarafından düzenlenmektedir. Birçok üniversite test-optional politika uygulasa da yüksek SAT puanı, özellikle burs başvurularında önemli avantaj sağlayabilir.",
+      "format": {
+        "duration": "2 saat 14 dakika",
+        "sections": [
+          {
+            "name": "Reading & Writing",
+            "desc": "Kısa metinler üzerinden analiz ve dil bilgisi.",
+            "time": "64 dk"
+          },
+          {
+            "name": "Math",
+            "desc": "Cebir, problem çözme ve veri analizi.",
+            "time": "70 dk"
+          }
+        ]
+      },
+      "scoring_short": "400–1600 puan aralığındadır.",
+      "validity": "5 Yıl (Genelde kabul edilen)",
+      "cost": "Yaklaşık 60-100 USD (+ Uluslararası ücretler)",
+      "dates": "Yılda 7 kez",
+      "whyTake": [
+        "ABD’de lisans eğitimi hedefleyen öğrenciler için en önemli sınavdır.",
+        "Akademik başarı ve analitik düşünme becerilerini göstermek isteyen adaylar içindir.",
+        "Burs başvurularında rekabet avantajı sağlar."
+      ],
+      "serviceDetails": {
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Digital SAT: ABD'de Üniversite Giriş Anahtarı</h2>\n      <p class=\"mb-6\">SAT (Scholastic Assessment Test), ABD'deki kolej ve üniversitelere lisans başvurularında kullanılan en yaygın standart sınavdır. Öğrencilerin lise bilgilerini ve üniversitedeki başarı potansiyelini ölçer.</p>\n      <p class=\"mb-6\">Artık tamamen dijital formatta yapılan SAT, Okuma-Yazma ve Matematik bölümlerinden oluşur. Eleştirel düşünme ve problem çözme yeteneklerini ön plana çıkarır.</p>",
+        "advantages": [
+          {
+            "title": "Burs İmkanları",
+            "desc": "Yüksek SAT skorları, prestijli üniversitelerden akademik burs alma şansını artırır."
+          },
+          {
+            "title": "Global Başvuru",
+            "desc": "Sadece ABD değil, dünya genelindeki birçok seçkin üniversite tarafından kabul edilir."
+          },
+          {
+            "title": "Dijital Kolaylık",
+            "desc": "Adaptif test yapısı ile kişiye özel zorluk seviyesi ve daha kısa sınav süresi sunar."
+          }
+        ],
+        "process": [
+          {
+            "title": "Matematik Temeli",
+            "desc": "Cebir, problem çözme ve veri analizi konularında uzmanlaşma."
+          },
+          {
+            "title": "Eleştirel Okuma",
+            "desc": "Zorlayıcı metinleri anlama ve analiz etme becerisinin geliştirilmesi."
+          },
+          {
+            "title": "Bluebook Uygulaması",
+            "desc": "Resmi dijital sınav arayüzü ile pratik yapma."
+          },
+          {
+            "title": "Zaman Yönetimi",
+            "desc": "Her bölüm için ayrılan süreyi en verimli şekilde kullanma stratejileri."
+          }
+        ],
+        "faq": [
+          {
+            "q": "SAT kaç puan üzerinden hesaplanır?",
+            "a": "Sınav toplam 1600 puan üzerinden değerlendirilir (her bölüm 800 puan)."
+          },
+          {
+            "q": "Sınav ne sıklıkla yapılır?",
+            "a": "Uluslararası öğrenciler için yılda genellikle 7 kez düzenlenir."
+          }
+        ],
+        "structure": "<ul class=\"space-y-4\">\n        <li><strong>Reading & Writing (64 dk):</strong> İki modül halinde sunulan, metin analizi ve dil bilgisi soruları.</li>\n        <li><strong>Mathematics (70 dk):</strong> İki modül. Hesap makinesi kullanımına izin verilen cebir ve veri analizi soruları.</li>\n      </ul>",
+        "scoring": "<p>SAT puanı 400 ile 1600 arasındadır. İki ana bölümün her biri 800 puan üzerinden değerlendirilir.</p>\n      <div class=\"mt-4 p-4 bg-white/10 rounded-xl\">\n        <strong>Önemli:</strong> Yanlış cevaplar doğru cevapları etkilemez; bu nedenle tüm soruların işaretlenmesi önerilir.\n      </div>"
+      }
+    },
+    "pte": {
+      "title": "PTE Academic (Pearson Test of English)",
+      "shortTitle": "PTE Academic",
+      "description": "Tamamen bilgisayar tabanlı ve yapay zeka destekli değerlendirme sistemine sahip bir İngilizce yeterlilik sınavıdır.",
+      "overview_short": "PTE Academic, Pearson PLC tarafından uygulanmaktadır. Sonuçlar genellikle birkaç gün içinde açıklandığı için acil başvuru yapacak adaylar için büyük avantajdır.",
+      "format": {
+        "duration": "2 saat 15 dakika",
+        "sections": [
+          {
+            "name": "Speaking & Writing",
+            "desc": "Entegre dil becerileri testi.",
+            "time": "54-67 dk"
+          },
+          {
+            "name": "Reading",
+            "desc": "Okuma ve boşluk doldurma soruları.",
+            "time": "29-30 dk"
+          },
+          {
+            "name": "Listening",
+            "desc": "Dikte ve dinleme odaklı sorular.",
+            "time": "30-43 dk"
+          }
+        ]
+      },
+      "scoring_short": "10–90 arası puanlanır.",
+      "validity": "2 Yıl",
+      "cost": "Yaklaşık 190-210 USD",
+      "dates": "Yıl boyunca neredeyse her gün",
+      "whyTake": [
+        "Hızlı sonuç almak isteyen (48-72 saatte) adaylar içindir.",
+        "İngiltere ve Avustralya kayıt/eğitim başvurularında %100 kabul edilir.",
+        "Yapay zeka tabanlı puanlama sayesinde daha objektif sonuçlar sunar."
+      ],
+      "serviceDetails": {
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">PTE Academic: Hızlı ve Yapay Zeka Destekli Dil Sınavı</h2>\n      <p class=\"mb-6\">PTE (Pearson Test of English) Academic, bilgisayar tabanlı, yapay zeka tarafından puanlanan ve sonuçları çok kısa sürede açıklanan bir dil sınavıdır. Üniversite kabulleri ve profesyonel kariyer başvuruları için dünya genelinde kabul görür.</p>\n      <p class=\"mb-6\">Geleneksel sınavlara göre daha esnek randevu imkanları ve stres faktörünü azaltan sınav yapısı ile adaylar arasında popülerliği hızla artmaktadır.</p>",
+        "advantages": [
+          {
+            "title": "Hızlı Sonuç",
+            "desc": "Sınav sonuçları genellikle 48 saat içinde, hatta bazen aynı gün açıklanır."
+          },
+          {
+            "title": "Objektif Puanlama",
+            "desc": "Yapay zeka tabanlı değerlendirme ile insani hatalar ve önyargılar ortadan kalkar."
+          },
+          {
+            "title": "Global Geçerlilik",
+            "desc": "Binlerce kurum tarafından kabul edilir."
+          }
+        ],
+        "process": [
+          {
+            "title": "Sınav Formatı",
+            "desc": "Tek oturumda tamamlanan 2 saatlik yoğunlaştırılmış sınav yapısı."
+          },
+          {
+            "title": "Hazırlık Materyalleri",
+            "desc": "Pearson'ın resmi interaktif hazırlık platformları ve mobil uygulamaları."
+          },
+          {
+            "title": "Pratik Testleri",
+            "desc": "Gerçek sınav arayüzü ile birebir aynı olan deneme sınavları."
+          },
+          {
+            "title": "Randevu Alma",
+            "desc": "Yılın 365 günü, sınavdan 24 saat öncesine kadar randevu alabilme kolaylığı."
+          }
+        ],
+        "faq": [
+          {
+            "q": "PTE Academic puanı ne kadar geçerlidir?",
+            "a": "PTE sonuçları genellikle 2 yıl geçerlidir."
+          },
+          {
+            "q": "Sınava kaç kez girebilirim?",
+            "a": "Herhangi bir sınır yoktur, ancak iki sınav arasında en az 5 gün olmalıdır."
+          }
+        ],
+        "structure": "<ul class=\"space-y-4\">\n        <li><strong>Speaking & Writing (54-67 dk):</strong> Kişisel tanıtım, yüksek sesle okuma, özetleme ve kompozisyon.</li>\n        <li><strong>Reading (29-30 dk):</strong> Boşluk doldurma, çoktan seçmeli sorular ve paragraf sıralama.</li>\n        <li><strong>Listening (30-43 dk):</strong> Özetleme, dikte ve sesli kayıtları yorumlama.</li>\n      </ul>",
+        "scoring": "<p>PTE Global Scale of English baz alınarak 10 ile 90 puan arasında değerlendirilir.</p>\n      <div class=\"mt-4 p-4 bg-white/10 rounded-xl\">\n        <strong>Avantaj:</strong> Tüm beceriler (dil bilgisi, akıcılık, telaffuz vb.) yapay zeka tarafından saniyeler içinde analiz edilir.\n      </div>"
+      }
+    },
+    "gre": {
+      "title": "GRE (Graduate Record Examination)",
+      "shortTitle": "GRE",
+      "description": "Yüksek lisans ve doktora programlarına başvuruda kullanılan uluslararası bir sınavdır.",
+      "overview_short": "GRE, Educational Testing Service (ETS) tarafından düzenlenmektedir. Mühendislikten sosyal bilimlere kadar geniş bir yelpazede akademik kariyer planlayanlar için tasarlanmıştır.",
+      "format": {
+        "duration": "1 saat 58 dakika",
+        "sections": [
+          {
+            "name": "Verbal Reasoning",
+            "desc": "Akademik kelime ve okuma becerileri.",
+            "time": "41 dk"
+          },
+          {
+            "name": "Quantitative Reasoning",
+            "desc": "Sayısal akıl yürütme ve veri analitiği.",
+            "time": "47 dk"
+          },
+          {
+            "name": "Analytical Writing",
+            "desc": "Eleştirel düşünce ve akademik yazım.",
+            "time": "30 dk"
+          }
+        ]
+      },
+      "scoring_short": "Verbal: 130–170, Math: 130–170, Writing: 0–6.",
+      "validity": "5 Yıl",
+      "cost": "Yaklaşık 220 USD",
+      "dates": "Yıl boyunca her ay",
+      "whyTake": [
+        "ABD ve Avrupa’da yüksek lisans/doktora yapmak isteyenler içindir.",
+        "Mühendislik, fen bilimleri ve sosyal bilimler alanında kariyer hedeflerine güç katar.",
+        "Sayısal bölümlerde Quantitative skoru büyük önem taşır."
+      ],
+      "serviceDetails": {
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">GRE: Lisansüstü Eğitimin Küresel Standardı</h2>\n      <p class=\"mb-6\">GRE (Graduate Record Examinations), mühendislikten sosyal bilimlere kadar geniş bir yelpazede yüksek lisans ve doktora başvuruları için gereklidir. Analitik yazma, sözel akıl yürütme ve sayısal yetenekleri ölçer.</p>\n      <p class=\"mb-6\">Dünya çapında binlerce lisansüstü okul ve işletme okulu tarafından kabul edilir. Adayların soyut düşünme yeteneğini ve karmaşık verileri yorumlama becerisini test eder.</p>",
+        "advantages": [
+          {
+            "title": "Çok Yönlü Kabul",
+            "desc": "Mühendislik, temel bilimler ve sosyal bilimler programları için birincil şarttır."
+          },
+          {
+            "title": "Esnek Sınav Formatı",
+            "desc": "Bölümler arası geçiş imkanı sunan kullanıcı dostu sınav arayüzü."
+          },
+          {
+            "title": "MBA Seçeneği",
+            "desc": "Artık birçok prestijli işletme okulu (MBA) tarafından GMAT alternatifi olarak kabul edilir."
+          }
+        ],
+        "process": [
+          {
+            "title": "Sözel Akıl Yürütme",
+            "desc": "Karmaşık metin analizi ve ileri düzey kelime bilgisi çalışmaları."
+          },
+          {
+            "title": "Sayısal Yetenek",
+            "desc": "Geometri, aritmetik ve veri yorumlama konularında hız kazanma."
+          },
+          {
+            "title": "Analitik Yazma",
+            "desc": "Argüman oluşturma ve eleştirel analiz kompozisyon teknikleri."
+          },
+          {
+            "title": "Skor Seçimi (ScoreSelect)",
+            "desc": "En iyi sonuçlarınızı üniversitelere gönderme özgürlüğü."
+          }
+        ],
+        "faq": [
+          {
+            "q": "GRE puanı kaç yıl geçerlidir?",
+            "a": "Sınav sonuçları 5 yıl boyunca geçerliliğini korur."
+          },
+          {
+            "q": "Sınav ne kadar sürer?",
+            "a": "Kısaltılmış yeni formatıyla yaklaşık 1 saat 58 dakika sürmektedir."
+          }
+        ],
+        "structure": "<ul class=\"space-y-4\">\n        <li><strong>Analytical Writing (30 dk):</strong> Bir kompozisyon görevi. Eleştirel düşünme ve akademik yazım.</li>\n        <li><strong>Verbal Reasoning (41 dk):</strong> İki bölüm. Kelime bilgisi, okuma ve anlama becerileri.</li>\n        <li><strong>Quantitative Reasoning (47 dk):</strong> İki bölüm. Temel matematik kavramları ve veri analizi.</li>\n      </ul>",
+        "scoring": "<p>Sözel ve Sayısal bölümler 130-170 puan arasında, Yazma bölümü ise 0-6 puan arasında değerlendirilir.</p>\n      <div class=\"mt-4 p-4 bg-white/10 rounded-xl\">\n        <strong>İpucu:</strong> ScoreSelect® hizmeti ile sadece en iyi skorunuzu kurumlara gönderebilirsiniz.\n      </div>"
+      }
+    },
+    "gmat": {
+      "title": "GMAT Focus Edition",
+      "shortTitle": "GMAT",
+      "description": "İşletme ve MBA programlarına başvuran adaylar için tasarlanmış bir sınavdır.",
+      "overview_short": "GMAT, Graduate Management Admission Council (GMAC) tarafından uygulanmaktadır. Focus Edition ile birlikte daha analitik ve iş dünyasına odaklı bir yapıya bürünmüştür.",
+      "format": {
+        "duration": "2 saat 15 dakika",
+        "sections": [
+          {
+            "name": "Quantitative",
+            "desc": "Veri yeterliliği ve problem çözme.",
+            "time": "45 dk"
+          },
+          {
+            "name": "Verbal",
+            "desc": "Eleştirel akıl yürütme ve okuma anlama.",
+            "time": "45 dk"
+          },
+          {
+            "name": "Data Insights",
+            "desc": "Grafik ve tablo analizi, veri sentezi.",
+            "time": "45 dk"
+          }
+        ]
+      },
+      "scoring_short": "205–805 aralığındadır.",
+      "validity": "5 Yıl",
+      "cost": "Yaklaşık 275 USD",
+      "dates": "Yıl boyunca her ay",
+      "whyTake": [
+        "MBA ve işletme yüksek lisans programlarına başvuran adaylar içindir.",
+        "Yönetim, finans ve strateji alanında kariyer hedefleyenler için kritiktir.",
+        "Üst düzey işletme okullarında birincil değerlendirme kriteridir."
+      ],
+      "serviceDetails": {
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">GMAT Focus Edition: İş Dünyasının Liderlik Testi</h2>\n      <p class=\"mb-6\">GMAT (Graduate Management Admission Test), dünya genelindeki işletme okullarının (MBA) adayları değerlendirmek için kullandığı altın standarttır. Sayısal, Sözel ve Veri Analizi bölümlerinden oluşur.</p>\n      <p class=\"mb-6\">GMAT Focus Edition, iş dünyasının değişen ihtiyaçlarına göre optimize edilmiş daha kısa ve odaklanmış bir sınav deneyimi sunar. Adayların stratejik düşünme ve kritik karar verme yeteneklerini ölçer.</p>",
+        "advantages": [
+          {
+            "title": "En İyi MBA Okulları",
+            "desc": "Harvard, Stanford, INSEAD gibi dev okullara girişte en güçlü silahtır."
+          },
+          {
+            "title": "Veri Odaklılık",
+            "desc": "Yeni formatı ile iş hayatında çok kritik olan veri analizi becerisini ön plana çıkarır."
+          },
+          {
+            "title": "Soru İnceleme ve Değiştirme",
+            "desc": "Cevap verdiğiniz soruları inceleme ve belirli sayıda değiştirme hakkı tanır."
+          }
+        ],
+        "process": [
+          {
+            "title": "Quantitative Reasoning",
+            "desc": "Matematiksel mantık ve problem çözme hızı çalışmaları."
+          },
+          {
+            "title": "Verbal Reasoning",
+            "desc": "Eleştirel akıl yürütme ve okuduğunu anlama yetkinliği."
+          },
+          {
+            "title": "Data Insights",
+            "desc": "Grafik, tablo ve karmaşık verileri yorumlama teknikleri."
+          },
+          {
+            "title": "Bölüm Seçimi",
+            "desc": "Sınav bölümlerinin sırasını kişisel tercihinize göre belirleme stratejisi."
+          }
+        ],
+        "faq": [
+          {
+            "q": "GMAT Focus kaç puan üzerinden hesaplanır?",
+            "a": "Sınav 205 ile 805 puan arasında 10'luk artışlarla puanlanır."
+          },
+          {
+            "q": "Sınava ne sıklıkla girilebilir?",
+            "a": "Yılda en fazla 5 kez ve ömür boyu toplam 8 kez girme hakkı vardır."
+          }
+        ],
+        "structure": "<ul class=\"space-y-4\">\n        <li><strong>Quantitative Reasoning (45 dk):</strong> 21 soru. Veri yeterliliği ve problem çözme.</li>\n        <li><strong>Verbal Reasoning (45 dk):</strong> 23 soru. Eleştirel akıl yürütme ve okuduğunu anlama.</li>\n        <li><strong>Data Insights (45 dk):</strong> 20 soru. Çok kaynaklı veri analizi ve grafik yorumlama.</li>\n      </ul>",
+        "scoring": "<p>GMAT Focus puanı 205 ile 805 arasındadır. Tüm bölümler puanlamaya dahil edilir.</p>\n      <div class=\"mt-4 p-4 bg-white/10 rounded-xl\">\n        <strong>Yenilik:</strong> Artık yanlış cevapları gözden geçirme ve her bölümde 3 soruya kadar cevap değiştirme hakkınız var.\n      </div>"
+      }
+    },
+    "cambridge": {
+      "title": "Cambridge English Sınavları (B2 First, C1 Advanced, C2 Proficiency)",
+      "shortTitle": "Cambridge",
+      "description": "Uluslararası geçerliliğe sahip ve süresiz geçerli sertifikalar sunan sınavlardır.",
+      "overview_short": "Cambridge English sınavları, Cambridge Assessment English tarafından düzenlenmektedir. Diğer sınavların aksine sunulan sertifikaların geçerlilik süresi dolmaz.",
+      "format": {
+        "duration": "Yaklaşık 3.5 - 4 saat",
+        "sections": [
+          {
+            "name": "Reading & Use of English",
+            "desc": "Gramer ve kelime kullanım derinliği.",
+            "time": "90 dk"
+          },
+          {
+            "name": "Writing",
+            "desc": "Mektup, rapor ve essay yazımı.",
+            "time": "90 dk"
+          },
+          {
+            "name": "Listening",
+            "desc": "Akademik ve genel dinleme parçaları.",
+            "time": "40 dk"
+          },
+          {
+            "name": "Speaking",
+            "desc": "Başka bir aday ile eşleşerek mülakat.",
+            "time": "15 dk"
+          }
+        ]
+      },
+      "scoring_short": "Cambridge English Scale (160-230+).",
+      "validity": "Ömür Boyu",
+      "cost": "Sınava göre 200-250 USD",
+      "dates": "Yılda belirli dönemlerde",
+      "whyTake": [
+        "Sertifikaları ömür boyu (süresiz) geçerlidir.",
+        "Avrupa’da güçlü akademik itibara ve kabul oranına sahiptir.",
+        "Akademik ve profesyonel (iş dünyası) kullanım için uygundur."
+      ],
+      "serviceDetails": {
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Cambridge English: Ömür Boyu Geçerli Dil Sertifikası</h2>\n      <p class=\"mb-6\">Cambridge English sınavları (B2 First, C1 Advanced, C2 Proficiency), İngilizce dil yeteneğinizi kanıtlayan ve geçerlilik süresi dolmayan en prestijli belgelerden biridir. Cambridge Üniversitesi tarafından düzenlenen bu sınavlar, dünya genelinde 25.000'den fazla kurum tarafından tanınır.</p>\n      <p class=\"mb-6\">Akademik eğitimin yanı sıra profesyonel iş dünyasında da büyük saygınlığa sahip olan bu sınavlar, dil becerilerinizi derinlemesine ölçer ve pratik kullanım yeteneğinizi geliştirir.</p>",
+        "advantages": [
+          {
+            "title": "Ömür Boyu Geçerlilik",
+            "desc": "Sertifikalarınızın süresi asla dolmaz, bir kez almanız yeterlidir."
+          },
+          {
+            "title": "Derinlemesine Ölçüm",
+            "desc": "Dil bilgisini sadece test etmekle kalmaz, doğru kullanımı da ölçer."
+          },
+          {
+            "title": "Global Saygınlık",
+            "desc": "Avrupa başta olmak üzere dünya çapındaki seçkin üniversitelerce tercih edilir."
+          }
+        ],
+        "process": [
+          {
+            "title": "Seviye Analizi",
+            "desc": "Hedeflenen sertifika düzeyinin (B2, C1, C2) belirlenmesi."
+          },
+          {
+            "title": "Kapsamlı Eğitim",
+            "desc": "Okuma, yazma, dinleme ve konuşma becerilerinin eş zamanlı gelişimi."
+          },
+          {
+            "title": "Eşli Mülakat Pratiği",
+            "desc": "Konuşma sınavı için ikili etkileşim ve senaryo çalışmaları."
+          },
+          {
+            "title": "Sınav Oturumu",
+            "desc": "Kağıt tabanlı veya bilgisayarlı sınav seçenekleri ile uygulama."
+          }
+        ],
+        "faq": [
+          {
+            "q": "Sınavlar ne kadar süreyle geçerlidir?",
+            "a": "Cambridge sertifikalarının son kullanma tarihi yoktur, ömür boyu geçerlidir."
+          },
+          {
+            "q": "Hangi seviyeden başlamalıyım?",
+            "a": "Uzmanlarımız mevcut seviyenizi belirleyerek size en uygun sertifika hedefini belirleyecektir."
+          }
+        ],
+        "structure": "<ul class=\"space-y-4\">\n        <li><strong>Reading & Use of English (90 dk):</strong> Metin analizi ve derinlemesine gramer bilgisi.</li>\n        <li><strong>Writing (90 dk):</strong> Makale, mektup veya rapor yazımı.</li>\n        <li><strong>Listening (40 dk):</strong> Çeşitli bağlamlarda dinleme ve anlama.</li>\n        <li><strong>Speaking (15 dk):</strong> Başka bir aday ile eşleşerek yapılan mülakat.</li>\n      </ul>",
+        "scoring": "<p>Cambridge English Scale sistemi kullanılır. 160 ile 230+ arası puanlarla seviyeniz (B2, C1, C2) tescil edilir.</p>"
+      }
+    }
   },
   "ServiceDetail": {
     "globalStrategy": "GLOBAL GELECEK STRATEJİSİ",
-    "advantages": "Program <span class='gold-text not-italic'>Avantajları</span>",
-    "process": "Başvuru <span class='gold-text not-italic'>Süreci</span>",
-    "prestige": "STAR EDUCATION PRESTİJ",
+    "bestMatch": "SİZİN İÇİN EN İYİ EŞLEŞME",
+    "advantages": "Program <span class='gold-text'>Avantajları</span>",
+    "advantagesTitle": "Program <span class='gold-text'>Avantajları</span>",
+    "process": "Başvuru <span class='gold-text'>Süreci</span>",
+    "processTitle": "Başvuru <span class='gold-text'>Süreci</span>",
+    "requiredDocs": "Gerekli <span class='gold-text'>Belgeler</span>",
+    "prestige": "Mentor Career Consulting PRESTİJ",
     "destinationsLabel": "GLOBAL DESTİNASYONLAR",
-    "destinationsTitle": "Akademik <span class='gold-text not-italic'>Rotalar</span>",
+    "destinationsTitle": "Akademik <span class='gold-text'>Rotalar</span>",
     "destinationsDesc": "Sadece bir lokasyon değil, hayatınızı değiştirecek global bir vizyon seçiyorsunuz. En prestijli akademik merkezleri keşfedin.",
     "popularLabel": "SEÇKİN AKADEMİK ROTALAR",
-    "popularTitle": "Popüler <span class='gold-text not-italic'>Şehirler & Kurumlar</span>",
+    "popularTitle": "Popüler <span class='gold-text'>Şehirler & Kurumlar</span>",
     "viewDetails": "DETAYLARI İNCELE",
     "faqLabel": "REHBERLİK & AKADEMİK BİLGİ",
-    "faqTitle": "Sıkça Sorulan <span class='gold-text not-italic'>Sorular</span>",
+    "faqTitle": "Sıkça Sorulan <span class='gold-text'>Sorular</span>",
     "strategicStep": "STRATEJİK ADIM",
     "formTitle": "{title} Stratejik Başvuru Formu",
     "formDesc": "Global eğitim yolculuğunuzda en seçkin programları ve kurumları uzman kadromuzla keşfedin.",
+    "academicOptions": "Akademik Seçenekler",
+    "featuredUniversities": "Öne Çıkan Üniversiteler",
+    "universityDescription": "Hayalinizdeki kariyer için {country} daki en prestijli eğitim kurumlarını inceleyin.",
+    "faqSubtitle": "{country} {service} süreci hakkında merak edilenler.",
+    "worldRanking": "Dünya Sıralaması",
+    "annualTuition": "Yıllık Ücret",
+    "location": "Lokasyon",
+    "corporateProfile": "Kurumsal Profil",
+    "popularDepartments": "Popüler Bölümler",
+    "quickApply": "Hızlı Başvuru",
+    "applyOrGetQuote": "{name}'e Başvur veya Teklif Al",
+    "responseTime": "24 saat içinde uzman danışmanımız sizi arayacak.",
+    "quickInfo": "Hızlı Bilgiler",
+    "applicationPeriod": "Başvuru Dönemi",
+    "applicationPeriodDesc": "Güz ve Bahar Dönemleri",
+    "educationLanguage": "Eğitim Dili",
+    "educationLanguageDesc": "İngilizce / Yerel Dil",
+    "internationalStudent": "Uluslararası Öğrenci",
+    "internationalStudentDesc": "Yüksek Oranlı Entegrasyon",
+    "officialProcess": "Resmi Süreç",
+    "startNow": "{name} İçin Hemen Başlayın",
+    "startNowDesc": "Başvuru talebi veya fiyat teklifi alın — uzman akademik danışmanımız 24 saat içinde sizinle iletişime geçecek.",
+    "whyMentor Career": "Neden Mentor Career Consulting?",
+    "reasons": {
+      "strategy": "Kişiye özel akademik strateji",
+      "filePrep": "Tam dosya hazırlama desteği",
+      "accommodation": "Konaklama organizasyonu",
+      "access": "Mesai saatlerinde danışman erişimi"
+    },
+    "stats": {
+      "years": "Yıl",
+      "success": "Başarı",
+      "institutions": "Kurum"
+    },
+    "backToOverview": "{country} Genel Bakış",
     "seoDefaultDescription": "{title} programları hakkında detaylı bilgi ve danışmanlık alın.",
     "heroFallback": "Akademik hedeflerinize ulaşmanız için prestijli kurumlar ve uzman rehberliğimizle yanınızdayız.",
     "prestigeItems": {
@@ -124,107 +825,28 @@
       "eliteDesc": "EN SEÇKİN KURUMLARLA GLOBAL AKADEMİK NETWORK",
       "holisticTitle": "BÜTÜNCÜL REHBERLİK",
       "holisticDesc": "BAŞVURUDAN KARİYER PLANLAMASINA KESİNTİSİZ DESTEK"
-    }
-  },
-  "CountryDetail": {
-    "guideLabel": "Global Destinasyon Rehberi",
-    "heroSub": "{country} ülkesindeki akademik yolculuğunuz burada başlıyor. Star Education Consulting'ın uzman rehberliğiyle geleceğinizi şekillendirin.",
-    "capital": "Başkent",
-    "language": "Dil",
-    "currency": "Para Birimi",
-    "whyLabel": "NEDEN {country}?",
-    "lifeAndEducation": "{country}'da <span class='gold-text not-italic'>Eğitim ve Yaşam</span>",
-    "featuredLabel": "ÖNE ÇIKANLAR",
-    "prestigiousSchools": "{country}'daki <span class='gold-text not-italic'>Prestijli Okullar</span>",
-    "viewAll": "TÜMÜNÜ GÖR",
-    "institution": "EĞİTİM KURUMU",
-    "freeResources": "Ücretsiz <span class='gold-text not-italic'>Rehberler ve Kaynaklar</span>",
-    "resourceSubtitle": "{country} hakkında bilmeniz gereken her şeyi içeren özel dökümanlarımızı indirin.",
-    "fileInfo": "Kapsamlı bilgilendirme dosyası",
-    "downloadNow": "Şimdi İndir",
-    "description": "{country} ülkesindeki eğitim fırsatları, üniversiteler, dil okulları ve yaşam şartları hakkında kapsamlı rehber."
-  },
-  "CountryServiceDetail": {
-    "guideLabel": "AKADEMİK REHBER",
-    "heroSub": "{country} lokasyonunda elit eğitim fırsatlarını ve prestijli kurumları Star Education Consulting rehberliğiyle keşfedin.",
-    "comprehensiveGuide": "Kapsamlı <span class='gold-text not-italic'>Akademik Rehber</span>",
-    "noContent": "Bu kategori için içerik planlanmaktadır.",
-    "preparingGuide": "Akademik uzmanlığımızla bu bölge için en güncel rehberi hazırlıyoruz.",
-    "contactForDetails": "Detaylı bilgi ve size özel akademik strateji için uzmanlarımızla iletişime geçebilirsiniz.",
-    "advantages": "Program <span class='gold-text not-italic'>Avantajları</span>",
-    "process": "Başvuru <span class='gold-text not-italic'>Süreci</span>",
-    "faq": "Sıkça Sorulan <span class='gold-text not-italic'>Sorular</span>",
-    "pricing": "Program <span class='gold-text not-italic'>Ücretleri</span>",
-    "tuition": "Yıllık Ücret (Tahmini)",
-    "askUs": "Bilgi Alınız",
-    "pricingDisclaimer": "* ÜCRETLER KURUMLARA VE PROGRAMLARA GÖRE DEĞİŞKENLİK GÖSTEREBİLİR.",
-    "institutionsByCity": "Şehirlere Göre <span class='gold-text not-italic'>Kurumlar</span>",
-    "institutionsDesc": "{country} genelinde Star Education Consulting kalitesiyle seçilmiş en seçkin kurumlar.",
-    "institutionsCount": "{count} Kurum Listeleniyor",
-    "prestigiousInstitution": "PRESTİJLİ KURUM",
-    "globalPrestige": "GLOBAL PRESTİJ",
-    "explore": "İNCELE",
-    "estimatedAnnualFee": "Tahmini Yıllık Ücret",
-    "whyCountry": "Neden {country}?",
-    "defaultWhyItems": [
-      "Uluslararası standartlarda akademik prestij ve derinlik",
-      "Global network ve yaşam boyu sürecek vizyoner kazanımlar",
-      "Mezuniyet sonrası dünya devi şirketlerin hedefinde bir kariyer",
-      "Kültürel zenginleşme ve global vatandaşlık yetkinliği"
-    ],
-    "academicStrategy": "Akademik Stratejinizi Belirleyin",
-    "academicStrategyDesc": "{country} lokasyonunda size en uygun programı ve kurumu uzman danışmanlarımızla birlikte seçin.",
-    "startStrategySession": "STRATEJİ SEANSI BAŞLAT",
-    "consultantsOnline": "DANIŞMANLAR ÇEVRİMİÇİ",
-    "seoDefaultTitle": "{country} {service} | Star Education Consulting",
-    "seoDefaultDescription": "{country} ülkesindeki en iyi {service} seçeneklerini ve kurumlarını inceleyin.",
-    "courseDefaultDescription": "{country} ülkesinde {service} programı hakkında kapsamlı rehber."
-  },
-  "RouteDetail": {
-    "prestigiousDestination": "PRESTİJLİ DESTİNASYON",
-    "globalFuture": "Global Gelecek",
-    "heroSub": "Seçkin akademik fırsatları ve kültürel zenginlikleri Star Education rehberliğiyle keşfedin.",
-    "academicPartner": "AKADEMİK PARTNER",
-    "strategicAnalysis": "Stratejik <span class='gold-text not-italic'>Analiz</span>",
-    "academicEvaluation": "Akademik Değerlendirme",
-    "partnersTitle": "Anlaşmalı <span class='gold-text not-italic'>Kurumlar</span>",
-    "partnersDesc": "{country} lokasyonunda Star Education akademik hassasiyetiyle seçilmiş partner kurumlar.",
-    "resultsLabel": "SEÇKİN AKADEMİK SONUÇ",
-    "explore": "KEŞFET",
-    "countryGuide": "Ülke Rehberi",
-    "officialLanguage": "Resmi Dil",
-    "population": "Yaklaşık Nüfus",
-    "processSupport": "Süreç Destek",
-    "consultancy": "Akademik Danışmanlık",
-    "visaManagement": "Vize Süreç Yönetimi",
-    "accommodation": "Konaklama Organizasyonu",
-    "orientation": "Kültürel Oryantasyon",
-    "formTitle": "{title} Danışmanlık Talebi",
-    "formDesc": "{title} akademik fırsatları hakkında uzmanlarımızdan bilgi alın."
+    },
+    "overview": "Sürece Genel Bakış",
+    "needHelp": "Yardıma mı ihtiyacınız var?",
+    "contactPrompt": "Süreç hakkında daha fazla bilgi almak ve size özel bir plan oluşturmak için uzmanlarımızla görüşün.",
+    "getFreeConsultation": "Ücretsiz Danışmanlık Al",
+    "whyChooseUs": "NEDEN BİZİ SEÇMELİSİNİZ?",
+    "ourDifference": "Mentor Career Consulting Farkı",
+    "howItWorks": "SÜREÇ NASIL İŞLER?",
+    "stepByStep": "Adım Adım Yol Haritası",
+    "faq": "SSS"
   },
   "Hero": {
-    "title": "Geleceğini Dünyada Şekillendir",
-    "subtitle": "Doğru ülke, doğru okul, doğru kariyer. Star Education Consulting ile yurtdışı eğitim yolculuğunun her adımında sarsılmaz bir akademik disiplinle yanındayız — danışmanlıktan vizenin onaylanmasına kadar.",
-    "cta": "Ücretsiz Danışmanlık Al",
-    "cta2": "Programları Keşfet",
-    "slider2": {
-      "title": "İngiltere'den Amerika'ya, Global Bir Vizyon — Seçim Senin",
-      "subtitle": "9 ülkede 500+ partner okul. Dil okulundan yüksek lisans derecesine kadar her eğitim seviyesinde kurumsal rehberlik.",
-      "cta": "Ülkeleri İncele"
-    },
-    "slider3": {
-      "title": "IELTS'ten GRE'ye — Sınav Hazırlığında da Yanınızdayız",
-      "subtitle": "Hedef skorunuza en kısa yoldan ulaşmanız için gereken dil ve yeterlilik sınavlarında uzman akademik strateji.",
-      "cta": "Sınav Rehberini İncele"
-    },
+    "title": "Mentor Career Consulting Academic Mentorship",
+    "subtitle": "İngiltere merkezli uzman kadromuz ve yerel desteğimizle hayallerinizdeki üniversiteye stratejik adımlarla ulaşın.",
+    "cta": "Resmi Süreci Başlat",
     "label": "Global Geleceğinizin Strateji Ortağı",
     "viewDetails": "Detaylı İncele",
     "contact": "İletişime Geç",
     "badges": {
       "experience": "Yıllık Deneyim",
-      "students": "Başarıyla Yerleştirilen Öğrenci",
-      "countries": "Ülke & Bölge",
-      "partners": "Partner Okul & Üniversite"
+      "students": "Yatılı Öğrenci",
+      "countries": "Ülke & Bölge"
     }
   },
   "WhatsApp": {
@@ -234,7 +856,7 @@
     "greeting": "Merhaba! 👋",
     "message": "Uzman danışmanımızla hemen WhatsApp üzerinden görüşmeye başlayabilirsiniz.",
     "inputPlaceholder": "Size nasıl hitap edelim? (Opsiyonel)",
-    "defaultMessage": "Star Education Consulting web siteniz üzerinden ulaşıyorum, bilgi alabilir miyim?",
+    "defaultMessage": "Mentor Career Consulting web siteniz üzerinden ulaşıyorum, bilgi alabilir miyim?",
     "visitor": "Ziyaretçi",
     "footer": "Güvenli İletişim Hattı",
     "topics": {
@@ -262,9 +884,9 @@
         "label": "☀️ Yaz Okulu",
         "message": "Yurtdışı yaz okulları"
       },
-      "denklik": {
-        "label": "🛂 Denklik",
-        "message": "Diploma denklik süreçleri"
+      "sinavlar": {
+        "label": "📝 Sınavlar",
+        "message": "Uluslararası sınav hazırlığı"
       },
       "general": {
         "label": "💬 Diğer",
@@ -308,83 +930,64 @@
     }
   },
   "HomePage": {
-    "AboutUs": {
-      "label": "Kurumsal Vizyon",
-      "title": "Vizyoner <span class='gold-text not-italic'>Akademik Rehberlik</span>",
-      "desc1": "Star Education Consulting, Türkiye'nin en köklü ve güvenilir yurtdışı eğitim danışmanlığı kurumlarından biri olarak binlerce öğrencinin global kariyer yolculuğuna teknik ve stratejik rehberlik eşlik etmektedir.",
-      "desc2": "Sadece okul yerleştirmesi değil, kişiye özel <span class='gold-text font-bold italic'>global gelecek mimarlığı</span> yapıyoruz. Uzmanlığımızla hayalleri uluslararası standartlarda projelendiriyoruz.",
-      "stats": {
-        "experience": "Yıllık Tecrübe",
-        "partners": "Global Partner"
-      }
-    },
-    "SmartFinder": {
-      "label": "Akıllı Eşleşme",
-      "title": "Size En Uygun <span class='gold-text not-italic'>Programı</span> Keşfedin"
-    },
-    "Methodology": {
-      "label": "4 ADIMDA METODOLOJİK YERLEŞTİRME",
-      "title": "Geleceğinize Giden <span class='gold-text not-italic'>Stratejik Yolculuk</span>",
-      "desc": "Karmaşık görünen yurtdışı eğitim sürecini şeffaf, yönetilebilir ve sonuç odaklı bir protokol ile basit adımlara bölüyoruz.",
-      "ctaTitle": "Stratejik Yol Haritanızı Çizelim",
-      "steps": {
-        "1": {
-          "title": "Ücretsiz Strateji Danışmanlığı",
-          "desc": "Akademik geçmişinizi ve hedeflerinizi derinlemesine analiz ediyor, bütçenize en uygun ülke ve okul seçeneklerini bilimsel bir yaklaşımla sunuyoruz."
-        },
-        "2": {
-          "title": "Kurumsal Program Eşleştirme",
-          "desc": "Uzman danışmanlarımız, profilinize en uygun kurumları karşılaştırmalı raporlarla sunar. Burs fırsatları ve kabul oranlarını şeffafça paylaşıyoruz."
-        },
-        "3": {
-          "title": "Profesyonel Başvuru Yönetimi",
-          "desc": "Niyet mektubu ve referansların hazırlanmasından başvuru portallarının yönetimine kadar tüm süreci en güçlü şekilde yürütüyoruz."
-        },
-        "4": {
-          "title": "Vize & Entegrasyon Rehberliği",
-          "desc": "Kabul sonrası vize dosyanızı hazırlıyor, konaklama ve oryantasyon desteğiyle yeni hayatınıza akademik bir güvenceyle başlamanızı sağlıyoruz."
-        }
-      }
-    },
-    "Process": {
-      "label": "Sizin İçin Neler Yapıyoruz?",
-      "title": "Akademik <span class='gold-text not-italic'>Hizmetlerimiz</span>",
-      "desc": "Geleceğinizi global standartlarda şekillendirmek için sunduğumuz akademik ve kariyer odaklı profesyonel hizmetlerimiz.",
-      "viewService": "Hizmeti İncele"
-    },
     "Destinations": {
-      "label": "Akademik Rotalar",
-      "title": "Geleceğinize Açılan <span class='gold-text not-italic'>Global Kapılar</span>",
-      "desc": "Dünya çapında akademik prestijin ve kariyer imkanlarının buluştuğu, sınırları zorlayan eğitim üslerini uzman rehberliğimizle keşfedin.",
-      "viewDestinations": "Rotaları Keşfedin",
-      "viewDetail": "Detayları İncele"
+      "label": "POPÜLER ROTALAR",
+      "title": "En Çok Tercih Edilen Eğitim Ülkeleri",
+      "desc": "Öğrencilerimizin yurt dışı eğitim hayallerini gerçekleştirdiği en popüler ve avantajlı ülkeleri keşfedin.",
+      "rota": "ROTA",
+      "viewDetails": "Detaylı İncele",
+      "viewDestinations": "Tüm Rotaları İncele"
     },
-    "Featured": {
-      "label": "Popüler Yurtdışı Eğitim Programları",
-      "title": "Dünyanın En İyi <br /> <span class='gold-text not-italic'>Eğitim Kurumları</span>",
-      "viewAll": "Tüm Listeyi Keşfet"
+    "AboutUs": {
+      "label": "KURUMSAL VİZYON",
+      "title": "Geleceğinize Stratejik Bir Dokunuş",
+      "desc1": "Mentor Career Consulting olarak, öğrencilerin akademik hedeflerine ulaşmaları için sadece başvuru desteği değil, kapsamlı bir kariyer mimarisi sunuyoruz.",
+      "desc2": "Yılların getirdiği tecrübe ve global partner ağımızla, her öğrencinin potansiyelini en üst seviyeye taşıyoruz.",
+      "stats": {
+        "experience": "Yıllık Deneyim",
+        "students": "Başarılı Öğrenci",
+        "countries": "Global Destek"
+      }
+    },
+    "FinderIntro": {
+      "label": "AKILLI EŞLEŞTİRME",
+      "title": "Size En Uygun Programı Saniyeler İçinde Bulun",
+      "desc": "SmartFinder algoritmamız, binlerce program arasından profilinize en uygun seçenekleri saniyeler içinde analiz eder."
     },
     "Consultation": {
-      "label": "Danışmanlık",
-      "title": "Geleceğinizi size özel <br /> <span class='gold-text italic'>Stratejiyle</span> Kurun.",
-      "desc": "Yurtdışı eğitim sadece bir diploma değil, hayat boyu sürecek bir network ve vizyon yatırımıdır. <span class='text-[#004aad] font-bold'>Akademik strateji seansınızı</span> hemen başlatın.",
-      "starberatungText": "Star Education Consulting olarak, uluslararası akademik ağımız ve vizyoner yaklaşımımızla eğitim yolculuğunuzu dünya standartlarında şekillendiriyoruz. Sadece diploma değil, yetkinlik ve network odaklı bir gelecek inşa etmeniz için size en uygun stratejiyi birlikte tasarlıyoruz.",
-      "formTitle": "Danışmanlık Talebi",
-      "offices": [
-        { "city": "Stuttgart", "country": "Almanya" },
-        { "city": "Londra", "country": "İngiltere" },
-        { "city": "Türkiye Geneli", "country": "30 Büyükşehir" },
-        { "city": "Dünya Geneli", "country": "Tüm Türkçe Konuşanlar" }
-      ]
+      "label": "ÜCRETSİZ DANIŞMANLIK",
+      "title": "Global Geleceğinizi <span class='text-secondary'>Birlikte</span> Tasarlayalım",
+      "desc": "Akademik hedeflerinize ulaşmak için ilk adımı uzman danışmanlarımızla atın.",
+      "formTitle": "Hemen Bilgi Alın"
+    },
+    "Process": {
+      "label": "HİZMETLERİMİZ",
+      "title": "Eğitim Yolculuğunuzun Her Adımında Yanınızdayız",
+      "desc": "Başvurudan kabule, vizeden konaklamaya kadar tüm süreçlerde profesyonel destek.",
+      "viewService": "DETAYLARI GÖR"
     },
     "Services": {
-      "vize": "Vize Danışmanlığı",
+      "yurtdisi-universite": "Yurtdışı Üniversite",
+      "yurtdisi-master": "Yurtdışı Yüksek Lisans",
+      "yurtdisi-lise-egitimi": "Yurtdışı Lise",
+      "yurtdisi-dil-okulu": "Yurtdışı Dil Okulları",
+      "yurtdisi-yuksek-lisans": "Yurtdışı Yüksek Lisans",
+      "yurtdisi-lise": "Yurtdışı Lise",
+      "yurtdisi-yaz-okullari": "Yurtdışı Yaz Okulları",
+      "yurtdisi-dil-okullari": "Yurtdışı Dil Okulları",
+      "yurtdisi-kariyer": "Yurtdışı Kariyer",
+      "career": "Kariyer",
+      "kariyer": "Kariyer",
       "konaklama": "Konaklama Desteği",
       "bilet": "Uçak Bileti",
-      "denklik": "Diploma Denkliği",
-      "master-yuksek-lisans": "Yüksek Lisans & Master",
-      "lise": "Lise Eğitimi",
-      "universite": "Üniversite Eğitimi",
+      "sinavlar": "Uluslararası Sınavlar",
+      "vize": "Vize Danışmanlığı",
+      "visa": "Vize Danışmanlığı",
+      "denklik": "Denklik İşlemleri",
+      "scholarship": "Burs Başvuruları",
+      "master-yuksek-lisans": "Yüksek Lisans",
+      "lise": "Lise",
+      "universite": "Üniversite",
       "yaz-okulu": "Yaz Okulları",
       "dil-okullari": "Dil Okulları",
       "YURTDISI-YUKSEK-LISANS": "Yurtdışı Yüksek Lisans",
@@ -393,17 +996,52 @@
       "YURTDISI-YAZ-OKULLARI": "Yurtdışı Yaz Okulları",
       "YURTDISI-DIL-OKULLARI": "Yurtdışı Dil Okulları",
       "KARIYER": "Kariyer",
-      "yurtdisi-yuksek-lisans": "Yurtdışı Yüksek Lisans",
-      "yurtdisi-lise": "Yurtdışı Lise",
-      "yurtdisi-universite": "Yurtdışı Üniversite",
-      "yurtdisi-yaz-okullari": "Yurtdışı Yaz Okulları",
-      "yurtdisi-dil-okullari": "Yurtdışı Dil Okulları",
-      "kariyer": "Kariyer",
-      "egitim-koclugu": "Eğitim Koçluğu",
       "ulkeler": "Ülkeler",
       "programlar": "Programlar",
       "subeler": "Şubeler",
-      "sinavlar": "Sınavlar"
+      "yurtdisi-universite-detail": {
+        "categories": {
+          "ranking": "Sıralama Odaklı (Top 100)",
+          "scholarship": "Burs Garantili Programlar",
+          "free": "Ücretsiz Devlet Üniversiteleri"
+        }
+      },
+      "yurtdisi-yuksek-lisans-detail": {
+        "categories": {
+          "mba": "MBA Programları",
+          "msc": "Master of Science (MSc)",
+          "art": "Sanat & Tasarım Master"
+        }
+      },
+      "yurtdisi-lise-detail": {
+        "categories": {
+          "boarding": "Klasik Yatılı Okullar (Boarding)",
+          "day": "Özel Günübirlik Okullar (Private Day)",
+          "exchange": "Devlet Lise Değişim (Exchange)",
+          "ibap": "IB & AP Diploma Programları"
+        }
+      },
+      "yurtdisi-yaz-okullari-detail": {
+        "categories": {
+          "academic": "Akademik Yaz Okulu",
+          "sports": "Spor & Sanat",
+          "language": "Dil & Aktivite"
+        }
+      },
+      "yurtdisi-dil-okullari-detail": {
+        "categories": {
+          "general": "Genel İngilizce",
+          "business": "İş İngilizcesi (Business)",
+          "pathway": "Akademik Geçiş (Pathway)"
+        }
+      },
+      "career-detail": {
+        "categories": {
+          "vocational": "Yurtdışı Meslek Eğitimi Danışmanlığı",
+          "career": "Uluslararası Kariyer Danışmanlığı",
+          "cv": "Profesyonel CV Oluşturma"
+        }
+      }
     }
   },
   "Card": {
@@ -414,7 +1052,7 @@
   },
   "Blog": {
     "label": "Akademik Perspektif",
-    "title": "Eğitim Dünyasından <br /> <span class='italic'>Seçkin Notlar</span>",
+    "title": "Eğitim Dünyasından '<br />' '<span class=\"italic\">'Seçkin Notlar'</span>'",
     "viewAll": "Tümünü İncele",
     "readMore": "Okumaya Başla",
     "empty": "En yeni duyurular ve edukatif içerikler yakında burada paylaşılacak.",
@@ -428,18 +1066,17 @@
     "contactLabel": "İLETİŞİM",
     "title": "Strateji Seansınızı Başlatın",
     "subtitle": "Yurtdışı eğitim hayallerinizi akademik hassasiyet ve uzman rehberliğimizle gerçeğe dönüştürmek için buradayız.",
-    "description": "Global hedeflerinize ulaşmak için uzman ekibimizle birlikte size özel bir yol haritası belirleyelim.",
-    "contactDescription": "Hizmetlerimiz veya eğitim süreçleri hakkında daha fazla bilgi almak için uzman ekibimize info@stareducon.co.uk üzerinden ulaşabilirsiniz.",
-    "officeTitle": "Akademik <span class='gold-text not-italic'>Ofisimiz</span>",
+    "description": "Adres: London /UK \n Telefon: +44 7501 412151 \n E-Posta: info@mentor-cc.com",
+    "officeTitle": "Akademik <span class='gold-text'>Ofisimiz</span>",
     "officeDesc": "Uzman danışmanlarımızla yüz yüze görüşmek için ofisimizi ziyaret edebilir veya dijital kanallarımızdan bize ulaşabilirsiniz.",
-    "mainOffice": "Merkez Ofis",
-    "phone": "Telefon",
+    "mainOffice": "Londra Ofisi",
+    "phone": "+44 7501 412151",
     "email": "E-posta",
     "workingHours": "Çalışma Saatleri",
     "weekdays": "Hafta İçi",
     "saturday": "Cumartesi",
-    "collaborationTitle": "Stratejik <span class='gold-text not-italic'>İşbirliği</span>",
-    "collaborationDesc": "Yurtdışı eğitim hayallerinizi akademik hassasiyet ve uzman rehberliğimizle gerçeğe dönüştürmek için buradayız. Aşağıdaki formu doldurarak veya doğrudan ofisimizle iletişime geçerek ilk adımı atabilirsiniz.",
+    "collaborationTitle": "Stratejik <span class='gold-text'>İşbirliği</span>",
+    "collaborationDesc": "Yurtdışı eğitim hayallerinizi akademik hassasiyet ve uzman rehberliğimizle gerçeğe dönüştürmek için buradayız. Formu doldurarak mail göndererek veya WhatsApp ile iletişime geçerek ilk adımı atabilirsiniz.",
     "formTitle": "Danışmanlık Talebi",
     "formData": {
       "name": "Ad Soyad",
@@ -450,7 +1087,7 @@
       "placeholders": {
         "name": "Selin Yılmaz",
         "email": "selin@example.com",
-        "phone": "+44 7___ ______",
+        "phone": "+90 (5__) ___ __ __",
         "service": "Program Seçiniz",
         "message": "Vizyonunuzdan ve beklentilerinizden kısaca bahsedin..."
       }
@@ -461,8 +1098,8 @@
     "successDesc": "Aramıza hoş geldiniz! Uzman danışmanlarımız profilinizi inceleyip 24 saat içinde size özel bir programla dönüş yapacaktır.",
     "trackRequests": "Taleplerimi Takip Et",
     "sendNew": "Yeni Bir Form Gönder",
-    "policyNote": "Bu formu onaylayarak <policyLink>Veri Politikasını</policyLink> kabul etmiş bulunmaktasınız.",
-    "policyLink": "Veri Politikası",
+    "policyNote": "Bu formu göndererek <policyLink>KVKK Aydınlatma Metnini</policyLink> okuduğunuzu ve verilerinizin işlenmesini kabul ettiğinizi onaylıyorsunuz.",
+    "policyLink": "KVKK Aydınlatma Metni",
     "supportLabel": "İletişim & Profesyonel Destek",
     "whatsappCta": "WhatsApp ile İletişime Geç"
   },
@@ -474,7 +1111,7 @@
       "0": {
         "name": "Zeynep K.",
         "program": "King's College London - Hukuk",
-        "text": "Star Education Consulting ile tanışmadan önce Londra'da hukuk okumak sadece bir hayaldi. Başvuru sürecindeki titiz çalışmaları ve niyet mektubuma yaptıkları dokunuşlar sayesinde kabul aldım. Hayatımın en doğru kararıydı."
+        "text": "Mentor Career Consulting ile tanışmadan önce Londra'da hukuk okumak sadece bir hayaldi. Başvuru sürecindeki titiz çalışmaları ve niyet mektubuma yaptıkları dokunuşlar sayesinde kabul aldım. Hayatımın en doğru kararıydı."
       },
       "1": {
         "name": "Caner Y.",
@@ -494,20 +1131,51 @@
     }
   },
   "SmartFinder": {
-    "title": "Sizin İçin En İyi Seçenekler",
-    "searching": "Analiz ediliyor...",
+    "mainTitle": "Yapay Zeka Destekli Gelecek Planlayıcı",
+    "mainSubtitle": "SmartFinder algoritması ile hedeflerinize, bütçenize ve profilinizde en uygun eğitim programını saniyeler içinde bulun.",
+    "resultsTitle": "Sizin İçin En İyi <span class='gold-text italic'>Akademik Seçenekler</span>",
+    "title": "Analiz Sonuçları",
+    "searching": "Analiz Ediliyor...",
     "compatibility": "%{score} Uyumlu",
     "details": "Detaylar",
+    "secureApplication": "Güvenli Başvuru",
     "applyNow": "Hemen Başvur",
-    "noMatch": "Maalesef tam eşleşme bulunamadı.",
+    "fastProcessing": "Hızlı Süreç",
+    "directAdmission": "Doğrudan Kabul",
+    "compatibilityLabel": "Uyum Oranı",
+    "mentorshipIncluded": "Kişiselleştirilmiş mentorluk dahil",
+    "requirementsLabel": "Gereksinimler",
+    "req_academic": "Akademik Kayıtlar",
+    "req_language": "Dil Sertifikası",
+    "req_personal": "Niyet Mektubu",
+    "noMatch": "Maalesef tam uyumlu bir sonuç bulunamadı.",
     "noMatchDesc": "Kriterlerinizi esneterek tekrar deneyebilir veya danışmanımıza sorabilirsiniz.",
     "retry": "Yeniden Ara",
     "mismatch": "Dikkat: {reason}",
     "loadingServices": "Yükleniyor...",
-    "selectScore": "Skor Seçiniz",
+    "selectScore": "Puan Seçiniz",
     "completeStep": "Adımı Tamamla",
     "prevStep": "Geri Dön",
     "nextStep": "Son Adıma Geç",
+    "sortBy": {
+      "compatibility": "Uyum Oranı",
+      "price": "Yıllık Ücret"
+    },
+    "result": {
+      "topMatch": "EN İYİ UYUM",
+      "duration": "Eğitim Dönemi",
+      "fastTrack": "Hızlı Süreç",
+      "directAdmit": "Doğrudan Kabul",
+      "defaultDuration": "1-4 Yıl"
+    },
+    "modal": {
+      "admissionCriteria": "Kabul Kriterleri",
+      "highlights": "Program Öne Çıkanlar",
+      "institutionalStats": "Kurumsal Veriler",
+      "minGpa": "Minimum GPA",
+      "langProficiency": "Dil Yeterliliği",
+      "ranking": "RANKING"
+    },
     "steps": {
       "category": "Program Türü",
       "profile": "Profil & Hedef",
@@ -532,7 +1200,7 @@
       },
       "LANGUAGE_SCHOOL": {
         "label": "Dil Okulu",
-        "desc": "Yurtdışında yabancı dil"
+        "desc": "Yurtdışında yabancı dil eğitimi"
       },
       "SUMMER_SCHOOL": {
         "label": "Yaz Okulu",
@@ -540,233 +1208,206 @@
       }
     },
     "fields": {
-      "gpa": "Akademik Başarı (GPA)",
-      "gpaPlaceholder": "Örn: 3.4",
+      "gpa": "GPA / Not Ortalaması",
+      "gpaPlaceholder": "0.0 - 4.0",
       "langProficiency": "Dil Yeterliliği",
-      "specialization": "Hedeflenen Uzmanlık Alanı",
-      "highSchoolGpa": "Başarı Ortalaması (100 üzerinden)",
-      "highSchoolGpaPlaceholder": "Örn: 88",
+      "specialization": "Uzmanlık Alanı",
+      "highSchoolGpa": "Lise Not Ortalaması",
+      "highSchoolGpaPlaceholder": "50 - 100",
       "langLevel": "Dil Seviyesi",
-      "schoolType": "Okul Türü Tercihi",
-      "currentLangLevel": "Şu Anki Dil Seviyeniz",
-      "eduFocus": "Eğitim Odak Noktası",
-      "duration": "Hedeflenen Süre",
+      "currentLangLevel": "Mevcut Dil Seviyeniz",
+      "eduFocus": "Eğitim Odağı",
+      "duration": "Eğitim Süresi",
       "period": "Eğitim Dönemi",
-      "budgetPlan": "Bütçe Planı"
+      "budget": "Bütçe Aralığı",
+      "country": "Hedef Ülke",
+      "category": "Program Türü",
+      "preference": "Uzmanlık Alanı",
+      "languageScore": "Dil Puanı"
     },
     "durationLabels": {
-      "short_summer": "2-4 Hafta",
-      "med_summer": "6-8 Hafta",
-      "long_summer": "10-12 Hafta",
-      "short_lang": "4-8 Hafta",
-      "med_lang": "12-24 Hafta",
-      "long_lang": "36+ Hafta",
-      "semester": "1 Dönem",
-      "year": "1 Akademik Yıl",
-      "full": "Tüm Program"
+      "semester": "1 Sömestr",
+      "year": "1 Yıl",
+      "full": "Tam Program",
+      "short_lang": "2-4 Hafta",
+      "med_lang": "1-3 Ay",
+      "long_lang": "3 Ay+",
+      "short_summer": "2-3 Hafta",
+      "med_summer": "4-6 Hafta",
+      "long_summer": "6 Hafta+"
     },
     "budgetLabels": {
       "ECONOMY": {
         "label": "Ekonomik",
-        "desc": "Erişilebilir bütçeli seçenekler"
+        "desc": "10.000 EUR altı seçenekler"
       },
       "MID": {
         "label": "Orta Segment",
-        "desc": "Standart bütçeli programlar"
+        "desc": "10.000 - 25.000 EUR arası"
       },
       "PREMIUM": {
         "label": "Prestijli",
-        "desc": "Üst düzey özel eğitim kurumları"
+        "desc": "25.000 EUR üzeri özel okullar"
       }
     },
     "countries": {
       "ALL": "Tüm Ülkeler",
-      "almanya": "Almanya",
       "ingiltere": "İngiltere",
       "amerika": "Amerika",
+      "almanya": "Almanya",
       "kanada": "Kanada",
       "isvicre": "İsviçre",
       "avustralya": "Avustralya",
       "belcika": "Belçika",
       "hollanda": "Hollanda",
       "irlanda": "İrlanda",
-      "polonya": "Polonya"
+      "polonya": "Polonya",
+      "italya": "İtalya",
+      "fransa": "Fransa",
+      "ispanya": "İspanya",
+      "macaristan": "Macaristan",
+      "malta": "Malta"
     },
     "areas": {
-      "Mühendislik": "Mühendislik",
-      "İşletme": "İşletme",
-      "Tıp": "Tıp",
-      "Sanat": "Sanat"
+      "ENGINEERING": "Mühendislik",
+      "BUSINESS": "İşletme",
+      "MEDICINE": "Tıp",
+      "ART": "Sanat",
+      "OTHER": "Diğer"
     },
     "focus": {
-      "Genel": "Genel Dil Eğitimi",
-      "Sinav": "Sınav Hazırlık (IELTS/TOEFL)",
-      "Is": "İş İngilizcesi"
+      "GENERAL": "Genel İngilizce",
+      "EXAM": "Sınav Hazırlık",
+      "BUSINESS": "İş İngilizcesi"
     },
     "schoolTypes": {
-      "devlet": "Devlet Lisesi",
-      "ozel": "Özel Yatılı",
-      "spor": "Spor Odaklı"
+      "PUBLIC": "Devlet Lisesi",
+      "PRIVATE": "Özel Yatılı",
+      "SPORTS": "Spor Odaklı",
+      "Devlet": "Devlet Lisesi",
+      "Özel": "Özel Yatılı"
     }
   },
-  "Career": {
-    "meta": {
-      "title": "Kariyer & Gelecek | Bizimle Çalışın | Star Education Consulting",
-      "description": "Geleceğin liderlerini yetiştiren vizyoner ekibimize katılın. Global eğitim sektöründe fark yaratacak profesyonellerle büyüyoruz."
-    },
-    "hero": {
-      "label": "Join Our Team",
-      "title": "Kariyer & <span class='gold-text not-italic'>Gelecek</span>",
-      "subtitle": "Geleceğin liderlerini yetiştiren vizyoner ekibimize katılın. Global eğitim sektöründe fark yaratacak profesyonellerle büyüyoruz."
-    },
-    "culture": {
-      "label": "KÜLTÜRÜMÜZ",
-      "title": "Neden <span class='gold-text not-italic'>Star Education Consulting</span>?",
-      "subtitle": "Sadece bir iş yeri değil, her gün yeni bir şeyler öğrendiğimiz, küresel akademik dünyayı şekillendirdiğimiz bir mükemmeliyet merkezinde yer almak ister misiniz?"
-    },
-    "benefits": {
-      "global": {
-        "title": "Global Vizyon",
-        "desc": "Dünyanın en prestijli eğitim kurumlarıyla doğrudan çalışma ve global bir networkün parçası olma fırsatı."
-      },
-      "development": {
-        "title": "Sürekli Gelişim",
-        "desc": "Akademik danışmanlıkta uzmanlaşmanızı sağlayacak düzenli yurt içi ve yurt dışı eğitim programları."
-      },
-      "culture": {
-        "title": "Kültür & Bağlılık",
-        "desc": "Karşılıklı güvene, profesyonelliğe ve yüksek etik değerlere dayalı, destekleyici çalışma ortamı."
-      }
-    },
-    "positions": {
-      "label": "AÇIK POZİSYONLAR",
-      "title": "Sizi <span class='gold-text not-italic'>Bekliyoruz</span>",
-      "desc": "Eğer listelenmiş bir pozisyon sizin için uygun değilse, yine de tanışmak isteyebiliriz.",
-      "apply": "BAŞVURU YAP",
-      "generalTitle": "Genel Başvuru",
-      "generalDesc": "Özgeçmişinizi ve motivasyon mektubunuzu bize iletin, ekibimize değer katabileceğiniz bir pozisyon oluştuğunda ilk size ulaşalım."
-    },
-    "openings": [
-      {
-        "title": "Senior Akademik Danışman",
-        "location": "İstanbul (Merkez)",
-        "type": "Full-Time",
-        "category": "Akademik Hizmetler"
-      },
-      {
-        "title": "Yurtdışı Eğitim Koordinatörü",
-        "location": "Türkiye (Büyükşehir Saha Koordinasyonu)",
-        "type": "Full-Time",
-        "category": "Operasyon"
-      },
-      {
-        "title": "Dijital Pazarlama Uzmanı",
-        "location": "Uzaktan (Remote) / İstanbul (Merkez)",
-        "type": "Full-Time",
-        "category": "Marketing"
-      }
-    ]
-  },
-  "SuccessStories": {
-      "metaTitle": "Başarı Hikayeleri | Star Education Consulting",
-      "metaDesc": "Yurt dışı eğitim hayallerini gerçeğe dönüştüren öğrencilerimizin global akademik başarıları ve deneyimleri.",
-      "heroLabel": "Başarı Hikayeleri",
-      "heroTitle": "Geleceğin <span>Liderleri</span>",
-      "heroSubtitle": "Yolculuğumuzda bize eşlik eden binlerce öğrencimizin başarı dolu hikayeleri ve global akademik başarıları.",
-      "stats": {
-        "acceptance": {
-          "label": "Kabul Oranı",
-          "value": "%99.2"
-        },
-        "scholarship": {
-          "label": "Burs Kazancı",
-          "value": "$4.5M+"
-        },
-        "alumni": {
-          "label": "Mezun Sayısı",
-          "value": "8500+"
-        },
-        "partners": {
-          "label": "Global Partner",
-          "value": "450+"
-        }
-      },
-      "testimonials": [
-        {
-          "name": "Selin Yılmaz",
-          "university": "University of Oxford",
-          "program": "MSc in Computer Science",
-          "quote": "Star Education Consulting ile çalışmak hayatımın dönüm noktasıydı. Sadece başvuru sürecinde değil, kariyer planlamamda da inanılmaz bir vizyon kattılar.",
-          "year": "2025"
-        },
-        {
-          "name": "Can Berk",
-          "university": "Harvard University",
-          "program": "MBA",
-          "quote": "Harvard kabulü almak imkansız görünüyordu ama stratejik portfolyo yönetimi sayesinde hayalim gerçek oldu. Her aşamada profesyonel destek aldım.",
-          "year": "2023"
-        },
-        {
-          "name": "Merve Demir",
-          "university": "University of Toronto",
-          "program": "Biomedical Engineering",
-          "quote": "Kanada vize süreci ve okul kabulü Star Education Consulting uzmanlığı ile çok rahat geçti. Kendimi her zaman güvende hissettim.",
-          "year": "2025"
-        },
-        {
-          "name": "Arda Erkan",
-          "university": "ETH Zurich",
-          "program": "Robotics and Intelligent Systems",
-          "quote": "Avrupa'nın en iyi üniversitelerinden birine kabul alma süreci çok zorluydu. Star Education Consulting'un akademik derinliği fark yarattı.",
-          "year": "2024"
-        },
-        {
-          "name": "Zeynep Kaya",
-          "university": "Bayswater London",
-          "program": "Intensive English Portfolio",
-          "quote": "Dil eğitimi için Londra'ya gitme kararımda sundukları seçenekler ve okul bağlantıları harikaydı. Muazzam bir deneyimdi.",
-          "year": "2023"
-        },
-        {
-          "name": "Emre Aydın",
-          "university": "Columbia University",
-          "program": "Public Administration",
-          "quote": "New York'ta eğitim alma hayalim gerçek oldu. Özellikle burs başvurularındaki yönlendirmeleri çok kıymetliydi.",
-          "year": "2025"
-        }
-      ],
-      "galleryLabel": "GLOBAL NETWORK",
-      "galleryTitle": "Mezunlarımızın <span>Olduğu</span> Kurumlar",
-      "ctaTitle": "Sizin Hikayeniz <span>Nasıl</span> Olacak?",
-      "ctaDesc": "Geleceğinizi dünyaca ünlü bir üniversitede kurmak için ilk adımı bugün birlikte atalım.",
-      "ctaBtn": "ÜCRETSİZ DANIŞMANLIK AL",
-      "classOf": "{year} Mezunu"
-    },
-    "ProgramFinder": {
-    "title": "Akıllı Okul Bulucu | Size En Uygun Programı Saniyeler İçinde Bulun",
+  "ProgramFinder": {
+    "title": "Akıllı Okul Bulucu | En Uygun Programı Saniyeler İçinde Bulun",
     "description": "Bütçenize ve hedeflerinize en uygun yurtdışı eğitim programlarını, üniversiteleri ve dil okullarını gerçek verilerle keşfedin.",
-    "keywords": "yurtdışı eğitim bulucu, uygun fiyatlı okullar, bütçe dostu yurtdışı eğitim, akıllı okul eşleştirme",
-    "heroBadge": "AI Destekli Eşleşme",
-    "heroTitle": "Geleceğinizi <br /> <span class='text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary)] to-blue-400'>Verilerle</span> Planlayın.",
+    "keywords": "yurtdışı eğitim bulucu, ekonomik okullar, bütçe dostu yurtdışı eğitim, akıllı okul eşleştirme",
+    "heroBadge": "Yapay Zeka Destekli Eşleştirme",
+    "heroTitle": "Geleceğinizi <br /> <highlight>Verilerle Planlayın</highlight>.",
     "heroSubtitle": "Hayallerinizle bütçeniz arasındaki en kısa yolu bulun. <br /> Gerçek okul ücretleri ve kabul kriterleri ile size özel analizinizi şimdi yapın.",
     "trust": {
       "data": {
-        "title": "Nokta Atışı Veri",
+        "title": "Nokta Atışı Veriler",
         "desc": "Resmi okul kaynaklarından alınan en güncel fiyat ve kabul verileriyle dürüst analiz."
       },
       "service": {
         "title": "Bağımsız Danışmanlık",
-        "desc": "Önceliğimiz bir okul satmak değil, kariyerinize en uygun rotayı objektif olarak çizmek."
+        "desc": "Önceliğimiz bir okulu satmak değil, kariyeriniz için en doğru rotayı objektif olarak çizmektir."
       },
       "speed": {
-        "title": "Anında Sonuç",
-        "desc": "Haftalarca süren araştırmayı saniyeler içine sığdıran akıllı eşleşme algoritması."
+        "title": "Anlık Sonuçlar",
+        "desc": "Haftalar süren araştırmayı saniyelere sığdıran akıllı eşleştirme algoritması."
       }
     },
     "quote": {
-      "text": "\"Yurtdışı eğitim bir harcama değil, hayat boyu temettü verecek en stratejik yatırımdır.\"",
-      "author": "Star Education Consulting Executive Guide"
+      "text": "\"Yurtdışı eğitim bir masraf değil, hayat boyu temettü verecek en stratejik yatırımdır.\"",
+      "author": "Mentor Career Consulting Executive Guide"
     }
+  },
+  "ProgramDetail": {
+    "title": "Program Detayları",
+    "backToSearch": "Aramaya Dön",
+    "applyNow": "Şimdi Başvur",
+    "institution": "Kurum",
+    "location": "Konum",
+    "category": "Kategori",
+    "duration": "Süre",
+    "price": "Ücret",
+    "description": "Program Hakkında",
+    "requirements": "Giriş Şartları",
+    "features": "Program Özellikleri",
+    "stats": "İstatistikler",
+    "similarPrograms": "Benzer Programlar",
+    "notFound": "Program Bulunamadı",
+    "notFoundDesc": "Aradığınız program mevcut değil veya kaldırılmış olabilir.",
+    "viewAllPrograms": "Tüm Programları Gör",
+    "applySuccess": "Başvurunuz alındı!",
+    "applySuccessDesc": "Danışmanlarımız en kısa sürede sizinle iletişime geçecektir."
+  },
+  "SuccessStories": {
+    "metaTitle": "Başarı Hikayeleri | Mentor Career Consulting",
+    "metaDesc": "Yurt dışı eğitim hayallerini gerçeğe dönüştüren öğrencilerimizin global akademik başarıları ve deneyimleri.",
+    "heroLabel": "Başarı Hikayeleri",
+    "heroTitle": "Geleceğin <span>Liderleri</span>",
+    "heroSubtitle": "Yolculuğumuzda bize eşlik eden binlerce öğrencimizin başarı dolu hikayeleri ve global akademik başarıları.",
+    "stats": {
+      "acceptance": {
+        "label": "Kabul Oranı",
+        "value": "%99.2"
+      },
+      "scholarship": {
+        "label": "Burs Kazancı",
+        "value": "$4.5M+"
+      },
+      "alumni": {
+        "label": "Mezun Sayısı",
+        "value": "8500+"
+      },
+      "partners": {
+        "label": "Global Partner",
+        "value": "450+"
+      }
+    },
+    "testimonials": [
+      {
+        "name": "Selin Yılmaz",
+        "university": "University of Oxford",
+        "program": "MSc in Computer Science",
+        "quote": "Mentor Career Consulting ile çalışmak hayatımın dönüm noktasıydı. Sadece başvuru sürecinde değil, kariyer planlamamda da inanılmaz bir vizyon kattılar.",
+        "year": "2025"
+      },
+      {
+        "name": "Can Berk",
+        "university": "Harvard University",
+        "program": "MBA",
+        "quote": "Harvard kabulü almak imkansız görünüyordu ama stratejik portfolyo yönetimi sayesinde hayalim gerçek oldu. Her aşamada profesyonel destek aldım.",
+        "year": "2023"
+      },
+      {
+        "name": "Merve Demir",
+        "university": "University of Toronto",
+        "program": "Biomedical Engineering",
+        "quote": "Kanada vize süreci ve okul kabulü Mentor Career Consulting uzmanlığı ile çok rahat geçti. Kendimi her zaman güvende hissettim.",
+        "year": "2025"
+      },
+      {
+        "name": "Arda Erkan",
+        "university": "ETH Zurich",
+        "program": "Robotics and Intelligent Systems",
+        "quote": "Avrupa'nın en iyi üniversitelerinden birine kabul alma süreci çok zorluydu. Mentor Career Consulting'un akademik derinliği fark yarattı.",
+        "year": "2024"
+      },
+      {
+        "name": "Zeynep Kaya",
+        "university": "Bayswater London",
+        "program": "Intensive English Portfolio",
+        "quote": "Dil eğitimi için Londra'ya gitme kararımda sundukları seçenekler ve okul bağlantıları harikaydı. Muazzam bir deneyimdi.",
+        "year": "2023"
+      },
+      {
+        "name": "Emre Aydın",
+        "university": "Columbia University",
+        "program": "Public Administration",
+        "quote": "New York'ta eğitim alma hayalim gerçek oldu. Özellikle burs başvurularındaki yönlendirmeleri çok kıymetliydi.",
+        "year": "2025"
+      }
+    ],
+    "galleryLabel": "GLOBAL NETWORK",
+    "galleryTitle": "Mezunlarımızın <span>Olduğu</span> Kurumlar",
+    "ctaTitle": "Sizin Hikayeniz <span>Nasıl</span> Olacak?",
+    "ctaDesc": "Geleceğinizi dünyaca ünlü bir üniversitede kurmak için ilk adımı bugün birlikte atalım.",
+    "ctaBtn": "ÜCRETSİZ DANIŞMANLIK AL",
+    "classOf": "{year} Mezunu"
   },
   "Quote": {
     "programSelect": "Bölüm / Program Seçiniz",
@@ -792,7 +1433,7 @@
     "examsPlaceholder": "IELTS, TOEFL, SAT vb.",
     "notes": "Notlarınız (Opsiyonel)",
     "notesPlaceholder": "Eklemek istediğiniz diğer detaylar...",
-    "submitStart": "Başvuruyu Başlat",
+    "submitStart": "Resmi Süreci Başlat",
     "submitQuote": "Teklif Al",
     "successTitleAuth": "Başvurunuz Başlatıldı!",
     "successTitleNoAuth": "Harika!",
@@ -816,14 +1457,16 @@
     "importantNotes": "Önemli Notlar"
   },
   "Footer": {
-    "brandSummary": "Star Education Consulting - Yeni Nesil Yurtdışı Eğitim",
-    "brandDescription": "Uluslararası standartlarda akademik rehberlik hizmeti sunan Star Education Consulting, öğrencilerini dünyanın en seçkin kurumlarıyla buluşturan bir gelecek inşa eder. Global vizyon, profesyonel uzmanlık.",
+    "aboutTitle": "Neden Mentor Career Consulting?",
+    "brandSummary": "Mentor Career Consulting - Yurtdışı Eğitim Danışmanlığı",
+    "brandDescription": "Liseden lisansüstü eğitime kadar her aşamada, Mentor Career size daha iyi bir kariyer planlaması ve eğitim hayatı için öncülük eder. Eğitim seviyenize uygun olarak seçebileceğiniz yurt dışı okulları, work & travel imkânlarını ve dil okullarını sizin için listeler. Bütçenize ve ihtiyaçlarınıza uygun bir seçim yapmanızda size rehberlik eder. Eğitim almak istediğiniz ülkeler hakkında araştırma yaparak size güncel bilgiler sunar.\n\n“Eğitim danışmanlığı hizmetlerimizle uluslararası alanda geçerliliği olabilecek bir kariyer planlaması yapmak için şimdi bizi arayın!”",
     "sections": {
       "programs": "Programlar",
       "corporate": "Kurumsal",
       "contact": "İletişim"
     },
     "links": {
+      "aboutUs": "Hakkımızda",
       "vision": "Vizyonumuz",
       "success": "Başarı Hikayeleri",
       "offices": "Şubelerimiz",
@@ -838,7 +1481,7 @@
     "yurtdisi-universite": {
       "title": "Yurtdışında Üniversite Eğitimi",
       "heroDesc": "Oxford'dan Harvard'a, geleceğin liderleri arasına katılın. Sınavsız geçiş ve burs imkanlarıyla global bir kariyer inşa edin.",
-      "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Global Bir Geleceğin Kapıları</h2><p class=\"mb-6\">Star Education Consulting ile yurtdışında üniversite eğitimi, sadece bir diploma değil, sınırları olmayan bir yaşamın kapısını aralamaktır. Birleşik Krallık'ta 3 yılda mezun olup iş hayatına erken atılabilir, Amerika'da 'Liberal Arts' sistemiyle yeteneklerinizi keşfedebilir veya Almanya'da ücretsiz mühendislik eğitimi alabilirsiniz.</p><h2 class=\"text-3xl font-serif font-bold text-navy mb-10 italic underline underline-offset-8 decoration-gold/50\">Tahmini Akademik Ücretler (Yıllık)</h2><div class=\"overflow-x-auto mb-10 border border-gold/10 shadow-sm\"><table class=\"w-full text-left font-sans text-sm\"><thead class=\"bg-navy text-gold uppercase tracking-widest text-[10px]\"><tr><th class=\"p-6\">Ülke</th><th class=\"p-6\">Program Türü</th><th class=\"p-6\">Ortalama Ücret</th></tr></thead><tbody class=\"divide-y divide-gold/5 italic\"><tr class=\"hover:bg-gold/5 transition-colors\"><td class=\"p-6 font-bold\">İngiltere</td><td class=\"p-6\">Lisans / Yüksek Lisans</td><td class=\"p-6 text-gold font-bold\">£14,000 - £28,000</td></tr><tr class=\"hover:bg-gold/5 transition-colors\"><td class=\"p-6 font-bold\">Amerika</td><td class=\"p-6\">Lisans (Burslu Dahil)</td><td class=\"p-6 text-gold font-bold\">$22,000 - $55,000</td></tr><tr class=\"hover:bg-gold/5 transition-colors\"><td class=\"p-6 font-bold\">Polonya / Macaristan</td><td class=\"p-6\">Tıp / Mühendislik</td><td class=\"p-6 text-gold font-bold\">€4,000 - €12,000</td></tr><tr class=\"hover:bg-gold/5 transition-colors\"><td class=\"p-6 font-bold\">İrlanda</td><td class=\"p-6\">Lisans / Yüksek Lisans</td><td class=\"p-6 text-gold font-bold\">€11,000 - €18,000</td></tr></tbody></table></div><h2 class=\"text-3xl font-serif font-bold text-navy mb-10 italic underline underline-offset-8 decoration-gold/30\">Akademik Hazırlık ve Geçiş Programları</h2><ul class=\"grid grid-cols-1 md:grid-cols-2 gap-4 mb-10 italic text-sm\"><li class=\"p-4 bg-white/50 border-l-4 border-gold font-bold\"><strong>Foundation:</strong> Lisans öncesi 1 yıllık akademik köprü programı.</li><li class=\"p-4 bg-white/50 border-l-4 border-gold font-bold\"><strong>Pre-Master:</strong> Yüksek lisans için gereken akademik ve dil yeterliliği.</li><li class=\"p-4 bg-white/50 border-l-4 border-gold font-bold\"><strong>IY1:</strong> Birinci sınıfa doğrudan eşdeğer geçiş programı.</li><li class=\"p-4 bg-white/50 border-l-4 border-gold font-bold\"><strong>Burs Danışmanlığı:</strong> %20'den %100'e varan başarı bursu takibi.</li></ul>",
+      "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Global Bir Geleceğin Kapıları</h2><p class=\"mb-6\">Mentor Career Consulting ile yurtdışında üniversite eğitimi, sadece bir diploma değil, sınırları olmayan bir yaşamın kapısını aralamaktır. Birleşik Krallık'ta 3 yılda mezun olup iş hayatına erken atılabilir, Amerika'da 'Liberal Arts' sistemiyle yeteneklerinizi keşfedebilir veya Almanya'da ücretsiz mühendislik eğitimi alabilirsiniz.</p><h2 class=\"text-3xl font-serif font-bold text-navy mb-10 italic underline underline-offset-8 decoration-secondary/\">Tahmini Akademik Ücretler (Yıllık)</h2><div class=\"overflow-x-auto mb-10 border border-gold/10 shadow-sm\"><table class=\"w-full text-left font-sans text-sm\"><thead class=\"bg-navy text-gold uppercase tracking-widest text-[10px]\"><tr><th class=\"p-6\">Ülke</th><th class=\"p-6\">Program Türü</th><th class=\"p-6\">Ortalama Ücret</th></tr></thead><tbody class=\"divide-y divide-gold/5 italic\"><tr class=\"hover:bg-gold/5 transition-colors\"><td class=\"p-6 font-bold\">İngiltere</td><td class=\"p-6\">Lisans / Yüksek Lisans</td><td class=\"p-6 text-gold font-bold\">£14,000 - £28,000</td></tr><tr class=\"hover:bg-gold/5 transition-colors\"><td class=\"p-6 font-bold\">Amerika</td><td class=\"p-6\">Lisans (Burslu Dahil)</td><td class=\"p-6 text-gold font-bold\">$22,000 - $55,000</td></tr><tr class=\"hover:bg-gold/5 transition-colors\"><td class=\"p-6 font-bold\">Polonya / Macaristan</td><td class=\"p-6\">Tıp / Mühendislik</td><td class=\"p-6 text-gold font-bold\">€4,000 - €12,000</td></tr><tr class=\"hover:bg-gold/5 transition-colors\"><td class=\"p-6 font-bold\">İrlanda</td><td class=\"p-6\">Lisans / Yüksek Lisans</td><td class=\"p-6 text-gold font-bold\">€11,000 - €18,000</td></tr></tbody></table></div><h2 class=\"text-3xl font-serif font-bold text-navy mb-10 italic underline underline-offset-8 decoration-secondary/\">Akademik Hazırlık ve Geçiş Programları</h2><ul class=\"grid grid-cols-1 md:grid-cols-2 gap-4 mb-10 italic text-sm\"><li class=\"p-4 bg-white/50 border-l-4 border-gold font-bold\"><strong>Foundation:</strong> Lisans öncesi 1 yıllık akademik köprü programı.</li><li class=\"p-4 bg-white/50 border-l-4 border-gold font-bold\"><strong>Pre-Master:</strong> Yüksek lisans için gereken akademik ve dil yeterliliği.</li><li class=\"p-4 bg-white/50 border-l-4 border-gold font-bold\"><strong>IY1:</strong> Birinci sınıfa doğrudan eşdeğer geçiş programı.</li><li class=\"p-4 bg-white/50 border-l-4 border-gold font-bold\"><strong>Burs Danışmanlığı:</strong> %20'den %100'e varan başarı bursu takibi.</li></ul>",
       "advantages": [
         {
           "title": "Sınavsız Kabul",
@@ -879,8 +1522,8 @@
         },
         {
           "step": 4,
-          "title": "Vize ve Seyahat",
-          "desc": "Ülkeye özgü vize prosedürlerini titizlikle yönetiyor, konaklama ve uçak bileti organizasyonunuzu yaparak sizi uğurluyoruz."
+          "title": "Seyahat ve Konaklama",
+          "desc": "Ülkeye özgü tüm hazırlık süreçlerini titizlikle yönetiyor, konaklama ve uçak bileti organizasyonunuzu yaparak sizi uğurluyoruz."
         }
       ],
       "documents": [
@@ -895,42 +1538,34 @@
       "faq": [
         {
           "q": "YÖK denkliği alabilir miyim?",
-          "a": "Evet. Dünya sıralamasında ilk 1000'de yer alan üniversitelerden mezun olduğunuzda doğrudan denklik alabilirsiniz. İlk 1000 dışındaki okullar için YGS/LYS şartı veya Seviye Tespit Sınavı gerekebilir. Star Education Consulting olarak sadece akredite ve tanınan okullarla çalışıyoruz."
+          "a": "Evet. Dünya sıralamasında ilk 1000'de yer alan üniversitelerden mezun olduğunuzda doğrudan denklik alabilirsiniz. İlk 1000 dışındaki okullar için YGS/LYS şartı veya Seviye Tespit Sınavı gerekebilir. Mentor Career Consulting olarak sadece akredite ve tanınan okullarla çalışıyoruz."
         }
       ]
     },
     "yurtdisi-dil-okullari": {
       "title": "Yurtdışı Dil Okulları",
-      "heroDesc": "Dili yerinde, kültürün kalbinde öğrenin. Global kariyerinizin pasaportu olan yabancı dil yetkinliğini, dünyanın en seçkin dil okullarında edinin.",
-      "overview": "<h2 class='text-3xl font-serif font-bold text-navy mb-6 italic'>Global Dil Yetkinliği: Başarının Anahtarı</h2><p class='mb-6'>Star Education Consulting, İngiltere'nin tarihi şehirlerinden Amerika'nın modern metropollerine kadar geniş bir yelpazede akredite dil okullarıyla çalışmaktadır. İster genel İngilizce, ister yoğun sınav hazırlığı (IELTS/TOEFL) veya mesleki uzmanlık programları olsun; hedefinize en uygun rotayı birlikte çiziyoruz.</p>",
-      "advantages": [
-        { "title": "Tam Entegrasyon", "desc": "Sınıf içi eğitimden sosyal aktivitelere kadar %100 dil pratiği odaklı yaklaşım.", "icon": "MessageSquare" },
-        { "title": "Akredite Kurumlar", "desc": "British Council, Quality English ve English UK onaylı en seçkin okullar.", "icon": "Shield" }
-      ]
+      "heroDesc": "Dili yaşayarak öğrenin. Turist değil, yerel olun."
     },
     "yurtdisi-yaz-okullari": {
       "title": "Yurtdışı Yaz Okulları ve Kamplar",
-      "heroDesc": "Dünyanın en prestijli yatılı okullarında ve üniversite kampüslerinde akademik ve sosyal gelişim dolu bir yaz.",
-      "overview": "<h2 class='text-3xl font-serif font-bold text-navy mb-6 italic'>Bir Yazdan Daha Fazlası: Geleceğe Yatırım</h2><p class='mb-6'>8-18 yaş arası öğrenciler için tasarlanan yaz okullarımız, akademik gelişimi sosyal ve sportif faaliyetlerle birleştirir. Oxford, Cambridge ve Yale gibi efsanevi kampüslerde yaşayarak geçirilen bir yaz, öğrencinin global vizyonunda silinmez bir iz bırakır.</p>"
+      "heroDesc": "Dünyanın en iyi üniversitelerinde unutulmaz bir yaz deneyimi."
     },
     "yurtdisi-lise": {
       "title": "Yurtdışında Lise Eğitimi",
-      "heroDesc": "Global vatandaşlığa giden yolculuğa lisede başlayın. Dünyanın en iyi üniversitelerine kapı açan prestijli lise programları.",
-      "overview": "<h2 class='text-3xl font-serif font-bold text-navy mb-6 italic'>Erken Başlangıç, Güçlü Gelecek</h2><p class='mb-6'>İngiltere'de GCSE ve A-Level, Amerika'da High School Diploma veya uluslararası IB programları... Çocuğunuzun akademik başarısını en üst noktaya taşımak için en güçlü lise ağımızla hizmetinizdeyiz.</p>"
+      "heroDesc": "Dünya vatandaşı olmaya lisede başlayın. Global vizyon kazanmak için en doğru zaman."
     },
     "yurtdisi-yuksek-lisans": {
-      "title": "Master / Yüksek Lisans Programları",
-      "heroDesc": "Uzmanlığınızı global bir diplomayla taçlandırın. Kariyerinizde zirveye çıkmanızı sağlayacak en prestijli yüksek lisans mentorluğu.",
-      "overview": "<h2 class='text-3xl font-serif font-bold text-navy mb-6 italic'>Akademik Derinlik ve Global Kariyer</h2><p class='mb-6'>Yüksek lisans başvuruları, lisans seviyesine göre daha titiz bir 'Statement of Purpose' ve araştırma vizyonu gerektirir. Star Education olarak, MBA'den Veri Bilimi'ne kadar her alanda, kabul şansınızı %300'e varan oranlarda artıran stratejik dosyalar hazırlıyoruz.</p>"
+      "title": "Yurtdışı Yüksek Lisans Programları",
+      "heroDesc": "Kariyerinizi global bir boyuta taşımak için en prestijli yüksek lisans mentorluğu."
     },
-    "denklik": {
-      "title": "Diploma Denklik",
-      "heroDesc": "Yurtdışı diplomanızın Türkiye'de tanınması için profesyonel rehberlik. Star Education Consulting yanınızda."
+    "sinavlar": {
+      "title": "Uluslararası Sınavlar",
+      "heroDesc": "IELTS, TOEFL, SAT, GRE ve GMAT; global başarı için stratejik sınav hazırlık rehberliği."
     }
   },
   "Branches": {
     "title": "Global Ağımız",
-    "subtitle": "Size en yakın Star Education Consulting ofisini bulun ve hayallerinizdeki eğitime giden süreci profesyonel kadromuzla başlatın.",
+    "subtitle": "Size en yakın Mentor Career Consulting ofisini bulun ve hayallerinizdeki eğitime giden süreci profesyonel kadromuzla başlatın.",
     "label": "Global Network",
     "ofislerimiz": "Ofislerimiz & <span>Lokasyonlar</span>",
     "iletisim": "İletişim",
@@ -942,331 +1577,21 @@
     "onlineCta": "ONLINE RANDEVU AL",
     "list": [
       {
-        "country": "Almanya",
-        "city": "Stuttgart Hub",
-        "address": "Stuttgart / Freiburg (Almanya Yerel Destek)",
-        "phone": "",
-        "email": "info@stareducon.co.uk",
-        "hours": "Pzt - Cum: 09:00 - 18:00",
-        "image": "https://images.unsplash.com/photo-1599946347341-6cd484b74085?q=80&w=1000",
-        "isComingSoon": false
-      },
-      {
         "country": "İngiltere",
         "city": "London Hub",
-        "address": "London (Akademik İrtibat Merkezi)",
-        "phone": "",
-        "email": "info@stareducon.co.uk",
-        "hours": "Pzt - Cum: 09:00 - 17:30",
+        "address": "London / UK",
+        "phone": "+447501412151",
+        "email": "info@mentor-cc.com",
+        "hours": "Pzt – Cum: 09:00 – 18:00 / Cumartesi: 09:00 – 15:30",
         "image": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=1000",
         "isComingSoon": false
       },
       {
-        "country": "Türkiye",
-        "city": "İstanbul (HQ)",
-        "address": "Merkez Ofis - İstanbul",
-        "phone": "",
-        "email": "info@stareducon.co.uk",
-        "hours": "Pzt - Cmt: 09:00 - 19:00",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": false
-      },
-      {
-        "country": "Türkiye",
-        "city": "Ankara",
-        "address": "Ankara (Tüm Türkiye Online/Yerinde Hizmet)",
-        "phone": "",
-        "email": "info@stareducon.co.uk",
-        "hours": "Pzt - Cmt: 09:00 - 18:30",
-        "image": "https://images.unsplash.com/photo-1605634563478-f730248c5e63?q=80&w=1000",
-        "isComingSoon": false
-      },
-      {
-        "country": "Türkiye",
-        "city": "İzmir",
-        "address": "İzmir (Ege Bölge Koordinatörlüğü)",
-        "phone": "",
-        "email": "info@stareducon.co.uk",
-        "hours": "Pzt - Cmt: 09:00 - 18:30",
-        "image": "https://images.unsplash.com/photo-1542385151-efd9000785a0?q=80&w=1000",
-        "isComingSoon": false
-      },
-      {
-        "country": "Türkiye",
-        "city": "Bursa",
-        "address": "Bursa (Marmara Bölge Destek)",
-        "phone": "",
-        "email": "info@stareducon.co.uk",
-        "hours": "Pzt - Cmt: 09:00 - 18:30",
-        "image": "https://images.unsplash.com/photo-1589113316203-1e85ba4bc6c0?q=80&w=1000",
-        "isComingSoon": false
-      },
-      {
-        "country": "Türkiye",
-        "city": "Antalya",
-        "address": "Antalya (Akdeniz Bölge Koordinatörlüğü)",
-        "phone": "",
-        "email": "info@stareducon.co.uk",
-        "hours": "Pzt - Cmt: 09:00 - 18:30",
-        "image": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=1000",
-        "isComingSoon": false
-      },
-      {
-        "country": "Türkiye",
-        "city": "Samsun",
-        "address": "Samsun (Karadeniz Bölge Destek)",
-        "phone": "",
-        "email": "info@stareducon.co.uk",
-        "hours": "Pzt - Cmt: 09:00 - 18:30",
-        "image": "https://images.unsplash.com/photo-1587313627440-97693d3957ce?q=80&w=1000",
-        "isComingSoon": false
-      },
-      {
-        "country": "Türkiye",
-        "city": "Eskişehir",
-        "address": "Eskişehir",
-        "phone": "",
-        "email": "info@stareducon.co.uk",
-        "hours": "Pzt - Cmt: 09:00 - 18:30",
-        "image": "https://images.unsplash.com/photo-1543852786-1cf6624b9987?q=80&w=1000",
-        "isComingSoon": false
-      },
-      {
-        "country": "Türkiye",
-        "city": "Adana",
-        "address": "Adana",
-        "phone": "",
-        "email": "info@stareducon.co.uk",
-        "hours": "Hizmet Veriliyor",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Türkiye",
-        "city": "Gaziantep",
-        "address": "Gaziantep",
-        "phone": "",
-        "email": "info@stareducon.co.uk",
-        "hours": "Hizmet Veriliyor",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Türkiye",
-        "city": "Kocaeli",
-        "address": "Kocaeli",
-        "phone": "",
-        "email": "info@stareducon.co.uk",
-        "hours": "Hizmet Veriliyor",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Türkiye",
-        "city": "Mersin",
-        "address": "Mersin",
-        "phone": "",
-        "email": "info@stareducon.co.uk",
-        "hours": "Hizmet Veriliyor",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Türkiye",
-        "city": "Diyarbakır",
-        "address": "Diyarbakır",
-        "phone": "",
-        "email": "info@stareducon.co.uk",
-        "hours": "Hizmet Veriliyor",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Türkiye",
-        "city": "Hatay",
-        "address": "Hatay",
-        "phone": "",
-        "email": "info@stareducon.co.uk",
-        "hours": "Hizmet Veriliyor",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Türkiye",
-        "city": "Manisa",
-        "address": "Manisa",
-        "phone": "",
-        "email": "info@stareducon.co.uk",
-        "hours": "Hizmet Veriliyor",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Türkiye",
-        "city": "Kayseri",
-        "address": "Kayseri",
-        "phone": "",
-        "email": "info@stareducon.co.uk",
-        "hours": "Hizmet Veriliyor",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Türkiye",
-        "city": "Konya",
-        "address": "Konya",
-        "phone": "",
-        "email": "info@stareducon.co.uk",
-        "hours": "Hizmet Veriliyor",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Türkiye",
-        "city": "Balıkesir",
-        "address": "Balıkesir",
-        "phone": "",
-        "email": "info@stareducon.co.uk",
-        "hours": "Hizmet Veriliyor",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Türkiye",
-        "city": "Kahramanmaraş",
-        "address": "Kahramanmaraş",
-        "phone": "",
-        "email": "info@stareducon.co.uk",
-        "hours": "Hizmet Veriliyor",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Türkiye",
-        "city": "Van",
-        "address": "Van",
-        "phone": "",
-        "email": "info@stareducon.co.uk",
-        "hours": "Hizmet Veriliyor",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Türkiye",
-        "city": "Aydın",
-        "address": "Aydın",
-        "phone": "",
-        "email": "info@stareducon.co.uk",
-        "hours": "Hizmet Veriliyor",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Türkiye",
-        "city": "Tekirdağ",
-        "address": "Tekirdağ",
-        "phone": "",
-        "email": "info@stareducon.co.uk",
-        "hours": "Hizmet Veriliyor",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Türkiye",
-        "city": "Sakarya",
-        "address": "Sakarya",
-        "phone": "",
-        "email": "info@stareducon.co.uk",
-        "hours": "Hizmet Veriliyor",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Türkiye",
-        "city": "Denizli",
-        "address": "Denizli",
-        "phone": "",
-        "email": "info@stareducon.co.uk",
-        "hours": "Hizmet Veriliyor",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Türkiye",
-        "city": "Muğla",
-        "address": "Muğla",
-        "phone": "",
-        "email": "info@stareducon.co.uk",
-        "hours": "Hizmet Veriliyor",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Türkiye",
-        "city": "Mardin",
-        "address": "Mardin",
-        "phone": "",
-        "email": "info@stareducon.co.uk",
-        "hours": "Hizmet Veriliyor",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Türkiye",
-        "city": "Trabzon",
-        "address": "Trabzon",
-        "phone": "",
-        "email": "info@stareducon.co.uk",
-        "hours": "Hizmet Veriliyor",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Türkiye",
-        "city": "Malatya",
-        "address": "Malatya",
-        "phone": "",
-        "email": "info@stareducon.co.uk",
-        "hours": "Hizmet Veriliyor",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Türkiye",
-        "city": "Ordu",
-        "address": "Ordu",
-        "phone": "",
-        "email": "info@stareducon.co.uk",
-        "hours": "Hizmet Veriliyor",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Türkiye",
-        "city": "Erzurum",
-        "address": "Erzurum",
-        "phone": "",
-        "email": "info@stareducon.co.uk",
-        "hours": "Hizmet Veriliyor",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Türkiye",
-        "city": "Şanlıurfa",
-        "address": "Şanlıurfa",
-        "phone": "",
-        "email": "info@stareducon.co.uk",
-        "hours": "Hizmet Veriliyor",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
         "country": "Global",
         "city": "Dünya Geneli (Türkçe Destek)",
-        "address": "Tüm Kıtalarda Yurtdisi Egitimi Almak Isteyenler İçin Dijital Danışmanlık",
-        "phone": "",
-        "email": "info@stareducon.co.uk",
+        "address": "Online / Remote",
+        "phone": "+447501412151",
+        "email": "info@mentor-cc.com",
         "hours": "7/24 Dijital Erişim",
         "image": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1000",
         "isComingSoon": false
@@ -1275,43 +1600,24 @@
   },
   "Privacy": {
     "title": "Gizlilik Politikası",
-    "description": "Star Education Consulting veri işleme amaçları ve kişisel bilgilerinizin korunmasına ilişkin bilgilendirme.",
+    "description": "Mentor Career Consulting veri işleme amaçları ve kişisel bilgilerinizin korunmasına ilişkin bilgilendirme.",
     "lastUpdated": "Son Güncelleme: Mart 2024",
     "genel": {
       "title": "Genel",
-      "content": "Bu web sitesi, www.stareducon.co.uk, merkezi İngiltere'de bulunan Star Education Consulting olarak yönetilir. Bu web sitesini ziyaret ettiğiniz zaman Star Education Consulting'e doğrudan ya da dolaylı olarak gerektiği yerlerde size dair kişisel bilgi toplayabilir. Bununla birlikte Star Education Consulting bu kişisel bilgileri istediği şekilde ve şartlarda bir onaya bağlı kalmadan kullanır ve toplanan kişisel bilgilerin korunmasını sağlamakla yükümlüdür. Bu Gizlilik Politikası, Star Education Consulting'un kendi web sitesi ile ilgili veri işleme amaçları, tanımlama verileri kullanımı ve kişisel bilgileriniz ile ilgili haklarınızı nasıl oluşturacağından bahseder."
-    },
-    "thirdParty": {
-      "title": "Üçüncü Şahıs Siteleri",
-      "content": "Bu Gizlilik Politikası’nın, bu web sitesine bağlı üçüncü şahıs sitelerini kapsamadığını not ediniz. Haklarınızın Oluşturulması; Star Education Consulting ile İletişim ve Star Education Consulting’dan pazarlama mesajları almak istemiyorsanız, bizimle iletişime geçebilirsiniz. Gizlilik Politikası, veri işleme faaliyetlerimiz veya bu web sitesi ile ilgili sizin işlemleriniz hakkında sorularınız olduğu takdirde her zaman bizimle iletişime geçebilirsiniz. E-posta adresimiz info@stareducon.co.uk"
-    },
-    "processing": {
-      "title": "Veri İşleme Şekli",
-      "content": "Star Education Consulting Yurtdışı Eğitim ve Danışmanlık hizmetini yürütmek, ilgilendiğiniz ürünler ve hizmetler hakkında bilgi vermek ve bu ürün ve hizmetleri sunmak ve site istatistiklerinin gelişimi için müşteriler ve web sitesindeki ziyaretçiler hakkında bilgi toplar ve işler. Verdiğiniz bilgiler, gerektiği zaman size ulaşılması ve kesintisiz iletişim için kullanılacaktır. Star Education Consulting tarafınıza verilen bilgiler doğrultusunda email ve sms yolu ile tanıtım, reklam amaçlı broşür, video içerik…v.b. bilgi gönderebilir. Talep edilmemesi halinde tarafımıza ayrıca info@stareducon.co.uk adresi yoluyla veya telefon etmek suretiyle bildirilmesi gerekmektedir"
-    },
-    "data": {
-      "title": "Veri",
-      "content": "Star Education Consulting bu site yolu ile siyasal düşünceleri, dini inanışları, etnik kökenleri, sağlık veya diğer konulardaki bilgileri açığa vuran bilgiler gibi kritik kişisel bilgileri toplamak için çabalamaz ve böyle bir amacı yoktur. Şayet Star Education Consulting bu gibi bilgileri istiyor ise, bu durumda sizin kişisel izniniz alınır. Lütfen, Star Education Consulting’e talep edilmemiş kişisel veri vermeniz durumunda, bu bilgileri yukarıda tanımlandığı şekilde kullanmamıza izin vermiş olduğunuzu dikkate alınız"
-    },
-    "identification": {
-      "title": "Tanımlama",
-      "content": "Star Education Consulting alan adı, siteye giriş sayısı, ziyaret edilen sayfalar, kalma süresi, ziyaret edilen siteler ve kullanıcı oturumunun uzunluğu dahil olmak üzere, bu web sitesinin kullanımına ilişkin veri toplayabilir ve bu verileri analiz edebilir. Bu veri, bir tanımlama bilgisi kullanılarak toplanabilir. Tanımlama bilgisi, bu web sitesinin daha hızlı ve daha kolay kullanımını sağlayacaktır."
+      "content": "Bu web sitesi, www.mentor-cc.com, merkezi İngiltere’de bulunan Mentor Career Consulting Yurtdışı Eğitim ve Danışmanlık olarak yönetilir. Bu web sitesini ziyaret ettiğiniz zaman Mentor Career Consulting’a doğrudan ya da dolaylı olarak gerektiği yerlerde size dair kişisel bilgi toplayabilir. Bununla birlikte Mentor Career Consulting bu kişisel bilgileri istediği şekilde ve şartlarda bir onaya bağlı kalmadan kullanır ve toplanan kişisel bilgilerin korunmasını sağlamakla yükümlüdür. Bu Gizlilik Politikası, Mentor Career Consulting'in kendi web sitesiyle ilgili veri işleme amaçlarını, tanımlama verilerinin kullanımını ve kişisel bilgilerinizle ilgili haklarınızı nasıl tesis edeceğinizi belirtir."
     },
     "compensation": {
       "title": "Tazminat",
-      "content": "Siteyi ve sitenin sağladığı servisleri izinsiz kullanmanız durumunda koşulları yada yasayı ihlal etmeniz halinde karşılaşabileceğiniz hukuki sorunlardan dolayı Star Education Consulting’a çalışanlarımıza ve üçüncü şahıslara tazminat ödemeyi, yasal savunma giderlerini, her türlü zararları karşılamayı kabul edersiniz. Herhangi bir tazminat talep durumunda bizimle iş birliği yapmanız gerekir. Ayrı bir avukat tutma ve sizin tazmin etmenizi gerektiren herhangi bir konuyla ilgili münhasır savunma ve durumu üstlenme hakkımızı saklı tutarız."
+      "content": "Siteyi ve sitenin sağladığı servisleri izinsiz kullanmanız durumunda koşulları yada yasayı ihlal etmeniz halinde karşılaşabileceğiniz hukuki sorunlardan dolayı Mentor Career Consulting’a çalışanlarımıza ve üçüncü şahıslara tazminat ödemeyi, yasal savunma giderlerini, her türlü zararları karşılamayı kabul edersiniz. Herhangi bir tazminat talep durumunda bizimle iş birliği yapmanız gerekir. Ayrı bir avukat tutma ve sizin tazmin etmenizi gerektiren herhangi bir konuyla ilgili münhasır savunma ve durumu üstlenme hakkımızı saklı tutarız."
     },
     "corrections": {
       "title": "Düzeltmeler",
-      "content": "Star Education Consulting bu Gizlilik Politikasında yer alan kısımlarda istediği zaman değişiklik yapma hakkını elinde tutar. Lütfen bu Gizlilik Politikasını zaman zaman kontrol ediniz."
+      "content": "Mentor Career Consulting bu Gizlilik Politikasında yer alan kısımlarda istediği zaman değişiklik yapma hakkını elinde tutar. Lütfen bu Gizlilik Politikasını zaman zaman kontrol ediniz."
+    },
+    "aiUsage": {
+      "title": "Yapay Zeka (AI) Kullanımı ve Veri İşleme",
+      "content": "Mentor Career Consulting platformu, kullanıcı deneyimini kişiselleştirmek, 'SmartFinder' gibi akıllı eşleştirme algoritmalarıyla size en uygun akademik programları sunmak ve içerik analizlerini otomatize etmek amacıyla gelişmiş Yapay Zeka (AI) teknolojilerini kullanmaktadır. Bu teknolojiler; akademik başarı şansınızı analiz etmek ve size özel danışmanlık rehberliği oluşturmak için verilerinizi (isimsizleştirilmiş veya doğrudan) işleyebilir. Yapay zeka sistemlerimiz, Avrupa Birliği Yapay Zeka Yasası (EU AI Act) ve KVKK prensiplerine tam uyumlu, şeffaf ve insan denetimli bir yapıda tasarlanmıştır."
     }
-  },
-  "CookieBanner": {
-    "title": "Çerez Politikası",
-    "description": "Deneyiminizi geliştirmek için çerezleri kullanıyoruz. Sitemizi kullanarak çerez kullanımını kabul etmiş olursunuz.",
-    "accept": "Hepsini Kabul Et",
-    "decline": "Reddet",
-    "details": "Ayrıntılar"
   },
   "Dashboard": {
     "Sidebar": {
@@ -1320,7 +1626,7 @@
       "leads": "Reklam Takibi",
       "analytics": "Analiz & ROI",
       "pages": "Sayfalar",
-      "home": "Ana Sayfa",
+      "home": "Ana Sayfa Düzeni",
       "services": "Hizmetler",
       "countries": "Ülkeler",
       "institutions": "Kurumlar",
@@ -1343,259 +1649,220 @@
       "documents": "Belgelerim",
       "generalSettings": "Genel Ayarlar",
       "regions": "Bölgeler",
-      "logs": "Sistem Kayıtları",
+      "logs": "Sistem Günlükleri",
+      "socialAI": "Sosyal Medya AI",
       "myAccount": "Hesabım",
       "logout": "Çıkış Yap"
     },
-    "Denklik": {
+    "Sinavlar": {
       "main": {
-        "title": "Diploma Denklik",
-        "heroDesc": "Yurtdışı diplomanızın Türkiye'de tanınması için profesyonel rehberlik.",
-        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Diploma Denklik Hizmetleri</h2><p class=\"mb-6\">Yurtdışındaki yükseköğretim kurumlarından almış olduğunuz ön lisans, lisans ve yüksek lisans diplomalarının Türkiye'deki yükseköğretim kurumlarından alınan diplomalara eşdeğer olduğunun tespit edilmesi sürecinde uzman danışmanlığımızla yanınızdayız.</p><p class=\"mb-6\">Denklik süreci, YÖK (Yükseköğretim Kurulu) tarafından yürütülen titiz bir değerlendirme sürecidir. Star Education Consulting olarak, dosya hazırlığından başvuru takibine kadar her aşamada profesyonel destek sunuyoruz.</p><h3 class=\"text-2xl font-serif font-bold text-navy mb-4 mt-8 italic\">Denklik Başvurusu Kimler İçin Gereklidir?</h3><ul class=\"space-y-4 mb-10 italic\"><li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> Türkiye'de kamu kurumlarında çalışmak isteyenler.</li><li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> Mesleğini Türkiye'de icra etmek isteyen doktor, mühendis, avukat gibi düzenlenmiş meslek sahipleri.</li><li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> Türkiye'de lisansüstü eğitimine devam etmek isteyenler.</li></ul>",
+        "title": "Uluslararası Sınav Hazırlığı",
+        "heroDesc": "IELTS, TOEFL, SAT, GRE ve GMAT; global başarı için stratejik sınav hazırlık rehberliği.",
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Global Başarının Anahtarı: Uluslararası Sınavlar</h2><p class=\"mb-6\">Yurtdışında eğitim ve kariyer hedeflerinize ulaşmanın en önemli adımlarından biri, akademik ve dil yeterliliğinizi kanıtlayan uluslararası sınavlardır. Mentor Career Consulting olarak, IELTS, TOEFL, SAT, GRE ve GMAT gibi prestijli sınavlarda en yüksek skoru elde etmeniz için size özel stratejiler sunuyoruz.</p><p class=\"mb-6\">Her sınavın kendine özgü bir yapısı, soru tipi ve değerlendirme kriteri vardır. Uzman danışmanlarımız, hedeflediğiniz üniversite ve programın gereksinimlerine göre size en uygun sınav yol haritasını çizer.</p><h3 class=\"text-2xl font-serif font-bold text-navy mb-4 mt-8 italic\">Hangi Sınava Girmelisiniz?</h3><ul class=\"space-y-4 mb-10 italic\"><li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> <strong>Dil Yeterliliği:</strong> İngilizce konuşulan ülkelerde eğitim için IELTS veya TOEFL.</li><li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> <strong>Lisans Eğitimi (ABD):</strong> Amerika'daki prestijli üniversiteler için SAT.</li><li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> <strong>Lisansüstü Eğitim:</strong> Mühendislik ve sosyal bilimler için GRE, İşletme (MBA) için GMAT.</li></ul>",
         "advantages": [
           {
-            "title": "Uzman Analizi",
-            "desc": "Diplomanızın ve üniversitenizin YÖK kriterlerine uygunluğunu önceden analiz ediyoruz.",
-            "icon": "Search"
+            "title": "Stratejik Hazırlık",
+            "desc": "Sadece bilgi değil, sınav tekniği ve zaman yönetimi odaklı özel çalışma programları.",
+            "icon": "Target"
           },
           {
-            "title": "Dosya Hazırlığı",
-            "desc": "Eksik belge riskini ortadan kaldırarak, mevzuata uygun profesyonel dosya hazırlıyoruz.",
-            "icon": "ShieldCheck"
+            "title": "Kaynak Desteği",
+            "desc": "En güncel deneme sınavları, soru bankaları ve interaktif hazırlık materyalleri.",
+            "icon": "BookOpen"
           },
           {
-            "title": "Süreç Takibi",
-            "desc": "YÖK sistemindeki başvurunuzu düzenli takip ediyor ve güncellemeleri size iletiyoruz.",
-            "icon": "Clock"
+            "title": "Deneme Analizi",
+            "desc": "Gerçek sınav simülasyonları ile eksiklerinizi tespit ediyor ve gelişiminizi takip ediyoruz.",
+            "icon": "BarChart3"
           },
           {
-            "title": "STS Danışmanlığı",
-            "desc": "Seviye Tespit Sınavı (STS) gereken durumlarda kaynak ve strateji desteği sağlıyoruz.",
-            "icon": "Award"
+            "title": "Resmi Kayıt",
+            "desc": "Sınav merkezleri ve tarihleri konusunda rehberlik ederek kayıt sürecinizi yönetiyoruz.",
+            "icon": "FileCheck"
           }
         ],
         "destinations": {
-          "title": "Diploma Denklik Destinasyonları",
-          "desc": "Mezun olduğunuz ülkeye göre denklik süreçleri farklılık gösterebilir. Popüler ülkeler için özel rehberlerimizi inceleyin.",
-          "cost": "Ücretsiz Ön Değerlendirme",
+          "title": "Popüler Sınav Rehberleri",
+          "desc": "Hedeflerinize en uygun sınavı seçmek ve detaylı bilgi almak için rehberlerimizi inceleyin.",
+          "cost": "Ücretsiz Seviye Tespiti",
           "items": [
             {
-              "name": "İngiltere Diploma Denklik",
-              "slug": "ingiltere",
-              "subDesc": "Yüksek kabul oranlı İngiltere mezuniyetleri için özel süreç."
+              "name": "IELTS Hazırlık",
+              "slug": "ielts",
+              "subDesc": "Akademik ve Genel İngilizce yeterliliği için dünya standartı."
             },
             {
-              "name": "Amerika Diploma Denklik",
-              "slug": "amerika",
-              "subDesc": "ABD üniversitelerinden alınan diplomaların YÖK sistemindeki karşılığı."
+              "name": "TOEFL iBT",
+              "slug": "toefl",
+              "subDesc": "Amerikan üniversiteleri için en çok tercih edilen dil sınavı."
             },
             {
-              "name": "Almanya Diploma Denklik",
-              "slug": "almanya",
-              "subDesc": "Alman eğitim sistemi ve denklik kriterleri."
+              "name": "SAT (Digital)",
+              "slug": "sat",
+              "subDesc": "ABD lisans başvurularında fark yaratın."
             },
             {
-              "name": "Kanada Diploma Denklik",
-              "slug": "kanada",
-              "subDesc": "Kanada mezunları için denklik ve tanıma rehberi."
+              "name": "GRE General",
+              "slug": "gre",
+              "subDesc": "Lisansüstü eğitim başvurularında global standart."
             },
             {
-              "name": "İsviçre Diploma Denklik",
-              "slug": "isvicre",
-              "subDesc": "İsviçre kanton okulları ve university denklik süreci."
-            },
-            {
-              "name": "Avustralya Diploma Denklik",
-              "slug": "avustralya",
-              "subDesc": "Avustralya diplomaları için Türkiye'de tanınma şartları."
-            },
-            {
-              "name": "Belçika Diploma Denklik",
-              "slug": "belcika",
-              "subDesc": "Belçika üniversitelerinden mezunlar için adım adım rehber."
-            },
-            {
-              "name": "Hollanda Diploma Denklik",
-              "slug": "hollanda",
-              "subDesc": "Hollanda diplomalarının YÖK denkliği."
-            },
-            {
-              "name": "İrlanda Diploma Denklik",
-              "slug": "irlanda",
-              "subDesc": "İrlanda yükseköğretim sistemi ve denklik."
-            },
-            {
-              "name": "Polonya Diploma Denklik",
-              "slug": "polonya",
-              "subDesc": "Polonya üniversiteleri için denklik prosedürleri."
+              "name": "GMAT Focus",
+              "slug": "gmat",
+              "subDesc": "Dünya çapında MBA ve İşletme yüksek lisansı için."
             }
           ]
         },
-        "process": [
+        "steps": [
           {
-            "step": 1,
-            "title": "Ön İnceleme",
-            "desc": "Mezun olduğunuz üniversitenin tanınırlığını ve diplomanızın denklik şansını analiz ediyoruz."
+            "title": "Seviye Tespiti",
+            "desc": "Mevcut bilgi seviyenizi ve hedeflediğiniz skoru analiz ederek eksiklerinizi belirliyoruz."
           },
           {
-            "step": 2,
-            "title": "Belge Toplama",
-            "desc": "Transkript, apostil ve noter onaylı tercüme süreçlerinizi koordine ediyoruz."
+            "title": "Program Planlama",
+            "desc": "Sınav tarihine kadar sürecek olan, kişiselleştirilmiş yoğun veya standart çalışma takviminizi oluşturuyoruz."
           },
           {
-            "step": 3,
-            "title": "Online Başvuru",
-            "desc": "YÖK e-denklik sistemi üzerinden online başvurunuzu hatasız gerçekleştiriyoruz."
+            "title": "Uygulamalı Eğitim",
+            "desc": "Uzman eğitmenlerimiz ve kaynaklarımızla her bir sınav bölümü (Okuma, Yazma, Dinleme, Konuşma) için taktikler geliştiriyoruz."
           },
           {
-            "step": 4,
-            "title": "Fiziki Teslim & Takip",
-            "desc": "Gerekli belgelerin YÖK'e elden teslimi ve komisyon kararının takibini yapıyoruz."
+            "title": "Sınav ve Sonuç",
+            "desc": "Sınav stresini yönetme teknikleri ile gerçek sınavda en iyi performansınızı sergilemenizi sağlıyoruz."
           }
-        ],
-        "documents": [
-          "T.C. Kimlik Kartı / Pasaport",
-          "Diploma veya Mezuniyet Belgesi (Orijinal)",
-          "Noter Onaylı Türkçe Tercümeler",
-          "Resmi Transkript (Kapalı Zarf)",
-          "Apostil Onayları"
         ],
         "faq": [
           {
-            "q": "Denklik süreci ne kadar sürer?",
-            "a": "Evrakların eksiksiz olması durumunda komisyon değerlendirmesi genellikle 3-6 ay sürmektedir."
+            "q": "IELTS mi yoksa TOEFL mı girmeliyim?",
+            "a": "Bu hedeflediğiniz ülke ve üniversiteye bağlıdır. İngiltere ve Avustralya IELTS'i, ABD ise genellikle TOEFL'ı tercih eder. Ancak çoğu üniversite her ikisini de kabul eder. Danışmanlarımız sizin için en avantajlı olanı belirleyecektir."
           },
           {
-            "q": "STS (Seviye Tespit Sınavı) nedir?",
-            "a": "Eğitim düzeyi Türkiye ile tam eşleşmeyen veya tıp gibi uzmanlık gerektiren alanlarda YÖK sınav şartı getirebilir."
+            "q": "Sınav geçerlilik süreleri ne kadardır?",
+            "a": "IELTS ve TOEFL genellikle 2 yıl, SAT, GRE ve GMAT ise 5 yıl geçerliliğe sahiptir."
+          }
+        ]
+      }
+    },
+    "countries": {
+      "ingiltere": {
+        "title": "İngiltere Diploma Denklik",
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">İngiltere Diploma Denklik Süreci</h2><p class=\"mb-6\">Birleşik Krallık (İngiltere, İskoçya, Galler, Kuzey İrlanda) üniversiteleri, dünya sıralamalarında en üst sıralarda yer aldığı için YÖK tarafından genellikle doğrudan tanınmaktadır. Ancak mezuniyet sonrası Türkiye'de mesleğinizi icra edebilmek için resmi denklik belgesi almanız şarttır.</p><p class=\"mb-6\">İngiltere'den alınan diplomaların denkliği, özellikle 'Level' sistemine (NQF/QCF) göre değerlendirilir. Lisans (Bachelor's) ve Yüksek Lisans (Master's) dereceleri için farklı prosedürler uygulanabilmektedir.</p><h3 class=\"text-2xl font-serif font-bold text-navy mb-4 mt-8 italic\">Dikkat Edilmesi Gerekenler:</h3><ul class=\"space-y-4 mb-10 italic\"><li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> <strong>Süre Şartı:</strong> Lisans eğitiminin en az 3 yıl (veya hızlandırılmış programlarda kredi tamamlanmış olması), Yüksek Lisansın en az 1 tam yıl sürmüş olması beklenir.</li><li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> <strong>Apostil:</strong> İngiltere'deki eğitim belgelerinizin (Degree Certificate, Transcript) mutlaka UK Legalisation Office tarafından apostillenmiş olması gerekir.</li></ul>",
+        "advantages": [
+          {
+            "title": "Hızlı Onay",
+            "desc": "Top 400 listesindeki İngiliz üniversiteleri genellikle sınavsız (STS) onay alır.",
+            "icon": "Target"
           },
           {
-            "q": "Doğrudan tanıma (Equivalency) nedir?",
-            "a": "Dünya sıralamasında ilk 400'de yer alan üniversitelerden mezun olanlar genellikle daha hızlı onay alırlar."
+            "title": "Global Prestij",
+            "desc": "İngiltere diploması, Türkiye'deki iş dünyasında en yüksek kabul oranına sahiptir.",
+            "icon": "Award"
+          }
+        ],
+        "process": [
+          {
+            "step": 1,
+            "title": "Belgelerin UK'de Onaylanması",
+            "desc": "Diploma ve transkriptin Birleşik Krallık makamlarınca resmileştirilmesi."
+          },
+          {
+            "step": 2,
+            "title": "Tercüme ve Noter",
+            "desc": "Belgelerin Türkiye'de yeminli tercüme ve noter onayı yapılması."
+          },
+          {
+            "step": 3,
+            "title": "YÖK Başvurusu",
+            "desc": "Online ön başvuru ve fiziki evrak teslimi."
+          }
+        ],
+        "faq": [
+          {
+            "q": "Hızlandırılmış (2 yıllık) lisans programlarına denklik verilir mi?",
+            "a": "YÖK, Avrupa Kredi Transfer Sistemi (ECTS) ve toplam ders yüküne bakarak değerlendirme yapar. Kredi şartı sağlandığında denklik mümkündür."
           }
         ]
       },
-      "countries": {
-        "ingiltere": {
-          "title": "İngiltere Diploma Denklik",
-          "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">İngiltere Diploma Denklik Süreci</h2><p class=\"mb-6\">Birleşik Krallık (İngiltere, İskoçya, Galler, Kuzey İrlanda) üniversiteleri, dünya sıralamalarında en üst sıralarda yer aldığı için YÖK tarafından genellikle doğrudan tanınmaktadır. Ancak mezuniyet sonrası Türkiye'de mesleğinizi icra edebilmek için resmi denklik belgesi almanız şarttır.</p><p class=\"mb-6\">İngiltere'den alınan diplomaların denkliği, özellikle 'Level' sistemine (NQF/QCF) göre değerlendirilir. Lisans (Bachelor's) ve Yüksek Lisans (Master's) dereceleri için farklı prosedürler uygulanabilmektedir.</p><h3 class=\"text-2xl font-serif font-bold text-navy mb-4 mt-8 italic\">Dikkat Edilmesi Gerekenler:</h3><ul class=\"space-y-4 mb-10 italic\"><li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> <strong>Süre Şartı:</strong> Lisans eğitiminin en az 3 yıl (veya hızlandırılmış programlarda kredi tamamlanmış olması), Yüksek Lisansın en az 1 tam yıl sürmüş olması beklenir.</li><li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> <strong>Apostil:</strong> İngiltere'deki eğitim belgelerinizin (Degree Certificate, Transcript) mutlaka UK Legalisation Office tarafından apostillenmiş olması gerekir.</li></ul>",
-          "advantages": [
-            {
-              "title": "Hızlı Onay",
-              "desc": "Top 400 listesindeki İngiliz üniversiteleri genellikle sınavsız (STS) onay alır.",
-              "icon": "Target"
-            },
-            {
-              "title": "Global Prestij",
-              "desc": "İngiltere diploması, Türkiye'deki iş dünyasında en yüksek kabul oranına sahiptir.",
-              "icon": "Award"
-            }
-          ],
-          "process": [
-            {
-              "step": 1,
-              "title": "Belgelerin UK'de Onaylanması",
-              "desc": "Diploma ve transkriptin Birleşik Krallık makamlarınca resmileştirilmesi."
-            },
-            {
-              "step": 2,
-              "title": "Tercüme ve Noter",
-              "desc": "Belgelerin Türkiye'de yeminli tercüme ve noter onayı yapılması."
-            },
-            {
-              "step": 3,
-              "title": "YÖK Başvurusu",
-              "desc": "Online ön başvuru ve fiziki evrak teslimi."
-            }
-          ],
-          "faq": [
-            {
-              "q": "Hızlandırılmış (2 yıllık) lisans programlarına denklik verilir mi?",
-              "a": "YÖK, Avrupa Kredi Transfer Sistemi (ECTS) ve toplam ders yüküne bakarak değerlendirme yapar. Kredi şartı sağlandığında denklik mümkündür."
-            }
-          ]
-        },
-        "amerika": {
-          "title": "Amerika Diploma Denklik",
-          "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">ABD Diploma Denklik İşlemleri</h2><p class=\"mb-6\">Amerika Birleşik Devletleri'nden alınan diplomaların denkliği, üniversitenin Amerika'daki bölgesel akreditasyon kurumları (Regional Accreditation) tarafından tanınmış olmasına bağlıdır.</p><p class=\"mb-6\">ABD eğitim sistemi 4 yıllık lisans yapısına sahip olduğu için Türkiye'deki lisans sistemiyle tam uyumludur. Ancak online/uzaktan eğitimle alınan diplomaların denklik süreçleri çok daha titizlikle incelenmektedir.</p>",
-          "advantages": [
-            {
-              "title": "Akreditasyon Gücü",
-              "desc": "Bölgesel akreditasyonu olan tüm ABD üniversiteleri YÖK tarafından tanınma potansiyeline sahiptir.",
-              "icon": "Shield"
-            }
-          ],
-          "process": [
-            {
-              "step": 1,
-              "title": "US Secretary of State Onayı",
-              "desc": "Belgelerin eyalet veya federal düzeyde apostil onayı."
-            },
-            {
-              "step": 2,
-              "title": "Ders İçerikleri (Syllabus)",
-              "desc": "Özellikle teknik bölümler için ders içeriklerinin sunulmaya hazır olması."
-            }
-          ]
-        },
-        "almanya": {
-          "title": "Almanya Diploma Denklik",
-          "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Almanya Mezunları İçin Denklik Rehberi</h2><p class=\"mb-6\">Almanya, Bologna Süreci'ne dahil olduğu için diplomaları Türkiye sistemiyle yüksek uyum gösterir. Fachhochschule (Uygulamalı Bilimler) ve Universität diplomaları farklı kategorilerde değerlendirilebilir.</p>",
-          "advantages": [
-            {
-              "title": "Bologna Uyumu",
-              "desc": "ECTS kredi sistemi sayesinde denklik süreci daha öngörülebilirdir.",
-              "icon": "Globe"
-            }
-          ],
-          "process": [
-            {
-              "step": 1,
-              "title": "Regierungspräsidium Onayı",
-              "desc": "Belgelerin ilgili Alman eyalet makamlarınca onaylanması."
-            },
-            {
-              "step": 2,
-              "title": "Diploma Eki (Diploma Supplement)",
-              "desc": "İngilizce veya Almanca diploma ekinin hazır edilmesi."
-            }
-          ]
-        },
-        "kanada": {
-          "title": "Kanada Diploma Denklik",
-          "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Kanada Eğitim Sisteminin Tanınırlığı</h2><p class=\"mb-6\">Kanada üniversiteleri ve kolejleri (Colleges) arasındaki fark denklik sürecinde kritiktir. 3-4 yıllık lisans programları genellikle sorunsuz denklik alırken, 1-2 yıllık 'Diploma' programları 'Lisans' denkliği değil, 'Ön Lisans' veya 'Mesleki Eğitim' olarak değerlendirilebilir.</p>"
-        },
-        "isvicre": {
-          "title": "İsviçre Diploma Denklik",
-          "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">İsviçre Özelinde Denklik Süreçleri</h2><p class=\"mb-6\">Özellikle Turizm ve Otel İşletmeciliği alanındaki İsviçre okullarının denkliği, okulun kanton yetkilileri tarafından mı yoksa federal düzeyde mi tanındığına göre büyük farklılık gösterir.</p>"
-        },
-        "avustralya": {
-          "title": "Avustralya Diploma Denklik",
-          "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Avustralya Derecelerinin Eşdeğerliği</h2><p class=\"mb-6\">AQF (Australia Qualifications Framework) sistemi çerçevesinde alınan dereceler, YÖK tarafından seviye bazlı incelenir. Uzak mesafe nedeniyle pasaport giriş-çıkış kayıtlarının tespiti bu süreçte önemlidir.</p>"
-        },
-        "belcika": {
-          "title": "Belçika Diploma Denklik",
-          "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Belçika Mezuniyeti ve Türkiye Denkliği</h2><p class=\"mb-6\">Flaman ve Fransız toplulukları olarak ikiye ayrılan Belçika eğitim sisteminde, her iki bölgenin de akredite kurumları YÖK nezdinde tanınırlığa sahiptir.</p>"
-        },
-        "hollanda": {
-          "title": "Hollanda Diploma Denklik",
-          "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Hollanda Research vs Applied Sciences</h2><p class=\"mb-6\">Research Universities (WO) ve Universities of Applied Sciences (HBO) arasındaki ayrım, denklik derecenizi etkileyebilir. Star Education Consulting bu karmaşık ayrımda size yol gösterir.</p>"
-        },
-        "irlanda": {
-          "title": "İrlanda Diploma Denklik",
-          "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">İrlanda ve Global Standartlar</h2><p class=\"mb-6\">Dublin ve Cork gibi şehirlerdeki köklü üniversiteler, Avrupa standartlarında eğitim verdiği için denklik süreci genellikle standart prosedürde ilerler.</p>"
-        },
-        "polonya": {
-          "title": "Polonya Diploma Denklik",
-          "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Polonya Diplomalarının Tanınırlığı</h2><p class=\"mb-6\">AB üyesi olan Polonya'dan alınan diplomalar, son yıllarda YÖK tarafından en çok başvurulan dosyalar arasındadır. Tıp ve Mühendislik alanında STS (Sınav) gereklilikleri mevcuttur.</p>"
-        }
+      "amerika": {
+        "title": "Amerika Diploma Denklik",
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">ABD Diploma Denklik İşlemleri</h2><p class=\"mb-6\">Amerika Birleşik Devletleri'nden alınan diplomaların denkliği, üniversitenin Amerika'daki bölgesel akreditasyon kurumları (Regional Accreditation) tarafından tanınmış olmasına bağlıdır.</p><p class=\"mb-6\">ABD eğitim sistemi 4 yıllık lisans yapısına sahip olduğu için Türkiye'deki lisans sistemiyle tam uyumludur. Ancak online/uzaktan eğitimle alınan diplomaların denklik süreçleri çok daha titizlikle incelenmektedir.</p>",
+        "advantages": [
+          {
+            "title": "Akreditasyon Gücü",
+            "desc": "Bölgesel akreditasyonu olan tüm ABD üniversiteleri YÖK tarafından tanınma potansiyeline sahiptir.",
+            "icon": "Shield"
+          }
+        ],
+        "process": [
+          {
+            "step": 1,
+            "title": "US Secretary of State Onayı",
+            "desc": "Belgelerin eyalet veya federal düzeyde apostil onayı."
+          },
+          {
+            "step": 2,
+            "title": "Ders İçerikleri (Syllabus)",
+            "desc": "Özellikle teknik bölümler için ders içeriklerinin sunulmaya hazır olması."
+          }
+        ]
+      },
+      "almanya": {
+        "title": "Almanya Diploma Denklik",
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Almanya Mezunları İçin Denklik Rehberi</h2><p class=\"mb-6\">Almanya, Bologna Süreci'ne dahil olduğu için diplomaları Türkiye sistemiyle yüksek uyum gösterir. Fachhochschule (Uygulamalı Bilimler) ve Universität diplomaları farklı kategorilerde değerlendirilebilir.</p>",
+        "advantages": [
+          {
+            "title": "Bologna Uyumu",
+            "desc": "ECTS kredi sistemi sayesinde denklik süreci daha öngörülebilirdir.",
+            "icon": "Globe"
+          }
+        ],
+        "process": [
+          {
+            "step": 1,
+            "title": "Regierungspräsidium Onayı",
+            "desc": "Belgelerin ilgili Alman eyalet makamlarınca onaylanması."
+          },
+          {
+            "step": 2,
+            "title": "Diploma Eki (Diploma Supplement)",
+            "desc": "İngilizce veya Almanca diploma ekinin hazır edilmesi."
+          }
+        ]
+      },
+      "kanada": {
+        "title": "Kanada Diploma Denklik",
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Kanada Eğitim Sisteminin Tanınırlığı</h2><p class=\"mb-6\">Kanada üniversiteleri ve kolejleri (Colleges) arasındaki fark denklik sürecinde kritiktir. 3-4 yıllık lisans programları genellikle sorunsuz denklik alırken, 1-2 yıllık 'Diploma' programları 'Lisans' denkliği değil, 'Ön Lisans' veya 'Mesleki Eğitim' olarak değerlendirilebilir.</p>"
+      },
+      "isvicre": {
+        "title": "İsviçre Diploma Denklik",
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">İsviçre Özelinde Denklik Süreçleri</h2><p class=\"mb-6\">Özellikle Turizm ve Otel İşletmeciliği alanındaki İsviçre okullarının denkliği, okulun kanton yetkilileri tarafından mı yoksa federal düzeyde mi tanındığına göre büyük farklılık gösterir.</p>"
+      },
+      "avustralya": {
+        "title": "Avustralya Diploma Denklik",
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Avustralya Derecelerinin Eşdeğerliği</h2><p class=\"mb-6\">AQF (Australia Qualifications Framework) sistemi çerçevesinde alınan dereceler, YÖK tarafından seviye bazlı incelenir. Uzak mesafe nedeniyle pasaport giriş-çıkış kayıtlarının tespiti bu süreçte önemlidir.</p>"
+      },
+      "belcika": {
+        "title": "Belçika Diploma Denklik",
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Belçika Mezuniyeti ve Türkiye Denkliği</h2><p class=\"mb-6\">Flaman ve Fransız toplulukları olarak ikiye ayrılan Belçika eğitim sisteminde, her iki bölgenin de akredite kurumları YÖK nezdinde tanınırlığa sahiptir.</p>"
+      },
+      "hollanda": {
+        "title": "Hollanda Diploma Denklik",
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Hollanda Research vs Applied Sciences</h2><p class=\"mb-6\">Research Universities (WO) dan Universities of Applied Sciences (HBO) arasındaki ayrım, denklik derecenizi etkileyebilir. Mentor Career Consulting bu karmaşık ayrımda size yol gösterir.</p>"
+      },
+      "irlanda": {
+        "title": "İrlanda Diploma Denklik",
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">İrlanda ve Global Standartlar</h2><p class=\"mb-6\">Dublin ve Cork gibi şehirlerdeki köklü üniversiteler, Avrupa standartlarında eğitim verdiği için denklik süreci genellikle standart prosedürde ilerler.</p>"
+      },
+      "polonya": {
+        "title": "Polonya Diploma Denklik",
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Polonya Diplomalarının Tanınırlığı</h2><p class=\"mb-6\">AB üyesi olan Polonya'dan alınan diplomalar, son yıllarda YÖK tarafından en çok başvurulan dosyalar arasındadır. Tıp ve Mühendislik alanında STS (Sınav) gereklilikleri mevcuttur.</p>"
       }
     },
     "Mappings": {
       "services": {
-        "egitim-koclugu": {
-          "title": "Eğitim Koçluğu",
-          "desc": "Bireysel akademik yol haritanız ve global kariyer planlamanız için profesyonel rehberlik."
+        "sinavlar": {
+          "title": "Uluslararası Sınavlar",
+          "desc": "IELTS, TOEFL, SAT, GRE ve GMAT; global başarı için stratejik sınav hazırlık rehberliği."
         },
         "yurtdisi-yuksek-lisans": {
           "title": "Yurtdışı Yüksek Lisans",
@@ -1619,7 +1886,7 @@
         },
         "kariyer": {
           "title": "Kariyer",
-          "desc": "Almanya'da profesyonel bir gelecek için uzman yerleşim ve danışmanlık hizmetleri."
+          "desc": "Profesyonel bir gelecek için uzman yerleştirme ve danışmanlık hizmeti."
         }
       },
       "countries": {
@@ -1691,7 +1958,7 @@
     "Terms": {
       "label": "YASAL BELGELER",
       "title": "Kullanım Şartları",
-      "heroSubtitle": "Star Education Consulting platformunu kullanarak aşağıdaki hüküm ve koşulları kabul etmiş sayılırsınız. Bu belge, taraflar arasındaki hukuki ilişkiyi düzenleyen bağlayıcı bir sözleşmedir.",
+      "heroSubtitle": "Mentor Career Consulting platformunu kullanarak aşağıdaki hüküm ve koşulları kabul etmiş sayılırsınız. Bu belge, taraflar arasındaki hukuki ilişkiyi düzenleyen bağlayıcı bir sözleşmedir.",
       "lastUpdatedLabel": "Son Güncelleme",
       "lastUpdatedDate": "16 Mart 2026",
       "sectionsLabel": "Bölümler:",
@@ -1723,11 +1990,11 @@
       "sections": {
         "taraflar": {
           "title": "Taraflar ve Sözleşmenin Konusu",
-          "content": "<p>Bu Kullanım Şartları (\"Şartlar\"), Star Education Consulting Yurt Dışı Eğitim Danışmanlığı A.Ş. (\"Star Education Consulting\", \"biz\" veya \"şirket\") ile <strong>www.stareducon.co.uk</strong> adresini ve bağlı tüm alt domainleri (\"Platform\") ziyaret eden veya kullanan gerçek ya da tüzel kişiler (\"Kullanıcı\") arasında kurulan yasal bir sözleşmeyi oluşturur.</p><p>Platformu kullandığınız anda bu Şartları okumuş, anlamış ve kabul etmiş sayılırsınız. Bu Şartları kabul etmiyorsanız Platformu kullanmamanızı tavsiye ederiz.</p><h4>Şirket Bilgileri</h4><ul><li><strong>Ticaret Unvanı:</strong> Star Education Consulting Yurt Dışı Eğitim Danışmanlık</li><li><strong>E-posta:</strong> info@stareducon.co.uk</li></ul>"
+          "content": "<p>Bu Kullanım Şartları (\"Şartlar\"), Mentor Career Consulting Ltd (\"Mentor Career Consulting\", \"biz\" veya \"şirket\") ile <strong>www.mentor-cc.com</strong> adresini ve bağlı tüm alt domainleri (\"Platform\") ziyaret eden veya kullanan gerçek ya da tüzel kişiler (\"Kullanıcı\") arasında kurulan yasal bir sözleşmeyi oluşturur.</p><p>Platformu kullandığınız anda bu Şartları okumuş, anlamış ve kabul etmiş sayılırsınız. Bu Şartları kabul etmiyorsanız Platformu kullanmamanızı tavsiye ederiz.</p><h4>Şirket Bilgileri</h4><ul><li><strong>Ticaret Unvanı:</strong> Mentor Career Consulting</li><li><strong>E-posta:</strong> info@mentor-cc.com</li></ul>"
         },
         "hizmet-kapsami": {
           "title": "Hizmet Kapsamı ve Niteliği",
-          "content": "<p>Star Education Consulting, aşağıda belirtilen danışmanlık hizmetlerini sunan lisanslı bir eğitim danışmanlık firmasıdır:</p><ul><li>Yurt dışı lise, ön lisans, lisans ve lisansüstü eğitim danışmanlığı</li><li>Dil okulu ve yaz okulu program seçimi ve başvuru yönetimi</li><li>Vize ve denklik süreci hakkında bilgilendirme</li><li>Yurt dışı eğitim burslarına yönlendirme</li><li>Eğitim materyalleri, rehberler ve dijital içerik sunumu</li></ul><h4>Hizmet Sınırlamaları</h4><p>Platformda yer alan tüm içerikler yalnızca <strong>genel bilgilendirme</strong> amaçlıdır. Star Education Consulting:</p><ul><li>Üniversite veya okul kabulünü garanti etmez.</li><li>Vize onayını garanti etmez; nihai karar ilgili ülkenin yetkili makamına aittir.</li><li>Üçüncü taraf okul ve kurumların politikalarından doğan değişikliklerden sorumlu değildir.</li><li>Platform üzerinden erişilen harici web sitelerinin içeriğinden sorumlu tutulamaz.</li></ul>"
+          "content": "<ul><li>Yurt dışı lise, ön lisans, lisans ve lisansüstü eğitim danışmanlığı</li><li>Dil okulu ve yaz okulu program seçimi ve başvuru yönetimi</li><li>Denklik süreci hakkında bilgilendirme</li><li>Yurt dışı eğitim burslarına yönlendirme</li><li>Eğitim materyalleri, rehberler ve dijital içerik sunumu</li></ul><h4>Hizmet Sınırlamaları</h4><p>Platformda yer alan tüm içerikler yalnızca <strong>genel bilgilendirme</strong> amaçlıdır. Mentor Career Consulting:</p><ul><li>Üniversite veya okul kabulünü garanti etmez.</li><li>Üçüncü taraf okul ve kurumların politikalarından doğan değişikliklerden sorumlu değildir.</li><li>Platform üzerinden erişilen harici web sitelerinin içeriğinden sorumlu tutulamaz.</li></ul>"
         },
         "kullanici-yukumlulukler": {
           "title": "Kullanıcı Yükümlülükleri ve Yasaklar",
@@ -1735,11 +2002,11 @@
         },
         "fikri-mulkiyet": {
           "title": "Fikri Mülkiyet Hakları",
-          "content": "<p>Platform üzerinde yer alan tüm içerikler — metin, grafik, logo, ikon, görsel, ses kaydı, dijital indirme, veri derlemeleri ve yazılım dahil — Star Education Consulting'un mülkiyetindedir ve <strong>5846 sayılı Fikir ve Sanat Eserleri Kanunu</strong> ile uluslararası telif hukuku kapsamında koruma altındadır.</p><h4>İzin Verilen Kullanım</h4><ul><li>Kişisel, ticari olmayan amaçlarla Platform içerikleri görüntülenebilir ve yazdırılabilir.</li><li>Sosyal medya paylaşımlarında kısmi alıntı ve kaynak göstererek atıf yapılabilir.</li></ul><h4>Yasaklanan Kullanım</h4><ul><li>Platform içeriklerinin ticari amaçla çoğaltılması, dağıtılması veya yayınlanması yasaktır.</li><li>Star Education Consulting markası, logosu ve ticari unvanı yazılı izin alınmadan kullanılamaz.</li><li>İçeriklerin değiştirilerek veya uyarlanarak yeniden yayınlanması izne tabidir.</li></ul>"
+          "content": "<p>Platform üzerinde yer alan tüm içerikler — metin, grafik, logo, ikon, görsel, ses kaydı, dijital indirme, veri derlemeleri ve yazılım dahil — Mentor Career Consulting'un mülkiyetindedir ve <strong>5846 sayılı Fikir ve Sanat Eserleri Kanunu</strong> ile uluslararası telif hukuku kapsamında koruma altındadır.</p><h4>İzin Verilen Kullanım</h4><ul><li>Kişisel, ticari olmayan amaçlarla Platform içerikleri görüntülenebilir ve yazdırılabilir.</li><li>Sosyal medya paylaşımlarında kısmi alıntı ve kaynak göstererek atıf yapılabilir.</li></ul><h4>Yasaklanan Kullanım</h4><ul><li>Platform içeriklerinin ticari amaçla çoğaltılması, dağıtılması veya yayınlanması yasaktır.</li><li>Mentor Career Consulting markası, logosu ve ticari unvanı yazılı izin alınmadan kullanılamaz.</li><li>İçeriklerin değiştirilerek veya uyarlanarak yeniden yayınlanması izne tabidir.</li></ul>"
         },
         "sorumluluk-sinirlamasi": {
           "title": "Sorumluluk Sınırlaması ve Feragatname",
-          "content": "<p>Star Education Consulting, yürürlükteki mevzuatın izin verdiği azami ölçüde aşağıdaki konularda sorumluluk kabul etmez:</p><h4>Dolaylı Zararlar</h4><p>Platform kullanımından kaynaklanan gelir kaybı, veri kaybı, itibar kaybı veya fırsat kaybı dahil her türlü dolaylı ya da öngörülemeyen zararlardan Star Education Consulting sorumlu tutulamaz.</p><h4>Üçüncü Taraf Hizmetleri</h4><p>Platform üzerinde yer alan bağlantılar üzerinden erişilen üçüncü taraf web sitelerinin içeriği, gizlilik politikaları veya hizmetlerinden doğan zararlardan Star Education Consulting sorumlu değildir.</p><h4>Teknik Aksaklıklar</h4><p>Sunucu kesintileri, siber saldırılar, iletişim altyapısındaki arızalar veya mücbir sebepler nedeniyle oluşan hizmet kesintilerinden doğan zararlardan Star Education Consulting sorumlu tutulamaz.</p>"
+          "content": "<p>Mentor Career Consulting, yürürlükteki mevzuatın izin verdiği azami ölçüde aşağıdaki konularda sorumluluk kabul etmez:</p><h4>Dolaylı Zararlar</h4><p>Platform kullanımından kaynaklanan gelir kaybı, veri kaybı, itibar kaybı veya fırsat kaybı dahil her türlü dolaylı ya da öngörülemeyen zararlardan Mentor Career Consulting sorumlu tutulamaz.</p><h4>Üçüncü Taraf Hizmetleri</h4><p>Platform üzerinde yer alan bağlantılar üzerinden erişilen üçüncü taraf web sitelerinin içeriği, gizlilik politikaları veya hizmetlerinden doğan zararlardan Mentor Career Consulting sorumlu değildir.</p><h4>Teknik Aksaklıklar</h4><p>Sunucu kesintileri, siber saldırılar, iletişim altyapısındaki arızalar veya mücbir sebepler nedeniyle oluşan hizmet kesintilerinden doğan zararlardan Mentor Career Consulting sorumlu tutulamaz.</p>"
         },
         "gizlilik": {
           "title": "Gizlilik ve Kişisel Veri İşleme",
@@ -1747,27 +2014,27 @@
         },
         "degisiklikler": {
           "title": "Değişiklikler ve Güncellemeler",
-          "content": "<p>Star Education Consulting, bu Kullanım Şartlarını önceden haber vermeksizin değiştirme hakkını saklı tutar. Değişiklikler Platformda yayınlandığı tarihte yürürlüğe girer.</p><p>Önemli değişiklikler söz konusu olduğunda kayıtlı kullanıcılar e-posta yoluyla veya Platform üzerinden bilgilendirilir.</p>"
+          "content": "<p>Mentor Career Consulting, bu Kullanım Şartlarını önceden haber vermeksizin değiştirme hakkını saklı tutar. Değişiklikler Platformda yayınlandığı tarihte yürürlüğe girer.</p><p>Önemli değişiklikler söz konusu olduğunda kayıtlı kullanıcılar e-posta yoluyla veya Platform üzerinden bilgilendirilir.</p>"
         },
         "uyusmazlik": {
           "title": "Uyuşmazlık Çözümü ve Uygulanacak Hukuk",
-          "content": "<p>Bu Şartlar, Türkiye Cumhuriyeti kanunlarına tabi olup, bu Şartlardan doğacak her türlü uyuşmazlıkta <strong>İstanbul Mahkemeleri ve İcra Daireleri</strong> yetkilidir.</p><h4>Önce Müzakere</h4><p>Her iki taraf da yargı yoluna başvurmadan önce ihtilafı müzakere yoluyla çözmeye çalışmayı taahhüt eder.</p>"
+          "content": "<p>Bu Şartlar, Birleşik Krallık (UK) kanunlarına tabi olup, bu Şartlardan doğacak her türlü uyuşmazlıkta <strong>Londra Mahkemeleri</strong> yetkilidir.</p><h4>Önce Müzakere</h4><p>Her iki taraf da yargı yoluna başvurmadan önce ihtilafı müzakere yoluyla çözmeye çalışmayı taahhüt eder.</p>"
         },
         "iletisim": {
           "title": "İletişim ve Yasal Bildirimler",
-          "content": "<p>Bu Kullanım Şartlarına ilişkin soru, yorum veya bildirimleriniz için aşağıdaki kanallardan bizimle iletişime geçebilirsiniz:</p><ul><li><strong>Genel İletişim:</strong> info@stareducon.co.uk</li><li><strong>Hukuki Bildirimler:</strong> info@stareducon.co.uk</li></ul>"
+          "content": "<p>Bu Kullanım Şartlarına ilişkin soru, yorum veya bildirimleriniz için aşağıdaki kanallardan bizimle iletişime geçebilirsiniz:</p><ul><li><strong>Genel İletişim:</strong> info@mentor-cc.com</li><li><strong>Hukuki Bildirimler:</strong> info@mentor-cc.com</li></ul>"
         }
       }
-    },
-    "Legal": {
-      "disclaimerTitle": "Yasal Sorumluluk Reddi",
-      "disclaimerText": "Bu sayfada yer alan bilgiler bilgilendirme amaçlı olup, kurumlar tarafından yapılan güncellemeler nedeniyle değişiklik gösterebilir. Star Education Consulting, bu bilgilerin doğruluğu ve güncelliği konusunda yasal sorumluluk kabul etmemektedir. En güncel bilgiler için lütfen danışmanlarımızla iletişime geçiniz."
     }
+  },
+  "Legal": {
+    "disclaimerTitle": "Yasal Sorumluluk Reddi",
+    "disclaimerText": "Bu sayfada yer alan bilgiler bilgilendirme amaçlı olup, kurumlar tarafından yapılan güncellemeler nedeniyle değişiklik gösterebilir. Mentor Career Consulting, bu bilgilerin doğruluğu ve güncelliği konusunda yasal sorumluluk kabul etmemektedir. En güncel bilgiler için lütfen danışmanlarımızla iletişime geçiniz."
   },
   "KariyerServices": {
     "yurtdisi-meslek-egitimi": {
       "title": "Yurtdışı Meslek Eğitimi Danışmanlığı",
-      "description": "Özellikle Almanya gibi ülkelerde uygulanan ikili mesleki eğitim (Ausbildung) sistemlerine dahil olmanız için tam destek sağlıyoruz. Eğitim süresince gelir elde edebilir ve uzmanlaşabilirsiniz."
+      "description": "Uluslararası mesleki eğitim (Ausbildung) sistemlerine dahil olmanız için tam destek sağlıyoruz. Eğitim süresince gelir elde edebilir ve uzmanlaşabilirsiniz."
     },
     "uluslararasi-kariyer": {
       "title": "Uluslararası Kariyer Danışmanlığı",
@@ -1776,129 +2043,140 @@
     "profesyonel-cv": {
       "title": "Profesyonel CV Oluşturma",
       "description": "Uluslararası standartlara uygun, profesyonel, akılda kalıcı ve deneyimlerinizi en iyi şekilde yansıtan özgeçmiş (CV) ve ülkeye özel niyet mektubu hazırlıyoruz."
-    },
-    "vize-belge-hazirlik": {
-      "title": "Vize Belge Hazırlık Rehberliği",
-      "description": "Çalışma vizesi, mavi kart veya fırsat kartı gibi süreçleriniz için gerekli olan tüm belgelerin eksiksiz ve hatasız bir şekilde dosyalanması sürecini yönetiyoruz."
     }
   },
-  "Coaching": {
-    "title": "Eğitim Koçluğu & <span class='gold-text not-italic'>Kariyer Planlaması</span>",
-    "subtitle": "Akademik başarı sadece bir diploma değildir; o diplomanın hayatınızda nereye oturacağını planlamaktır.",
-    "heroDesc": "Star Education Consulting olarak, öğrencinin sadece okula girmesini değil, o okulda ve sonrasında global bir başarı hikayesi yazmasını hedefliyoruz.",
-    "services": [
-      {
-        "title": "Stratejik Kariyer Yol Haritası",
-        "desc": "Bireysel ilgi alanları, yetenek setleri ve küresel iş piyasası trendlerini birleştirerek somut hedefler koyuyoruz.",
-        "icon": "TrendingUp"
-      },
-      {
-        "title": "Bireysel Mentorluk",
-        "desc": "Başvuru sürecindeki stres yönetiminden, yurtdışındaki ilk aylara kadar yanınızdayız.",
-        "icon": "UserCheck"
-      },
-      {
-        "title": "Kişilik & Yetenek Analizi",
-        "desc": "Hangi bölümün size daha uygun olduğunu bilimsel veriler ve görüşmelerle tespit ediyoruz.",
-        "icon": "PieChart"
-      }
-    ]
+  "Errors": {
+    "somethingWentWrong": "Bir Şeyler Ters Gitti!",
+    "errorDescription": "Uygulama çalışırken beklenmedik bir hata oluştu. Lütfen sayfayı yenilemeyi deneyin.",
+    "tryAgain": "Tekrar Dene",
+    "backToHome": "Ana Sayfaya Dön"
   },
-  "CountriesHub": {
-    "title": "Global Eğitim <span class='gold-text not-italic'>Hub'ı</span>",
-    "subtitle": "Kıtalar Arası Akademik Bağlantılar",
-    "heroDesc": "9 Ülke, 500+ Partner Kurum. Size en uygun akademik kültürü ve yaşam tarzını keşfedin.",
-    "mapLabel": "İnteraktif Dünya Haritası",
-    "mapDesc": "Ülkelerin üzerine gelerek temel eğitim avantajlarını ve partner sayılarımızı inceleyin.",
-    "countries": {
-      "ingiltere": {
-        "title": "İngiltere",
-        "badge": "Akademik Gelenek",
-        "desc": "Oxford ve Cambridge'in izinde, 3 yıllık lisans ve prestijli master programları.",
-        "partners": 120
-      },
-      "amerika": {
-        "title": "Amerika",
-        "badge": "İnovasyon",
-        "desc": "Ivy League'den teknik üniversitelere, sınırsız araştırma ve kariyer imkanı.",
-        "partners": 85
-      },
-      "almanya": {
-        "title": "Almanya",
-        "badge": "Mühendislik & Ekonomi",
-        "desc": "Ücretsiz eğitim ve güçlü sanayi bağlantılarıyla kariyer odaklı yaklaşım.",
-        "partners": 60
-      },
-      "kanada": {
-        "title": "Kanada",
-        "badge": "Yaşam Kalitesi",
-        "desc": "Mezuniyet sonrası çalışma izinleri ve göçmenlik yollarıyla güvenli bir gelecek.",
-        "partners": 45
-      },
-      "irlanda": {
-        "title": "İrlanda",
-        "badge": "Teknoloji Üssü",
-        "desc": "Avrupa'nın Silikon Vadisi'nde eğitim ve global teknoloji şirketlerinde staj fırsatı.",
-        "partners": 30
-      }
-    }
-  },
-  "Exams": {
-    "title": "Uluslararası <span class='gold-text not-italic'>Akademik Sınavlar</span>",
-    "subtitle": "Global Kabulün Anahtarı: Stratejik Sınav Hazırlığı",
-    "heroDesc": "Dünyanın en iyi üniversitelerine giden yol, doğru sınav stratejisinden geçer. IELTS'ten GMAT'e, akademik başarınızı tescilleyen tüm süreçlerde yanınızdayız.",
-    "categories": {
-        "dil": {
-            "title": "Dil Yeterlilik Sınavları",
-            "desc": "Akademik ve genel dil yetkinliğinizi global standartlarda kanıtlayın."
-        },
-        "akademik": {
-            "title": "Akademik Giriş Sınavları",
-            "desc": "Lisans ve lisansüstü eğitim için gereken standardizasyon sınavları."
-        }
-    },
-    "examsList": {
-        "ielts": {
-            "title": "IELTS (International English Language Testing System)",
-            "desc": "Avrupa ve Avustralya başta olmak üzere dünya çapında en çok kabul gören dil sınavı.",
-            "badges": ["Akademik", "Genel"]
-        },
-        "toefl": {
-            "title": "TOEFL (Test of English as a Foreign Language)",
-            "desc": "Özellikle Amerika ve Kanada universite başvurularında altın standart.",
-            "badges": ["iBT", "Premium Online"]
-        },
-        "sat": {
-            "title": "SAT (Scholastic Assessment Test)",
-            "desc": "Amerika'daki en iyi üniversitelerde lisans eğitimi almak isteyen adaylar için temel kriter.",
-            "badges": ["College Board", "Critical Thinking"]
-        },
-        "gre-gmat": {
-            "title": "GRE & GMAT",
-            "desc": "Yüksek lisans ve MBA programları için analitik ve matematiksel yetkinlik ölçümü.",
-            "badges": ["Master", "MBA", "Global Success"]
-        }
-    },
-    "ctaTitle": "Hangi Sınav Size <span class='gold-text not-italic'>Daha Uygun?</span>",
-    "ctaDesc": "Profilinize ve hedeflerinize en uygun sınavı belirlemek için akademik danışmanlarımızla ücretsiz bir ön görüşme yapın.",
-    "ctaButton": "Ücretsiz Randevu Al"
-  },
-  "EvaluationForm": {
-    "steps": {
-      "goal": "HEDEF",
-      "background": "GEÇMİŞ",
-      "preferences": "TERCİHLER",
-      "personal": "BİLGİLER"
-    }
+  "Celebration": {
+    "defaultTitle": "Tebrikler!",
+    "defaultMessage": "Başvurunuz başarıyla oluşturuldu. Hayallerinize giden yolda dev bir adım attınız.",
+    "redirecting": "Dashboard'a yönlendiriliyorsunuz..."
   },
   "RichTextLayout": {
-    "ctaTitle": "Özel bir danışmanlığa mı ihtiyacınız var?",
-    "ctaDesc": "Uzman stratejik danışmanlarımız, uluslararası akademik yolların karmaşıklıklarında size rehberlik etmeye hazır.",
-    "ctaButton": "Bir Danışmanla Konuşun",
-    "expertGuidance": "Uzman Rehberliği",
     "faqTitle": "Sıkça Sorulan Sorular",
-    "onThisPage": "Bu sayfada",
-    "faqLabel": "SSS",
-    "contactSupport": "Destekle İletişime Geçin"
+    "faqDefaultDesc": "Program ve süreçler hakkında en çok merak edilen soruların yanıtlarını burada bulabilirsiniz.",
+    "disclaimerTitle": "Yasal Sorumluluk Reddi (Disclaimer)"
+  },
+  "CountryDetail": {
+    "guideLabel": "Global Destinasyon Rehberi",
+    "heroSub": "{country} ülkesindeki akademik yolculuğunuz burada başlıyor. Mentor Career Consulting'ın uzman rehberliğiyle geleceğinizi şekillendirin.",
+    "capital": "Başkent",
+    "language": "Dil",
+    "currency": "Para Birimi",
+    "whyLabel": "NEDEN {country}?",
+    "lifeAndEducation": "{country}'da <span class='gold-text'>Eğitim ve Yaşam</span>",
+    "featuredLabel": "ÖNE ÇIKANLAR",
+    "prestigiousSchools": "{country}'daki <span class='gold-text'>Prestijli Okullar</span>",
+    "viewAll": "TÜMÜNÜ GÖR",
+    "institution": "EĞİTİM KURUMU",
+    "freeResources": "Ücretsiz <span class='gold-text'>Rehberler ve Kaynaklar</span>",
+    "resourceSubtitle": "{country} hakkında bilmeniz gereken her şeyi içeren özel dökümanlarımızı indirin.",
+    "fileInfo": "Kapsamlı bilgilendirme dosyası",
+    "downloadNow": "Şimdi İndir",
+    "description": "{country} ülkesindeki eğitim fırsatları, üniversiteler, dil okulları ve yaşam şartları hakkında kapsamlı rehber."
+  },
+  "CountryServiceDetail": {
+    "guideLabel": "Rehberi",
+    "heroSub": "{country} {service} süreçleri, gereklilikler ve yaşam hakkında merak ettiğiniz her şey.",
+    "comprehensiveGuide": "Kapsamlı <span class='gold-text'>Rehber</span>",
+    "noContent": "Bu kategori için içerik planlanmaktadır.",
+    "preparingGuide": "Hazırlık <span class='gold-text'>Rehberi</span>",
+    "contactForDetails": "Detaylı bilgi ve size özel akademik strateji için uzmanlarımızla iletişime geçebilirsiniz.",
+    "advantages": "Ülkeye Özel <span class='gold-text'>Avantajlar</span>",
+    "process": "Başvuru <span class='gold-text'>Yol Haritası</span>",
+    "faq": "SSS",
+    "faqTitle": "Sıkça Sorulan <span class='gold-text'>Sorular</span>",
+    "pricing": "Program <span class='gold-text'>Ücretleri</span>",
+    "tuition": "Yıllık Ücret (Tahmini)",
+    "askUs": "Bilgi Alınız",
+    "pricingDisclaimer": "* ÜCRETLER KURUMLARA VE PROGRAMLARA GÖRE DEĞİŞKENLİK GÖSTEREBİLİR.",
+    "institutionsByCity": "Şehirlere Göre <span class='gold-text'>Kurumlar</span>",
+    "institutionsDesc": "{country} genelindeki anlaşmalı kurumlarımız ve eğitim merkezleri.",
+    "institutionsCount": "Kurum",
+    "prestigiousInstitution": "PRESTİJLİ KURUM",
+    "globalPrestige": "GLOBAL PRESTİJ",
+    "explore": "Detaylı İncele",
+    "estimatedAnnualFee": "Tahmini Yıllık Ücret",
+    "whyCountry": "Neden {country}?",
+    "defaultWhyItems": [
+      "Uluslararası standartlarda akademik prestij ve derinlik",
+      "Global network ve yaşam boyu sürecek vizyoner kazanımlar",
+      "Mezuniyet sonrası dünya devi şirketlerin hedefinde bir kariyer",
+      "Kültürel zenginleşme ve global vatandaşlık yetkinliği"
+    ],
+    "academicStrategy": "Akademik Stratejinizi Belirleyin",
+    "academicStrategyDesc": "{country} lokasyonunda size en uygun programı ve kurumu uzman danışmanlarımızla birlikte seçin.",
+    "startStrategySession": "AKADEMİK STRATEJİ SEANSINI BAŞLATIN",
+    "consultantsOnline": "DANIŞMANLAR ÇEVRİMİÇİ",
+    "seoDefaultTitle": "{country} {service} | Mentor Career Consulting",
+    "seoDefaultDescription": "{country} {service} programları, başvuru şartları ve süreçleri hakkında kapsamlı danışmanlık hizmeti.",
+    "courseDefaultDescription": "{country} {service} programları ve başvuru süreçleri hakkında detaylı bilgi.",
+    "technicalDetails": "Teknik <span class='gold-text'>Detaylar</span>",
+    "requiredDocuments": "Gerekli Belgeler",
+    "disclaimer": "Önemli Not",
+    "institutionalPartner": "KURUMSAL PARTNER"
+  },
+  "RouteDetail": {
+    "guideLabel": "Akademik Rota Rehberi",
+    "prestigiousDestination": "PRESTİJLİ DESTİNASYON",
+    "globalFuture": "Global Gelecek",
+    "heroSub": "Seçkin akademik fırsatları ve kültürel zenginlikleri Mentor Career Consulting rehberliğiyle keşfedin.",
+    "academicPartner": "AKADEMİK PARTNER",
+    "strategicAnalysis": "Stratejik <span class='gold-text'>Analiz</span>",
+    "academicEvaluation": "Akademik Değerlendirme",
+    "partnersTitle": "Anlaşmalı <span class='gold-text'>Kurumlar</span>",
+    "partnersDesc": "{country} lokasyonunda Mentor Career Consulting akademik hassasiyetiyle seçilmiş partner kurumlar.",
+    "resultsLabel": "SEÇKİN AKADEMİK SONUÇ",
+    "explore": "KEŞFET",
+    "countryGuide": "Ülke Rehberi",
+    "officialLanguage": "Resmi Dil",
+    "population": "Yaklaşık Nüfus",
+    "processSupport": "Süreç Destek",
+    "consultancy": "Akademik Danışmanlık",
+    "accommodation": "Konaklama Organizasyonu",
+    "orientation": "Kültürel Oryantasyon",
+    "formTitle": "{title} Danışmanlık Talebi",
+    "formDesc": "{title} akademik fırsatları hakkında uzmanlarımızdan bilgi alın.",
+    "description": "{country} ülkesinde eğitim olanakları, üniversiteler ve yaşam hakkında kapsamlı rehber."
+  },
+  "About": {
+    "loading": "Yükleniyor...",
+    "heritageLabel": "NEDEN Mentor Career Consulting?",
+    "heritageDesc": "Liseden lisansüstü eğitime kadar her aşamada, Mentor Career size daha iyi bir kariyer planlaması ve eğitim hayatı için öncülük eder. Eğitim seviyenize uygun olarak seçebileceğiniz yurt dışı okulları, work & travel imkânlarını ve dil okullarını sizin için listeler. Bütçenize ve ihtiyaçlarınıza uygun bir seçim yapmanızda size rehberlik eder. Eğitim almak istediğiniz ülkeler hakkında araştırma yaparak size güncel bilgiler sunar.",
+    "heroSubtitle": "Eğitim danışmanlığı hizmetlerimizle uluslararası alanda geçerliliği olabilecek bir kariyer planlaması yapmak için şimdi bizi arayın!",
+    "getCounseling": "HEMEN BİZE ULAŞIN",
+    "stats": {
+      "experience": "Yıllık Tecrübe",
+      "students": "Mutlu Öğrenci",
+      "partners": "Partner Okul",
+      "countries": "Ülke"
+    },
+    "mission": "Misyonumuz",
+    "missionDesc": "Eğitimde fırsat eşitliği sunmak ve her öğrencinin potansiyeline uygun en iyi eğitim kurumuna yerleşmesini sağlamak.",
+    "vision": "Vizyonumuz",
+    "visionDesc": "Öğrencilerimizin küresel bir vizyon kazanmasını sağlamak ve onları geleceğin liderleri olarak yetiştirmek.",
+    "principlesLabel": "Mentor Career Consulting AVANTAJLARI",
+    "valuesTitle": "Kariyerinizi <span class='gold-text'>Birlikte Planlayalım</span>",
+    "valuesSubtitle": "Mentor Career Consulting olarak öğrencilerimizin kariyer planlamalarını yaparken şu adımları izliyoruz:",
+    "whoWeAreLabel": "DANIŞMANLIK SÜRECİMİZ",
+    "teamTitle": "Profesyonel <span class='gold-text'>Destek</span>",
+    "teamSummary": "Genel hedef belirleme, en çok aranan meslekler, size uygun mesleklerin belirlenmesi, güçlü ve zayıf yönlerin analizi ve nihai hedef tayini.",
+    "meetTeam": "BİZİMLE İLETİŞİME GEÇİN",
+    "futureDesignLabel": "HİZMET VERDİĞİMİZ ÜLKELER",
+    "ctaTitle": "Geleceğinizi <span class='gold-text italic'>Küresel</span> Bir Vizyonla İnşa Edin",
+    "ctaSubtitle": "İngiltere, İrlanda, Kanada, Amerika, Avustralya, Polonya, Almanya, Belçika, Hollanda ve Ukrayna'da eğitim fırsatları sizi bekliyor.",
+    "startStrategy": "BİZİMLE İLETİŞİME GEÇİN",
+    "values": {
+      "transparency": "Kapsamlı Analiz",
+      "transparencyDesc": "Sizin için en uygun ülkeyi ve programı belirlemek için detaylı analizler yapıyoruz.",
+      "careerDesign": "Kayıt Desteği",
+      "careerDesignDesc": "Okul kayıtlarından kabul süreçlerine kadar tüm bürokratik aşamalarda yanınızdayız.",
+      "globalVision": "Sürekli Destek",
+      "globalVisionDesc": "Eğitim süreciniz boyunca ve sonrasında da danışmanlık hizmetimizle yanınızda olmaya devam ediyoruz."
+    }
   }
 }

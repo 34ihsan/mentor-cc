@@ -1,4 +1,4 @@
-New_Staredu Proje Analizi: Kullanıcı Türleri ve Mock Hesaplar
+Mentor Career Consulting Proje Analizi: Kullanıcı Türleri ve Mock Hesaplar
 Projeyi A'dan Z'ye inceledim. Veritabanı şeması, dashboard yapısı ve seed dosyalarına göre kullanıcı türlerini ve giriş bilgilerini aşağıda bulabilirsiniz.
 
 Kullanıcı Rolleri ve Erişim Alanları
@@ -17,23 +17,23 @@ IMPORTANT
 
 Tüm hesaplar için varsayılan şifre: password123
 
-Ana Mock Hesaplar (stareducation.com)
+Ana Mock Hesaplar (mentor-cc.com)
 Rol	E-posta	Şifre
-Admin	admin@stareducation.com	password123
-CEO	ceo@stareducation.com	password123
-Danışman (Advisor)	advisor@stareducation.com	password123
-Acenta Müdürü	agency@stareducation.com	password123
-Öğrenci	student@stareducation.com	password123
-Test İş Akışı Hesapları (test.com)
+Admin	admin@mentor-cc.com	password123
+CEO	ceo@mentor-cc.com	password123
+Danışman (Advisor)	advisor@mentor-cc.com	password123
+Acenta Müdürü	agency@mentor-cc.com	password123
+Öğrenci	student@mentor-cc.com	password123
+Test İş Akışı Hesapları (mentor-cc.com)
 Eğer 
 seed-test-workflow.ts
  çalıştırıldıysa aşağıdaki hesaplar da aktif olabilir:
 
 Rol	E-posta	Şifre
-Admin	admin@test.com	password123
-Danışman (Advisor)	consultant@test.com	password123
-Acenta Müdürü	agency@test.com	password123
-Öğrenci	student@test.com	password123
+Admin	management@mentor-cc.com	password123
+Danışman (Advisor)	consultant@mentor-cc.com	password123
+Acenta Müdürü	global@mentor-cc.com	password123
+Öğrenci	demo@mentor-cc.com	password123
 Teknik Notlar
 Şifreler veritabanında bcryptjs ile hashlenmiş olarak saklanmaktadır.
 Kimlik doğrulama için Auth.js (NextAuth) kullanılmaktadır.

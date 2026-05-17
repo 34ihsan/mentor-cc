@@ -40,17 +40,26 @@ function ServicesManagementContent() {
     const [editingService, setEditingService] = useState<any>(null);
     const [formData, setFormData] = useState({
         title: "",
+        title_en: "",
+        title_de: "",
         slug: "",
         content: "",
+        content_en: "",
+        content_de: "",
         image: "",
         imageSettings: defaultImageSettings,
         allowsTargeting: false,
         active: true,
         seoTitle: "",
+        seoTitle_en: "",
+        seoTitle_de: "",
         seoDescription: "",
+        seoDescription_en: "",
+        seoDescription_de: "",
         icon: "",
         order: 0
     });
+    const [activeTab, setActiveTab] = useState<'tr' | 'en' | 'de'>('tr');
     const [showSource, setShowSource] = useState(false);
 
     useEffect(() => {
@@ -107,14 +116,22 @@ function ServicesManagementContent() {
             setEditingService(service);
             setFormData({
                 title: service.title,
+                title_en: service.title_en || "",
+                title_de: service.title_de || "",
                 slug: service.slug,
                 content: service.content || "",
+                content_en: service.content_en || "",
+                content_de: service.content_de || "",
                 image: service.image || "",
                 imageSettings: settings,
                 allowsTargeting: service.allowsTargeting,
                 active: service.active,
                 seoTitle: service.seoTitle || "",
+                seoTitle_en: service.seoTitle_en || "",
+                seoTitle_de: service.seoTitle_de || "",
                 seoDescription: service.seoDescription || "",
+                seoDescription_en: service.seoDescription_en || "",
+                seoDescription_de: service.seoDescription_de || "",
                 icon: service.icon || "",
                 order: service.order || 0
             });
@@ -122,19 +139,28 @@ function ServicesManagementContent() {
             setEditingService(null);
             setFormData({
                 title: "",
+                title_en: "",
+                title_de: "",
                 slug: "",
                 content: "",
+                content_en: "",
+                content_de: "",
                 image: "",
                 imageSettings: defaultImageSettings,
                 allowsTargeting: false,
                 active: true,
                 seoTitle: "",
+                seoTitle_en: "",
+                seoTitle_de: "",
                 seoDescription: "",
+                seoDescription_en: "",
+                seoDescription_de: "",
                 icon: "",
                 order: services.length // Default to end of list
             });
         }
         setShowSource(false);
+        setActiveTab('tr');
         setIsEditorOpen(true);
     };
 
@@ -147,8 +173,9 @@ function ServicesManagementContent() {
 
     const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const title = e.target.value;
-        const updates: any = { title };
-        if (!editingService) {
+        const fieldName = activeTab === 'tr' ? 'title' : `title_${activeTab}`;
+        const updates: any = { [fieldName]: title };
+        if (activeTab === 'tr' && !editingService) {
             updates.slug = generateSlug(title);
         }
         setFormData(prev => ({ ...prev, ...updates }));
@@ -251,13 +278,22 @@ function ServicesManagementContent() {
     return (
         <div className="space-y-8 pb-10">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-                <div>
-                    <div className="flex items-center gap-2 text-[#0B1751] font-bold text-[10px] uppercase tracking-[0.2em] mb-2">
-                        <Layout size={12} />
-                        İçerik Yönetimi
+                <div className="space-y-4">
+                    <div>
+                        <div className="flex items-center gap-2 text-[#0B1751] font-bold text-[10px] uppercase tracking-[0.2em] mb-2">
+                            <Layout size={12} />
+                            İçerik Yönetimi
+                        </div>
+                        <h1 className="text-3xl font-black tracking-tighter text-[#0B1751]">Hizmetler (Programlar)</h1>
+                        <p className="text-sm text-slate-700 font-medium mt-1">Hizmet kategorilerini ve detay sayfalarını yönetin.</p>
                     </div>
-                    <h1 className="text-3xl font-black tracking-tighter text-[#0B1751]">Hizmetler (Programlar)</h1>
-                    <p className="text-sm text-slate-700 font-medium mt-1">Hizmet kategorilerini ve detay sayfalarını yönetin.</p>
+                    <button
+                        onClick={() => openEditor()}
+                        className="flex items-center gap-2 px-6 py-2.5 bg-[#0B1751] text-white rounded-xl text-[10px] font-black uppercase tracking-widest hover:scale-[1.02] active:scale-95 transition-all shadow-lg shadow-blue-900/10"
+                    >
+                        <Plus size={14} />
+                        Yeni Hizmet Ekle
+                    </button>
                 </div>
                 <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-2xl">
                     <div className="flex items-center gap-3">
@@ -352,9 +388,19 @@ function ServicesManagementContent() {
                                         </td>
                                         <td className="p-6 text-right">
                                             <div className="flex items-center justify-end gap-2">
-                                                <div className="text-[10px] font-bold text-slate-400 bg-slate-100 px-3 py-1 rounded-full uppercase">Kilitli</div>
-                                                <button onClick={() => openEditor(service)} className="p-2 hover:bg-slate-100 rounded-lg text-slate-400 hover:text-[#0B1751] transition-all" title="Görüntüle">
-                                                    <Eye size={16} />
+                                                <button
+                                                    onClick={() => openEditor(service)}
+                                                    className="p-2 hover:bg-slate-100 rounded-lg text-slate-500 hover:text-[#0B1751] transition-all"
+                                                    title="Düzenle"
+                                                >
+                                                    <Edit size={16} />
+                                                </button>
+                                                <button
+                                                    onClick={() => handleDelete(service.id)}
+                                                    className="p-2 hover:bg-red-50 rounded-lg text-slate-500 hover:text-[#DC2626] transition-all"
+                                                    title="Sil"
+                                                >
+                                                    <Trash2 size={16} />
                                                 </button>
                                             </div>
                                         </td>
@@ -389,6 +435,26 @@ function ServicesManagementContent() {
                                     </h3>
                                 </div>
                                 <div className="flex items-center gap-2">
+                                    <div className="flex bg-slate-100 p-1 rounded-xl mr-2">
+                                        {[
+                                            { id: 'tr', label: 'TR', icon: '🇹🇷' },
+                                            { id: 'en', label: 'EN', icon: '🇬🇧' },
+                                            { id: 'de', label: 'DE', icon: '🇩🇪' }
+                                        ].map((tab) => (
+                                            <button
+                                                key={tab.id}
+                                                type="button"
+                                                onClick={() => setActiveTab(tab.id as any)}
+                                                className={`flex items-center gap-2 px-4 py-1.5 rounded-lg text-[10px] font-black transition-all ${activeTab === tab.id
+                                                    ? 'bg-white text-[#0B1751] shadow-sm'
+                                                    : 'text-slate-500 hover:text-slate-700'
+                                                    }`}
+                                            >
+                                                <span>{tab.icon}</span>
+                                                {tab.label}
+                                            </button>
+                                        ))}
+                                    </div>
                                     <button 
                                         type="button" 
                                         onClick={handleSave} 
@@ -405,8 +471,14 @@ function ServicesManagementContent() {
                                 <div className="p-8 pb-4 grid grid-cols-1 md:grid-cols-2 gap-8 shrink-0 overflow-y-auto max-h-[40vh]">
                                     <div className="space-y-4">
                                         <div className="space-y-2">
-                                            <label className="text-[10px] font-black text-black uppercase tracking-widest">Hizmet Başlığı</label>
-                                            <input required type="text" value={formData.title} onChange={handleTitleChange} className="w-full bg-slate-50 border border-slate-200 p-4 rounded-2xl outline-none focus:border-[var(--primary)] text-sm font-bold text-black" />
+                                            <label className="text-[10px] font-black text-black uppercase tracking-widest">Hizmet Başlığı ({activeTab.toUpperCase()})</label>
+                                            <input
+                                                required={activeTab === 'tr'}
+                                                type="text"
+                                                value={activeTab === 'tr' ? formData.title : (formData as any)[`title_${activeTab}`]}
+                                                onChange={handleTitleChange}
+                                                className="w-full bg-slate-50 border border-slate-200 p-4 rounded-2xl outline-none focus:border-[var(--primary)] text-sm font-bold text-black"
+                                            />
                                         </div>
                                         <div className="grid grid-cols-2 gap-4">
                                             <div className="space-y-2">
@@ -429,12 +501,23 @@ function ServicesManagementContent() {
                                                 SEO Ayarları
                                             </div>
                                             <div className="space-y-2">
-                                                <label className="text-[10px] font-black text-black uppercase tracking-widest">SEO Başlığı</label>
-                                                <input type="text" value={formData.seoTitle} onChange={(e) => setFormData({ ...formData, seoTitle: e.target.value })} className="w-full bg-slate-50 border border-slate-200 p-4 rounded-2xl outline-none focus:border-[var(--primary)] text-sm font-bold text-black" placeholder="Arama motoru başlığı..." />
+                                                <label className="text-[10px] font-black text-black uppercase tracking-widest">SEO Başlığı ({activeTab.toUpperCase()})</label>
+                                                <input
+                                                    type="text"
+                                                    value={activeTab === 'tr' ? formData.seoTitle : (formData as any)[`seoTitle_${activeTab}`]}
+                                                    onChange={(e) => setFormData({ ...formData, [activeTab === 'tr' ? 'seoTitle' : `seoTitle_${activeTab}`]: e.target.value })}
+                                                    className="w-full bg-slate-50 border border-slate-200 p-4 rounded-2xl outline-none focus:border-[var(--primary)] text-sm font-bold text-black"
+                                                    placeholder="Arama motoru başlığı..."
+                                                />
                                             </div>
                                             <div className="space-y-2">
-                                                <label className="text-[10px] font-black text-black uppercase tracking-widest">SEO Açıklaması</label>
-                                                <textarea value={formData.seoDescription} onChange={(e) => setFormData({ ...formData, seoDescription: e.target.value })} className="w-full bg-slate-50 border border-slate-200 p-4 rounded-2xl outline-none focus:border-[var(--primary)] text-sm font-bold h-24 resize-none text-black" placeholder="Arama motoru açıklaması..." />
+                                                <label className="text-[10px] font-black text-black uppercase tracking-widest">SEO Açıklaması ({activeTab.toUpperCase()})</label>
+                                                <textarea
+                                                    value={activeTab === 'tr' ? formData.seoDescription : (formData as any)[`seoDescription_${activeTab}`]}
+                                                    onChange={(e) => setFormData({ ...formData, [activeTab === 'tr' ? 'seoDescription' : `seoDescription_${activeTab}`]: e.target.value })}
+                                                    className="w-full bg-slate-50 border border-slate-200 p-4 rounded-2xl outline-none focus:border-[var(--primary)] text-sm font-bold h-24 resize-none text-black"
+                                                    placeholder="Arama motoru açıklaması..."
+                                                />
                                             </div>
                                         </div>
 
@@ -467,14 +550,24 @@ function ServicesManagementContent() {
 
                                 <div className="flex-1 px-8 pb-0 overflow-hidden flex flex-col min-h-[400px]">
                                     <div className="flex justify-between items-center mb-2">
-                                        <label className="text-[10px] font-black text-black uppercase tracking-widest">İçerik Editörü</label>
+                                        <label className="text-[10px] font-black text-black uppercase tracking-widest">İçerik Editörü ({activeTab.toUpperCase()})</label>
                                         <button type="button" onClick={() => setShowSource(!showSource)} className="text-[10px] font-bold text-[var(--primary)] bg-[var(--primary)]/10 px-3 py-1 rounded-full uppercase">{showSource ? "Görsel Mod" : "HTML Kaynak"}</button>
                                     </div>
                                     <div className="flex-1 bg-white rounded-2xl border border-slate-200 overflow-hidden flex flex-col">
                                         {showSource ? (
-                                            <textarea value={formData.content} onChange={(e) => setFormData({ ...formData, content: e.target.value })} className="w-full h-full p-4 bg-slate-50 text-black font-mono text-xs outline-none" />
+                                            <textarea
+                                                value={activeTab === 'tr' ? formData.content : (formData as any)[`content_${activeTab}`]}
+                                                onChange={(e) => setFormData({ ...formData, [activeTab === 'tr' ? 'content' : `content_${activeTab}`]: e.target.value })}
+                                                className="w-full h-full p-4 bg-slate-50 text-black font-mono text-xs outline-none"
+                                            />
                                         ) : (
-                                            <ReactQuill theme="snow" value={formData.content} onChange={(content) => setFormData({ ...formData, content })} modules={modules} className="h-full flex flex-col [&_.ql-toolbar]:border-0 [&_.ql-container]:border-0 [&_.ql-editor]:text-base prose-premium" />
+                                            <ReactQuill
+                                                theme="snow"
+                                                value={activeTab === 'tr' ? formData.content : (formData as any)[`content_${activeTab}`]}
+                                                onChange={(content) => setFormData({ ...formData, [activeTab === 'tr' ? 'content' : `content_${activeTab}`]: content })}
+                                                modules={modules}
+                                                className="h-full flex flex-col [&_.ql-toolbar]:border-0 [&_.ql-container]:border-0 [&_.ql-editor]:text-base prose-premium"
+                                            />
                                         )}
                                     </div>
                                 </div>

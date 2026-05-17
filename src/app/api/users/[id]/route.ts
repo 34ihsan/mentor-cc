@@ -11,8 +11,8 @@ export async function GET(
     const session = await auth();
     if (!session) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
-    // Users can only view their own profile, unless they're admin
-    if (session.user.id !== id && session.user.role !== "SUPER_ADMIN") {
+    const isStaff = session.user.role === "ADMIN" || session.user.role === "CEO" || session.user.role === "ADVISOR";
+    if (session.user.id !== id && !isStaff) {
         return NextResponse.json({ error: "Forbidden" }, { status: 403 });
     }
 
@@ -44,8 +44,8 @@ export async function PATCH(
     const session = await auth();
     if (!session) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
-    // Users can only edit their own profile, unless they're admin
-    if (session.user.id !== id && session.user.role !== "SUPER_ADMIN") {
+    const isAdmin = session.user.role === "ADMIN" || session.user.role === "CEO";
+    if (session.user.id !== id && !isAdmin) {
         return NextResponse.json({ error: "Forbidden" }, { status: 403 });
     }
 
@@ -89,7 +89,12 @@ export async function DELETE(
 ) {
     const { id } = await params;
     const session = await auth();
-    if (!session || session.user.role !== "SUPER_ADMIN") {
+    if (!session) {
+        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const isAdmin = session?.user?.role === "ADMIN" || session?.user?.role === "CEO";
+    if (!isAdmin) {
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
     Users,
@@ -19,9 +20,11 @@ import {
     Globe,
     Layers,
     UserCheck,
-    Briefcase
+    Briefcase,
+    Sparkles
 } from "lucide-react";
 import { motion } from "framer-motion";
+import PerformanceChart from "@/components/admin/PerformanceChart";
 
 export default function AdminDashboardPage() {
     const { data: session } = useSession();
@@ -102,6 +105,7 @@ export default function AdminDashboardPage() {
 
     const quickLinks = [
         { name: "Sayfalar", icon: Layout, href: "/dashboard/admin/pages", desc: "Site içeriğini yönet" },
+        { name: "Social AI", icon: Sparkles, href: "/dashboard/admin/social", desc: "AI ile sosyal medya otomasyonu" },
         { name: "Duyurular", icon: Megaphone, href: "/dashboard/admin/announcements", desc: "Hızlı bildirim yayınla" },
         { name: "Hero Bölümü", icon: Globe, href: "/dashboard/admin/hero", desc: "Slider içeriklerini düzenle" },
         { name: "Bölgeler", icon: Layers, href: "/dashboard/admin/settings/regions", desc: "Bölgesel kontroller" },
@@ -142,6 +146,31 @@ export default function AdminDashboardPage() {
                     ))
                 )}
             </div>
+
+            {/* Performance Chart Section */}
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="premium-card p-8"
+            >
+                <div className="flex items-center justify-between mb-8">
+                    <div>
+                        <div className="flex items-center gap-2 mb-1">
+                            <TrendingUp size={16} className="text-emerald-500" />
+                            <h3 className="text-xl font-serif italic text-secondary">Performans Grafiği</h3>
+                        </div>
+                        <p className="text-xs text-zinc-500 font-bold tracking-tight">Aylık başvuru ve operasyonel büyüme trendi</p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <select className="bg-zinc-50 border border-zinc-100 rounded-xl px-4 py-2 text-[10px] font-black uppercase tracking-widest outline-none focus:border-primary/20 transition-all">
+                            <option>Son 6 Ay</option>
+                            <option>Son 12 Ay</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <PerformanceChart data={[]} />
+            </motion.div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {/* Distributions */}
@@ -201,7 +230,7 @@ export default function AdminDashboardPage() {
                     <h3 className="text-xl font-serif italic mb-6 text-secondary">Hızlı Erişim</h3>
                     <div className="grid grid-cols-1 gap-4">
                         {quickLinks.map((link, i) => (
-                            <a
+                            <Link
                                 key={i}
                                 href={link.href}
                                 className="flex items-center gap-4 p-4 rounded-2xl hover:bg-zinc-50 transition-all border border-transparent hover:border-zinc-100 group"
@@ -213,7 +242,7 @@ export default function AdminDashboardPage() {
                                     <p className="text-sm font-bold text-primary group-hover:translate-x-1 transition-transform">{link.name}</p>
                                     <p className="text-[10px] font-bold text-zinc-400">{link.desc}</p>
                                 </div>
-                            </a>
+                            </Link>
                         ))}
                     </div>
                 </motion.div>

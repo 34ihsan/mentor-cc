@@ -26,7 +26,7 @@ export async function DELETE(
         const userId = session.user.id;
 
         // Authorization check
-        const isOwner = document.application?.studentId === userId;
+        const isOwner = document.application?.studentId === userId || document.userId === userId;
         const isAdmin = role === "ADMIN" || role === "CEO";
         const isConsultant = document.application?.consultantId === userId;
         const isAgency = document.application?.agencyId === userId;

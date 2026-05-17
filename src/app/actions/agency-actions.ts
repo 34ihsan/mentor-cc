@@ -274,7 +274,7 @@ export async function updateApplicationStatusAction(applicationId: string, statu
                         </div>
                         <p>Detayları öğrenci panelinizden inceleyebilirsiniz.</p>
                         <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;" />
-                        <p style="font-size: 12px; color: #64748B;">StarEducation Consultancy</p>
+                        <p style="font-size: 12px; color: #64748B;">Mentor Career Consultancy</p>
                     </div>
                 `
             });

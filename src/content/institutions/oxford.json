@@ -1,0 +1,16 @@
+{
+  "name": "Oxford University",
+  "slug": "oxford",
+  "country": "uk",
+  "type": "University",
+  "summary": "World-leading research university",
+  "body": "<p>Course info and placement support...</p>",
+  "website": "https://www.ox.ac.uk",
+  "logo": "https://example.com/oxford.png",
+  "programs": [
+    "Bachelor",
+    "Masters"
+  ],
+  "contact_email": "info@ox.ac.uk",
+  "published": true
+}

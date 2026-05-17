@@ -6,7 +6,7 @@ export const OFFER_TEMPLATES: Record<string, any> = {
                 <div class="flex justify-between items-start border-b border-slate-200 pb-6">
                     <div>
                         <h1 class="text-3xl font-black text-slate-900 tracking-tight uppercase leading-none mb-2">Eğitim Teklifi</h1>
-                        <p class="text-xs font-bold text-primary tracking-[0.2em] uppercase">StarEducation Consultancy</p>
+                        <p class="text-xs font-bold text-primary tracking-[0.2em] uppercase">Mentor Career Consulting</p>
                     </div>
                     <div class="text-right">
                         <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Tarih</p>
@@ -60,7 +60,7 @@ export const OFFER_TEMPLATES: Record<string, any> = {
                         </div>
                         <div class="flex items-center gap-3">
                             <div class="w-5 h-5 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-[10px]">✓</div>
-                            Vize Danışmanlık Hizmeti
+                            Dosya ve Başvuru Desteği
                         </div>
                         <div class="flex items-center gap-3">
                             <div class="w-5 h-5 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-[10px]">✓</div>
@@ -74,7 +74,7 @@ export const OFFER_TEMPLATES: Record<string, any> = {
                 </div>
 
                 <footer class="pt-8 mt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4 italic text-[10px] text-slate-400">
-                    <p>© StarEducation - Profesyonel Eğitim Danışmanlığı</p>
+                    <p>© Mentor Career Consulting - Professional Education Consultancy</p>
                     <p>Bu teklif dijital olarak oluşturulmuştur ve onayınızla geçerlilik kazanır.</p>
                 </footer>
             </div>
@@ -122,11 +122,11 @@ export const OFFER_TEMPLATES: Record<string, any> = {
                 <header class="flex justify-between items-end border-b-2 border-slate-900 pb-6">
                     <div>
                         <h1 class="text-4xl font-black text-slate-900 tracking-tighter uppercase leading-none">Akademik Öneri</h1>
-                        <p class="text-xs font-bold text-slate-500 tracking-[0.3em] uppercase mt-4">Kariyer Mimarı / StarEducation</p>
+                        <p class="text-xs font-bold text-slate-500 tracking-[0.3em] uppercase mt-4">Kariyer Mimarı / Mentor Career</p>
                     </div>
                     <div class="text-right">
                         <p class="text-[10px] font-black text-slate-400 tracking-widest uppercase">Teklif No</p>
-                        <p class="text-sm font-black tracking-widest">#SB-${Math.floor(Math.random() * 9000) + 1000}</p>
+                        <p class="text-sm font-black tracking-widest">#MC-${Math.floor(Math.random() * 9000) + 1000}</p>
                     </div>
                 </header>
 
@@ -157,13 +157,13 @@ export const OFFER_TEMPLATES: Record<string, any> = {
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 text-[11px] font-bold text-slate-600 uppercase">
                         <div class="flex items-center gap-2">• Profesyonel Başvuru Yönetimi</div>
                         <div class="flex items-center gap-2">• Motivasyon Mektubu Desteği</div>
-                        <div class="flex items-center gap-2">• Vize Dosya Hazırlığı</div>
+                        <div class="flex items-center gap-2">• Akademik Dosya Hazırlığı</div>
                         <div class="flex items-center gap-2">• Konaklama Rehberliği</div>
                     </div>
                 </div>
 
                 <footer class="pt-8 mt-8 border-t border-slate-100 flex justify-between items-center italic text-[10px] text-slate-400">
-                    <p>© StarEducation Uluslararası Eğitim Danışmanlığı</p>
+                    <p>© Mentor Career Uluslararası Eğitim Danışmanlığı</p>
                 </footer>
             </div>
         `
@@ -177,23 +177,23 @@ export const CONTRACT_TEMPLATES: Record<string, any> = {
             <div class="font-sans text-[11px] leading-relaxed p-8 max-w-4xl mx-auto text-black bg-white">
                 <header class="flex justify-between items-start mb-10 border-b border-slate-200 pb-6">
                     <div class="space-y-1">
-                        <p class="font-bold">info@stareducation.com.tr</p>
-                        <p class="font-bold underline">www.stareducation.com.tr</p>
+                        <p class="font-bold">info@mentor-cc.com</p>
+                        <p class="font-bold underline">www.mentor-cc.com</p>
                         <p class="text-slate-600 font-medium">85 Great Portland Street, First Floor, W1W 7LT,</p>
                         <p class="text-slate-600 font-medium">London, United Kingdom</p>
-                        <p class="text-[9px] text-slate-400">Star Education Consulting Ltd, Company Number: 12767873</p>
+                        <p class="text-[9px] text-slate-400">Mentor Career Consulting Ltd, Company Number: 12767873</p>
                     </div>
                 </header>
 
                 <div class="text-center mb-10">
-                    <h1 class="text-2xl font-black uppercase tracking-widest text-black">StarEducation</h1>
+                    <h1 class="text-2xl font-black uppercase tracking-widest text-black">Mentor Career</h1>
                     <h2 class="text-xl font-serif italic text-slate-800 mt-2 underline">ÖĞRENCİ SÖZLEŞMESİ 2026</h2>
                 </div>
 
                 <div class="space-y-8">
                     <section>
                         <h3 class="font-black border-b border-black/10 pb-1 mb-3">MADDE 1 - TARAFLAR</h3>
-                        <p class="mb-4 text-justify">İş bu sözleşme, bir tarafta “London, UK” merkezli faaliyet gösteren “StarEducation” (Aşağıda kısaca “StarEducation” olarak anılacaktır), diğer tarafta da;</p>
+                        <p class="mb-4 text-justify">İş bu sözleşme, bir tarafta “London, UK” merkezli faaliyet gösteren “Mentor Career” (Aşağıda kısaca “Mentor Career” olarak anılacaktır), diğer tarafta da;</p>
                         
                         <div class="grid grid-cols-2 gap-x-12 gap-y-3 pl-4 border-l-2 border-slate-200">
                             <p><strong>Adı-Soyadı :</strong> ${data.studentName || '................................'}</p>
@@ -244,7 +244,7 @@ export const CONTRACT_TEMPLATES: Record<string, any> = {
                                     <li>Pasaport masrafları</li>
                                     <li>Okul eğitim ücretleri</li>
                                     <li>Yurtdışı eğitim sağlık sigorta ücreti</li>
-                                    <li>Vize başvuru ve konsolosluk masrafları</li>
+                                    <li>Resmi başvuru ve harç masrafları</li>
                                     <li>Uçak bileti ve havaalanı transfer masrafları</li>
                                     <li>Konaklama, yemek ve günlük masraflar</li>
                                     <li>Ekstra sağlık harcamaları</li>
@@ -257,33 +257,33 @@ export const CONTRACT_TEMPLATES: Record<string, any> = {
                     <section>
                         <h3 class="font-black border-b border-black/10 pb-1 mb-3 uppercase">MADDE 4 – TARAFLARIN YÜKÜMLÜLÜKLERİ</h3>
                         <div class="space-y-4 text-justify pr-4">
-                            <p>1. “StarEducation” öğrenciyi ülke, şehir ve program alternatifleri hakkında eksikosiz bilgilendirmeyi ve en doğru tercihi yapmasını sağlamayı taahhüt eder.</p>
+                            <p>1. “Mentor Career” öğrenciyi ülke, şehir ve program alternatifleri hakkında eksikosiz bilgilendirmeyi ve en doğru tercihi yapmasını sağlamayı taahhüt eder.</p>
                             <p>2. Okul başvuruları ilgili ülke mevzuatına uygun hazırlanır. Gerekli dil seviyesine ulaşma sorumluluğu tamamen öğrenciye aittir.</p>
                             <p>3. Gerekli tüm belgeler (diploma, transkript vb.) öğrenci tarafından eksiksiz ve zamanında teslim edilmelidir.</p>
-                            <p>4. “StarEducation” başvuruların eksiksiz yapılmasını sağlar ancak kabul garantisi vermez. En az 3 üniversiteye başvuru yapılacaktır.</p>
+                            <p>4. “Mentor Career” başvuruların eksiksiz yapılmasını sağlar ancak kabul garantisi vermez. En az 3 üniversiteye başvuru yapılacaktır.</p>
                             <p>5. Konaklama talepleri imkanlar dahilinde ek ücretle ayarlanır; kesin garanti verilemez.</p>
-                            <p>6. Vize danışmanlığı profesyonelce sunulur (Pakete dahil değilse ek ücrete tabidir) ancak vize onayı konsolosluk yetkisindedir.</p>
-                            <p>7. Kurum aracı olması hasebiyle, okul veya vize reddinden dolayı “StarEducation” sorumlu tutulamaz.</p>
-                            <p>8. Öğrenci vize sonucunu 2 iş günü içinde bildirmekle yükümlüdür.</p>
-                            <p>9. Hizmet bedeli; ilk ödeme sözleşme anında, kalan miktar vize alımından sonra peşin ödenmelidir.</p>
+                            <p>6. Başvuru ve dosya danışmanlığı profesyonelce sunulur (Pakete dahil değilse ek ücrete tabidir) ancak onay yetkisi ilgili resmi makamlardadır.</p>
+                            <p>7. Kurum aracı olması hasebiyle, okul veya resmi makam reddinden dolayı “Mentor Career” sorumlu tutulamaz.</p>
+                            <p>8. Öğrenci başvuru sonucunu 2 iş günü içinde bildirmekle yükümlüdür.</p>
+                            <p>9. Hizmet bedeli; ilk ödeme sözleşme anında, kalan miktar başvuru onayından sonra peşin ödenmelidir.</p>
                             <p>10. Eksik belge tesliminden kaynaklanan aksamalarda ücret iadesi yapılmaz.</p>
                             <p>11. İlave belge temini öğrenci ve velisinin sorumluluğundadır.</p>
                             <p>12. Kabul sonrası vazgeçme durumunda danışmanlık ücreti ve geri ödemesiz bedeller iade edilmez.</p>
                             <p>13. Mücbir sebepler (ölüm, hastalık, savaş, pandemi vb.) durumunda kurum prosedürleri uygulanır.</p>
                             <p>14. Sağlık sigortası zorunludur. Yaptırılmamasından doğan masraflar öğrenciye aittir.</p>
                             <p>15. Öğrenci, gidilen ülkenin yasalarına ve kurum kurallarına uymakla yükümlüdür.</p>
-                            <p>16. “StarEducation” sorunların çözümünde azami gayret göstermeyi taahhüt eder.</p>
-                            <p>17. Vize çıktıktan sonra feragat durumunda ücret iade edilmez.</p>
+                            <p>16. “Mentor Career” sorunların çözümünde azami gayret göstermeyi taahhüt eder.</p>
+                            <p>17. Başvuru onaylandıktan sonra feragat durumunda ücret iade edilmez.</p>
                             <p>18. Anlaşma imza ile yürürlüğe girer, yükümlülükler bitince sona erer.</p>
                             <p>19. Uyuşmazlıklarda öncelik iyi niyetli uzlaşmadır. Uzlaşma olmazsa Yerel Mahkemeler yetkilidir.</p>
-                            <p>20. Vize reddi durumunda iade sadece Pre Paket kapsamında (%30) ve belge ibrazıyla yapılır.</p>
+                            <p>20. Başvuru reddi durumunda iade sadece Pre Paket kapsamında (%30) ve belge ibrazıyla yapılır.</p>
                             <p>21. Adres değişiklikleri 14 iş günü içinde bildirilmelidir.</p>
                             <p>22. İş bu sözleşme iki nüsha halinde hazırlanmıştır.</p>
                         </div>
                     </section>
 
                     <div class="mt-16 pt-10 border-t-2 border-slate-200 space-y-12">
-                        <p class="text-[10px] italic leading-relaxed font-black mb-8 text-slate-600">Yukarıda beyan edilen bilgileri tam olarak okuyup anladığımı, herhangi bir yanlış beyandan kaynaklanan durumda StarEducation’in başvurumu iptal etme hakkı olduğunu kabul ediyorum. Bu kontrat 5 sayfadan ibarettir.</p>
+                        <p class="text-[10px] italic leading-relaxed font-black mb-8 text-slate-600">Yukarıda beyan edilen bilgileri tam olarak okuyup anladığımı, herhangi bir yanlış beyandan kaynaklanan durumda Mentor Career’in başvurumu iptal etme hakkı olduğunu kabul ediyorum. Bu kontrat 5 sayfadan ibarettir.</p>
                         
                         <div class="grid grid-cols-2 gap-20">
                             <div class="space-y-6">
@@ -295,12 +295,12 @@ export const CONTRACT_TEMPLATES: Record<string, any> = {
                                 </div>
                             </div>
                             <div class="space-y-6">
-                                <p class="font-black underline uppercase text-black">StarEducation ADINA</p>
+                                <p class="font-black underline uppercase text-black">Mentor Career ADINA</p>
                                 <div class="space-y-2">
                                     <p><strong>İsim :</strong> Yılmaz Sunar</p>
                                     <p><strong>Tarih :</strong> ................................</p>
                                     <div class="h-24 border-2 border-dashed border-slate-200 rounded-xl bg-slate-50 flex flex-col items-center justify-center">
-                                        <p class="text-[8px] font-black uppercase text-slate-400">StarEducation OFFICIAL</p>
+                                        <p class="text-[8px] font-black uppercase text-slate-400">Mentor Career OFFICIAL</p>
                                         <p class="font-serif italic text-slate-200">Authorized Signature</p>
                                     </div>
                                 </div>
@@ -312,7 +312,7 @@ export const CONTRACT_TEMPLATES: Record<string, any> = {
                 <footer class="mt-20 pt-10 border-t border-slate-100 font-sans">
                     {/* Contact info footer simplified */}
                     <div class="text-center text-[9px] text-slate-400 border-t border-slate-50 pt-6">
-                        <p>85 Great Portland Street, First Floor, London, UK | www.stareducation.com.tr</p>
+                        <p>85 Great Portland Street, First Floor, London, UK | www.mentor-cc.com</p>
                         <p class="mt-2 opacity-100 uppercase tracking-widest font-black text-slate-300 italic">Temsilcilikler</p>
                     </div>
                 </footer>

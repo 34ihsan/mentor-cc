@@ -51,7 +51,7 @@ describe('Form Validation Schemas', () => {
 
   describe('HarvesterSchema', () => {
     it('should validate a correct URL', () => {
-      const data = { url: 'https://starberatung.com' };
+      const data = { url: 'https://mentor-cc.com' };
       const result = HarvesterSchema.safeParse(data);
       expect(result.success).toBe(true);
     });

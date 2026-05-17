@@ -45,7 +45,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
     ];
 
     return (
-        <main className="min-h-screen bg-background text-navy selection:bg-gold selection:text-white">
+        <main className="min-h-screen bg-background text-navy selection:bg-primary selection:text-white">
             {/* Hero Section */}
             <div className="relative h-[65vh] min-h-[550px] flex items-center overflow-hidden bg-zinc-50 border-b border-zinc-100">
                 <div className="absolute inset-0">
@@ -68,10 +68,10 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                         </div>
 
                         <h1 className="text-fluid-h1 font-serif font-bold text-primary italic leading-[1.05] tracking-tight mb-8 animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
-                            Star <span className="text-secondary not-italic">Beratung</span>
+                            Mentor <span className="text-secondary not-italic">Career Consulting</span>
                         </h1>
 
-                        <p className="text-fluid-p text-zinc-600 max-w-2xl font-serif italic border-l-2 border-secondary pl-8 leading-relaxed animate-fadeInUp" style={{ animationDelay: '0.4s' }}>
+                        <p className="text-fluid-p text-zinc-600 max-w-2xl border-l-2 border-secondary pl-8 leading-relaxed animate-fadeInUp" style={{ animationDelay: '0.4s' }}>
                             <SafeHTMLContent as="span" html={t.raw('heroSubtitle')} />
                         </p>
 
@@ -112,7 +112,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                                 <div className="flex items-center gap-4">
                                     <h2 className="text-3xl lg:text-4xl font-serif font-bold text-primary italic">{t('mission')}</h2>
                                 </div>
-                                <p className="text-zinc-600 text-lg lg:text-xl leading-relaxed font-serif italic border-l-2 border-secondary/30 pl-8">
+                                <p className="text-zinc-600 text-lg lg:text-xl leading-relaxed border-l-2 border-secondary/30 pl-8">
                                     {t('missionDesc')}
                                 </p>
                            </div>
@@ -124,7 +124,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                                 <div className="flex items-center gap-4">
                                     <h2 className="text-3xl lg:text-4xl font-serif font-bold text-primary italic">{t('vision')}</h2>
                                 </div>
-                                <p className="text-zinc-600 text-lg lg:text-xl leading-relaxed font-serif italic border-l-2 border-secondary/30 pl-8">
+                                <p className="text-zinc-600 text-lg lg:text-xl leading-relaxed border-l-2 border-secondary/30 pl-8">
                                     {t('visionDesc')}
                                 </p>
                            </div>
@@ -141,7 +141,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                             {t('principlesLabel')}
                         </div>
                         <SafeHTMLContent as="h2" className="text-fluid-h2 font-serif font-bold text-primary italic" html={t.raw('valuesTitle')} />
-                        <p className="text-fluid-p text-zinc-600 font-serif italic leading-relaxed">
+                        <p className="text-fluid-p text-zinc-600 leading-relaxed">
                             {t('valuesSubtitle')}
                         </p>
                     </div>
@@ -155,7 +155,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                                 <h4 className="text-2xl font-serif font-bold text-primary mb-6 italic">
                                     {value.title}
                                 </h4>
-                                <p className="text-zinc-600 text-base leading-relaxed font-serif italic opacity-90">
+                                <p className="text-zinc-600 text-base leading-relaxed opacity-90">
                                     {value.desc}
                                 </p>
                             </div>
@@ -173,7 +173,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                                 {t('whoWeAreLabel')}
                             </div>
                             <SafeHTMLContent as="h2" className="text-fluid-h2 font-serif font-bold text-primary italic" html={t.raw('teamTitle')} />
-                            <p className="text-xl lg:text-2xl text-zinc-600 font-serif italic leading-relaxed border-l-2 border-secondary/20 pl-10 max-w-2xl">
+                            <p className="text-xl lg:text-2xl text-zinc-600 leading-relaxed border-l-2 border-secondary/20 pl-10 max-w-2xl">
                                 {t('teamSummary')}
                             </p>
                             <div className="pt-6">
@@ -212,7 +212,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
 
                     <SafeHTMLContent as="h2" className="text-fluid-h2 md:text-7xl font-serif font-bold text-primary italic leading-none tracking-tight" html={t.raw('ctaTitle')} />
                     
-                    <p className="text-fluid-p text-zinc-600 font-serif italic max-w-2xl mx-auto py-8 border-y border-zinc-100">
+                    <p className="text-fluid-p text-zinc-600 max-w-2xl mx-auto py-8 border-y border-zinc-100">
                         {t('ctaSubtitle')}
                     </p>
 

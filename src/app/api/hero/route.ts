@@ -20,8 +20,8 @@ export async function GET(req: Request) {
         // Localize results if locale is provided
         const localizedSlides = slides.map(slide => ({
             ...slide,
-            title: locale === 'en' ? slide.title_en || slide.title : slide.title,
-            subtitle: locale === 'en' ? slide.subtitle_en || slide.subtitle : slide.subtitle
+            title: locale === 'en' ? slide.title_en || slide.title : locale === 'de' ? slide.title_de || slide.title : slide.title,
+            subtitle: locale === 'en' ? slide.subtitle_en || slide.subtitle : locale === 'de' ? slide.subtitle_de || slide.subtitle : slide.subtitle
         }));
 
         return NextResponse.json(localizedSlides);

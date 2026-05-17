@@ -1,8 +1,9 @@
 /* TEAM */
-Organization: Star Beratung
-Contact: info@starberatung.com
-Location: Istanbul, Turkey
-Twitter: @starberatung
+Organization: Mentor Career Consulting
+Contact: info@mentor-cc.com
+Location: London / UK
+Facebook: https://www.facebook.com/MentorCareerConsulting
+Instagram: https://www.instagram.com/mentorcc/?igshid=YmMyMTA2M2Y%3D
 
 /* SITE */
 Last update: 2026-03-16

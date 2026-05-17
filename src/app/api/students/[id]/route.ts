@@ -18,7 +18,7 @@ export async function GET(
     }
 
     try {
-        const student = await prisma.user.findUnique({
+        const student: any = await prisma.user.findUnique({
             where: { id },
             select: {
                 id: true,
@@ -43,6 +43,7 @@ export async function GET(
                                 email: true
                             }
                         }
+                        // visaProcess removed from here to avoid stale prisma include error
                     },
                     orderBy: { createdAt: "desc" }
                 },
@@ -57,6 +58,25 @@ export async function GET(
                 }
             }
         });
+
+        if (student && student.asStudent && student.asStudent.length > 0) {
+            // Try to fetch visa process for each application manually
+            student.asStudent = await Promise.all(student.asStudent.map(async (app: any) => {
+                try {
+                    const visaProcess = await (prisma as any).visaProcess.findUnique({
+                        where: { applicationId: app.id },
+                        include: {
+                            steps: {
+                                orderBy: { order: "asc" }
+                            }
+                        }
+                    });
+                    return { ...app, visaProcess };
+                } catch (e) {
+                    return { ...app, visaProcess: null };
+                }
+            }));
+        }
 
         if (!student || student.role !== "STUDENT") {
             return NextResponse.json({ error: "Student not found" }, { status: 404 });

@@ -78,11 +78,11 @@
     - [x] Create and Populate `UNIVERSITY_DATA.de` (Germany, UK, Italy, Poland, Hungary)
     - [x] Comprehensive `messages/de.json` synchronization (Privacy, Terms, Dashboard)
     - [x] Polish `messages/en.json` legal terms for .co.uk domain
-- [ ] Phase 6: Platform Stability & Final Audit
+- [x] Phase 6: Platform Stability & Final Audit
     - [x] Implement Global Error Boundary (`src/app/global-error.tsx`)
-    - [ ] Configuration check for Next.js 15+ stability
-    - [ ] Final `npm run build` verification
-    - [ ] Sweep for remaining "Star Beratung" strings in `tr.json`
+    - [x] Configuration check for Next.js 15+ stability
+    - [x] Final `npm run build` verification
+    - [x] Sweep for remaining "Star Beratung" strings in `tr.json`
 
 - [x] Phase 7: Solar Flare UI Overhaul (Homepage)
     - [x] Global Design System Expansion (`globals.css` with Flare tokens)

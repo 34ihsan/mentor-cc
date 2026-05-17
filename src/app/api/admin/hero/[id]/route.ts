@@ -15,13 +15,30 @@ export async function PATCH(
         }
 
         const body = await req.json();
-        const { title, subtitle, imageUrl, link, pageContext, order, active, imageSettings } = body;
+        const { 
+            title, 
+            title_en, 
+            title_de, 
+            subtitle, 
+            subtitle_en, 
+            subtitle_de, 
+            imageUrl, 
+            link, 
+            pageContext, 
+            order, 
+            active, 
+            imageSettings 
+        } = body;
 
         const slide = await prisma.heroSlide.update({
             where: { id: params.id },
             data: {
                 title,
+                title_en,
+                title_de,
                 subtitle,
+                subtitle_en,
+                subtitle_de,
                 imageUrl,
                 link,
                 pageContext,

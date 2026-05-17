@@ -1,0 +1,14 @@
+{
+  "name": "Germany",
+  "slug": "de",
+  "summary": "Study in Germany",
+  "body": "<p>Low-cost university options and programs...</p>",
+  "primary_image": "https://example.com/de.jpg",
+  "seo_title": "Study in Germany — Staredu",
+  "seo_description": "Germany university guidance and language options",
+  "services": [
+    "university-placement",
+    "language-schools"
+  ],
+  "published": true
+}

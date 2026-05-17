@@ -44,7 +44,7 @@ export function formatPremiumContent(content: string, title?: string): string {
     let cleaned = content;
 
     // 2. Identify and strip the semicolon-separated link metadata prefix
-    // Pattern: https://www.StarEducation.com/blog/...;blog;Title;
+    // Pattern: https://www.Mentor Career Consulting.com/blog/...;blog;Title;
     if (cleaned.startsWith("http") && cleaned.includes(";blog;")) {
         const parts = cleaned.split(";");
         if (parts.length > 3) {

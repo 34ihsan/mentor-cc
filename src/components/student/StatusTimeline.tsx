@@ -13,7 +13,7 @@ const steps = [
     { key: "UNDER_REVIEW", label: "İnceleniyor", desc: "Danışmanınız belgelerinizi kontrol ediyor." },
     { key: "OFFER_SENT", label: "Teklif Alındı", desc: "Okuldan kabul veya teklif geldi!" },
     { key: "CONTRACT_SIGNED", label: "Kayıt Tamamlandı", desc: "Sözleşme imzalandı ve kayıt kesinleşti." },
-    { key: "COMPLETED", label: "Uçuşa Hazır", desc: "Vize ve tüm işlemler başarıyla tamamlandı." },
+    { key: "COMPLETED", label: "İşlem Tamamlandı", desc: "Tüm kayıt ve kabul işlemleri başarıyla tamamlandı." },
 ];
 
 export default function StatusTimeline({ status }: StatusTimelineProps) {

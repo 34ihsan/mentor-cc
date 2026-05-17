@@ -155,14 +155,23 @@ export default async function ApplicationDetailPage({ params }: { params: Promis
                             <Link href="/dashboard/student/documents" className="text-[10px] font-black text-[var(--primary)] uppercase hover:underline">TÜMÜ</Link>
                         </div>
                         <div className="space-y-3">
-                            {application.documents.slice(0, 3).map((doc) => (
-                                <div key={doc.id} className="flex items-center justify-between px-4 py-3 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800">
-                                    <p className="text-xs font-bold truncate max-w-[120px]">{doc.name}</p>
-                                    <span className={`text-[9px] font-black px-2 py-0.5 rounded-full ${
-                                        doc.status === 'APPROVED' ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700'
-                                    }`}>
-                                        {doc.status}
-                                    </span>
+                            {application.documents.slice(0, 5).map((doc) => (
+                                <div key={doc.id} className="space-y-1">
+                                    <div className="flex items-center justify-between px-4 py-3 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800">
+                                        <p className="text-xs font-bold truncate max-w-[120px]">{doc.name}</p>
+                                        <span className={`text-[9px] font-black px-2 py-0.5 rounded-full ${
+                                            doc.status === 'APPROVED' ? 'bg-emerald-100 text-emerald-700' : 
+                                            doc.status === 'REJECTED' ? 'bg-rose-100 text-rose-700' :
+                                            'bg-amber-100 text-amber-700'
+                                        }`}>
+                                            {doc.status}
+                                        </span>
+                                    </div>
+                                    {doc.status === 'REJECTED' && doc.rejectionReason && (
+                                        <p className="text-[9px] font-bold text-rose-600 pl-4 border-l-2 border-rose-500 ml-2 py-1">
+                                            {doc.rejectionReason}
+                                        </p>
+                                    )}
                                 </div>
                             ))}
                             {application.documents.length === 0 && (

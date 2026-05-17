@@ -2,6 +2,9 @@ import { prisma } from "@/lib/prisma";
 import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { getRequiredDocuments } from "@/lib/application";
+import { writeFile, mkdir } from "fs/promises";
+import { join } from "path";
+import { randomUUID } from "crypto";
 
 export async function GET(req: Request) {
     const session = await auth();
@@ -57,51 +60,111 @@ export async function GET(req: Request) {
         const appIds = [...new Set(documents.filter(d => d.applicationId).map(d => d.applicationId as string))];
         const requirementsMap: Record<string, any[]> = {};
 
-        for (const id of appIds) {
-            requirementsMap[id] = await getRequiredDocuments(id);
-        }
+        // Use Promise.allSettled to prevent one failure from crashing everything
+        const results = await Promise.allSettled(
+            appIds.map(async (id) => ({
+                id,
+                reqs: await getRequiredDocuments(id)
+            }))
+        );
+
+        results.forEach((res) => {
+            if (res.status === 'fulfilled') {
+                requirementsMap[res.value.id] = res.value.reqs;
+            } else {
+                console.error(`Error fetching requirements for application ${res.status}:`, res.reason);
+            }
+        });
 
         const enhancedDocuments = documents.map(doc => ({
             ...doc,
-            isRequired: doc.applicationId ? requirementsMap[doc.applicationId]?.some(r => r.name === doc.name) : false
+            isRequired: doc.applicationId ? (requirementsMap[doc.applicationId] || []).some((r: any) => r.name === doc.name) : false
         }));
 
         return NextResponse.json(enhancedDocuments);
-    } catch (error) {
+    } catch (error: any) {
         console.error("Failed to fetch documents:", error);
-        return NextResponse.json({ error: "Failed to fetch documents" }, { status: 500 });
+        return NextResponse.json({ 
+            error: "Failed to fetch documents", 
+            details: process.env.NODE_ENV === 'development' ? error.message : undefined 
+        }, { status: 500 });
     }
 }
 
 export async function POST(req: Request) {
     const session = await auth();
-    if (!session) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    if (!session?.user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
     try {
-        const body = await req.json();
+        let name: string;
+        let url: string = "";
+        let confirmedLegal: boolean = false;
+        let applicationId: string | null = null;
+        let file: File | null = null;
+
+        const contentType = req.headers.get("content-type") || "";
+
+        if (contentType.includes("multipart/form-data")) {
+            const formData = await req.formData();
+            file = formData.get("file") as File;
+            name = formData.get("name") as string;
+            confirmedLegal = formData.get("confirmedLegal") === "true";
+            applicationId = formData.get("applicationId") as string;
+        } else {
+            const body = await req.json();
+            name = body.name;
+            url = body.url;
+            confirmedLegal = body.confirmedLegal;
+            applicationId = body.applicationId;
+        }
 
         // Legal Confirmation Enforcement
-        if (!body.confirmedLegal) {
+        if (!confirmedLegal) {
             return NextResponse.json({ error: "Legal confirmation required" }, { status: 400 });
+        }
+
+        // Handle File Upload if present
+        if (file && typeof file !== 'string') {
+            const buffer = Buffer.from(await file.arrayBuffer());
+            const relativeUploadDir = `/uploads/documents/general/${session.user.id}`;
+            const uploadDir = join(process.cwd(), "public", relativeUploadDir);
+
+            try {
+                await mkdir(uploadDir, { recursive: true });
+            } catch (e) {
+                console.error("Error creating directory", e);
+            }
+
+            const uniqueSuffix = randomUUID().slice(0, 8);
+            const originalName = file.name.replace(/[^a-zA-Z0-9.-]/g, "");
+            const filename = `${uniqueSuffix}-${originalName}`;
+            const finalPath = join(uploadDir, filename);
+
+            await writeFile(finalPath, buffer);
+            url = `${relativeUploadDir}/${filename}`;
+        }
+
+        if (!url) {
+            return NextResponse.json({ error: "URL or File is required" }, { status: 400 });
         }
 
         const document = await prisma.document.create({
             data: {
-                name: body.name,
-                url: body.url,
+                name: name || (file ? file.name : "Unnamed Document"),
+                url: url,
                 status: "PENDING",
-                ...(body.applicationId ? { applicationId: body.applicationId } : { userId: session.user.id })
+                ...(applicationId ? { applicationId } : { userId: session.user.id })
             }
         });
 
         // Audit Log for Legal Confirmation
-        if (body.applicationId) {
+        if (applicationId) {
             await prisma.activityLog.create({
                 data: {
-                    applicationId: body.applicationId,
+                    applicationId: applicationId,
                     userId: session.user.id,
                     action: "DOCUMENT_UPLOAD",
-                    details: `Belge yüklendi: ${body.name} (KVKK/Güvenlik Onaylandı)`,
+                    details: `Belge yüklendi: ${document.name} (KVKK/Güvenlik Onaylandı)`,
                 }
             });
         }
@@ -112,3 +175,4 @@ export async function POST(req: Request) {
         return NextResponse.json({ error: "Failed to upload document metadata" }, { status: 500 });
     }
 }
+

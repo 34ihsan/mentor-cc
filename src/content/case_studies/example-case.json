@@ -1,0 +1,20 @@
+{
+  "title": "Sample Case",
+  "slug": "example-case",
+  "client_name": "Acme School",
+  "industry": "Education",
+  "challenge": "Low enrollment",
+  "approach": "Targeted campaigns and process improvements",
+  "results_summary": "Enrollment +40%",
+  "metrics": "{\\enrollment_increase\\\":40}\"",
+  "before_images": [
+    "https://example.com/b1.jpg",
+    "https://example.com/b2.jpg"
+  ],
+  "after_images": "https://example.com/a1.jpg",
+  "pdf_asset": "https://example.com/report.pdf",
+  "video_url": "https://youtu.be/example",
+  "testimonial": "Staredu helped us...",
+  "published": true,
+  "published_at": "2026-05-02"
+}

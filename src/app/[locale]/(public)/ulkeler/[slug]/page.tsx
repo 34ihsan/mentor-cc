@@ -16,6 +16,7 @@ import {
     Compass
 } from 'lucide-react';
 import RichTextLayout from '@/components/public/RichTextLayout';
+import { countryMap } from '@/lib/mappings/countries';
 import { getTranslations } from 'next-intl/server';
 import SafeHTMLContent from '@/components/public/SafeHTMLContent';
 import MotionWrapper from '@/components/public/MotionWrapper';
@@ -47,7 +48,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     
     if (!country) return { title: 'Country Not Found' };
 
-    const title = `${country.name} | ${t('guideLabel')} | StarEducation`;
+    const title = `${country.name} | ${t('guideLabel')} | Mentor Career`;
     const description = t('description', { country: country.name });
 
     return {
@@ -69,12 +70,11 @@ export default async function CountryHubPage({ params }: Props) {
     return (
         <div className="min-h-screen bg-zinc-50/50 selection:bg-secondary selection:text-white pb-20">
             
-            
             {/* Cinematic Hero Section */}
             <section className="relative h-[90vh] flex items-center overflow-hidden bg-zinc-950">
                 <div className="absolute inset-0">
                     <Image
-                        src={country.image || 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2000'}
+                        src={countryMap[slug as keyof typeof countryMap]?.image || country.image || 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2000'}
                         alt={country.name}
                         fill
                         className="object-cover opacity-40 scale-105"
@@ -90,7 +90,7 @@ export default async function CountryHubPage({ params }: Props) {
                                 <div className="w-16 h-[1px] bg-secondary" />
                                 <span className="text-secondary font-black tracking-[0.5em] text-[10px] uppercase">{t('guideLabel')}</span>
                             </div>
-                            <h1 className="text-8xl md:text-[12rem] font-serif font-bold text-white mb-10 tracking-tighter leading-[0.8] italic">
+                            <h1 className="text-8xl md:text-[12rem] font-serif font-bold text-secondary mb-10 tracking-tighter leading-[0.8] italic">
                                 {country.name}
                             </h1>
                             <p className="text-2xl md:text-3xl text-zinc-300 font-serif italic max-w-3xl leading-snug mb-16">
@@ -99,15 +99,15 @@ export default async function CountryHubPage({ params }: Props) {
                             
                             <div className="flex flex-wrap gap-12 md:gap-20">
                                 <div className="flex flex-col gap-2">
-                                    <span className="text-secondary text-[10px] font-black uppercase tracking-[0.4em] opacity-60">{t('capital')}</span>
+                                    <span className="text-secondary text-[10px] font-black uppercase tracking-[0.4em]">{t('capital')}</span>
                                     <span className="text-white font-serif italic text-2xl tracking-tight">{country.capital || '---'}</span>
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <span className="text-secondary text-[10px] font-black uppercase tracking-[0.4em] opacity-60">{t('language')}</span>
+                                    <span className="text-secondary text-[10px] font-black uppercase tracking-[0.4em]">{t('language')}</span>
                                     <span className="text-white font-serif italic text-2xl tracking-tight">{country.language || '---'}</span>
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <span className="text-secondary text-[10px] font-black uppercase tracking-[0.4em] opacity-60">{t('currency')}</span>
+                                    <span className="text-secondary text-[10px] font-black uppercase tracking-[0.4em]">{t('currency')}</span>
                                     <span className="text-white font-serif italic text-2xl tracking-tight">{country.currency || '---'}</span>
                                 </div>
                             </div>
@@ -248,7 +248,6 @@ export default async function CountryHubPage({ params }: Props) {
                     </div>
                 </section>
             )}
-
 
         </div>
     );

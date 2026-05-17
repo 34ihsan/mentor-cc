@@ -6,7 +6,7 @@ import Link from "next/link";
 import InstitutionsClient from "@/components/public/InstitutionsClient";
 
 export const metadata: Metadata = {
-    title: 'Partner Kurumlarımız | Global Akademik Portföy | StarEducation',
+    title: 'Partner Kurumlarımız | Global Akademik Portföy | Mentor Career',
     description: 'Dünyanın en saygın üniversiteleri ve eğitim kurumları ile kurduğumuz stratejik iş birlikleriyle geleceğinizi şekillendiriyoruz.',
 };
 
@@ -61,7 +61,7 @@ export default async function InstitutionsPage() {
             />
 
             {/* CTA Section */}
-            <section className="py-40 bg-slate-50 border-t border-gold/10 relative overflow-hidden">
+            <section className="section-padding bg-slate-50 border-t border-gold/10 relative overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(212,175,55,0.05),_transparent_70%)]" />
                 <div className="container mx-auto px-6 relative z-10 text-center">
                     <span className="section-label !justify-center mb-10">BİZE DANIŞIN</span>

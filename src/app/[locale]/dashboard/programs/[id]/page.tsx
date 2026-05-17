@@ -11,7 +11,7 @@ import { toast } from "sonner";
 export default function ProgramEditorPage() {
     const router = useRouter();
     const params = useParams();
-    const id = params?.id as string;
+    const id = params ? params.id as string : "";
     const isEdit = id && id !== "new";
 
     const [institutions, setInstitutions] = useState<any[]>([]);
@@ -73,11 +73,11 @@ export default function ProgramEditorPage() {
         setHarvesting(true);
         try {
             toast.info("AI Okul sitesini tarıyor...");
-            const harvestRes: any = await deepHarvestAction(harvestUrl);
+            const harvestRes: any = await deepHarvestAction(formData.name || "Program", harvestUrl, formData.category);
             
             if (harvestRes.success) {
                 toast.info("Veriler analiz ediliyor...");
-                const aiResult = (await processHarvestWithAI(harvestRes.data, formData.category)) as any;
+                const aiResult = harvestRes.data;
                 
                 setFormData({
                     ...formData,

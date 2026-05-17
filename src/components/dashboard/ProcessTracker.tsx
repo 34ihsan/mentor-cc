@@ -14,7 +14,7 @@ const stages = [
     { key: "DOCS_PENDING", label: "Belge Hazırlığı" },
     { key: "UNDER_REVIEW", label: "İncelemede" },
     { key: "OFFER_SENT", label: "Teklif / Kabul" },
-    { key: "CONTRACT_SIGNED", label: "Sözleşme / Vize" },
+    { key: "CONTRACT_SIGNED", label: "Sözleşme / Başvuru" },
     { key: "COMPLETED", label: "Tamamlandı" },
 ];
 

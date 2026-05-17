@@ -1,0 +1,19 @@
+{
+  "title": "Full Support",
+  "slug": "full-support",
+  "service": "university-placement",
+  "short_description": "End-to-end application support",
+  "features": [
+    "Document prep",
+    "Essay editing",
+    "Interview prep"
+  ],
+  "price_model": "fixed",
+  "price_from": 1500,
+  "price_currency": "EUR",
+  "duration_weeks": 12,
+  "cta_label": "Get Started",
+  "seo_title": "Full Support — Staredu",
+  "seo_description": "Complete package",
+  "published": true
+}

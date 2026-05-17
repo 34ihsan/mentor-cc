@@ -9,11 +9,11 @@ async function main() {
     console.log("Creating users for all roles...");
 
     const users = [
-        { email: "admin@stareducation.com", name: "StarEducation Admin", role: "ADMIN" as const },
-        { email: "ceo@stareducation.com", name: "StarEducation CEO", role: "CEO" as const },
-        { email: "advisor@stareducation.com", name: "Senior Advisor", role: "ADVISOR" as const },
-        { email: "agency@stareducation.com", name: "Global Agency Manager", role: "AGENCY_MANAGER" as const },
-        { email: "student@stareducation.com", name: "Test Student", role: "STUDENT" as const },
+        { email: "admin@mentor-cc.com", name: "Mentor Career Consulting Admin", role: "ADMIN" as const },
+        { email: "ceo@mentor-cc.com", name: "Mentor Career Consulting CEO", role: "CEO" as const },
+        { email: "advisor@mentor-cc.com", name: "Senior Advisor", role: "ADVISOR" as const },
+        { email: "agency@mentor-cc.com", name: "Global Agency Manager", role: "AGENCY_MANAGER" as const },
+        { email: "student@mentor-cc.com", name: "Test Student", role: "STUDENT" as const },
     ];
 
     for (const { email, name, role } of users) {
@@ -29,7 +29,7 @@ async function main() {
         });
     }
 
-    const adminUser = await prisma.user.findUnique({ where: { email: "admin@stareducation.com" } });
+    const adminUser = await prisma.user.findUnique({ where: { email: "admin@mentor-cc.com" } });
     if (!adminUser) throw new Error("Admin user not found");
 
     // 3. Create Countries and Services for relations
@@ -132,13 +132,13 @@ async function main() {
     await prisma.service.deleteMany({});
 
     const servicesData = [
-        { title: "Denklik", slug: "denklik", image: "/images/hero/denklik.png" },
-        { title: "Master & Yüksek Lisans", slug: "yurtdisi-yuksek-lisans", image: "/images/hero/yuksek-lisans.png" },
-        { title: "Lise Eğitimi", slug: "yurtdisi-lise", image: "/images/hero/lise.png" },
-        { title: "Yurtdışı Üniversite", slug: "yurtdisi-universite", image: "/images/hero/universite.png" },
-        { title: "Yaz Okulları", slug: "yurtdisi-yaz-okullari", image: "/images/hero/yaz-okul.png" },
-        { title: "Dil Okulu", slug: "yurtdisi-dil-okullari", image: "/images/hero/dil-egitim.png" },
-        { title: "Mesleki Denklik & Kariyer", slug: "kariyer", image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200" }
+        { title: "YURTDIŞI ÜNİVERSİTE", slug: "yurtdisi-universite", image: "/images/hero/universite.png" },
+        { title: "YURTDIŞI MASTER", slug: "yurtdisi-yuksek-lisans", image: "/images/hero/yuksek-lisans.png" },
+        { title: "YURTDIŞI LİSE EĞİTİMİ", slug: "yurtdisi-lise", image: "/images/hero/lise.png" },
+        { title: "YURTDIŞI YAZ OKULLARI", slug: "yurtdisi-yaz-okullari", image: "/images/hero/yaz-okul.png" },
+        { title: "YURTDIŞI DİL OKULU", slug: "yurtdisi-dil-okullari", image: "/images/hero/dil-egitim.png" },
+        { title: "SINAVLAR", slug: "sinavlar", image: "/images/hero/exams_hero.png" },
+        { title: "KARİYER", slug: "kariyer", image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200" }
     ];
 
     const servicesMap: Record<string, string> = {};
@@ -153,7 +153,7 @@ async function main() {
     console.log("Creating settings...");
     const homePageConfig = {
         workflow: {
-            title: "Neden Star Beratung?",
+            title: "Neden Mentor Career Consulting?",
             subtitle: "Hayallerinize Giden <span class='gold-text not-italic'>Yolculuk</span>",
             steps: [
                 { icon: 'Users', title: 'Uzman Danışmanlık', desc: 'Deneyimli kadromuzla yanınızdayız.' },
@@ -357,51 +357,80 @@ async function main() {
     console.log("Creating hero slides...");
     const heroSlides = [
         {
-            title: "Yurtdışı Üniversite Eğitimi",
-            subtitle: "Dünyanın en iyi üniversitelerinde lisans eğitimi alarak geleceğinizi garantiye alın.",
-            imageUrl: "/images/hero/universite.png",
+            title: "Global Başarıya Giden En Prestijli Yol",
+            title_en: "The Most Prestigious Path to Global Success",
+            subtitle: "Dünyanın en iyi üniversitelerinde lisans eğitimi ile geleceğinizi bugünden şekillendirin. Sınırları aşan bir kariyer sizi bekliyor.",
+            subtitle_en: "Shape your future today with undergraduate education at the world's best universities. A career beyond borders awaits you.",
+            imageUrl: "/images/hero/university_hero.png",
+            link: "/yurtdisi-universite",
             pageContext: "home",
             order: 0,
             active: true
         },
         {
-            title: "Yüksek Lisans ve Master",
-            subtitle: "Global kariyer yolculuğunuzda uzmanlaşın. Avrupa ve Amerika'da saygın yüksek lisans programları.",
-            imageUrl: "/images/hero/yuksek-lisans.png",
+            title: "Kariyerinizde Dev Bir Adım Atın",
+            title_en: "Take a Giant Leap in Your Career",
+            subtitle: "Global iş dünyasında fark yaratacak prestijli yüksek lisans programları. Uzmanlığınızı uluslararası arenaya taşıyın.",
+            subtitle_en: "Prestigious postgraduate programs that will make a difference in the global business world. Take your expertise to the international arena.",
+            imageUrl: "/images/hero/master_hero.png",
+            link: "/yurtdisi-yuksek-lisans",
             pageContext: "home",
             order: 1,
             active: true
         },
         {
-            title: "Dil Okulları ve Dil Eğitimi",
-            subtitle: "İngilizce, Almanca ve daha fazlası. Dilinizi yerinde, en iyi okullarda öğrenin.",
-            imageUrl: "/images/hero/dil-egitim.png",
+            title: "Geleceğin Liderleri Burada Yetişiyor",
+            title_en: "Where the Leaders of the Future Are Raised",
+            subtitle: "Uluslararası standartlarda lise eğitimi ile erken yaşta global vizyon kazanın. Çocuğunuzun geleceğine en değerli yatırımı yapın.",
+            subtitle_en: "Gain a global vision at an early age with high school education at international standards. Make the most valuable investment in your child's future.",
+            imageUrl: "/images/hero/highschool_hero.png",
+            link: "/yurtdisi-lise",
             pageContext: "home",
             order: 2,
             active: true
         },
         {
-            title: "Yurtdışı Lise Eğitimi",
-            subtitle: "Çocuğunuzun geleceğine erken yatırım yapın. Uluslararası standartlarda lise eğitimi.",
-            imageUrl: "/images/hero/lise.png",
+            title: "Unutulmaz Bir Yaz, Sonsuz Bir Deneyim",
+            title_en: "An Unforgettable Summer, Endless Experience",
+            subtitle: "Eğlence ve eğitimi birleştiren global yaz kampları. Yeni kültürler tanıyın, yeni diller keşfedin ve ömür boyu sürecek dostluklar kurun.",
+            subtitle_en: "Global summer camps combining fun and education. Get to know new cultures, discover new languages, and build lifelong friendships.",
+            imageUrl: "/images/hero/summer_hero.png",
+            link: "/yurtdisi-yaz-okullari",
             pageContext: "home",
             order: 3,
             active: true
         },
         {
-            title: "Yurtdışı Yaz Okulları",
-            subtitle: "Eğlenceli ve öğretici bir yaz tatili. Çocuklar ve gençler için global kamp programları.",
-            imageUrl: "/images/hero/yaz-okul.png",
+            title: "Dünyanın Dili Sizin Diliniz Olsun",
+            title_en: "Let the Language of the World Be Your Language",
+            subtitle: "Dili yerinde, en iyi okullarda ve profesyonel eğitmenlerle öğrenin. İletişim kurun, dünyayla bağınızı güçlendirin.",
+            subtitle_en: "Learn the language on-site at the best schools with professional instructors. Communicate and strengthen your connection with the world.",
+            imageUrl: "/images/hero/language_hero.png",
+            link: "/yurtdisi-dil-okullari",
             pageContext: "home",
             order: 4,
             active: true
         },
         {
-            title: "Mesleki Denklik ve Kariyer",
-            subtitle: "Almanya ve Avrupa'da diplomanızı tanıtalım, mesleğinizi icra etmeye başlayın.",
-            imageUrl: "/images/hero/denklik.png",
+            title: "Sınav Başarısı İçin Profesyonel Rehberlik",
+            title_en: "Professional Guidance for Exam Success",
+            subtitle: "IELTS, TOEFL, SAT ve GRE yolculuğunuzda yanınızdayız. Hedeflediğiniz skorlara uzman desteğiyle güvenle ulaşın.",
+            subtitle_en: "We are with you in your IELTS, TOEFL, SAT, and GRE journey. Reach your target scores safely with expert support.",
+            imageUrl: "/images/hero/exams_hero.png",
+            link: "/sinavlar",
             pageContext: "home",
             order: 5,
+            active: true
+        },
+        {
+            title: "Global İş Dünyasına Hazır Mısınız?",
+            title_en: "Are You Ready for the Global Business World?",
+            subtitle: "Mesleki denklik süreçlerinden kariyer planlamasına kadar profesyonel danışmanlık. Diplomanızı dünyaya tanıtın.",
+            subtitle_en: "Professional consultancy from professional equivalence processes to career planning. Introduce your diploma to the world.",
+            imageUrl: "/images/hero/career_hero.png",
+            link: "/kariyer",
+            pageContext: "home",
+            order: 6,
             active: true
         }
     ];

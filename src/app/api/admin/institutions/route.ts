@@ -34,7 +34,14 @@ export async function POST(req: Request) {
         }
 
         const body = await req.json();
-        const { name, countryId, city, description, content, image, imageSettings, logo, website, rank, rating, serviceId, metadata, isFeatured, videoUrl } = body;
+        const { 
+            name, countryId, city, city_en, city_de, 
+            description, description_en, description_de, 
+            content, content_en, content_de, 
+            image, imageSettings, logo, website, 
+            rank, rating, serviceId, metadata, 
+            isFeatured, videoUrl 
+        } = body;
 
         const slug = slugify(name);
 
@@ -44,8 +51,14 @@ export async function POST(req: Request) {
                 slug,
                 countryId: countryId || null,
                 city,
+                city_en,
+                city_de,
                 description,
+                description_en,
+                description_de,
                 content,
+                content_en,
+                content_de,
                 image,
                 imageSettings,
                 logo,

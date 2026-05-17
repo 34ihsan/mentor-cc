@@ -47,10 +47,90 @@ export async function processExcelImportAction(formData: FormData) {
         return { 
             success: true, 
             count: data.length, 
-            message: `${data.length} kayıt güvenli bir şekilde sıraya alındı. Veri işleme arka planda devam edecek.` 
+            fileName: safeFileName,
+            message: `${data.length} kayıt güvenli bir şekilde yüklendi. İşlemeye hazır.` 
         };
     } catch (error: any) {
         console.error("Excel import error:", error);
-        return { success: false, error: "Dosya işlenirken bir güvenlik hatası veya veri hatası oluştu." };
+        return { success: false, error: "Dosya işlenirken bir hata oluştu." };
     }
 }
+
+export async function processImportedFileAction(fileName: string) {
+    const session = await auth();
+    if (session?.user.role !== "ADMIN" && session?.user.role !== "CEO") {
+        return { success: false, error: "Yetkisiz erişim" };
+    }
+
+    const tmpDir = path.join(process.cwd(), ".tmp");
+    const filePath = path.join(tmpDir, fileName);
+
+    if (!fs.existsSync(filePath)) {
+        return { success: false, error: "Dosya bulunamadı." };
+    }
+
+    try {
+        const rawData = fs.readFileSync(filePath, "utf-8");
+        const data = JSON.parse(rawData);
+        let createdCount = 0;
+        let skippedCount = 0;
+
+        for (const item of data) {
+            const name = item["İsim"] || item["Name"] || item["Kurum Adı"];
+            const website = item["Web Sitesi"] || item["Website"] || item["Web"];
+            const categoryName = item["Kategori"] || item["Category"];
+            const countryName = item["Ülke"] || item["Country"];
+            const city = item["Şehir"] || item["City"] || "Belirtilmemiş";
+
+            if (!name) {
+                skippedCount++;
+                continue;
+            }
+
+            // Find or skip category/country
+            const service = await prisma.service.findFirst({
+                where: { title: { contains: categoryName, mode: 'insensitive' } }
+            });
+
+            const country = await prisma.country.findFirst({
+                where: { name: { contains: countryName, mode: 'insensitive' } }
+            });
+
+            const slug = name.toLowerCase().trim().replace(/[\s\W-]+/g, '-');
+
+            await prisma.institution.upsert({
+                where: { slug },
+                update: {
+                    website: website || undefined,
+                    city: city,
+                    countryId: country?.id,
+                    serviceId: service?.id,
+                },
+                create: {
+                    name,
+                    slug,
+                    city,
+                    website,
+                    countryId: country?.id,
+                    serviceId: service?.id,
+                    active: true,
+                    harvestStatus: "IDLE"
+                }
+            });
+            createdCount++;
+        }
+
+        // Cleanup
+        fs.unlinkSync(filePath);
+
+        return { 
+            success: true, 
+            message: `${createdCount} kurum başarıyla oluşturuldu/güncellendi. ${skippedCount} kayıt atlandı.`,
+            count: createdCount
+        };
+    } catch (error: any) {
+        console.error("Processing error:", error);
+        return { success: false, error: "Veri işlenirken bir hata oluştu." };
+    }
+}
+

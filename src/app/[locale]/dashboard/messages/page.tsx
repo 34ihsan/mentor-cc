@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Suspense } from "react";
 import {
     Send,
     MessageSquare,
@@ -19,7 +19,7 @@ import {
     Link as LinkIcon,
     Trash2
 } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
@@ -51,6 +51,23 @@ interface Message {
 }
 
 export default function MessagesPage() {
+    return (
+        <Suspense fallback={
+            <div className="flex h-[75vh] items-center justify-center">
+                <div className="flex flex-col items-center gap-4">
+                    <div className="w-16 h-16 border-4 border-zinc-100 border-t-primary rounded-full animate-spin" />
+                    <p className="text-[10px] font-black uppercase tracking-[0.3em] text-primary">Mesajlar Hazırlanıyor</p>
+                </div>
+            </div>
+        }>
+            <MessagesContent />
+        </Suspense>
+    );
+}
+
+function MessagesContent() {
+    const searchParams = useSearchParams();
+    const userIdParam = searchParams ? searchParams.get("id") : null;
     const { data: session } = useSession();
     const router = useRouter();
     const [messages, setMessages] = useState<Message[]>([]);
@@ -74,7 +91,7 @@ export default function MessagesPage() {
     useEffect(() => {
         const interval = setInterval(() => {
             fetchMessages();
-        }, 3000); // Check every 3 seconds for a real-time experience
+        }, 10000); // Check every 10 seconds to prevent overwhelming the dev server
         return () => clearInterval(interval);
     }, []);
 
@@ -112,6 +129,39 @@ export default function MessagesPage() {
             console.error("Failed to fetch contacts:", error);
         }
     };
+
+    // Handle direct messaging from URL
+    useEffect(() => {
+        if (userIdParam && !selectedConversation) {
+            setSelectedConversation(userIdParam);
+        }
+    }, [userIdParam]);
+
+    // Fetch user details if selected via URL but not in contacts
+    useEffect(() => {
+        const checkAndFetchContact = async () => {
+            if (selectedConversation) {
+                const exists = contacts.find(c => c.id === selectedConversation) || 
+                               (primaryContact?.id === selectedConversation ? primaryContact : null);
+                
+                if (!exists && !loading) {
+                    try {
+                        const res = await fetch(`/api/users/${selectedConversation}`);
+                        if (res.ok) {
+                            const userData = await res.json();
+                            setContacts(prev => {
+                                if (prev.find(c => c.id === userData.id)) return prev;
+                                return [...prev, userData];
+                            });
+                        }
+                    } catch (err) {
+                        console.error("Error fetching missing contact:", err);
+                    }
+                }
+            }
+        };
+        checkAndFetchContact();
+    }, [selectedConversation, contacts, primaryContact, loading]);
 
     // Robust Auto-selection Effect
     useEffect(() => {

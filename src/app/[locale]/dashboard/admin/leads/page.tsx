@@ -191,7 +191,7 @@ export default function AdminLeadsPage() {
             {/* Header */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
-                    <h1 className="text-3xl font-black tracking-tighter text-[#0B1751]">Reklam Takibi 📣</h1>
+                    <h1 className="text-3xl font-black tracking-tighter text-[#0B1751]">Müşteri Adayları 📣</h1>
                     <p className="text-sm font-bold text-slate-500 mt-1 uppercase tracking-wider">Meta / Facebook Lead Merkezi</p>
                 </div>
                 
@@ -480,7 +480,7 @@ export default function AdminLeadsPage() {
                                                 setSelectedLead(lead);
                                                 setEmailContent({
                                                     subject: `${lead.program} Hakkında Bilgilendirme`,
-                                                    content: `Merhaba ${lead.name},\n\nTalebiniz üzerine StarEducation olarak sizinle iletişime geçiyoruz...`
+                                                    content: `Merhaba ${lead.name},\n\nTalebiniz üzerine Mentor Career olarak sizinle iletişime geçiyoruz...`
                                                 });
                                                 setIsEmailModalOpen(true);
                                             }}
@@ -492,7 +492,7 @@ export default function AdminLeadsPage() {
                                         <button 
                                             onClick={() => {
                                                 const phone = lead.phone || '';
-                                                const message = encodeURIComponent(`Merhaba ${lead.name}, StarEducation adına talebiniz üzerine iletişime geçiyorum.`);
+                                                const message = encodeURIComponent(`Merhaba ${lead.name}, Mentor Career adına talebiniz üzerine iletişime geçiyorum.`);
                                                 window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
                                             }}
                                             className="py-3 bg-emerald-50 text-emerald-600 border border-emerald-100 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-emerald-100 transition-all flex items-center justify-center gap-2"
@@ -634,7 +634,7 @@ export default function AdminLeadsPage() {
                                         type="button"
                                         onClick={() => setEmailContent({
                                             subject: `${selectedLead?.program} Başvurunuz Hakkında İlk Bilgilendirme`,
-                                            content: `Merhaba ${selectedLead?.name},\n\nStarEducation ile iletişime geçtiğiniz için teşekkür ederiz. ${selectedLead?.program} başvurunuzla ilgili detaylı bir bilgilendirme yapmak isteriz...\n\nSizinle bugün içinde bir görüşme planlayabilir miyiz?`
+                                            content: `Merhaba ${selectedLead?.name},\n\nMentor Career ile iletişime geçtiğiniz için teşekkür ederiz. ${selectedLead?.program} başvurunuzla ilgili detaylı bir bilgilendirme yapmak isteriz...\n\nSizinle bugün içinde bir görüşme planlayabilir miyiz?`
                                         })}
                                         className="flex-1 py-3 px-4 rounded-xl border border-slate-200 text-[10px] font-black uppercase tracking-widest hover:bg-slate-50 transition-all text-slate-600"
                                     >

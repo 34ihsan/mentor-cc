@@ -2,9 +2,10 @@
 
 import { signIn } from "next-auth/react";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
+import { useRouter, Link } from "@/i18n/routing";
 import { ArrowRight, ArrowLeft } from "lucide-react";
+import NextImage from "next/image";
+import { loginAction } from "@/app/actions/auth-actions";
 
 export default function LoginPage() {
     const [email, setEmail] = useState("");
@@ -19,18 +20,27 @@ export default function LoginPage() {
         setLoading(true);
         setError("");
         
-        const result = await signIn("credentials", {
-            email,
-            password,
-            redirect: false,
-        });
+        try {
+            const formData = new FormData();
+            formData.append("email", email);
+            formData.append("password", password);
+            
+            const result = await loginAction(formData);
 
-        if (result?.error) {
-            setError("Hatalı e-posta veya şifre.");
+            if (result?.error) {
+                console.error("Login error details:", result.error);
+                setError(result.error);
+                setLoading(false);
+            }
+            // Başarılı girişte NextAuth redirectTo üzerinden otomatik yönlendirme yapar
+        } catch (error: any) {
+            // Redirect hatalarını yakalamıyoruz çünkü NextAuth yönlendirmeyi "error" olarak fırlatır
+            if (error.message?.includes("NEXT_REDIRECT")) {
+                return;
+            }
+            console.error("Login unexpected error:", error);
+            setError("Giriş yapılırken bir hata oluştu.");
             setLoading(false);
-        } else {
-            router.push("/dashboard");
-            router.refresh();
         }
     };
 
@@ -48,7 +58,15 @@ export default function LoginPage() {
 
                     <div className="bg-white rounded-3xl p-10 shadow-2xl shadow-black/50 border border-white/10 relative">
                         <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-white p-4 rounded-2xl border border-gray-100 shadow-xl">
-                            <img src="/Services/Stareducation.png" alt="Logo" className="w-40 h-auto object-contain" />
+                            <NextImage 
+                                src="/images/MentorCareer.png" 
+                                alt="Logo" 
+                                width={64} 
+                                height={64} 
+                                priority
+                                className="w-16 h-16 object-contain" 
+                                style={{ width: "auto", height: "auto" }}
+                            />
                         </div>
 
                         <div className="mt-8 text-center mb-10">
@@ -99,6 +117,8 @@ export default function LoginPage() {
                                 {!loading && <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />}
                             </button>
                         </form>
+
+
                     </div>
 
                     <div className="mt-10 text-center">

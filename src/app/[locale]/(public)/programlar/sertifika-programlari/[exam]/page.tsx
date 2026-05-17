@@ -22,10 +22,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { exam: examSlug } = await params;
     const exam = exams[examSlug];
 
-    if (!exam) return { title: 'Sınav Bulunamadı | StarEducation' };
+    if (!exam) return { title: 'Sınav Bulunamadı | Mentor Career' };
 
     return {
-        title: `${exam.shortTitle} Akademik Sınav Hazırlığı | StarEducation`,
+        title: `${exam.shortTitle} Akademik Sınav Hazırlığı | Mentor Career`,
         description: `${exam.shortTitle} sınavı formatı, süresi, geçerliliği ve hazırlık süreçleri hakkında detaylı bilgi.`,
         openGraph: {
             title: `${exam.shortTitle} Sınav Rehberi`,

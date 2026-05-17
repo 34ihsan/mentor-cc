@@ -33,13 +33,13 @@ export async function generateMetadata({ params }: ProgramPageProps): Promise<Me
         include: { institution: true }
     });
 
-    if (!program) return { title: 'Program Bulunamadı | StarEducation' };
+    if (!program) return { title: 'Program Bulunamadı | Mentor Career' };
 
     const title = `${program.name} | ${program.institution.name}`;
     const description = program.description ? stripHtml(program.description).substring(0, 160) : `${program.name} programı detayları, başvuru şartları ve ücretler.`;
 
     return {
-        title: `${title} | StarEducation`,
+        title: `${title} | Mentor Career`,
         description,
         openGraph: {
             title,
@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: ProgramPageProps): Promise<Me
 
 export default async function ProgramDetailPage({ params }: ProgramPageProps) {
     const { locale, slug, programSlug } = await params;
-    const lang = (locale === 'en') ? locale : 'tr';
+    const lang = (locale === 'en' || locale === 'de') ? locale : 'tr';
 
     const program = (await (prisma as any).program.findFirst({
         where: { slug: programSlug },
@@ -110,7 +110,7 @@ export default async function ProgramDetailPage({ params }: ProgramPageProps) {
                                     </div>
                                     <div>
                                         <div className="text-[10px] text-white/40 uppercase tracking-[0.2em] font-bold mb-1">
-                                            {lang === 'en' ? 'PROGRAM DURATION' : 'EĞİTİM SÜRESİ'}
+                                            {lang === 'de' ? 'AUSBILDUNGSDAUER' : lang === 'en' ? 'PROGRAM DURATION' : 'EĞİTİM SÜRESİ'}
                                         </div>
                                         <div className="text-white font-serif italic text-lg">{program.duration}</div>
                                     </div>
@@ -123,7 +123,7 @@ export default async function ProgramDetailPage({ params }: ProgramPageProps) {
                                     </div>
                                     <div>
                                         <div className="text-[10px] text-white/40 uppercase tracking-[0.2em] font-bold mb-1">
-                                            {lang === 'en' ? 'TUITION FEE' : 'EĞİTİM ÜCRETİ'}
+                                            {lang === 'de' ? 'STUDIENGEBÜHR' : lang === 'en' ? 'TUITION FEE' : 'EĞİTİM ÜCRETİ'}
                                         </div>
                                         <div className="text-white font-serif italic text-lg">{program.price} {program.currency}</div>
                                     </div>
@@ -146,19 +146,21 @@ export default async function ProgramDetailPage({ params }: ProgramPageProps) {
                                 <div className="flex items-center gap-4">
                                     <div className="w-12 h-px bg-[#B4943E]" />
                                     <h2 className="text-4xl font-serif font-bold text-[#0B1751] italic">
-                                        {lang === 'en' ? 'About the' : 'Program'} 
-                                        <span className="text-[#B4943E] not-italic"> {lang === 'en' ? 'Program' : 'Hakkında'}</span>
+                                        {lang === 'de' ? 'Über das' : lang === 'en' ? 'About the' : 'Program'} 
+                                        <span className="text-[#B4943E] not-italic"> {lang === 'de' ? 'Programm' : lang === 'en' ? 'Program' : 'Hakkında'}</span>
                                     </h2>
                                 </div>
                                 <div className="space-y-8 text-lg text-[#0B1751]/70 font-serif italic leading-[1.8]">
                                     <p>
                                         <span dangerouslySetInnerHTML={{ __html: program.description }} /> 
-                                        {lang === 'en' ? ` This program is delivered by expert academics within ${institution.name}. It aims to provide you with the theoretical knowledge and practical skills needed to achieve your global career goals.` : 
+                                        {lang === 'de' ? ` Dieses Programm wird im Rahmen von ${institution.name} von erfahrenen Akademikern durchgeführt. Es zielt darauf ab, Ihnen das theoretische Wissen und die praktischen Fähigkeiten zu vermitteln, die Sie benötigen, um Ihre globalen Karriereziele zu erreichen.` : 
+                                         lang === 'en' ? ` This program is delivered by expert academics within ${institution.name}. It aims to provide you with the theoretical knowledge and practical skills needed to achieve your global career goals.` : 
                                          ` Bu program, ${institution.name} bünyesinde, alanında uzman akademisyenler tarafından verilmektedir. Global kariyer hedeflerinize ulaşmanız için gereken teorik bilgi ve pratik becerileri kazandırmayı amaçlar.`}
                                     </p>
                                     <p className="border-l-2 border-[#B4943E]/20 pl-8">
-                                        {lang === 'en' ? `As Star Education, we offer one-on-one academic counseling during your ${program.name} application process, including statement of purpose (SOP), reference letters, and interview preparation.` :
-                                         `StarEducation olarak, ${program.name} başvurularınızda niyet mektubu (sop), referans mektupları ve mülakat hazırlığı süreçlerinde birebir akademik danışmanlık desteği sunuyoruz.`}
+                                        {lang === 'de' ? `Als Mentor Career bieten wir individuelle akademische Beratung während Ihrer Bewerbung für ${program.name}, einschließlich Motivationsschreiben (SOP), Referenzschreiben und Interviewvorbereitung.` :
+                                         lang === 'en' ? `As Mentor Career, we offer one-on-one academic counseling during your ${program.name} application process, including statement of purpose (SOP), reference letters, and interview preparation.` :
+                                         `Mentor Career olarak, ${program.name} başvurularınızda niyet mektubu (sop), referans mektupları ve mülakat hazırlığı süreçlerinde birebir akademik danışmanlık desteği sunuyoruz.`}
                                     </p>
                                 </div>
 
@@ -186,7 +188,7 @@ export default async function ProgramDetailPage({ params }: ProgramPageProps) {
                                 <div className="flex items-center gap-4">
                                     <div className="w-12 h-px bg-[#B4943E]" />
                                     <h2 className="text-4xl font-serif font-bold text-[#0B1751] italic">
-                                        {lang === 'en' ? 'Admission Requirements' : 'Başvuru Şartları'}
+                                        {lang === 'de' ? 'Bewerbungsvoraussetzungen' : lang === 'en' ? 'Admission Requirements' : 'Başvuru Şartları'}
                                     </h2>
                                 </div>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -231,10 +233,11 @@ export default async function ProgramDetailPage({ params }: ProgramPageProps) {
                                         <div className="mb-10 text-center">
                                             <div className="w-12 h-px bg-[#B4943E] mx-auto mb-6" />
                                             <h3 className="text-2xl font-serif font-bold text-[#0B1751] italic">
-                                                {lang === 'en' ? 'Consultancy Request' : 'Danışmanlık Talebi'}
+                                                {lang === 'de' ? 'Beratungsanfrage' : lang === 'en' ? 'Consultancy Request' : 'Danışmanlık Talebi'}
                                             </h3>
                                             <p className="text-[#0B1751]/50 text-xs font-serif italic mt-4 leading-relaxed">
-                                                {lang === 'en' ? `Fill out the form for detailed information and guidance about the ${program.name} academic application process.` :
+                                                {lang === 'de' ? `Füllen Sie das Formular aus, um detaillierte Informationen und Unterstützung für den akademischen Bewerbungsprozess von ${program.name} zu erhalten.` :
+                                                 lang === 'en' ? `Fill out the form for detailed information and guidance about the ${program.name} academic application process.` :
                                                  `${program.name} akademik başvuru süreci hakkında detaylı bilgi ve rehberlik için formu doldurun.`}
                                             </p>
                                         </div>

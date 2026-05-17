@@ -69,7 +69,7 @@ export const exams: Record<string, ExamData> = {
         dates: 'Ayda 4-5 kez',
         whyTake: [
             'İngiltere, Avustralya, Kanada ve Avrupa’da eğitim almak isteyenler için birincil tercihtir.',
-            'Göçmenlik veya vize başvurusu (UKVI) için zorunlu olabilir.',
+            'Göçmenlik veya kayıt başvurusu (UKVI) için zorunlu olabilir.',
             'Kağıt veya bilgisayar üzerinden alınabilir.'
         ]
     },
@@ -118,7 +118,7 @@ export const exams: Record<string, ExamData> = {
         dates: 'Yıl boyunca neredeyse her gün',
         whyTake: [
             'Hızlı sonuç almak isteyen (48-72 saatte) adaylar içindir.',
-            'İngiltere ve Avustralya vize/eğitim başvurularında %100 kabul edilir.',
+            'İngiltere ve Avustralya kayıt/eğitim başvurularında %100 kabul edilir.',
             'Yapay zeka tabanlı puanlama sayesinde daha objektif sonuçlar sunar.'
         ]
     },

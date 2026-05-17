@@ -131,7 +131,14 @@ export async function DELETE(
 ) {
     const { id } = await params;
     const session = await auth();
-    if (!session || (session.user.role !== "SUPER_ADMIN" && session.user.role !== "AGENCY")) {
+    if (!session) {
+        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const isAdmin = session?.user?.role === "ADMIN" || session?.user?.role === "CEO";
+    const isAgency = session?.user?.role === "AGENCY_MANAGER";
+    
+    if (!isAdmin && !isAgency) {
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 

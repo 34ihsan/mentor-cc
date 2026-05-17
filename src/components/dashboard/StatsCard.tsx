@@ -23,44 +23,35 @@ export default function StatsCard({ label, value, trend, icon }: StatsCardProps)
 
     return (
         <motion.div
-            whileHover={{ y: -8, scale: 1.02 }}
-            className="bg-white/[0.03] backdrop-blur-xl p-10 flex flex-col justify-between relative overflow-hidden group h-full asymmetric-bold border border-white/5 shadow-premium-hover transition-all duration-1000"
+            whileHover={{ y: -4 }}
+            className="premium-card p-8 flex flex-col justify-between relative overflow-hidden group h-full"
         >
-            {/* Background Accent - Aurora Neon */}
-            <div className="absolute -right-10 -top-10 w-40 h-40 bg-secondary/5 blur-[60px] rounded-full group-hover:bg-secondary/15 transition-all duration-1000" />
-            
-            <div className="flex items-center justify-between mb-12 relative z-10 font-mono">
-                <div className="w-12 h-12 flex items-center justify-center bg-secondary/10 border border-secondary/20 rounded-2xl text-secondary group-hover:scale-110 group-hover:shadow-neon transition-all duration-1000 group-hover:rotate-6">
-                    <Icon size={22} strokeWidth={2.5} />
+            {/* Background Accent */}
+            <div className="absolute right-0 top-0 w-24 h-24 bg-primary/5 rounded-bl-full translate-x-12 -translate-y-12 group-hover:bg-secondary/10 transition-colors duration-500" />
+
+            <div className="flex items-center justify-between mb-8 relative z-10 font-mono">
+                <div className="w-10 h-10 flex items-center justify-center bg-zinc-50 border border-zinc-100 rounded-lg text-primary group-hover:scale-110 transition-transform duration-500">
+                    <Icon size={18} strokeWidth={2} />
                 </div>
-                <div className={`flex items-center gap-2 px-4 py-1.5 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] ${isPositive
-                    ? "bg-secondary text-primary shadow-neon"
-                    : "bg-white/5 text-zinc-400 border border-white/10"
+                <div className={`flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-widest ${isPositive
+                    ? "bg-emerald-50 text-emerald-600 border border-emerald-100"
+                    : "bg-zinc-50 text-zinc-500 border border-zinc-100"
                     }`}>
-                    <span className={`w-1.5 h-1.5 rounded-full ${isPositive ? "bg-primary" : "bg-zinc-500"}`} />
+                    <span className={`w-1 h-1 rounded-full ${isPositive ? "bg-emerald-500 animate-pulse" : "bg-zinc-300"}`} />
                     {trend}
                 </div>
             </div>
 
             <div className="relative z-10">
-                <p className="text-[11px] font-black text-secondary uppercase tracking-[0.4em] mb-4 opacity-80 group-hover:opacity-100 transition-opacity">{label}</p>
+                <p className="text-[10px] font-black text-secondary uppercase tracking-[0.2em] mb-2">{label}</p>
                 <div className="flex items-baseline gap-2">
-                    <h3 className="text-5xl font-serif font-bold italic text-white leading-none tabular-nums tracking-tighter">
+                    <h3 className="text-4xl font-serif font-bold italic text-primary tabular-nums tracking-tight">
                         {value}
                     </h3>
                 </div>
-                
-                {/* Modern Indicator Bar */}
-                <div className="mt-8 flex gap-2 h-1.5">
+                <div className="mt-4 flex gap-1">
                     {[1, 2, 3, 4, 5].map((i) => (
-                        <div 
-                            key={i} 
-                            className={`h-full flex-1 rounded-full transition-all duration-1000 ${
-                                i <= 3 
-                                ? "bg-secondary shadow-neon group-hover:opacity-100" 
-                                : "bg-white/5 group-hover:bg-white/10"
-                            }`} 
-                        />
+                        <div key={i} className={`h-1 w-full rounded-full ${i <= 3 ? "bg-secondary/20" : "bg-zinc-100"}`} />
                     ))}
                 </div>
             </div>
