@@ -44,7 +44,7 @@ const QUILL_MODULES = {
 
 const QUILL_FORMATS = [
     "header", "bold", "italic", "underline", "blockquote",
-    "list", "bullet", "link"
+    "list", "link"
 ];
 
 export default function EmailCenter() {
