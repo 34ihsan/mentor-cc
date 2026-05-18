@@ -29,7 +29,7 @@ npm run build
 # 5. Start or reload in PM2
 echo "🔄 Reloading Mentor-cc in PM2..."
 pm2 delete mentor-cc || true
-pm2 start npm --name "mentor-cc" --max-memory-restart 300M -- run start -- -p 3002
+pm2 start npm --name "mentor-cc" --max-memory-restart 600M --exp-backoff-restart-delay=100 -- run start -- -p 3002
 pm2 save
 
 echo "✨ Mentor-cc Deployment complete and running on port 3002!"

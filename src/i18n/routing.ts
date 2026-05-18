@@ -8,8 +8,9 @@ export const routing = defineRouting({
   // Used when no locale matches
   defaultLocale: 'tr',
 
-  // Enable automatic locale detection to support prefix-less language switching via cookie.
-  localeDetection: true,
+  // Disable automatic locale detection to force Turkish (TR) as the default language for everyone.
+  // Users can still manually switch via the language switcher.
+  localeDetection: false,
 
   // Clean URLs: Only the default locale (tr) will be served at the root, 
   // and other locales will use localized slugs without prefixes where possible.
