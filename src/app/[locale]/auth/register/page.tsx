@@ -67,6 +67,17 @@ export default function RegisterPage() {
             const data = await res.json();
 
             if (!res.ok) {
+                if (data.details) {
+                    const errorMessages: string[] = [];
+                    Object.keys(data.details).forEach((key) => {
+                        if (key !== "_errors" && data.details[key]?._errors) {
+                            errorMessages.push(...data.details[key]._errors);
+                        }
+                    });
+                    if (errorMessages.length > 0) {
+                        throw new Error(errorMessages.join(" "));
+                    }
+                }
                 throw new Error(data.error || "Kayıt sırasında bir hata oluştu.");
             }
 

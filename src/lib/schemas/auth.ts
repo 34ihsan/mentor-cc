@@ -22,8 +22,8 @@ export const RegisterSchema = z.object({
     message: "İsim en az 2 karakter olmalıdır.",
   }),
   role: z.enum(["STUDENT", "AGENCY_MANAGER"]).default("STUDENT"),
-  phone: z.string().optional(),
-  companyName: z.string().optional(),
+  phone: z.string().optional().nullable().or(z.literal("")),
+  companyName: z.string().optional().nullable().or(z.literal("")),
   captchaToken: z.string().optional(), // Token from reCAPTCHA
 });
 
