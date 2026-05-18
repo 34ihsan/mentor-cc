@@ -29,6 +29,24 @@
     "destinations": "Destinations",
     "ulkeler": "Countries"
   },
+  "CookieBanner": {
+    "title": "Cookie and Data Policy",
+    "description": "We use cookies to enhance your experience. Your data is secured under the KVKK law No. 6698.",
+    "details": "View Policy",
+    "accept": "ACCEPT ALL",
+    "decline": "DECLINE",
+    "save": "SAVE PREFERENCES",
+    "settings": {
+      "necessary": "Necessary",
+      "necessaryDesc": "Essential functions for our site.",
+      "analytics": "Analytics",
+      "analyticsDesc": "Collects usage data.",
+      "marketing": "Marketing",
+      "marketingDesc": "Personalized offers for you.",
+      "ai": "Yapay Zeka Hizmetleri",
+      "aiDesc": "SmartFinder ve akıllı eşleştirme algoritmalarının optimizasyonu."
+    }
+  },
   "Common": {
     "title": "Mentor Career Consulting",
     "template": "%s | Mentor Career Consulting",
@@ -766,28 +784,6 @@
     "academicOptions": "Academic Options",
     "featuredUniversities": "Featured Universities",
     "universityDescription": "Explore the most prestigious educational institutions in {country} for your dream career.",
-    "list": [
-      {
-        "country": "United Kingdom",
-        "city": "London Hub",
-        "address": "London / UK",
-        "phone": "+447501412151",
-        "email": "info@mentor-cc.com",
-        "hours": "Mon – Fri: 09:00 – 18:00 / Saturday: 09:00 – 15:30",
-        "image": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=1000",
-        "isComingSoon": false
-      },
-      {
-        "country": "Global",
-        "city": "Worldwide (Turkish Support)",
-        "address": "Online / Remote",
-        "phone": "+447501412151",
-        "email": "info@mentor-cc.com",
-        "hours": "24/7 Digital Access",
-        "image": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1000",
-        "isComingSoon": false
-      }
-    ],
     "faqSubtitle": "{country} {service} süreci hakkında merak edilenler.",
     "worldRanking": "Dünya Sıralaması",
     "annualTuition": "Yıllık Ücret",
@@ -888,17 +884,13 @@
         "label": "☀️ Summer School",
         "message": "Summer schools abroad"
       },
-      "denklik": {
-        "label": "🛂 Equivalency",
-        "message": "Diploma equivalency processes"
+      "sinavlar": {
+        "label": "📝 Sınavlar",
+        "message": "Uluslararası sınav hazırlığı"
       },
       "general": {
         "label": "💬 Other",
         "message": "General information"
-      },
-      "sinavlar": {
-        "label": "📝 Sınavlar",
-        "message": "Uluslararası sınav hazırlığı"
       }
     },
     "appointment": {
@@ -935,6 +927,121 @@
     "errors": {
       "login": "Login failed. Please check your information.",
       "register": "Registration error"
+    }
+  },
+  "HomePage": {
+    "Destinations": {
+      "label": "POPULAR DESTINATIONS",
+      "title": "Most Preferred Educational Countries",
+      "desc": "Discover the most popular and advantageous countries where our students realize their dreams of studying abroad.",
+      "rota": "ROUTE",
+      "viewDetails": "View Details",
+      "viewDestinations": "View All Destinations"
+    },
+    "AboutUs": {
+      "label": "CORPORATE VISION",
+      "title": "A Strategic Touch to Your Future",
+      "desc1": "At Mentor Career Consulting, we provide a comprehensive career architecture, not just application support, for students to achieve their academic goals.",
+      "desc2": "With our years of experience and global partner network, we bring each student's potential to the highest level.",
+      "stats": {
+        "experience": "Years Experience",
+        "students": "Successful Students",
+        "countries": "Global Support"
+      }
+    },
+    "FinderIntro": {
+      "label": "SMART MATCHING",
+      "title": "Find Your Ideal Program in Seconds",
+      "desc": "Our SmartFinder algorithm analyzes the most suitable options for your profile among thousands of programs in seconds."
+    },
+    "Consultation": {
+      "label": "FREE CONSULTANCY",
+      "title": "Let's Design Your Global Future <span class='text-secondary'>Together</span>",
+      "desc": "Take the first step toward your academic goals with our expert consultants.",
+      "formTitle": "Get Information Now"
+    },
+    "Process": {
+      "label": "OUR SERVICES",
+      "title": "We Are with You at Every Step of Your Educational Journey",
+      "desc": "Professional support in all processes from application to admission, visa to accommodation.",
+      "viewService": "VIEW DETAILS"
+    },
+    "Services": {
+      "yurtdisi-universite": "University Abroad",
+      "yurtdisi-master": "Master's Degree Abroad",
+      "yurtdisi-lise-egitimi": "High School Abroad",
+      "yurtdisi-dil-okulu": "Language Schools Abroad",
+      "yurtdisi-yuksek-lisans": "Master's Degree Abroad",
+      "yurtdisi-lise": "High School Abroad",
+      "yurtdisi-yaz-okullari": "Summer Schools Abroad",
+      "yurtdisi-dil-okullari": "Language Schools Abroad",
+      "yurtdisi-kariyer": "Career Abroad",
+      "career": "Career",
+      "kariyer": "Career",
+      "konaklama": "Accommodation Support",
+      "bilet": "Flight Ticket",
+      "sinavlar": "Exams",
+      "vize": "Visa Consultancy",
+      "visa": "Visa Consultancy",
+      "denklik": "Equivalency Procedures",
+      "scholarship": "Scholarships",
+      "master-yuksek-lisans": "Yüksek Lisans",
+      "lise": "Lise",
+      "universite": "Üniversite",
+      "yaz-okulu": "Yaz Okulları",
+      "dil-okullari": "Dil Okulları",
+      "YURTDISI-YUKSEK-LISANS": "Yurtdışı Yüksek Lisans",
+      "YURTDISI-LISE": "Yurtdışı Lise",
+      "YURTDISI-UNIVERSITE": "Yurtdışı Üniversite",
+      "YURTDISI-YAZ-OKULLARI": "Yurtdışı Yaz Okulları",
+      "YURTDISI-DIL-OKULLARI": "Yurtdışı Dil Okulları",
+      "KARIYER": "Kariyer",
+      "ulkeler": "Countries",
+      "programlar": "Programs",
+      "subeler": "Branches",
+      "yurtdisi-universite-detail": {
+        "categories": {
+          "ranking": "Ranking Oriented (Top 100)",
+          "scholarship": "Scholarship Guaranteed Programs",
+          "free": "Free Public Universities"
+        }
+      },
+      "yurtdisi-yuksek-lisans-detail": {
+        "categories": {
+          "mba": "MBA Programs",
+          "msc": "Master of Science (MSc)",
+          "art": "Art & Design Master"
+        }
+      },
+      "yurtdisi-lise-detail": {
+        "categories": {
+          "boarding": "Classic Boarding Schools",
+          "day": "Private Day Schools",
+          "exchange": "State High School Exchange",
+          "ibap": "IB & AP Diploma Programs"
+        }
+      },
+      "yurtdisi-yaz-okullari-detail": {
+        "categories": {
+          "academic": "Academic Summer School",
+          "sports": "Sports & Art",
+          "language": "Language & Activity"
+        }
+      },
+      "yurtdisi-dil-okullari-detail": {
+        "categories": {
+          "general": "General English",
+          "business": "Business English",
+          "pathway": "Academic Pathway"
+        }
+      },
+      "career-detail": {
+        "categories": {
+          "vocational": "Vocational Training Consultancy",
+          "career": "International Career Consultancy",
+          "cv": "Professional CV Creation"
+        }
+      }
     }
   },
   "Card": {
@@ -1145,19 +1252,19 @@
     },
     "countries": {
       "ALL": "All Countries",
-      "almanya": "Germany",
       "ingiltere": "UK",
       "amerika": "USA",
+      "almanya": "Germany",
       "kanada": "Canada",
-      "italya": "Italy",
-      "fransa": "France",
-      "ispanya": "Spain",
       "isvicre": "Switzerland",
       "avustralya": "Australia",
       "belcika": "Belgium",
       "hollanda": "Netherlands",
       "irlanda": "Ireland",
       "polonya": "Poland",
+      "italya": "Italy",
+      "fransa": "France",
+      "ispanya": "Spain",
       "macaristan": "Hungary",
       "malta": "Malta"
     },
@@ -1179,6 +1286,32 @@
       "SPORTS": "Sports Oriented",
       "Devlet": "Public High School",
       "Özel": "Private Boarding"
+    }
+  },
+  "ProgramFinder": {
+    "title": "Smart School Finder | Find the Most Suitable Program in Seconds",
+    "description": "Discover the most suitable study abroad programs, universities, and language schools for your budget and goals with real data.",
+    "keywords": "study abroad finder, affordable schools, budget-friendly study abroad, smart school matching",
+    "heroBadge": "AI Powered Matching",
+    "heroTitle": "Plan Your Future <br /> <highlight>With Data</highlight>.",
+    "heroSubtitle": "Find the shortest path between your dreams and your budget. <br /> Make your special analysis now with real school fees and admission criteria.",
+    "trust": {
+      "data": {
+        "title": "Pinpoint Data",
+        "desc": "Honest analysis with the most up-to-date price and acceptance data obtained from official school sources."
+      },
+      "service": {
+        "title": "Independent Consultancy",
+        "desc": "Our priority is not to sell a school, but to objectively chart the most suitable route for your career."
+      },
+      "speed": {
+        "title": "Instant Results",
+        "desc": "Smart matching algorithm that fits weeks of research into seconds."
+      }
+    },
+    "quote": {
+      "text": "\"Study abroad is not an expense, but the most strategic investment that will pay dividends for a lifetime.\"",
+      "author": "Mentor Career Consulting Executive Guide"
     }
   },
   "ProgramDetail": {
@@ -1276,32 +1409,6 @@
     "ctaBtn": "GET FREE CONSULTANCY",
     "classOf": "Class of {year}"
   },
-  "ProgramFinder": {
-    "title": "Smart School Finder | Find the Most Suitable Program in Seconds",
-    "description": "Discover the most suitable study abroad programs, universities, and language schools for your budget and goals with real data.",
-    "keywords": "study abroad finder, affordable schools, budget-friendly study abroad, smart school matching",
-    "heroBadge": "AI Powered Matching",
-    "heroTitle": "Plan Your Future <br /> <highlight>With Data</highlight>.",
-    "heroSubtitle": "Find the shortest path between your dreams and your budget. <br /> Make your special analysis now with real school fees and admission criteria.",
-    "trust": {
-      "data": {
-        "title": "Pinpoint Data",
-        "desc": "Honest analysis with the most up-to-date price and acceptance data obtained from official school sources."
-      },
-      "service": {
-        "title": "Independent Consultancy",
-        "desc": "Our priority is not to sell a school, but to objectively chart the most suitable route for your career."
-      },
-      "speed": {
-        "title": "Instant Results",
-        "desc": "Smart matching algorithm that fits weeks of research into seconds."
-      }
-    },
-    "quote": {
-      "text": "\"Study abroad is not an expense, but the most strategic investment that will pay dividends for a lifetime.\"",
-      "author": "Mentor Career Consulting Executive Guide"
-    }
-  },
   "Quote": {
     "programSelect": "Select Department / Program",
     "courseSelect": "Select Course Type",
@@ -1359,14 +1466,14 @@
       "contact": "Contact"
     },
     "links": {
+      "aboutUs": "Hakkımızda",
       "vision": "Our Vision",
       "success": "Success Stories",
       "offices": "Our Offices",
       "career": "Our Services",
       "legal": "KVKK",
       "terms": "Terms of Use",
-      "privacy": "Privacy Policy",
-      "aboutUs": "Hakkımızda"
+      "privacy": "Privacy Policy"
     },
     "copyright": "ALL RIGHTS RESERVED."
   },
@@ -1451,10 +1558,6 @@
       "title": "Master's Programs Abroad",
       "heroDesc": "The most prestigious master's mentorship to carry your career to a global dimension."
     },
-    "denklik": {
-      "title": "Diploma Equivalency",
-      "heroDesc": "Professional guidance for your foreign diploma to be recognized in Turkey."
-    },
     "sinavlar": {
       "title": "Uluslararası Sınavlar",
       "heroDesc": "IELTS, TOEFL, SAT, GRE ve GMAT; global başarı için stratejik sınav hazırlık rehberliği."
@@ -1492,276 +1595,6 @@
         "hours": "24/7 Digital Access",
         "image": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1000",
         "isComingSoon": false
-      },
-      {
-        "country": "Turkey",
-        "city": "Antalya",
-        "address": "Antalya (Mediterranean Regional Coordination)",
-        "phone": "",
-        "email": "info@mentor-cc.com",
-        "hours": "Mon - Sat: 09:00 - 18:30",
-        "image": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=1000",
-        "isComingSoon": false
-      },
-      {
-        "country": "Turkey",
-        "city": "Samsun",
-        "address": "Samsun (Black Sea Regional Support)",
-        "phone": "",
-        "email": "info@mentor-cc.com",
-        "hours": "Mon - Sat: 09:00 - 18:30",
-        "image": "https://images.unsplash.com/photo-1587313627440-97693d3957ce?q=80&w=1000",
-        "isComingSoon": false
-      },
-      {
-        "country": "Turkey",
-        "city": "Eskisehir",
-        "address": "Eskisehir",
-        "phone": "",
-        "email": "info@mentor-cc.com",
-        "hours": "Mon - Sat: 09:00 - 18:30",
-        "image": "https://images.unsplash.com/photo-1543852786-1cf6624b9987?q=80&w=1000",
-        "isComingSoon": false
-      },
-      {
-        "country": "Turkey",
-        "city": "Adana",
-        "address": "Adana",
-        "phone": "",
-        "email": "info@mentor-cc.com",
-        "hours": "Service Active",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Turkey",
-        "city": "Gaziantep",
-        "address": "Gaziantep",
-        "phone": "",
-        "email": "info@mentor-cc.com",
-        "hours": "Service Active",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Turkey",
-        "city": "Kocaeli",
-        "address": "Kocaeli",
-        "phone": "",
-        "email": "info@mentor-cc.com",
-        "hours": "Service Active",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Turkey",
-        "city": "Mersin",
-        "address": "Mersin",
-        "phone": "",
-        "email": "info@mentor-cc.com",
-        "hours": "Service Active",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Turkey",
-        "city": "Diyarbakir",
-        "address": "Diyarbakir",
-        "phone": "",
-        "email": "info@mentor-cc.com",
-        "hours": "Service Active",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Turkey",
-        "city": "Hatay",
-        "address": "Hatay",
-        "phone": "",
-        "email": "info@mentor-cc.com",
-        "hours": "Service Active",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Turkey",
-        "city": "Manisa",
-        "address": "Manisa",
-        "phone": "",
-        "email": "info@mentor-cc.com",
-        "hours": "Service Active",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Turkey",
-        "city": "Kayseri",
-        "address": "Kayseri",
-        "phone": "",
-        "email": "info@mentor-cc.com",
-        "hours": "Service Active",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Turkey",
-        "city": "Konya",
-        "address": "Konya",
-        "phone": "",
-        "email": "info@mentor-cc.com",
-        "hours": "Service Active",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Turkey",
-        "city": "Balikesir",
-        "address": "Balikesir",
-        "phone": "",
-        "email": "info@mentor-cc.com",
-        "hours": "Service Active",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Turkey",
-        "city": "Kahramanmaras",
-        "address": "Kahramanmaras",
-        "phone": "",
-        "email": "info@mentor-cc.com",
-        "hours": "Service Active",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Turkey",
-        "city": "Van",
-        "address": "Van",
-        "phone": "",
-        "email": "info@mentor-cc.com",
-        "hours": "Service Active",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Turkey",
-        "city": "Aydin",
-        "address": "Aydin",
-        "phone": "",
-        "email": "info@mentor-cc.com",
-        "hours": "Service Active",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Turkey",
-        "city": "Tekirdag",
-        "address": "Tekirdag",
-        "phone": "",
-        "email": "info@mentor-cc.com",
-        "hours": "Service Active",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Turkey",
-        "city": "Sakarya",
-        "address": "Sakarya",
-        "phone": "",
-        "email": "info@mentor-cc.com",
-        "hours": "Service Active",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Turkey",
-        "city": "Denizli",
-        "address": "Denizli",
-        "phone": "",
-        "email": "info@mentor-cc.com",
-        "hours": "Service Active",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Turkey",
-        "city": "Mugla",
-        "address": "Mugla",
-        "phone": "",
-        "email": "info@mentor-cc.com",
-        "hours": "Service Active",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Turkey",
-        "city": "Mardin",
-        "address": "Mardin",
-        "phone": "",
-        "email": "info@mentor-cc.com",
-        "hours": "Service Active",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Turkey",
-        "city": "Trabzon",
-        "address": "Trabzon",
-        "phone": "",
-        "email": "info@mentor-cc.com",
-        "hours": "Service Active",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Turkey",
-        "city": "Malatya",
-        "address": "Malatya",
-        "phone": "",
-        "email": "info@mentor-cc.com",
-        "hours": "Service Active",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Turkey",
-        "city": "Ordu",
-        "address": "Ordu",
-        "phone": "",
-        "email": "info@mentor-cc.com",
-        "hours": "Service Active",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Turkey",
-        "city": "Erzurum",
-        "address": "Erzurum",
-        "phone": "",
-        "email": "info@mentor-cc.com",
-        "hours": "Service Active",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Turkey",
-        "city": "Sanliurfa",
-        "address": "Sanliurfa",
-        "phone": "",
-        "email": "info@mentor-cc.com",
-        "hours": "Service Active",
-        "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000",
-        "isComingSoon": true
-      },
-      {
-        "country": "Global",
-        "city": "Worldwide (Turkish Support)",
-        "address": "Digital Consultancy for All Turkish Speakers Worldwide",
-        "phone": "",
-        "email": "info@mentor-cc.com",
-        "hours": "24/7 Digital Access",
-        "image": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1000",
-        "isComingSoon": false
       }
     ]
   },
@@ -1772,22 +1605,6 @@
     "genel": {
       "title": "General",
       "content": "This website, www.mentor-cc.com, is managed as a Study Abroad and Consultancy based in the UK. When you visit this website, Mentor Career Consulting may collect personal information about you directly or indirectly where appropriate. Mentor Career Consulting uses this personal information in the manner and conditions it desires without being bound by consent and is obliged to ensure the protection of the collected personal information. This Privacy Policy mentions Mentor Career Consulting's data processing purposes related to its own website, the use of identification data, and how to establish your rights regarding your personal information."
-    },
-    "thirdParty": {
-      "title": "Third-Party Sites",
-      "content": "Please note that this Privacy Policy does not cover third-party sites connected to this website. Establishment of Your Rights; if you do not want to contact Mentor Career Consulting or receive marketing messages from Mentor Career Consulting, you can contact us. You can always contact us if you have questions about our data processing activities or your transactions related to this website. Our e-mail address is info@mentor-cc.com"
-    },
-    "processing": {
-      "title": "Data Processing",
-      "content": "Mentor Career Consulting collects and processes information about customers and visitors to the website for the execution of Study Abroad and Consultancy services, providing information about products and services you are interested in, and for the development of site statistics. The information you provide will be used to reach you when necessary and for uninterrupted communication. Mentor Career Consulting may send promotional brochures, video content, etc., for advertising purposes via e-mail and SMS in line with the information provided. If not requested, it should be reported to us via info@mentor-cc.com or by calling."
-    },
-    "data": {
-      "title": "Data",
-      "content": "Mentor Career Consulting does not strive to collect critical personal information such as political opinions, religious beliefs, ethnic origins, health, or other issues through this site and has no such purpose. If Mentor Career Consulting requests such information, your personal permission is obtained. Please note that if you provide unsolicited personal data to Mentor Career Consulting, you have permitted us to use this information as described above."
-    },
-    "identification": {
-      "title": "Identification",
-      "content": "Mentor Career Consulting may collect and analyze data related to the use of this website, including domain name, number of entries to the site, pages visited, duration of stay, sites visited, and length of user session. This data can be collected using a cookie. Identification information will provide faster and easier use of this website."
     },
     "compensation": {
       "title": "Indemnification",
@@ -1800,24 +1617,6 @@
     "aiUsage": {
       "title": "Yapay Zeka (AI) Kullanımı ve Veri İşleme",
       "content": "Mentor Career Consulting platformu, kullanıcı deneyimini kişiselleştirmek, 'SmartFinder' gibi akıllı eşleştirme algoritmalarıyla size en uygun akademik programları sunmak ve içerik analizlerini otomatize etmek amacıyla gelişmiş Yapay Zeka (AI) teknolojilerini kullanmaktadır. Bu teknolojiler; akademik başarı şansınızı analiz etmek ve size özel danışmanlık rehberliği oluşturmak için verilerinizi (isimsizleştirilmiş veya doğrudan) işleyebilir. Yapay zeka sistemlerimiz, Avrupa Birliği Yapay Zeka Yasası (EU AI Act) ve KVKK prensiplerine tam uyumlu, şeffaf ve insan denetimli bir yapıda tasarlanmıştır."
-    }
-  },
-  "CookieBanner": {
-    "title": "Cookie and Data Policy",
-    "description": "We use cookies to enhance your experience. Your data is secured under the KVKK law No. 6698.",
-    "details": "View Policy",
-    "accept": "ACCEPT ALL",
-    "decline": "DECLINE",
-    "save": "SAVE PREFERENCES",
-    "settings": {
-      "necessary": "Necessary",
-      "necessaryDesc": "Essential functions for our site.",
-      "analytics": "Analytics",
-      "analyticsDesc": "Collects usage data.",
-      "marketing": "Marketing",
-      "marketingDesc": "Personalized offers for you.",
-      "ai": "Yapay Zeka Hizmetleri",
-      "aiDesc": "SmartFinder ve akıllı eşleştirme algoritmalarının optimizasyonu."
     }
   },
   "Dashboard": {
@@ -1842,7 +1641,6 @@
       "tasks": "My Tasks",
       "calendar": "Calendar",
       "applications": "Applications",
-      "visaTracking": "Visa Tracking Center",
       "agencyPanel": "Agency Panel",
       "myStudents": "My Students",
       "leadManagement": "Lead Management",
@@ -1945,255 +1743,126 @@
         ]
       }
     },
-    "Denklik": {
-      "main": {
-        "title": "Diploma Equivalency",
-        "heroDesc": "Professional guidance for the recognition of your foreign diploma in Turkey.",
-        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Diploma Equivalency Services</h2><p class=\"mb-6\">With our expert consultancy, we guide you through the process of determining the equivalency of your diplomas obtained abroad (Bachelor's, Master's, Associate's) to diplomas issued in Turkey.</p><p class=\"mb-6\">The equivalency application is a meticulous evaluation process carried out by YÖK (Higher Education Council). As Mentor Career Consulting, we provide professional support at every stage, from document preparation to application tracking.</p><h3 class=\"text-2xl font-serif font-bold text-navy mb-4 mt-8 italic\">Who needs an Equivalency Application?</h3><ul class=\"space-y-4 mb-10 italic\"><li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> Those who want to work in public institutions in Turkey.</li><li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> Holders of regulated professions such as doctors, engineers, or lawyers who want to practice in Turkey.</li><li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> Those who want to continue their postgraduate education in Turkey.</li></ul>",
+    "countries": {
+      "ingiltere": {
+        "title": "İngiltere Diploma Denklik",
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">İngiltere Diploma Denklik Süreci</h2><p class=\"mb-6\">Birleşik Krallık (İngiltere, İskoçya, Galler, Kuzey İrlanda) üniversiteleri, dünya sıralamalarında en üst sıralarda yer aldığı için YÖK tarafından genellikle doğrudan tanınmaktadır. Ancak mezuniyet sonrası Türkiye'de mesleğinizi icra edebilmek için resmi denklik belgesi almanız şarttır.</p><p class=\"mb-6\">İngiltere'den alınan diplomaların denkliği, özellikle 'Level' sistemine (NQF/QCF) göre değerlendirilir. Lisans (Bachelor's) ve Yüksek Lisans (Master's) dereceleri için farklı prosedürler uygulanabilmektedir.</p><h3 class=\"text-2xl font-serif font-bold text-navy mb-4 mt-8 italic\">Dikkat Edilmesi Gerekenler:</h3><ul class=\"space-y-4 mb-10 italic\"><li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> <strong>Süre Şartı:</strong> Lisans eğitiminin en az 3 yıl (veya hızlandırılmış programlarda kredi tamamlanmış olması), Yüksek Lisansın en az 1 tam yıl sürmüş olması beklenir.</li><li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> <strong>Apostil:</strong> İngiltere'deki eğitim belgelerinizin (Degree Certificate, Transcript) mutlaka UK Legalisation Office tarafından apostillenmiş olması gerekir.</li></ul>",
         "advantages": [
           {
-            "title": "Expert Analysis",
-            "desc": "We pre-analyze the suitability of your diploma and university for YÖK criteria.",
-            "icon": "Search"
+            "title": "Hızlı Onay",
+            "desc": "Top 400 listesindeki İngiliz üniversiteleri genellikle sınavsız (STS) onay alır.",
+            "icon": "Target"
           },
           {
-            "title": "Dossier Preparation",
-            "desc": "We prepare professional dossiers in compliance with the law, eliminating the risk of missing documents.",
-            "icon": "ShieldCheck"
-          },
-          {
-            "title": "Process Tracking",
-            "desc": "We regularly track your application in the YÖK system and inform you of updates.",
-            "icon": "Clock"
-          },
-          {
-            "title": "STS Consultancy",
-            "desc": "We provide resource and strategy support for cases where the Level Placement Exam (STS) is required.",
+            "title": "Global Prestij",
+            "desc": "İngiltere diploması, Türkiye'deki iş dünyasında en yüksek kabul oranına sahiptir.",
             "icon": "Award"
           }
         ],
-        "destinations": {
-          "title": "Diploma Equivalency Destinations",
-          "desc": "Equivalency processes may vary depending on the country you graduated from. Check our special guides for popular countries.",
-          "cost": "Free Pre-Assessment",
-          "items": [
-            {
-              "name": "UK Diploma Equivalency",
-              "slug": "ingiltere",
-              "subDesc": "Special process for UK graduations with high acceptance rates."
-            },
-            {
-              "name": "USA Diploma Equivalency",
-              "slug": "amerika",
-              "subDesc": "Equivalency of US diplomas in the YÖK system."
-            },
-            {
-              "name": "Germany Diploma Equivalency",
-              "slug": "almanya",
-              "subDesc": "German education system and equivalency criteria."
-            },
-            {
-              "name": "Canada Diploma Equivalency",
-              "slug": "kanada",
-              "subDesc": "Equivalency and recognition guide for Canadian graduates."
-            },
-            {
-              "name": "Switzerland Diploma Equivalency",
-              "slug": "isvicre",
-              "subDesc": "Swiss higher education system and equivalency."
-            },
-            {
-              "name": "Australia Diploma Equivalency",
-              "slug": "avustralya",
-              "subDesc": "Recognition conditions for Australian diplomas in Turkey."
-            },
-            {
-              "name": "Belgium Diploma Equivalency",
-              "slug": "belcika",
-              "subDesc": "Step-by-step guide for Belgian university graduates."
-            },
-            {
-              "name": "Netherlands Diploma Equivalency",
-              "slug": "hollanda",
-              "subDesc": "YÖK equivalency of Dutch diplomas."
-            },
-            {
-              "name": "Ireland Diploma Equivalency",
-              "slug": "irlanda",
-              "subDesc": "Irish higher education system and equivalency."
-            },
-            {
-              "name": "Poland Diploma Equivalency",
-              "slug": "polonya",
-              "subDesc": "Equivalency procedures for Polish universities."
-            }
-          ]
-        },
         "process": [
           {
             "step": 1,
-            "title": "Preliminary Review",
-            "desc": "We analyze the recognition of your university and the equivalency chances of your diploma."
+            "title": "Belgelerin UK'de Onaylanması",
+            "desc": "Diploma ve transkriptin Birleşik Krallık makamlarınca resmileştirilmesi."
           },
           {
             "step": 2,
-            "title": "Document Collection",
-            "desc": "We coordinate your transcript, apostille, and notarized translation processes."
+            "title": "Tercüme ve Noter",
+            "desc": "Belgelerin Türkiye'de yeminli tercüme ve noter onayı yapılması."
           },
           {
             "step": 3,
-            "title": "Online Application",
-            "desc": "We carry out your online application via the YÖK e-equivalency system without errors."
-          },
-          {
-            "step": 4,
-            "title": "Physical Submission & Tracking",
-            "desc": "We handle the physical delivery of required documents to YÖK and track the commission's decision."
+            "title": "YÖK Başvurusu",
+            "desc": "Online ön başvuru ve fiziki evrak teslimi."
           }
-        ],
-        "documents": [
-          "ID Card / Passport",
-          "Diploma or Graduation Certificate (Original)",
-          "Notarized Turkish Translations",
-          "Official Transcript (Sealed Envelope)",
-          "Apostille Certifications"
         ],
         "faq": [
           {
-            "q": "How long does the equivalency process take?",
-            "a": "If the documents are complete, the commission evaluation usually takes 3-6 months."
-          },
-          {
-            "q": "What is STS (Level Placement Exam)?",
-            "a": "YÖK may require an exam if the education level does not fully match Turkey or in fields requiring specialization like medicine."
-          },
-          {
-            "q": "What is direct recognition?",
-            "a": "Graduates from universities in the top 400 world rankings usually receive faster approval."
+            "q": "Hızlandırılmış (2 yıllık) lisans programlarına denklik verilir mi?",
+            "a": "YÖK, Avrupa Kredi Transfer Sistemi (ECTS) ve toplam ders yüküne bakarak değerlendirme yapar. Kredi şartı sağlandığında denklik mümkündür."
           }
         ]
       },
-      "countries": {
-        "ingiltere": {
-          "title": "UK Diploma Equivalency",
-          "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">UK Diploma Equivalency Process</h2><p class=\"mb-6\">UK universities are generally directly recognized by YÖK since they are top-ranked globally. However, you must obtain an official equivalency certificate to practice your profession in Turkey.</p><p class=\"mb-6\">The equivalency of diplomas obtained from the UK is evaluated specifically according to the 'Level' system (NQF/QCF). Different procedures may apply for Bachelor's and Master's degrees.</p><h3 class=\"text-2xl font-serif font-bold text-navy mb-4 mt-8 italic\">Important Considerations:</h3><ul class=\"space-y-4 mb-10 italic\"><li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> <strong>Duration Requirement:</strong> Undergraduate education is expected to last at least 3 years, and Master's at least 1 full year.</li><li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> <strong>Apostille:</strong> Your educational documents from the UK must be apostilled by the UK Legalisation Office.</li></ul>",
-          "advantages": [
-            {
-              "title": "Fast Approval",
-              "desc": "British universities in the Top 400 list usually get approval without exams (STS).",
-              "icon": "Target"
-            },
-            {
-              "title": "Global Prestige",
-              "desc": "UK diplomas have the highest acceptance rate in the Turkish business world.",
-              "icon": "Award"
-            }
-          ],
-          "process": [
-            {
-              "step": 1,
-              "title": "Legalization in UK",
-              "desc": "Formalization of diploma and transcript by UK authorities."
-            },
-            {
-              "step": 2,
-              "title": "Translation and Notary",
-              "desc": "Sworn translation and notary approval of documents in Turkey."
-            },
-            {
-              "step": 3,
-              "title": "YÖK Application",
-              "desc": "Online pre-application and physical document submission."
-            }
-          ],
-          "faq": [
-            {
-              "q": "Is residency required during education?",
-              "a": "Yes, YÖK requires you to be physically present in the country of education for the duration of the program."
-            }
-          ]
-        },
-        "amerika": {
-          "title": "USA Diploma Equivalency",
-          "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">US Diploma Equivalency Procedures</h2><p class=\"mb-6\">The equivalency of diplomas obtained from the United States depends on the university being recognized by regional accreditation bodies in America.</p><p class=\"mb-6\">The US education system, with its 4-year undergraduate structure, is fully compatible with the Turkish system. However, equivalency processes for diplomas obtained through online/distance education are examined much more meticulously.</p>",
-          "advantages": [
-            {
-              "title": "Accreditation Power",
-              "desc": "All US universities with regional accreditation have the potential to be recognized by YÖK.",
-              "icon": "Shield"
-            }
-          ],
-          "process": [
-            {
-              "step": 1,
-              "title": "US Secretary of State Approval",
-              "desc": "Apostille approval of documents at state or federal level."
-            },
-            {
-              "step": 2,
-              "title": "Course Syllabi",
-              "desc": "Having course contents ready to be presented, especially for technical departments."
-            }
-          ]
-        },
-        "almanya": {
-          "title": "Germany Diploma Equivalency",
-          "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Equivalency Guide for Germany Graduates</h2><p class=\"mb-6\">Since Germany is part of the Bologna Process, its diplomas show high compatibility with the Turkish system. Fachhochschule and Universität diplomas may be evaluated in different categories.</p>",
-          "advantages": [
-            {
-              "title": "Bologna Compatibility",
-              "desc": "Thanks to the ECTS credit system, the equivalency process is more predictable.",
-              "icon": "Globe"
-            }
-          ],
-          "process": [
-            {
-              "step": 1,
-              "title": "Regierungspräsidium Approval",
-              "desc": "Approval of documents by the relevant German state authorities."
-            },
-            {
-              "step": 2,
-              "title": "Diploma Supplement",
-              "desc": "Preparation of the English or German diploma supplement."
-            }
-          ]
-        },
-        "kanada": {
-          "title": "Canada Diploma Equivalency",
-          "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Recognition of the Canadian Education System</h2><p class=\"mb-6\">The difference between Canadian universities and colleges is critical in the equivalency process. 3-4 year undergraduate programs usually receive equivalency smoothly.</p>"
-        },
-        "isvicre": {
-          "title": "Switzerland Diploma Equivalency",
-          "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Equivalency Processes Specific to Switzerland</h2><p class=\"mb-6\">The equivalency of Swiss schools, especially in the field of Tourism and Hotel Management, varies greatly depending on whether the school is recognized by cantonal authorities or at the federal level.</p>"
-        },
-        "avustralya": {
-          "title": "Australia Diploma Equivalency",
-          "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Equivalency of Australian Degrees</h2><p class=\"mb-6\">Degrees obtained within the framework of the AQF (Australia Qualifications Framework) system are examined by YÖK on a level basis. Due to the long distance, detecting passport entry-exit records is important in this process.</p>"
-        },
-        "belcika": {
-          "title": "Belgium Diploma Equivalency",
-          "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Belgium Graduation and Turkey Equivalency</h2><p class=\"mb-6\">In the Belgian education system, which is divided into Flemish and French communities, accredited institutions of both regions have recognition by YÖK.</p>"
-        },
-        "hollanda": {
-          "title": "Netherlands Diploma Equivalency",
-          "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Netherlands Research vs Applied Sciences</h2><p class=\"mb-6\">The distinction between Research Universities (WO) and Universities of Applied Sciences (HBO) can affect your equivalency degree. Mentor Career Consulting guides you through this complex distinction.</p>"
-        },
-        "irlanda": {
-          "title": "Ireland Diploma Equivalency",
-          "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Ireland and Global Standards</h2><p class=\"mb-6\">Long-established universities in cities such as Dublin and Cork generally proceed with standard procedures because they provide education at European standards.</p>"
-        },
-        "polonya": {
-          "title": "Poland Diploma Equivalency",
-          "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Recognition of Polish Diplomas</h2><p class=\"mb-6\">Diplomas obtained from Poland, an EU member, are among the most applied for files by YÖK in recent years. STS (Exam) requirements exist in the fields of Medicine and Engineering.</p>"
-        }
+      "amerika": {
+        "title": "Amerika Diploma Denklik",
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">ABD Diploma Denklik İşlemleri</h2><p class=\"mb-6\">Amerika Birleşik Devletleri'nden alınan diplomaların denkliği, üniversitenin Amerika'daki bölgesel akreditasyon kurumları (Regional Accreditation) tarafından tanınmış olmasına bağlıdır.</p><p class=\"mb-6\">ABD eğitim sistemi 4 yıllık lisans yapısına sahip olduğu için Türkiye'deki lisans sistemiyle tam uyumludur. Ancak online/uzaktan eğitimle alınan diplomaların denklik süreçleri çok daha titizlikle incelenmektedir.</p>",
+        "advantages": [
+          {
+            "title": "Akreditasyon Gücü",
+            "desc": "Bölgesel akreditasyonu olan tüm ABD üniversiteleri YÖK tarafından tanınma potansiyeline sahiptir.",
+            "icon": "Shield"
+          }
+        ],
+        "process": [
+          {
+            "step": 1,
+            "title": "US Secretary of State Onayı",
+            "desc": "Belgelerin eyalet veya federal düzeyde apostil onayı."
+          },
+          {
+            "step": 2,
+            "title": "Ders İçerikleri (Syllabus)",
+            "desc": "Özellikle teknik bölümler için ders içeriklerinin sunulmaya hazır olması."
+          }
+        ]
+      },
+      "almanya": {
+        "title": "Almanya Diploma Denklik",
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Almanya Mezunları İçin Denklik Rehberi</h2><p class=\"mb-6\">Almanya, Bologna Süreci'ne dahil olduğu için diplomaları Türkiye sistemiyle yüksek uyum gösterir. Fachhochschule (Uygulamalı Bilimler) ve Universität diplomaları farklı kategorilerde değerlendirilebilir.</p>",
+        "advantages": [
+          {
+            "title": "Bologna Uyumu",
+            "desc": "ECTS kredi sistemi sayesinde denklik süreci daha öngörülebilirdir.",
+            "icon": "Globe"
+          }
+        ],
+        "process": [
+          {
+            "step": 1,
+            "title": "Regierungspräsidium Onayı",
+            "desc": "Belgelerin ilgili Alman eyalet makamlarınca onaylanması."
+          },
+          {
+            "step": 2,
+            "title": "Diploma Eki (Diploma Supplement)",
+            "desc": "İngilizce veya Almanca diploma ekinin hazır edilmesi."
+          }
+        ]
+      },
+      "kanada": {
+        "title": "Kanada Diploma Denklik",
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Kanada Eğitim Sisteminin Tanınırlığı</h2><p class=\"mb-6\">Kanada üniversiteleri ve kolejleri (Colleges) arasındaki fark denklik sürecinde kritiktir. 3-4 yıllık lisans programları genellikle sorunsuz denklik alırken, 1-2 yıllık 'Diploma' programları 'Lisans' denkliği değil, 'Ön Lisans' veya 'Mesleki Eğitim' olarak değerlendirilebilir.</p>"
+      },
+      "isvicre": {
+        "title": "İsviçre Diploma Denklik",
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">İsviçre Özelinde Denklik Süreçleri</h2><p class=\"mb-6\">Özellikle Turizm ve Otel İşletmeciliği alanındaki İsviçre okullarının denkliği, okulun kanton yetkilileri tarafından mı yoksa federal düzeyde mi tanındığına göre büyük farklılık gösterir.</p>"
+      },
+      "avustralya": {
+        "title": "Avustralya Diploma Denklik",
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Avustralya Derecelerinin Eşdeğerliği</h2><p class=\"mb-6\">AQF (Australia Qualifications Framework) sistemi çerçevesinde alınan dereceler, YÖK tarafından seviye bazlı incelenir. Uzak mesafe nedeniyle pasaport giriş-çıkış kayıtlarının tespiti bu süreçte önemlidir.</p>"
+      },
+      "belcika": {
+        "title": "Belçika Diploma Denklik",
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Belçika Mezuniyeti ve Türkiye Denkliği</h2><p class=\"mb-6\">Flaman ve Fransız toplulukları olarak ikiye ayrılan Belçika eğitim sisteminde, her iki bölgenin de akredite kurumları YÖK nezdinde tanınırlığa sahiptir.</p>"
+      },
+      "hollanda": {
+        "title": "Hollanda Diploma Denklik",
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Hollanda Research vs Applied Sciences</h2><p class=\"mb-6\">Research Universities (WO) dan Universities of Applied Sciences (HBO) arasındaki ayrım, denklik derecenizi etkileyebilir. Mentor Career Consulting bu karmaşık ayrımda size yol gösterir.</p>"
+      },
+      "irlanda": {
+        "title": "İrlanda Diploma Denklik",
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">İrlanda ve Global Standartlar</h2><p class=\"mb-6\">Dublin ve Cork gibi şehirlerdeki köklü üniversiteler, Avrupa standartlarında eğitim verdiği için denklik süreci genellikle standart prosedürde ilerler.</p>"
+      },
+      "polonya": {
+        "title": "Polonya Diploma Denklik",
+        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Polonya Diplomalarının Tanınırlığı</h2><p class=\"mb-6\">AB üyesi olan Polonya'dan alınan diplomalar, son yıllarda YÖK tarafından en çok başvurulan dosyalar arasındadır. Tıp ve Mühendislik alanında STS (Sınav) gereklilikleri mevcuttur.</p>"
       }
     },
     "Mappings": {
       "services": {
-        "denklik": {
-          "title": "Diploma Equivalency",
-          "desc": "Professional guidance for the recognition of your foreign diploma in Turkey."
+        "sinavlar": {
+          "title": "Uluslararası Sınavlar",
+          "desc": "IELTS, TOEFL, SAT, GRE ve GMAT; global başarı için stratejik sınav hazırlık rehberliği."
         },
         "yurtdisi-yuksek-lisans": {
           "title": "Master's Abroad",
@@ -2218,10 +1887,6 @@
         "kariyer": {
           "title": "Career",
           "desc": "Expert placement and consultancy for your professional future."
-        },
-        "sinavlar": {
-          "title": "Uluslararası Sınavlar",
-          "desc": "IELTS, TOEFL, SAT, GRE ve GMAT; global başarı için stratejik sınav hazırlık rehberliği."
         }
       },
       "countries": {
@@ -2360,121 +2025,6 @@
           "content": "<p>For your questions, comments, or notifications regarding these Terms of Use, you can contact us through the following channels:</p><ul><li><strong>General Contact:</strong> info@mentor-cc.com</li><li><strong>Legal Notices:</strong> info@mentor-cc.com</li></ul>"
         }
       }
-    },
-    "countries": {
-      "ingiltere": {
-        "title": "İngiltere Diploma Denklik",
-        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">İngiltere Diploma Denklik Süreci</h2><p class=\"mb-6\">Birleşik Krallık (İngiltere, İskoçya, Galler, Kuzey İrlanda) üniversiteleri, dünya sıralamalarında en üst sıralarda yer aldığı için YÖK tarafından genellikle doğrudan tanınmaktadır. Ancak mezuniyet sonrası Türkiye'de mesleğinizi icra edebilmek için resmi denklik belgesi almanız şarttır.</p><p class=\"mb-6\">İngiltere'den alınan diplomaların denkliği, özellikle 'Level' sistemine (NQF/QCF) göre değerlendirilir. Lisans (Bachelor's) ve Yüksek Lisans (Master's) dereceleri için farklı prosedürler uygulanabilmektedir.</p><h3 class=\"text-2xl font-serif font-bold text-navy mb-4 mt-8 italic\">Dikkat Edilmesi Gerekenler:</h3><ul class=\"space-y-4 mb-10 italic\"><li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> <strong>Süre Şartı:</strong> Lisans eğitiminin en az 3 yıl (veya hızlandırılmış programlarda kredi tamamlanmış olması), Yüksek Lisansın en az 1 tam yıl sürmüş olması beklenir.</li><li class=\"pl-8 relative\"><span class=\"absolute left-0 top-1 text-gold\">✓</span> <strong>Apostil:</strong> İngiltere'deki eğitim belgelerinizin (Degree Certificate, Transcript) mutlaka UK Legalisation Office tarafından apostillenmiş olması gerekir.</li></ul>",
-        "advantages": [
-          {
-            "title": "Hızlı Onay",
-            "desc": "Top 400 listesindeki İngiliz üniversiteleri genellikle sınavsız (STS) onay alır.",
-            "icon": "Target"
-          },
-          {
-            "title": "Global Prestij",
-            "desc": "İngiltere diploması, Türkiye'deki iş dünyasında en yüksek kabul oranına sahiptir.",
-            "icon": "Award"
-          }
-        ],
-        "process": [
-          {
-            "step": 1,
-            "title": "Belgelerin UK'de Onaylanması",
-            "desc": "Diploma ve transkriptin Birleşik Krallık makamlarınca resmileştirilmesi."
-          },
-          {
-            "step": 2,
-            "title": "Tercüme ve Noter",
-            "desc": "Belgelerin Türkiye'de yeminli tercüme ve noter onayı yapılması."
-          },
-          {
-            "step": 3,
-            "title": "YÖK Başvurusu",
-            "desc": "Online ön başvuru ve fiziki evrak teslimi."
-          }
-        ],
-        "faq": [
-          {
-            "q": "Hızlandırılmış (2 yıllık) lisans programlarına denklik verilir mi?",
-            "a": "YÖK, Avrupa Kredi Transfer Sistemi (ECTS) ve toplam ders yüküne bakarak değerlendirme yapar. Kredi şartı sağlandığında denklik mümkündür."
-          }
-        ]
-      },
-      "amerika": {
-        "title": "Amerika Diploma Denklik",
-        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">ABD Diploma Denklik İşlemleri</h2><p class=\"mb-6\">Amerika Birleşik Devletleri'nden alınan diplomaların denkliği, üniversitenin Amerika'daki bölgesel akreditasyon kurumları (Regional Accreditation) tarafından tanınmış olmasına bağlıdır.</p><p class=\"mb-6\">ABD eğitim sistemi 4 yıllık lisans yapısına sahip olduğu için Türkiye'deki lisans sistemiyle tam uyumludur. Ancak online/uzaktan eğitimle alınan diplomaların denklik süreçleri çok daha titizlikle incelenmektedir.</p>",
-        "advantages": [
-          {
-            "title": "Akreditasyon Gücü",
-            "desc": "Bölgesel akreditasyonu olan tüm ABD üniversiteleri YÖK tarafından tanınma potansiyeline sahiptir.",
-            "icon": "Shield"
-          }
-        ],
-        "process": [
-          {
-            "step": 1,
-            "title": "US Secretary of State Onayı",
-            "desc": "Belgelerin eyalet veya federal düzeyde apostil onayı."
-          },
-          {
-            "step": 2,
-            "title": "Ders İçerikleri (Syllabus)",
-            "desc": "Özellikle teknik bölümler için ders içeriklerinin sunulmaya hazır olması."
-          }
-        ]
-      },
-      "almanya": {
-        "title": "Almanya Diploma Denklik",
-        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Almanya Mezunları İçin Denklik Rehberi</h2><p class=\"mb-6\">Almanya, Bologna Süreci'ne dahil olduğu için diplomaları Türkiye sistemiyle yüksek uyum gösterir. Fachhochschule (Uygulamalı Bilimler) ve Universität diplomaları farklı kategorilerde değerlendirilebilir.</p>",
-        "advantages": [
-          {
-            "title": "Bologna Uyumu",
-            "desc": "ECTS kredi sistemi sayesinde denklik süreci daha öngörülebilirdir.",
-            "icon": "Globe"
-          }
-        ],
-        "process": [
-          {
-            "step": 1,
-            "title": "Regierungspräsidium Onayı",
-            "desc": "Belgelerin ilgili Alman eyalet makamlarınca onaylanması."
-          },
-          {
-            "step": 2,
-            "title": "Diploma Eki (Diploma Supplement)",
-            "desc": "İngilizce veya Almanca diploma ekinin hazır edilmesi."
-          }
-        ]
-      },
-      "kanada": {
-        "title": "Kanada Diploma Denklik",
-        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Kanada Eğitim Sisteminin Tanınırlığı</h2><p class=\"mb-6\">Kanada üniversiteleri ve kolejleri (Colleges) arasındaki fark denklik sürecinde kritiktir. 3-4 yıllık lisans programları genellikle sorunsuz denklik alırken, 1-2 yıllık 'Diploma' programları 'Lisans' denkliği değil, 'Ön Lisans' veya 'Mesleki Eğitim' olarak değerlendirilebilir.</p>"
-      },
-      "isvicre": {
-        "title": "İsviçre Diploma Denklik",
-        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">İsviçre Özelinde Denklik Süreçleri</h2><p class=\"mb-6\">Özellikle Turizm ve Otel İşletmeciliği alanındaki İsviçre okullarının denkliği, okulun kanton yetkilileri tarafından mı yoksa federal düzeyde mi tanındığına göre büyük farklılık gösterir.</p>"
-      },
-      "avustralya": {
-        "title": "Avustralya Diploma Denklik",
-        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Avustralya Derecelerinin Eşdeğerliği</h2><p class=\"mb-6\">AQF (Australia Qualifications Framework) sistemi çerçevesinde alınan dereceler, YÖK tarafından seviye bazlı incelenir. Uzak mesafe nedeniyle pasaport giriş-çıkış kayıtlarının tespiti bu süreçte önemlidir.</p>"
-      },
-      "belcika": {
-        "title": "Belçika Diploma Denklik",
-        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Belçika Mezuniyeti ve Türkiye Denkliği</h2><p class=\"mb-6\">Flaman ve Fransız toplulukları olarak ikiye ayrılan Belçika eğitim sisteminde, her iki bölgenin de akredite kurumları YÖK nezdinde tanınırlığa sahiptir.</p>"
-      },
-      "hollanda": {
-        "title": "Hollanda Diploma Denklik",
-        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Hollanda Research vs Applied Sciences</h2><p class=\"mb-6\">Research Universities (WO) dan Universities of Applied Sciences (HBO) arasındaki ayrım, denklik derecenizi etkileyebilir. Mentor Career Consulting bu karmaşık ayrımda size yol gösterir.</p>"
-      },
-      "irlanda": {
-        "title": "İrlanda Diploma Denklik",
-        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">İrlanda ve Global Standartlar</h2><p class=\"mb-6\">Dublin ve Cork gibi şehirlerdeki köklü üniversiteler, Avrupa standartlarında eğitim verdiği için denklik süreci genellikle standart prosedürde ilerler.</p>"
-      },
-      "polonya": {
-        "title": "Polonya Diploma Denklik",
-        "overview": "<h2 class=\"text-3xl font-serif font-bold text-navy mb-6 italic\">Polonya Diplomalarının Tanınırlığı</h2><p class=\"mb-6\">AB üyesi olan Polonya'dan alınan diplomalar, son yıllarda YÖK tarafından en çok başvurulan dosyalar arasındadır. Tıp ve Mühendislik alanında STS (Sınav) gereklilikleri mevcuttur.</p>"
-      }
     }
   },
   "Legal": {
@@ -2493,10 +2043,6 @@
     "profesyonel-cv": {
       "title": "Professional CV Creation",
       "description": "We prepare a professional, memorable resume (CV) and country-specific cover letter that best reflects your experiences in accordance with international standards."
-    },
-    "vize-belge-hazirlik": {
-      "title": "Visa Document Preparation Guidance",
-      "description": "We manage the process of filing all necessary documents for processes such as work visa, blue card, or opportunity card in a complete and error-free manner."
     }
   },
   "Errors": {
@@ -2509,121 +2055,6 @@
     "defaultTitle": "Congratulations!",
     "defaultMessage": "Your application has been successfully created. You've taken a giant step toward your dreams.",
     "redirecting": "Redirecting to Dashboard..."
-  },
-  "HomePage": {
-    "Destinations": {
-      "label": "POPULAR DESTINATIONS",
-      "title": "Most Preferred Educational Countries",
-      "desc": "Discover the most popular and advantageous countries where our students realize their dreams of studying abroad.",
-      "rota": "ROUTE",
-      "viewDetails": "View Details",
-      "viewDestinations": "View All Destinations"
-    },
-    "AboutUs": {
-      "label": "CORPORATE VISION",
-      "title": "A Strategic Touch to Your Future",
-      "desc1": "At Mentor Career Consulting, we provide a comprehensive career architecture, not just application support, for students to achieve their academic goals.",
-      "desc2": "With our years of experience and global partner network, we bring each student's potential to the highest level.",
-      "stats": {
-        "experience": "Years Experience",
-        "students": "Successful Students",
-        "countries": "Global Support"
-      }
-    },
-    "FinderIntro": {
-      "label": "SMART MATCHING",
-      "title": "Find Your Ideal Program in Seconds",
-      "desc": "Our SmartFinder algorithm analyzes the most suitable options for your profile among thousands of programs in seconds."
-    },
-    "Consultation": {
-      "label": "FREE CONSULTANCY",
-      "title": "Let's Design Your Global Future <span class='text-secondary'>Together</span>",
-      "desc": "Take the first step toward your academic goals with our expert consultants.",
-      "formTitle": "Get Information Now"
-    },
-    "Process": {
-      "label": "OUR SERVICES",
-      "title": "We Are with You at Every Step of Your Educational Journey",
-      "desc": "Professional support in all processes from application to admission, visa to accommodation.",
-      "viewService": "VIEW DETAILS"
-    },
-    "Services": {
-      "yurtdisi-universite": "University Abroad",
-      "yurtdisi-master": "Master's Degree Abroad",
-      "yurtdisi-lise-egitimi": "High School Abroad",
-      "yurtdisi-dil-okulu": "Language Schools Abroad",
-      "yurtdisi-yuksek-lisans": "Master's Degree Abroad",
-      "yurtdisi-lise": "High School Abroad",
-      "yurtdisi-yaz-okullari": "Summer Schools Abroad",
-      "yurtdisi-dil-okullari": "Language Schools Abroad",
-      "yurtdisi-kariyer": "Career Abroad",
-      "career": "Career",
-      "kariyer": "Career",
-      "konaklama": "Accommodation Support",
-      "bilet": "Flight Ticket",
-      "sinavlar": "Exams",
-      "vize": "Visa Consultancy",
-      "visa": "Visa Consultancy",
-      "denklik": "Equivalency Procedures",
-      "scholarship": "Scholarships",
-      "ulkeler": "Countries",
-      "programlar": "Programs",
-      "subeler": "Branches",
-      "yurtdisi-universite-detail": {
-        "categories": {
-          "ranking": "Ranking Oriented (Top 100)",
-          "scholarship": "Scholarship Guaranteed Programs",
-          "free": "Free Public Universities"
-        }
-      },
-      "yurtdisi-yuksek-lisans-detail": {
-        "categories": {
-          "mba": "MBA Programs",
-          "msc": "Master of Science (MSc)",
-          "art": "Art & Design Master"
-        }
-      },
-      "yurtdisi-lise-detail": {
-        "categories": {
-          "boarding": "Classic Boarding Schools",
-          "day": "Private Day Schools",
-          "exchange": "State High School Exchange",
-          "ibap": "IB & AP Diploma Programs"
-        }
-      },
-      "yurtdisi-yaz-okullari-detail": {
-        "categories": {
-          "academic": "Academic Summer School",
-          "sports": "Sports & Art",
-          "language": "Language & Activity"
-        }
-      },
-      "yurtdisi-dil-okullari-detail": {
-        "categories": {
-          "general": "General English",
-          "business": "Business English",
-          "pathway": "Academic Pathway"
-        }
-      },
-      "career-detail": {
-        "categories": {
-          "vocational": "Vocational Training Consultancy",
-          "career": "International Career Consultancy",
-          "cv": "Professional CV Creation"
-        }
-      },
-      "master-yuksek-lisans": "Yüksek Lisans",
-      "lise": "Lise",
-      "universite": "Üniversite",
-      "yaz-okulu": "Yaz Okulları",
-      "dil-okullari": "Dil Okulları",
-      "YURTDISI-YUKSEK-LISANS": "Yurtdışı Yüksek Lisans",
-      "YURTDISI-LISE": "Yurtdışı Lise",
-      "YURTDISI-UNIVERSITE": "Yurtdışı Üniversite",
-      "YURTDISI-YAZ-OKULLARI": "Yurtdışı Yaz Okulları",
-      "YURTDISI-DIL-OKULLARI": "Yurtdışı Dil Okulları",
-      "KARIYER": "Kariyer"
-    }
   },
   "RichTextLayout": {
     "faqTitle": "Frequently Asked Questions",

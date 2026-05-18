@@ -35,7 +35,9 @@ def deep_merge_and_sync(source, target, path=""):
     return synced
 
 def sync_files():
-    base_path = r"c:\Users\sinan\Desktop\projeler\StarBeratung_01\messages"
+    # Resolve paths relative to this script's directory
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    base_path = os.path.join(os.path.dirname(script_dir), "messages")
     tr_path = os.path.join(base_path, "tr.json")
     en_path = os.path.join(base_path, "en.json")
     de_path = os.path.join(base_path, "de.json")

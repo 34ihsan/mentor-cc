@@ -5,12 +5,12 @@ const ADMIN_PASSWORD = 'password123';
 
 test.describe('Authentication Flows', () => {
   test('Login page loads correctly', async ({ page }) => {
-    await page.goto('/tr/auth/login', { waitUntil: 'domcontentloaded' });
+    await page.goto('/auth/login', { waitUntil: 'networkidle' });
     await expect(page.locator('body')).toContainText(/Giriş|Login|Hoş Geldiniz/i, { timeout: 15000 });
   });
 
   test('Login redirects to dashboard on valid credentials', async ({ page }) => {
-    await page.goto('/tr/auth/login', { waitUntil: 'domcontentloaded' });
+    await page.goto('/auth/login', { waitUntil: 'networkidle' });
     
     // Fill credentials
     const emailInput = page.locator('input[type="email"]').first();
@@ -27,14 +27,15 @@ test.describe('Authentication Flows', () => {
   });
 
   test('Unauthenticated dashboard access redirects to login', async ({ page }) => {
-    await page.goto('/tr/dashboard', { waitUntil: 'domcontentloaded' });
+    await page.goto('/dashboard', { waitUntil: 'networkidle' });
     const url = page.url();
     // Should redirect to login or signin
     expect(url).toMatch(/login|signin|auth/i);
   });
 
   test('Register page renders', async ({ page }) => {
-    await page.goto('/tr/auth/register', { waitUntil: 'domcontentloaded' });
+    await page.goto('/auth/register', { waitUntil: 'networkidle' });
     await expect(page.locator('body')).toContainText(/Kayıt|Hesap|Register/i, { timeout: 15000 });
   });
 });
+

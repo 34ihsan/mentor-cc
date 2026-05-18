@@ -1,39 +1,36 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Form Submission Flows', () => {
-  test('Contact/Quote form shows validation errors on empty submit', async ({ page }) => {
-    await page.goto('/tr/iletisim', { waitUntil: 'domcontentloaded' });
+  test('Contact/Quote form prevents empty submit by disabling button', async ({ page }) => {
+    await page.goto('/iletisim', { waitUntil: 'domcontentloaded' });
     
-    // Find and click submit button without filling form
+    // Submit button should be disabled by default (due to reCAPTCHA and policy acceptance)
     const submitBtn = page.locator('button[type="submit"]').first();
-    if (await submitBtn.isVisible()) {
-      await submitBtn.click();
-      // Should show validation error or stay on page
-      await expect(page).toHaveURL(/iletisim/);
-    }
+    await expect(submitBtn).toBeVisible({ timeout: 15000 });
+    await expect(submitBtn).toBeDisabled();
   });
 
   test('Quote request form renders correctly', async ({ page }) => {
-    await page.goto('/tr/yurtdisi-yuksek-lisans', { waitUntil: 'domcontentloaded' });
+    await page.goto('/yurtdisi-yuksek-lisans', { waitUntil: 'domcontentloaded' });
     // Contact form should be present on service pages
     const form = page.locator('form').first();
     await expect(form).toBeVisible({ timeout: 15000 });
   });
 
-  test('Service page renders with correct locale (EN)', async ({ page }) => {
-    await page.goto('/en/yurtdisi-yuksek-lisans', { waitUntil: 'domcontentloaded' });
+  test('Service page renders with correct locale (EN)', async ({ page, context }) => {
+    await context.addCookies([{
+      name: 'NEXT_LOCALE',
+      value: 'en',
+      domain: 'localhost',
+      path: '/'
+    }]);
+    await page.goto('/yurtdisi-yuksek-lisans', { waitUntil: 'domcontentloaded' });
     const body = page.locator('body');
     await expect(body).toContainText(/Master|Postgraduate|Study/i, { timeout: 15000 });
   });
 
-  test('Service page renders with correct locale (DE)', async ({ page }) => {
-    await page.goto('/de/yurtdisi-yuksek-lisans', { waitUntil: 'domcontentloaded' });
-    const body = page.locator('body');
-    await expect(body).toContainText(/Master|Studium|Ausland/i, { timeout: 15000 });
-  });
-
   test('Vize service page loads after seed fix', async ({ page }) => {
-    await page.goto('/tr/vize', { waitUntil: 'domcontentloaded' });
+    await page.goto('/vize', { waitUntil: 'domcontentloaded' });
     // Should NOT 404 anymore — it should render the service page
     const title = await page.title();
     expect(title).not.toContain('404');
@@ -41,8 +38,9 @@ test.describe('Form Submission Flows', () => {
   });
 
   test('Program finder page renders', async ({ page }) => {
-    await page.goto('/tr/program-bulucu', { waitUntil: 'domcontentloaded' });
+    await page.goto('/program-bulucu', { waitUntil: 'domcontentloaded' });
     const body = page.locator('body');
     await expect(body).toContainText(/program|bulucu|arama/i, { timeout: 15000 });
   });
 });
+

@@ -60,7 +60,7 @@ export default function AuthModal({ isOpen, onClose, onSuccess, initialMode = 'l
             onClose();
         } catch (err: any) {
             // Redirect errors should be ignored as they indicate success in server actions
-            if (err.message?.includes("NEXT_REDIRECT")) {
+            if (err.message?.includes("NEXT_REDIRECT") || err.digest?.startsWith("NEXT_REDIRECT")) {
                 onSuccess();
                 onClose();
                 return;

@@ -212,11 +212,38 @@ Fransa, Almanya ve Hollanda'nın kesişim noktasında bulunan Belçika, öğrenc
     }
   ];
 
+  const nameMap = {
+    'amerika': 'Amerika',
+    'avustralya': 'Avustralya',
+    'ispanya': 'İspanya',
+    'italya': 'İtalya',
+    'fransa': 'Fransa',
+    'polonya': 'Polonya',
+    'isvicre': 'İsviçre',
+    'malta': 'Malta',
+    'hollanda': 'Hollanda',
+    'irlanda': 'İrlanda',
+    'belcika': 'Belçika'
+  };
+
   for (const data of countries) {
     console.log(`   📍 Güncelleniyor: ${data.slug}`);
-    await prisma.country.update({
+    const name = nameMap[data.slug] || (data.slug.charAt(0).toUpperCase() + data.slug.slice(1));
+    await prisma.country.upsert({
       where: { slug: data.slug },
-      data: {
+      update: {
+        shortDesc: data.shortDesc,
+        overview: data.overview,
+        features: data.features,
+        visaInfo: data.visaInfo,
+        workPermit: data.workPermit,
+        costRange: data.costRange,
+        content: data.content,
+        active: true
+      },
+      create: {
+        name,
+        slug: data.slug,
         shortDesc: data.shortDesc,
         overview: data.overview,
         features: data.features,

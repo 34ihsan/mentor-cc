@@ -31,12 +31,13 @@ export default function LoginPage() {
                 console.error("Login error details:", result.error);
                 setError(result.error);
                 setLoading(false);
+            } else {
+                router.push("/dashboard");
             }
-            // Başarılı girişte NextAuth redirectTo üzerinden otomatik yönlendirme yapar
         } catch (error: any) {
             // Redirect hatalarını yakalamıyoruz çünkü NextAuth yönlendirmeyi "error" olarak fırlatır
-            if (error.message?.includes("NEXT_REDIRECT")) {
-                return;
+            if (error.message?.includes("NEXT_REDIRECT") || error.digest?.startsWith("NEXT_REDIRECT")) {
+                throw error;
             }
             console.error("Login unexpected error:", error);
             setError("Giriş yapılırken bir hata oluştu.");

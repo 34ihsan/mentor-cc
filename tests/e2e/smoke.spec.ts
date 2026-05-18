@@ -6,9 +6,9 @@ test.describe('Mentor Career Consulting Smoke Tests', () => {
   test.slow(); // Triple the default timeout
   
   test('Home page loads correctly', async ({ page }) => {
-    await page.goto(`${BASE_URL}/tr`);
-    // Logo verification - using role and accessible name
-    const logo = page.locator('header').getByRole('link').filter({ hasText: /Mentor Career Consulting/i }).first();
+    await page.goto(`${BASE_URL}/`);
+    // Logo verification - using role and accessible name (derived from img alt)
+    const logo = page.locator('header').getByRole('link', { name: /Mentor Career Consulting/i }).first();
     await expect(logo).toBeVisible({ timeout: 15000 });
     
     // Check for main heading
@@ -16,17 +16,24 @@ test.describe('Mentor Career Consulting Smoke Tests', () => {
     await expect(heading).toBeVisible({ timeout: 15000 });
   });
 
-  test('Localized routes work (EN)', async ({ page }) => {
-    await page.goto(`${BASE_URL}/en`);
+  test('Localized routes work (EN)', async ({ page, context }) => {
+    // Set the locale cookie before visiting the prefix-less root route
+    await context.addCookies([{
+      name: 'NEXT_LOCALE',
+      value: 'en',
+      domain: 'localhost',
+      path: '/'
+    }]);
+    await page.goto(`${BASE_URL}/`);
     // Check for English specific text
     const heading = page.locator('h2.text-fluid-h2').first();
     await expect(heading).toBeVisible({ timeout: 15000 });
-    await expect(heading).toContainText(/Academic Guidance/i);
+    await expect(heading).toContainText(/Strategic Touch/i);
   });
 
   test('Admin Social AI Dashboard check', async ({ page }) => {
     // Note: This requires login, so we just check if the route exists and redirects to login if not authenticated
-    await page.goto(`${BASE_URL}/tr/dashboard/admin/social`, { waitUntil: 'networkidle' });
+    await page.goto(`${BASE_URL}/dashboard/admin/social`, { waitUntil: 'networkidle' });
     const currentUrl = page.url();
     if (currentUrl.includes('/login') || currentUrl.includes('/signin')) {
       console.log('Redirected to login as expected for unauthenticated user.');
@@ -47,3 +54,4 @@ test.describe('Mentor Career Consulting Smoke Tests', () => {
   });
 
 });
+

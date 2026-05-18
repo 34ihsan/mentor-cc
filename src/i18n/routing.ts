@@ -8,9 +8,8 @@ export const routing = defineRouting({
   // Used when no locale matches
   defaultLocale: 'tr',
 
-  // Disable automatic locale detection from browser headers to ensure
-  // the site opens in 'tr' by default, then respects user selection.
-  localeDetection: false,
+  // Enable automatic locale detection to support prefix-less language switching via cookie.
+  localeDetection: true,
 
   // Clean URLs: Only the default locale (tr) will be served at the root, 
   // and other locales will use localized slugs without prefixes where possible.

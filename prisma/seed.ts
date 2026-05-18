@@ -138,7 +138,8 @@ async function main() {
         { title: "YURTDIŞI YAZ OKULLARI", slug: "yurtdisi-yaz-okullari", image: "/images/hero/yaz-okul.png" },
         { title: "YURTDIŞI DİL OKULU", slug: "yurtdisi-dil-okullari", image: "/images/hero/dil-egitim.png" },
         { title: "SINAVLAR", slug: "sinavlar", image: "/images/hero/exams_hero.png" },
-        { title: "KARİYER", slug: "kariyer", image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200" }
+        { title: "KARİYER", slug: "kariyer", image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200" },
+        { title: "VİZE DANIŞMANLIĞI", slug: "vize", image: "https://images.unsplash.com/photo-1578894381163-e72c17f2d45f?q=80&w=1200" }
     ];
 
     const servicesMap: Record<string, string> = {};
