@@ -381,9 +381,9 @@ async function main() {
       console.log(`⚠️ Ülke bulunamadı: ${countryData.name}, yeni oluşturuluyor...`);
       country = await prisma.country.create({
         data: {
-          title: countryData.name,
-          title_en: countryData.name, // Fallback if necessary
-          title_de: countryData.name,
+          name: countryData.name,
+          name_en: countryData.name,
+          name_de: countryData.name,
           slug: countryData.slug,
           active: true,
           image: countryData.image,

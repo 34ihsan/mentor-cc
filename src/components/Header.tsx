@@ -344,7 +344,7 @@ export default function Header() {
                                 {navItems.map((item) => (
                                      <li key={item.name} className="group relative h-full flex items-center">
                                          <div 
-                                             onClick={(e) => {
+                                             onClick={(e: React.MouseEvent) => {
                                                  if (item.subItems) {
                                                      e.preventDefault();
                                                      e.stopPropagation();
@@ -355,7 +355,7 @@ export default function Header() {
                                          >
                                              <Link
                                                  href={item.href as any}
-                                                 onClick={(e) => {
+                                                 onClick={(e: React.MouseEvent) => {
                                                      if (item.subItems) {
                                                          e.preventDefault();
                                                          e.stopPropagation();
