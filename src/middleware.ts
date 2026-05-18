@@ -30,7 +30,7 @@ export default async function middleware(request: NextRequest) {
     const token = await getToken({ 
       req: request, 
       secret: process.env.AUTH_SECRET,
-      secureCookie: process.env.NODE_ENV === 'production' || request.url.startsWith('https://')
+      secureCookie: false // Align with hardcoded 'next-auth.session-token' in auth.config.ts
     });
     
     if (!token) {
@@ -40,7 +40,12 @@ export default async function middleware(request: NextRequest) {
     }
   }
 
-  // 4. Run i18n routing
+  // 4. Bypass i18n routing for POST requests / Server Actions to prevent redirect/fetch failures
+  if (request.method === 'POST' || request.headers.has('next-action')) {
+    return NextResponse.next();
+  }
+
+  // 5. Run i18n routing
   return intlMiddleware(request);
 }
 
