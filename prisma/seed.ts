@@ -10,6 +10,7 @@ async function main() {
 
     const users = [
         { email: "admin@mentor-cc.com", name: "Mentor Career Consulting Admin", role: "ADMIN" as const },
+        { email: "info@mentor-cc.com", name: "Mentor Career Consulting Info", role: "ADMIN" as const },
         { email: "ceo@mentor-cc.com", name: "Mentor Career Consulting CEO", role: "CEO" as const },
         { email: "advisor@mentor-cc.com", name: "Senior Advisor", role: "ADVISOR" as const },
         { email: "agency@mentor-cc.com", name: "Global Agency Manager", role: "AGENCY_MANAGER" as const },
