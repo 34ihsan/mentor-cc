@@ -1068,7 +1068,7 @@ export default function SocialAutomationPage() {
             {eachDayOfInterval({ 
               start: startOfWeek(startOfMonth(new Date()), { weekStartsOn: 1 }), 
               end: endOfWeek(endOfMonth(new Date()), { weekStartsOn: 1 }) 
-            }).map((day, i) => {
+            }).map((day: any, i: number) => {
               const dayPosts = roadmaps.flatMap(r => r.posts || []).filter(p => isSameDay(new Date(p.scheduledAt), day));
               const isCurrentMonth = isSameMonth(day, new Date());
               const isToday = isSameDay(day, new Date());
