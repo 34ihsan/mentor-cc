@@ -8,6 +8,7 @@ import {
     User, Phone, Briefcase, Eye, Pen, Trash2, Plus, Info, Search, History
 } from "lucide-react";
 import { sendCustomEmailAction } from "@/app/actions/email-actions";
+import "react-quill-new/dist/quill.snow.css";
 import dynamic from "next/dynamic";
 
 // Dynamically import ReactQuill to support Next.js SSR
@@ -20,10 +21,6 @@ const ReactQuill = dynamic(() => import("react-quill-new"), {
     ),
 });
 
-// Import Quill styles if available on client
-if (typeof window !== "undefined") {
-    require("react-quill-new/dist/quill.snow.css");
-}
 
 type Tab = "send" | "templates" | "signature" | "logs";
 type Template = { id: string; type: string; name: string; subject: string; body: string; isActive: boolean; createdAt?: string };
