@@ -42,32 +42,4 @@ export const authConfig = {
   trustHost: true,
   secret: process.env.AUTH_SECRET || "bba4a6ff-71ab-4dfc-a51f-e52586209036883bff8c-2488-478a-a7bc-ab818b84ed74",
   session: { strategy: "jwt" },
-  cookies: {
-    sessionToken: {
-      name: `next-auth.session-token`,
-      options: {
-        httpOnly: true,
-        sameSite: "lax",
-        path: "/",
-        secure: false,
-      },
-    },
-    callbackUrl: {
-      name: `next-auth.callback-url`,
-      options: {
-        sameSite: "lax",
-        path: "/",
-        secure: false,
-      },
-    },
-    csrfToken: {
-      name: `next-auth.csrf-token`,
-      options: {
-        httpOnly: true,
-        sameSite: "lax",
-        path: "/",
-        secure: false,
-      },
-    },
-  },
 } satisfies NextAuthConfig;

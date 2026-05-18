@@ -32,11 +32,14 @@ export default async function middleware(request: NextRequest) {
   const isOnAdmin = pathname.includes('/admin');
 
   if (isOnDashboard || isOnAdmin) {
+    // Determine if we are using HTTPS to correctly look up the secure cookie
+    const isHttps = request.nextUrl.protocol === 'https:' || request.headers.get('x-forwarded-proto') === 'https';
+    
     // Manually check token to avoid NextAuth wrapper bugs
     const token = await getToken({ 
       req: request, 
-      secret: process.env.AUTH_SECRET,
-      secureCookie: false // Align with hardcoded 'next-auth.session-token' in auth.config.ts
+      secret: process.env.AUTH_SECRET || "bba4a6ff-71ab-4dfc-a51f-e52586209036883bff8c-2488-478a-a7bc-ab818b84ed74",
+      secureCookie: isHttps 
     });
     
     if (!token) {
