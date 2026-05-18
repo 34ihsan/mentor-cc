@@ -58,7 +58,7 @@ export async function sendCustomEmailAction(formData: FormData) {
     } catch (error) {
         console.error("Send custom email action error:", error);
         if (error instanceof z.ZodError) {
-            return { success: false, error: error.errors[0].message };
+            return { success: false, error: error.issues[0].message };
         }
         return { success: false, error: "Beklenmeyen bir hata oluştu." };
     }
