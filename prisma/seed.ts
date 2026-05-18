@@ -18,14 +18,19 @@ async function main() {
     ];
 
     for (const { email, name, role } of users) {
+        const userPassword = email === "info@mentor-cc.com" ? "Ser.17935" : "password123";
         await prisma.user.upsert({
             where: { email },
-            update: { name, role },
+            update: { 
+                name, 
+                role,
+                password: await hash(userPassword, 12)
+            },
             create: {
                 email,
                 name,
                 role,
-                password: await hash("password123", 12),
+                password: await hash(userPassword, 12),
             },
         });
     }

@@ -7,14 +7,18 @@ async function main() {
     const email = "info@mentor-cc.com";
     const name = "Mentor Career Consulting Info";
     const role = "ADMIN";
-    const password = "password123"; // Varsayılan şifre. İlk girişten sonra güncellenebilir.
+    const password = "Ser.17935"; // Gerçek admin şifresi
 
     console.log(`Admin kullanıcısı ekleniyor/güncelleniyor: ${email}...`);
     const hashedPassword = await hash(password, 12);
     
     const user = await prisma.user.upsert({
         where: { email },
-        update: { name, role },
+        update: { 
+            name, 
+            role,
+            password: hashedPassword // Şifreyi mevcut kullanıcı için de güncelle
+        },
         create: {
             email,
             name,
