@@ -9,6 +9,7 @@ import {
     Settings,
     LogOut,
     MessageSquare,
+    Mail,
     School,
     Briefcase,
     Layout,
@@ -62,6 +63,7 @@ export default function Sidebar({ role, user }: SidebarProps) {
 
         // ADMIN - Site Management
         { key: "users", icon: Users, href: "/dashboard/admin/users", roles: ["ADMIN"] },
+        { key: "emails", icon: Mail, href: "/dashboard/admin/emails", roles: ["ADMIN"] },
 
         { key: "pages", icon: Layout, href: "/dashboard/admin/pages", roles: ["ADMIN"] },
         { key: "home", icon: Sparkles, href: "/dashboard/admin/pages/home", roles: ["ADMIN"] },
