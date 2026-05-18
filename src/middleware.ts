@@ -9,19 +9,25 @@ const intlMiddleware = createMiddleware(routing);
 export default async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // 1. Skip all API routes entirely
+  // 1. FIRST: Bypass ALL POST requests and Server Actions immediately
+  // This prevents Cloudflare challenges and middleware interference with Next.js Server Actions
+  if (request.method === 'POST' || request.headers.has('next-action')) {
+    return NextResponse.next();
+  }
+
+  // 2. Skip all API routes entirely
   if (pathname.startsWith('/api/')) {
     return NextResponse.next();
   }
 
-  // 2. If a locale-prefixed request somehow contains /api/, rewrite to clean path
+  // 3. If a locale-prefixed request somehow contains /api/, rewrite to clean path
   if (pathname.includes('/api/')) {
     const apiIndex = pathname.indexOf('/api/');
     const cleanApiPath = pathname.substring(apiIndex);
     return NextResponse.rewrite(new URL(cleanApiPath, request.url));
   }
 
-  // 3. Auth Protection for Dashboard and Admin
+  // 4. Auth Protection for Dashboard and Admin (GET requests only)
   const isOnDashboard = pathname.includes('/dashboard');
   const isOnAdmin = pathname.includes('/admin');
 
@@ -40,12 +46,7 @@ export default async function middleware(request: NextRequest) {
     }
   }
 
-  // 4. Bypass i18n routing for POST requests / Server Actions to prevent redirect/fetch failures
-  if (request.method === 'POST' || request.headers.has('next-action')) {
-    return NextResponse.next();
-  }
-
-  // 5. Run i18n routing
+  // 5. Run i18n routing for GET requests
   return intlMiddleware(request);
 }
 
