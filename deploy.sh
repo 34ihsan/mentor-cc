@@ -9,10 +9,12 @@ echo "📦 Pulling latest changes from master..."
 git pull origin master
 
 # 2. Reinstall dependencies and clean build cache
-echo "🧹 Cleaning up old build cache..."
+echo "🧹 Cleaning up old build cache & node_modules..."
 rm -rf .next 2>/dev/null || true
+# Always remove node_modules to prevent Windows/Linux binary mismatch (@swc/core native bindings)
+rm -rf node_modules 2>/dev/null || true
 
-echo "📦 Installing dependencies (optimized)..."
+echo "📦 Installing dependencies (Linux-native)..."
 npm install --legacy-peer-deps --no-audit --no-fund
 
 # 3. Prisma setup
