@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
     Mail, Send, RefreshCw, CheckCircle2, AlertCircle,
     FileText, Edit3, Save, X, ToggleLeft, ToggleRight,
-    User, Phone, Briefcase, Eye, Pen, Trash2, Plus, Info, Search, History
+    User, Phone, Briefcase, Eye, Pen, Trash2, Plus, Info, Search, History, Paperclip
 } from "lucide-react";
 import { sendCustomEmailAction } from "@/app/actions/email-actions";
 import "react-quill-new/dist/quill.snow.css";
@@ -79,6 +79,7 @@ export default function EmailCenter() {
     const [emailRecipient, setEmailRecipient] = useState("");
     const [variables, setVariables] = useState<Record<string, string>>({});
     const [extractedVars, setExtractedVars] = useState<string[]>([]);
+    const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
     const formRef = useRef<HTMLFormElement>(null);
 
     // Fetch initial templates & signature
@@ -134,6 +135,11 @@ export default function EmailCenter() {
         fd.append("subject", emailSubject);
         fd.append("html", finalHtml);
 
+        // Append attachments
+        selectedFiles.forEach(file => {
+            fd.append("attachments", file);
+        });
+
         const res = await sendCustomEmailAction(fd);
         setSendMsg(res.success
             ? { type: "success", text: "E-posta başarıyla gönderildi!" }
@@ -147,6 +153,7 @@ export default function EmailCenter() {
             setSelectedTplId("");
             setVariables({});
             setExtractedVars([]);
+            setSelectedFiles([]);
             fetchLogs();
         }
         setSending(false);
@@ -476,6 +483,51 @@ export default function EmailCenter() {
                                     <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest block">E-posta İçeriği</label>
                                     <div className="quill-editor-wrapper bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 focus-within:border-[#0B1751] transition-all">
                                         <ReactQuill value={editorBody} onChange={setEditorBody} modules={QUILL_MODULES} formats={QUILL_FORMATS} placeholder="E-posta metninizi buraya yazın..." className="bg-white min-h-[220px]" />
+                                    </div>
+                                </div>
+
+                                {/* Document Attachments */}
+                                <div className="space-y-2">
+                                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest block flex items-center gap-1.5">
+                                        <Paperclip size={12} className="text-[#0B1751]" /> Belge Ekleri
+                                    </label>
+                                    <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-3">
+                                        <div className="flex items-center justify-between flex-wrap gap-2">
+                                            <span className="text-[11px] text-slate-400 font-semibold">E-postaya dosya veya belge ekleyin (maks. 10MB/dosya).</span>
+                                            <label className="flex items-center gap-1.5 px-4 py-2 bg-white border border-slate-200 shadow-sm hover:bg-slate-100 text-[#0B1751] rounded-xl text-xs font-bold transition-all cursor-pointer select-none">
+                                                <Plus size={14} /> Dosya Ekle
+                                                <input type="file" multiple className="hidden"
+                                                    onChange={e => {
+                                                        if (e.target.files) {
+                                                            const newFiles = Array.from(e.target.files);
+                                                             setSelectedFiles(prev => [...prev, ...newFiles]);
+                                                        }
+                                                        e.target.value = "";
+                                                    }} />
+                                            </label>
+                                        </div>
+
+                                        {selectedFiles.length > 0 && (
+                                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                                                {selectedFiles.map((file, idx) => (
+                                                    <div key={`${file.name}-${idx}`} className="flex items-center justify-between bg-white border border-slate-200/60 p-3 rounded-xl shadow-sm text-xs">
+                                                        <div className="flex items-center gap-2 overflow-hidden pr-2">
+                                                            <div className="w-8 h-8 rounded-lg bg-[#0B1751]/5 flex items-center justify-center text-[#0B1751] shrink-0">
+                                                                <FileText size={16} />
+                                                            </div>
+                                                            <div className="overflow-hidden">
+                                                                <p className="font-bold text-slate-800 truncate" title={file.name}>{file.name}</p>
+                                                                <p className="text-[10px] text-slate-400 font-semibold mt-0.5">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
+                                                            </div>
+                                                        </div>
+                                                        <button type="button" onClick={() => setSelectedFiles(prev => prev.filter((_, i) => i !== idx))}
+                                                            className="p-1.5 hover:bg-red-50 hover:text-red-600 rounded-lg text-slate-400 transition-all shrink-0 cursor-pointer">
+                                                            <X size={14} />
+                                                        </button>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
 

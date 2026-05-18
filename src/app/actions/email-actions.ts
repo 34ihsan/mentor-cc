@@ -27,12 +27,28 @@ export async function sendCustomEmailAction(formData: FormData) {
 
         const validatedData = sendEmailSchema.parse(data);
 
+        // Process attachments if they exist
+        const files = formData.getAll("attachments") as File[];
+        const attachmentsList: Array<{ filename: string; content: Buffer; contentType: string }> = [];
+
+        for (const file of files) {
+            if (file && file.size > 0 && file.name) {
+                const buffer = Buffer.from(await file.arrayBuffer());
+                attachmentsList.push({
+                    filename: file.name,
+                    content: buffer,
+                    contentType: file.type || "application/octet-stream",
+                });
+            }
+        }
+
         // We use the new wrapper which adds branded layout & dynamic signature
         const result = await sendCustomEmail({
             to: validatedData.to,
             subject: validatedData.subject,
             body: validatedData.html.replace(/\n/g, '<br/>'),
             sentBy: session.user.name || session.user.email || "Admin",
+            attachments: attachmentsList.length > 0 ? attachmentsList : undefined,
         });
 
         if (result.success) {
