@@ -56,6 +56,11 @@ export async function POST(req: Request) {
             }
         });
 
+        // Send Welcome Template Email asynchronously (don't block the response if it fails)
+        import("@/lib/mail").then((mail) => {
+            mail.sendWelcomeEmail(user.email, user.name || "Kullanıcı").catch(console.error);
+        });
+
         return NextResponse.json({
             user: {
                 id: user.id,

@@ -13,6 +13,7 @@ model User {
   password              String
   name                  String?
   role                  Role          @default(STUDENT)
+  emailVerified         DateTime?
   createdAt             DateTime      @default(now())
   updatedAt             DateTime      @updatedAt
   managedById           String?
@@ -648,4 +649,37 @@ model DocumentRequirement {
   updatedAt   DateTime @updatedAt
   country     Country? @relation(fields: [countryId], references: [id])
   service     Service? @relation(fields: [serviceId], references: [id])
+}
+
+model EmailTemplate {
+  id        String   @id @default(cuid())
+  type      String   @unique // WELCOME, LOGIN_OTP, CONTACT_REPLY, CUSTOM
+  name      String
+  subject   String
+  body      String   @db.Text
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model VerificationToken {
+  id        String   @id @default(cuid())
+  email     String
+  token     String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@index([email])
+  @@index([token])
+}
+
+model OtpToken {
+  id        String   @id @default(cuid())
+  email     String
+  otpHash   String
+  expiresAt DateTime
+  used      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([email])
 }
