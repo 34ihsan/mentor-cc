@@ -11,8 +11,9 @@ git pull origin master
 # 2. Reinstall dependencies and clean build cache
 echo "🧹 Cleaning up old build cache & node_modules..."
 rm -rf .next 2>/dev/null || true
-# Always remove node_modules to prevent Windows/Linux binary mismatch (@swc/core native bindings)
-rm -rf node_modules 2>/dev/null || true
+# Always remove node_modules AND package-lock.json to prevent Windows/Linux binary mismatch
+# (package-lock.json generated on Windows excludes Linux-native optional deps like lightningcss, swc)
+rm -rf node_modules package-lock.json 2>/dev/null || true
 
 echo "📦 Installing dependencies (Linux-native, with optional binaries)..."
 npm install --legacy-peer-deps --include=optional --no-audit --no-fund
