@@ -14,8 +14,8 @@ rm -rf .next 2>/dev/null || true
 # Always remove node_modules to prevent Windows/Linux binary mismatch (@swc/core native bindings)
 rm -rf node_modules 2>/dev/null || true
 
-echo "📦 Installing dependencies (Linux-native)..."
-npm install --legacy-peer-deps --no-audit --no-fund
+echo "📦 Installing dependencies (Linux-native, with optional binaries)..."
+npm install --legacy-peer-deps --include=optional --no-audit --no-fund
 
 # 3. Prisma setup
 echo "🗄️ Running Prisma generation & db push..."
