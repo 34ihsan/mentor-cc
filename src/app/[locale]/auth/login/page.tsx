@@ -99,7 +99,7 @@ export default function LoginPage() {
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                     className="w-full bg-gray-50 border border-gray-200 text-slate-900 px-4 py-3 rounded-xl focus:outline-none focus:border-[#B4943E] focus:bg-white transition-all"
-                                    placeholder="••••••••"
+                                    placeholder="Şifrenizi girin"
                                 />
                             </div>
 
