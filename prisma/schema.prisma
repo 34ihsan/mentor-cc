@@ -683,3 +683,15 @@ model OtpToken {
 
   @@index([email])
 }
+
+model EmailLog {
+  id        String   @id @default(cuid())
+  to        String
+  subject   String
+  body      String   @db.Text
+  sentBy    String   @default("System") // Sender name/role or user ID
+  status    String   @default("SUCCESS") // SUCCESS, FAILED
+  error     String?  @db.Text
+  createdAt DateTime @default(now())
+}
+

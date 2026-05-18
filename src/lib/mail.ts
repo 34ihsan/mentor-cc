@@ -62,7 +62,17 @@ async function getSignatureHtml(): Promise<string> {
 }
 
 // ─── Core sender ─────────────────────────────────────────────
-export async function sendEmail({ to, subject, html }: { to: string; subject: string; html: string }) {
+export async function sendEmail({
+    to,
+    subject,
+    html,
+    sentBy = "System",
+}: {
+    to: string;
+    subject: string;
+    html: string;
+    sentBy?: string;
+}) {
     try {
         const info = await transporter.sendMail({
             from: `"Mentor Career" <${process.env.SMTP_USER}>`,
@@ -70,9 +80,38 @@ export async function sendEmail({ to, subject, html }: { to: string; subject: st
             subject,
             html,
         });
+
+        // Log successful send to DB
+        await prisma.emailLog.create({
+            data: {
+                to,
+                subject,
+                body: html,
+                sentBy,
+                status: "SUCCESS",
+            },
+        });
+
         return { success: true, messageId: info.messageId };
     } catch (error) {
         console.error('Email send error:', error);
+
+        // Log failed send to DB
+        try {
+            await prisma.emailLog.create({
+                data: {
+                    to,
+                    subject,
+                    body: html,
+                    sentBy,
+                    status: "FAILED",
+                    error: error instanceof Error ? error.message : String(error),
+                },
+            });
+        } catch (dbErr) {
+            console.error('Failed to write email error log to DB:', dbErr);
+        }
+
         return { success: false, error };
     }
 }
@@ -82,10 +121,12 @@ export async function sendTemplatedEmail({
     to,
     templateType,
     variables = {},
+    sentBy = "System",
 }: {
     to: string;
     templateType: string;
     variables?: Record<string, string>;
+    sentBy?: string;
 }) {
     try {
         const template = await prisma.emailTemplate.findUnique({ where: { type: templateType } });
@@ -98,7 +139,7 @@ export async function sendTemplatedEmail({
         const bodyFilled = fillVariables(template.body, variables);
         const fullHtml = wrapInBase(bodyFilled, signature);
 
-        return sendEmail({ to, subject: fillVariables(template.subject, variables), html: fullHtml });
+        return sendEmail({ to, subject: fillVariables(template.subject, variables), html: fullHtml, sentBy });
     } catch (error) {
         console.error('sendTemplatedEmail error:', error);
         return { success: false, error };
@@ -111,6 +152,7 @@ export async function sendOtpEmail(to: string, name: string, otp: string) {
         to,
         templateType: 'LOGIN_OTP',
         variables: { isim: name, otp },
+        sentBy: 'Giriş Doğrulama (OTP)',
     });
 }
 
@@ -119,6 +161,7 @@ export async function sendWelcomeEmail(to: string, name: string) {
         to,
         templateType: 'WELCOME',
         variables: { isim: name },
+        sentBy: 'Hoş Geldin E-postası',
     });
 }
 
@@ -127,6 +170,7 @@ export async function sendContactReplyEmail(to: string, name: string) {
         to,
         templateType: 'CONTACT_REPLY',
         variables: { isim: name },
+        sentBy: 'İletişim Formu Yanıtı',
     });
 }
 
@@ -143,7 +187,7 @@ export async function sendVerificationEmail(to: string, token: string) {
         </div>
         <p style="color:#888;font-size:13px;">Bu link <strong>24 saat</strong> geçerlidir. Bu kaydı siz yapmadıysanız bu e-postayı dikkate almayın.</p>
     `, signature);
-    return sendEmail({ to, subject: 'E-Posta Adresinizi Doğrulayın - Mentor Career', html });
+    return sendEmail({ to, subject: 'E-Posta Adresinizi Doğrulayın - Mentor Career', html, sentBy: 'E-Posta Doğrulama' });
 }
 
 // ─── Admin custom send (wraps in branded template) ────────────
@@ -151,12 +195,14 @@ export async function sendCustomEmail({
     to,
     subject,
     body,
+    sentBy = "System",
 }: {
     to: string;
     subject: string;
     body: string;
+    sentBy?: string;
 }) {
     const signature = await getSignatureHtml();
     const html = wrapInBase(body, signature);
-    return sendEmail({ to, subject, html });
+    return sendEmail({ to, subject, html, sentBy });
 }

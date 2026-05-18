@@ -32,6 +32,7 @@ export async function sendCustomEmailAction(formData: FormData) {
             to: validatedData.to,
             subject: validatedData.subject,
             body: validatedData.html.replace(/\n/g, '<br/>'),
+            sentBy: session.user.name || session.user.email || "Admin",
         });
 
         if (result.success) {
