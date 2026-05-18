@@ -92,6 +92,8 @@ npm install --legacy-peer-deps --no-audit --no-fund
 echo "🗄️ Running Prisma tasks..."
 npx prisma generate
 npx prisma migrate deploy
+echo "🌱 Seeding all users and institutions into the database..."
+npx tsx prisma/seed-all.ts
 
 # 5. Build the application (MAXIMUM HARDENING)
 echo "🏗️ Building the Next.js application..."

@@ -36,6 +36,15 @@ export default function Header() {
     const [announcement, setAnnouncement] = useState<any>(null);
     const [isAnnouncementVisible, setIsAnnouncementVisible] = useState(true);
     const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
+    const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
+    useEffect(() => {
+        const handleClickOutside = () => {
+            setActiveDropdown(null);
+        };
+        window.addEventListener("click", handleClickOutside);
+        return () => window.removeEventListener("click", handleClickOutside);
+    }, []);
 
     useEffect(() => {
         const fetchAnnouncement = async () => {
@@ -85,16 +94,16 @@ export default function Header() {
                     { name: serviceT('yurtdisi-universite-detail.categories.scholarship'), href: '/yurtdisi-universite?cat=scholarship' },
                     { name: serviceT('yurtdisi-universite-detail.categories.free'), href: '/yurtdisi-universite?cat=free' },
                     { name: "---", href: "#" }, // Separator
-                    { name: getCountryName('ingiltere'), href: '/yurtdisi-universite?country=ingiltere' },
-                    { name: getCountryName('amerika'), href: '/yurtdisi-universite?country=amerika' },
-                    { name: getCountryName('almanya'), href: '/yurtdisi-universite?country=almanya' },
-                    { name: getCountryName('kanada'), href: '/yurtdisi-universite?country=kanada' },
-                    { name: getCountryName('hollanda'), href: '/yurtdisi-universite?country=hollanda' },
-                    { name: getCountryName('irlanda'), href: '/yurtdisi-universite?country=irlanda' },
-                    { name: getCountryName('italya'), href: '/yurtdisi-universite?country=italya' },
-                    { name: getCountryName('polonya'), href: '/yurtdisi-universite?country=polonya' },
-                    { name: getCountryName('macaristan'), href: '/yurtdisi-universite?country=macaristan' },
-                    { name: getCountryName('belcika'), href: '/yurtdisi-universite?country=belcika' },
+                    { name: getCountryName('ingiltere'), href: '/yurtdisi-universite/ingiltere' },
+                    { name: getCountryName('amerika'), href: '/yurtdisi-universite/amerika' },
+                    { name: getCountryName('almanya'), href: '/yurtdisi-universite/almanya' },
+                    { name: getCountryName('kanada'), href: '/yurtdisi-universite/kanada' },
+                    { name: getCountryName('hollanda'), href: '/yurtdisi-universite/hollanda' },
+                    { name: getCountryName('irlanda'), href: '/yurtdisi-universite/irlanda' },
+                    { name: getCountryName('italya'), href: '/yurtdisi-universite/italya' },
+                    { name: getCountryName('polonya'), href: '/yurtdisi-universite/polonya' },
+                    { name: getCountryName('macaristan'), href: '/yurtdisi-universite/macaristan' },
+                    { name: getCountryName('belcika'), href: '/yurtdisi-universite/belcika' },
                 ]
             },
             { 
@@ -105,16 +114,16 @@ export default function Header() {
                     { name: serviceT('yurtdisi-yuksek-lisans-detail.categories.msc'), href: '/yurtdisi-yuksek-lisans?cat=msc' },
                     { name: serviceT('yurtdisi-yuksek-lisans-detail.categories.art'), href: '/yurtdisi-yuksek-lisans?cat=art' },
                     { name: "---", href: "#" }, // Separator
-                    { name: getCountryName('ingiltere'), href: '/yurtdisi-yuksek-lisans?country=ingiltere' },
-                    { name: getCountryName('amerika'), href: '/yurtdisi-yuksek-lisans?country=amerika' },
-                    { name: getCountryName('almanya'), href: '/yurtdisi-yuksek-lisans?country=almanya' },
-                    { name: getCountryName('kanada'), href: '/yurtdisi-yuksek-lisans?country=kanada' },
-                    { name: getCountryName('italya'), href: '/yurtdisi-yuksek-lisans?country=italya' },
-                    { name: getCountryName('hollanda'), href: '/yurtdisi-yuksek-lisans?country=hollanda' },
-                    { name: getCountryName('irlanda'), href: '/yurtdisi-yuksek-lisans?country=irlanda' },
-                    { name: getCountryName('fransa'), href: '/yurtdisi-yuksek-lisans?country=fransa' },
-                    { name: getCountryName('ispanya'), href: '/yurtdisi-yuksek-lisans?country=ispanya' },
-                    { name: getCountryName('polonya'), href: '/yurtdisi-yuksek-lisans?country=polonya' },
+                    { name: getCountryName('ingiltere'), href: '/yurtdisi-yuksek-lisans/ingiltere' },
+                    { name: getCountryName('amerika'), href: '/yurtdisi-yuksek-lisans/amerika' },
+                    { name: getCountryName('almanya'), href: '/yurtdisi-yuksek-lisans/almanya' },
+                    { name: getCountryName('kanada'), href: '/yurtdisi-yuksek-lisans/kanada' },
+                    { name: getCountryName('italya'), href: '/yurtdisi-yuksek-lisans/italya' },
+                    { name: getCountryName('hollanda'), href: '/yurtdisi-yuksek-lisans/hollanda' },
+                    { name: getCountryName('irlanda'), href: '/yurtdisi-yuksek-lisans/irlanda' },
+                    { name: getCountryName('fransa'), href: '/yurtdisi-yuksek-lisans/fransa' },
+                    { name: getCountryName('ispanya'), href: '/yurtdisi-yuksek-lisans/ispanya' },
+                    { name: getCountryName('polonya'), href: '/yurtdisi-yuksek-lisans/polonya' },
                 ]
             },
             { 
@@ -125,14 +134,14 @@ export default function Header() {
                     { name: serviceT('yurtdisi-lise-detail.categories.day'), href: '/yurtdisi-lise?cat=day' },
                     { name: serviceT('yurtdisi-lise-detail.categories.exchange'), href: '/yurtdisi-lise?cat=exchange' },
                     { name: "---", href: "#" }, // Separator
-                    { name: getCountryName('ingiltere'), href: '/yurtdisi-lise?country=ingiltere' },
-                    { name: getCountryName('amerika'), href: '/yurtdisi-lise?country=amerika' },
-                    { name: getCountryName('kanada'), href: '/yurtdisi-lise?country=kanada' },
-                    { name: getCountryName('isvicre'), href: '/yurtdisi-lise?country=isvicre' },
-                    { name: getCountryName('almanya'), href: '/yurtdisi-lise?country=almanya' },
-                    { name: getCountryName('irlanda'), href: '/yurtdisi-lise?country=irlanda' },
-                    { name: getCountryName('fransa'), href: '/yurtdisi-lise?country=fransa' },
-                    { name: getCountryName('ispanya'), href: '/yurtdisi-lise?country=ispanya' },
+                    { name: getCountryName('ingiltere'), href: '/yurtdisi-lise/ingiltere' },
+                    { name: getCountryName('amerika'), href: '/yurtdisi-lise/amerika' },
+                    { name: getCountryName('kanada'), href: '/yurtdisi-lise/kanada' },
+                    { name: getCountryName('isvicre'), href: '/yurtdisi-lise/isvicre' },
+                    { name: getCountryName('almanya'), href: '/yurtdisi-lise/almanya' },
+                    { name: getCountryName('irlanda'), href: '/yurtdisi-lise/irlanda' },
+                    { name: getCountryName('fransa'), href: '/yurtdisi-lise/fransa' },
+                    { name: getCountryName('ispanya'), href: '/yurtdisi-lise/ispanya' },
                 ]
             },
             { 
@@ -143,13 +152,13 @@ export default function Header() {
                     { name: serviceT('yurtdisi-yaz-okullari-detail.categories.sports'), href: '/yurtdisi-yaz-okullari?cat=sports' },
                     { name: serviceT('yurtdisi-yaz-okullari-detail.categories.language'), href: '/yurtdisi-yaz-okullari?cat=language' },
                     { name: "---", href: "#" }, // Separator
-                    { name: getCountryName('ingiltere'), href: '/yurtdisi-yaz-okullari?country=ingiltere' },
-                    { name: getCountryName('amerika'), href: '/yurtdisi-yaz-okullari?country=amerika' },
-                    { name: getCountryName('kanada'), href: '/yurtdisi-yaz-okullari?country=kanada' },
-                    { name: getCountryName('almanya'), href: '/yurtdisi-yaz-okullari?country=almanya' },
-                    { name: getCountryName('isvicre'), href: '/yurtdisi-yaz-okullari?country=isvicre' },
-                    { name: getCountryName('malta'), href: '/yurtdisi-yaz-okullari?country=malta' },
-                    { name: getCountryName('irlanda'), href: '/yurtdisi-yaz-okullari?country=irlanda' },
+                    { name: getCountryName('ingiltere'), href: '/yurtdisi-yaz-okullari/ingiltere' },
+                    { name: getCountryName('amerika'), href: '/yurtdisi-yaz-okullari/amerika' },
+                    { name: getCountryName('kanada'), href: '/yurtdisi-yaz-okullari/kanada' },
+                    { name: getCountryName('almanya'), href: '/yurtdisi-yaz-okullari/almanya' },
+                    { name: getCountryName('isvicre'), href: '/yurtdisi-yaz-okullari/isvicre' },
+                    { name: getCountryName('malta'), href: '/yurtdisi-yaz-okullari/malta' },
+                    { name: getCountryName('irlanda'), href: '/yurtdisi-yaz-okullari/irlanda' },
                 ]
             },
             { 
@@ -160,12 +169,12 @@ export default function Header() {
                     { name: serviceT('yurtdisi-dil-okullari-detail.categories.business'), href: '/yurtdisi-dil-okullari?cat=business' },
                     { name: serviceT('yurtdisi-dil-okullari-detail.categories.pathway'), href: '/yurtdisi-dil-okullari?cat=pathway' },
                     { name: "---", href: "#" }, // Separator
-                    { name: getCountryName('ingiltere'), href: '/yurtdisi-dil-okullari?country=ingiltere' },
-                    { name: getCountryName('amerika'), href: '/yurtdisi-dil-okullari?country=amerika' },
-                    { name: getCountryName('kanada'), href: '/yurtdisi-dil-okullari?country=kanada' },
-                    { name: getCountryName('irlanda'), href: '/yurtdisi-dil-okullari?country=irlanda' },
-                    { name: getCountryName('malta'), href: '/yurtdisi-dil-okullari?country=malta' },
-                    { name: getCountryName('avustralya'), href: '/yurtdisi-dil-okullari?country=avustralya' },
+                    { name: getCountryName('ingiltere'), href: '/yurtdisi-dil-okullari/ingiltere' },
+                    { name: getCountryName('amerika'), href: '/yurtdisi-dil-okullari/amerika' },
+                    { name: getCountryName('kanada'), href: '/yurtdisi-dil-okullari/kanada' },
+                    { name: getCountryName('irlanda'), href: '/yurtdisi-dil-okullari/irlanda' },
+                    { name: getCountryName('malta'), href: '/yurtdisi-dil-okullari/malta' },
+                    { name: getCountryName('avustralya'), href: '/yurtdisi-dil-okullari/avustralya' },
                 ]
             },
             { 
@@ -333,25 +342,48 @@ export default function Header() {
                         <div className="hidden lg:flex flex-1 items-center justify-center h-full px-8">
                             <ul className="flex items-center gap-2 xl:gap-8 h-full">
                                 {navItems.map((item) => (
-                                    <li key={item.name} className="group relative h-full flex items-center">
-                                        <div className="flex items-center gap-1 cursor-pointer py-4">
-                                            <Link
-                                                href={item.href as any}
-                                                className="text-[12px] xl:text-[13px] font-bold text-slate-800 group-hover:text-[#D4AF37] transition-all duration-300 uppercase tracking-[0.05em] relative whitespace-nowrap pointer-events-auto"
-                                            >
-                                                {item.name}
-                                                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#D4AF37] transition-all duration-500 group-hover:w-full pointer-events-none" />
-                                            </Link>
-                                            {item.subItems && (
-                                                <ChevronDown className="w-3 h-3 text-slate-400 group-hover:text-[#D4AF37] transition-transform duration-300 group-hover:rotate-180" />
-                                            )}
-                                        </div>
+                                     <li key={item.name} className="group relative h-full flex items-center">
+                                         <div 
+                                             onClick={(e) => {
+                                                 if (item.subItems) {
+                                                     e.preventDefault();
+                                                     e.stopPropagation();
+                                                     setActiveDropdown(activeDropdown === item.name ? null : item.name);
+                                                 }
+                                             }}
+                                             className="flex items-center gap-1 cursor-pointer py-4"
+                                         >
+                                             <Link
+                                                 href={item.href as any}
+                                                 onClick={(e) => {
+                                                     if (item.subItems) {
+                                                         e.preventDefault();
+                                                         e.stopPropagation();
+                                                         setActiveDropdown(activeDropdown === item.name ? null : item.name);
+                                                     }
+                                                 }}
+                                                 className="text-[12px] xl:text-[13px] font-bold text-slate-800 group-hover:text-[#D4AF37] transition-all duration-300 uppercase tracking-[0.05em] relative whitespace-nowrap pointer-events-auto"
+                                             >
+                                                 {item.name}
+                                                 <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#D4AF37] transition-all duration-500 group-hover:w-full pointer-events-none" />
+                                             </Link>
+                                             {item.subItems && (
+                                                 <ChevronDown className={`w-3 h-3 text-slate-400 group-hover:text-[#D4AF37] transition-transform duration-300 ${
+                                                     activeDropdown === item.name ? "rotate-180 text-[#D4AF37]" : "group-hover:rotate-180"
+                                                 }`} />
+                                             )}
+                                         </div>
 
-                                        {item.subItems && (
-                                            <div className="absolute top-full left-0 w-[450px] bg-white shadow-2xl rounded-b-2xl border-t-2 border-[#D4AF37] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 z-50 overflow-hidden">
+                                         {item.subItems && (
+                                             <div className={`absolute top-full left-0 w-[450px] bg-white shadow-2xl rounded-b-2xl border-t-2 border-[#D4AF37] transition-all duration-300 z-50 overflow-hidden ${
+                                                 activeDropdown === item.name
+                                                     ? "opacity-100 visible translate-y-0"
+                                                     : "opacity-0 invisible translate-y-2 lg:group-hover:opacity-100 lg:group-hover:visible lg:group-hover:translate-y-0"
+                                             }`}>
                                                  <div className="py-2">
                                                      <Link
                                                          href={item.href as any}
+                                                         onClick={() => setActiveDropdown(null)}
                                                          className="block px-6 py-4 text-[11px] font-black text-[#D4AF37] hover:bg-slate-50 transition-all uppercase tracking-[0.2em] border-b border-slate-50"
                                                      >
                                                          {t('viewAll')}
@@ -364,6 +396,7 @@ export default function Header() {
                                                                  <Link
                                                                      key={sub.name}
                                                                      href={sub.href as any}
+                                                                     onClick={() => setActiveDropdown(null)}
                                                                      className="block px-4 py-2.5 text-[10px] font-bold text-slate-600 hover:text-[#D4AF37] hover:bg-slate-50 transition-all uppercase tracking-wider rounded-lg"
                                                                  >
                                                                      {sub.name}
@@ -374,8 +407,8 @@ export default function Header() {
                                                  </div>
                                              </div>
                                          )}
-                                    </li>
-                                ))}
+                                     </li>
+                                 ))}
                             </ul>
                         </div>
 

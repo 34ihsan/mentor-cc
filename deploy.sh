@@ -22,6 +22,8 @@ npm install --legacy-peer-deps --include=optional --no-audit --no-fund
 echo "🗄️ Running Prisma generation & db push..."
 npx prisma generate
 npx prisma db push
+echo "🌱 Seeding all users and institutions into the database..."
+npx tsx prisma/seed-all.ts
 
 # 4. Build application
 echo "🏗️ Building Next.js application..."
