@@ -4,7 +4,6 @@ import { useTranslations, useLocale } from 'next-intl';
 import { useState } from 'react';
 import { signIn } from 'next-auth/react';
 import { X, Mail, Lock, User, Loader2, ArrowRight } from 'lucide-react';
-import { loginAction } from '@/app/actions/auth-actions';
 import { motion, AnimatePresence } from 'framer-motion';
 import ReCAPTCHA from 'react-google-recaptcha';
 
@@ -45,26 +44,21 @@ export default function AuthModal({ isOpen, onClose, onSuccess, initialMode = 'l
                 if (!res.ok) throw new Error(data.error || t('errors.register'));
             }
 
-            const loginFormData = new FormData();
-            loginFormData.append("email", formData.email);
-            loginFormData.append("password", formData.password);
-            
-            const result = await loginAction(loginFormData);
+            // Client-side signIn ile giriş yap (redirect:false) — sayfa yönlendirmesi olmaz
+            // Bu sayede modal akışı kesilmez ve onSuccess() çalışır
+            const result = await signIn("credentials", {
+                email: formData.email.trim().toLowerCase(),
+                password: formData.password,
+                redirect: false,
+            });
 
             if (result?.error) {
-                console.error("Login error details:", result.error);
-                throw new Error(result.error);
+                throw new Error(result.error === "CredentialsSignin" ? t('errors.login') : result.error);
             }
 
             onSuccess();
             onClose();
         } catch (err: any) {
-            // Redirect errors should be ignored as they indicate success in server actions
-            if (err.message?.includes("NEXT_REDIRECT") || err.digest?.startsWith("NEXT_REDIRECT")) {
-                onSuccess();
-                onClose();
-                return;
-            }
             setError(err.message);
         } finally {
             setIsLoading(false);

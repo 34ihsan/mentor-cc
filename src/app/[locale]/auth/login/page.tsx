@@ -3,9 +3,9 @@
 import { signIn } from "next-auth/react";
 import { useState } from "react";
 import { useRouter, Link } from "@/i18n/routing";
+import { useSearchParams } from "next/navigation";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import NextImage from "next/image";
-import { loginAction } from "@/app/actions/auth-actions";
 
 export default function LoginPage() {
     const [email, setEmail] = useState("");
@@ -14,32 +14,34 @@ export default function LoginPage() {
     const [loading, setLoading] = useState(false);
 
     const router = useRouter();
+    const searchParams = useSearchParams();
+    const callbackUrl = searchParams?.get("callbackUrl") || "/dashboard";
+
+    // Güvenlik: Sadece dahili yollara izin ver
+    const safeCallback = callbackUrl.startsWith("/") ? callbackUrl : "/dashboard";
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
         setError("");
-        
+
         try {
-            const formData = new FormData();
-            formData.append("email", email);
-            formData.append("password", password);
-            
-            const result = await loginAction(formData);
+            const result = await signIn("credentials", {
+                email: email.trim().toLowerCase(),
+                password,
+                redirect: false,
+            });
 
             if (result?.error) {
-                console.error("Login error details:", result.error);
-                setError(result.error);
+                setError("E-posta veya şifre hatalı. Lütfen tekrar deneyin.");
                 setLoading(false);
             } else {
-                router.push("/dashboard");
+                // Giriş başarılı — kaldığı yere gönder
+                router.push(safeCallback);
+                router.refresh();
             }
-        } catch (error: any) {
-            // Redirect hatalarını yakalamıyoruz çünkü NextAuth yönlendirmeyi "error" olarak fırlatır
-            if (error.message?.includes("NEXT_REDIRECT") || error.digest?.startsWith("NEXT_REDIRECT")) {
-                throw error;
-            }
-            console.error("Login unexpected error:", error);
+        } catch (err: any) {
+            console.error("Login unexpected error:", err);
             setError("Giriş yapılırken bir hata oluştu.");
             setLoading(false);
         }
@@ -124,7 +126,7 @@ export default function LoginPage() {
 
                     <div className="mt-10 text-center">
                        <p className="text-white/60 text-sm">
-                           Hesabınız yok mu? <Link href="/auth/register" className="text-[#B4943E] font-bold hover:text-white transition-colors">Hemen Kayıt Olun</Link>
+                           Hesabınız yok mu? <Link href={`/auth/register${safeCallback !== '/dashboard' ? `?callbackUrl=${encodeURIComponent(safeCallback)}` : ''}`} className="text-[#B4943E] font-bold hover:text-white transition-colors">Hemen Kayıt Olun</Link>
                        </p>
                     </div>
                 </div>

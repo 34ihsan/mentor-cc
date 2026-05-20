@@ -43,8 +43,10 @@ export default async function middleware(request: NextRequest) {
     });
     
     if (!token) {
-      // Redirect to login
+      // Redirect to login with callbackUrl so user returns to intended page after auth
       const loginUrl = new URL('/auth/login', request.url);
+      const callbackPath = request.nextUrl.pathname + request.nextUrl.search;
+      loginUrl.searchParams.set('callbackUrl', callbackPath);
       return NextResponse.redirect(loginUrl);
     }
   }

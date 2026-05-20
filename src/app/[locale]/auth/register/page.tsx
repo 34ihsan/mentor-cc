@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { signIn } from "next-auth/react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -38,6 +39,10 @@ export default function RegisterPage() {
     });
 
     const router = useRouter();
+    const searchParams = useSearchParams();
+    const callbackUrl = searchParams?.get("callbackUrl") || "/dashboard";
+    // Güvenlik: Sadece dahili yollara izin ver
+    const safeCallback = callbackUrl.startsWith("/") ? callbackUrl : "/dashboard";
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -90,7 +95,8 @@ export default function RegisterPage() {
             if (result?.error) {
                 router.push("/auth/login?registered=true");
             } else {
-                router.push("/dashboard");
+                // Kayıt ve giriş başarılı — kaldığı yere yönlendir
+                router.push(safeCallback);
                 router.refresh();
             }
         } catch (err: any) {
@@ -174,7 +180,7 @@ export default function RegisterPage() {
                                     <h2 className="text-3xl font-serif font-bold text-[#0B1751] italic">Kayıt Ol</h2>
                                     <p className="text-gray-400 mt-2 text-sm">Hangi rol ile kayıt olmak istersiniz?</p>
                                 </div>
-                                <Link href="/auth/login" className="text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-[#0B1751] transition-all flex items-center gap-2">
+                                <Link href={`/auth/login${safeCallback !== '/dashboard' ? `?callbackUrl=${encodeURIComponent(safeCallback)}` : ''}`} className="text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-[#0B1751] transition-all flex items-center gap-2">
                                     Giriş Yap <ArrowRight size={14} className="text-[#B4943E]" />
                                 </Link>
                             </div>
