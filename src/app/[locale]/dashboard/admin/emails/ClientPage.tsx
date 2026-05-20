@@ -28,9 +28,11 @@ type EmailLog = { id: string; to: string; subject: string; body: string; sentBy:
 type Msg = { type: "success" | "error"; text: string } | null;
 
 const TYPE_LABELS: Record<string, { label: string; color: string; icon: string }> = {
-    WELCOME:       { label: "Hoş Geldin",      color: "bg-emerald-50 text-emerald-700 border-emerald-200/50",  icon: "🎉" },
-    LOGIN_OTP:     { label: "Giriş OTP",       color: "bg-blue-50 text-blue-700 border-blue-200/50",        icon: "🔐" },
-    CONTACT_REPLY: { label: "İletişim Cevabı", color: "bg-amber-50 text-amber-700 border-amber-200/50",      icon: "💬" },
+    WELCOME:              { label: "Hoş Geldin",         color: "bg-emerald-50 text-emerald-700 border-emerald-200/50",  icon: "🎉" },
+    LOGIN_OTP:            { label: "Giriş OTP",          color: "bg-blue-50 text-blue-700 border-blue-200/50",          icon: "🔐" },
+    CONTACT_REPLY:        { label: "İletişim Cevabı",    color: "bg-amber-50 text-amber-700 border-amber-200/50",       icon: "💬" },
+    APPLICATION_RECEIVED: { label: "Başvuru Onayı",      color: "bg-violet-50 text-violet-700 border-violet-200/50",    icon: "✅" },
+    QUOTE_RECEIVED:       { label: "Teklif Talebi Onayı",color: "bg-orange-50 text-orange-700 border-orange-200/50",   icon: "📋" },
 };
 
 const QUILL_MODULES = {

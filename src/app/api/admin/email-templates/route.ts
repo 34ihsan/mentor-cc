@@ -44,6 +44,41 @@ const DEFAULT_TEMPLATES = [
 <p>Saygılarımızla,<br><strong>Mentor Career Danışmanlık Ekibi</strong></p>`,
         isActive: true,
     },
+    {
+        type: "APPLICATION_RECEIVED",
+        name: "Başvuru Alındı Bildirimi",
+        subject: "Başvurunuz Alındı ✅ - Mentor Career",
+        body: `<h2>Merhaba {{isim}},</h2>
+<p>🎓 <strong>{{program}}</strong> programına yaptığınız başvuru başarıyla alındı!</p>
+<p>Başvurunuz şu anda danışmanlarımız tarafından incelenmektedir. Sürecin her aşamasında sizi bilgilendireceğiz.</p>
+<div style="background:#f0f4ff;border-left:4px solid #0B1751;padding:16px 20px;border-radius:8px;margin:24px 0;">
+  <p style="margin:0;font-size:13px;color:#0B1751;"><strong>📌 Başvuru Detayları</strong></p>
+  <p style="margin:8px 0 0;font-size:13px;color:#444;">Program: <strong>{{program}}</strong></p>
+  <p style="margin:4px 0 0;font-size:13px;color:#444;">Kurum: <strong>{{kurum}}</strong></p>
+  <p style="margin:4px 0 0;font-size:13px;color:#444;">Durum: <strong>Taslak (İnceleme Bekliyor)</strong></p>
+</div>
+<p>Başvurunuzun güncel durumunu <a href="https://mentor-cc.com/dashboard">dashboard</a> üzerinden takip edebilirsiniz.</p>
+<p>Herhangi bir sorunuz için danışmanınızla iletişime geçebilirsiniz.</p>
+<p>Başarılar dileriz,<br><strong>Mentor Career Danışmanlık Ekibi</strong></p>`,
+        isActive: true,
+    },
+    {
+        type: "QUOTE_RECEIVED",
+        name: "Teklif Talebi Alındı Bildirimi",
+        subject: "Teklif Talebiniz Alındı 📋 - Mentor Career",
+        body: `<h2>Merhaba {{isim}},</h2>
+<p>📋 Teklif talebiniz başarıyla alındı! Ekibimiz en kısa sürede size özel bir teklif hazırlayacaktır.</p>
+<div style="background:#f0f4ff;border-left:4px solid #B4943E;padding:16px 20px;border-radius:8px;margin:24px 0;">
+  <p style="margin:0;font-size:13px;color:#0B1751;"><strong>📌 Talep Detayları</strong></p>
+  <p style="margin:8px 0 0;font-size:13px;color:#444;">Kategori: <strong>{{kategori}}</strong></p>
+  <p style="margin:4px 0 0;font-size:13px;color:#444;">Süre: <strong>{{sure}}</strong></p>
+  <p style="margin:4px 0 0;font-size:13px;color:#444;">Başlangıç Tarihi: <strong>{{tarih}}</strong></p>
+</div>
+<p>Danışmanınız talebinizi inceleyip <strong>1-2 iş günü</strong> içinde sizinle iletişime geçecektir.</p>
+<p>Sürecin güncel durumunu <a href="https://mentor-cc.com/dashboard">dashboard</a> üzerinden takip edebilirsiniz.</p>
+<p>Saygılarımızla,<br><strong>Mentor Career Danışmanlık Ekibi</strong></p>`,
+        isActive: true,
+    },
 ];
 
 export async function GET() {
@@ -53,10 +88,13 @@ export async function GET() {
     }
 
     try {
-        // Seed defaults if none exist
-        const count = await prisma.emailTemplate.count();
-        if (count === 0) {
-            await prisma.emailTemplate.createMany({ data: DEFAULT_TEMPLATES });
+        // Upsert each default template so new ones are added without overwriting existing edits
+        for (const tpl of DEFAULT_TEMPLATES) {
+            await prisma.emailTemplate.upsert({
+                where: { type: tpl.type },
+                update: {}, // don't overwrite admin edits
+                create: tpl,
+            });
         }
 
         const templates = await prisma.emailTemplate.findMany({

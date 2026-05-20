@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { NextResponse } from "next/server";
 import { auth } from "@/auth";
+import { sendTemplatedEmail } from "@/lib/mail";
 
 export async function GET() {
     const session = await auth();
@@ -80,8 +81,27 @@ export async function POST(req: Request) {
                 programId: body.programId,
                 consultantId,
                 status: "DRAFT",
+            },
+            include: {
+                program: { include: { institution: true } },
+                student: true,
             }
         });
+
+        // Öğrenciye otomatik onay maili gönder (fire-and-forget)
+        if (application.student?.email) {
+            sendTemplatedEmail({
+                to: application.student.email,
+                templateType: "APPLICATION_RECEIVED",
+                variables: {
+                    isim: application.student.name || "Öğrenci",
+                    program: application.program?.name || "Seçilen Program",
+                    kurum: application.program?.institution?.name || "Kurum",
+                },
+                sentBy: "Başvuru Sistemi",
+            }).catch(err => console.error("Application confirmation mail error:", err));
+        }
+
         return NextResponse.json(application);
     } catch (error) {
         return NextResponse.json({ error: "Failed to create application" }, { status: 500 });

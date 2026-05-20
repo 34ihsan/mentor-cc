@@ -2,6 +2,7 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
+import { sendTemplatedEmail } from "@/lib/mail";
 
 export async function POST(req: Request) {
     try {
@@ -74,6 +75,21 @@ export async function POST(req: Request) {
                 source: "website_quote"
             }
         });
+
+        // Öğrenciye otomatik teklif onay maili gönder (fire-and-forget)
+        if (session.user.email) {
+            sendTemplatedEmail({
+                to: session.user.email,
+                templateType: "QUOTE_RECEIVED",
+                variables: {
+                    isim: session.user.name || "Öğrenci",
+                    kategori: category || "Genel",
+                    sure: duration || "Belirtilmedi",
+                    tarih: startDate || "Belirtilmedi",
+                },
+                sentBy: "Teklif Sistemi",
+            }).catch(err => console.error("Quote confirmation mail error:", err));
+        }
 
         return NextResponse.json({ application });
     } catch (error) {
