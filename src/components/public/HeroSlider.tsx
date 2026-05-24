@@ -23,13 +23,13 @@ interface HeroSlide {
     imageSettings?: string; // JSON string
 }
 
-export default function HeroSlider({ context = "home" }: { context?: string }) {
+export default function HeroSlider({ context = "home", initialSlides }: { context?: string; initialSlides?: HeroSlide[] }) {
     const t = useTranslations('Hero');
     const params = useParams();
     const locale = params ? params.locale as string : "tr";
     
-    const [slides, setSlides] = useState<HeroSlide[]>([]);
-    const [loading, setLoading] = useState(true);
+    const [slides, setSlides] = useState<HeroSlide[]>(initialSlides || []);
+    const [loading, setLoading] = useState(!initialSlides || initialSlides.length === 0);
     const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, duration: 100 }, [Autoplay({ delay: 6000, stopOnInteraction: false })]);
     const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -51,7 +51,7 @@ export default function HeroSlider({ context = "home" }: { context?: string }) {
                 id: 'd2', 
                 title: isTr ? "Kariyerinizde Dev Bir Adım Atın" : "Take a Giant Leap in Your Career",
                 title_en: "Take a Giant Leap in Your Career",
-                subtitle: isTr ? "Global iş dünyasında fark yaratacak prestijli yüksek lisans programları. Uzmanlığınızı uluslararası arenaya taşıyın." : "Prestigious postgraduate programs that will make a difference in the global business world. Take your expertise to the international arena.",
+                subtitle: isTr ? "Global iş dünyasında fark yaratacak prestijli yüksek lisans programları. Uzmanlığınızı uluslararası arenasından taşıyın." : "Prestigious postgraduate programs that will make a difference in the global business world. Take your expertise to the international arena.",
                 subtitle_en: "Prestigious postgraduate programs that will make a difference in the global business world. Take your expertise to the international arena.",
                 imageUrl: '/images/hero/master_hero.png', 
                 link: '/yurtdisi-yuksek-lisans', 
@@ -111,6 +111,9 @@ export default function HeroSlider({ context = "home" }: { context?: string }) {
     }, []);
 
     useEffect(() => {
+        if (initialSlides && initialSlides.length > 0) {
+            return;
+        }
         const fetchSlides = async () => {
             try {
                 const res = await fetch(`/api/hero?context=${context}&locale=${locale}`);
@@ -127,7 +130,7 @@ export default function HeroSlider({ context = "home" }: { context?: string }) {
             }
         };
         fetchSlides();
-    }, [context, locale, getDefaultSlides]);
+    }, [context, locale, getDefaultSlides, initialSlides]);
 
     const onSelect = useCallback(() => {
         if (!emblaApi) return;
@@ -283,12 +286,14 @@ export default function HeroSlider({ context = "home" }: { context?: string }) {
                     <button 
                         onClick={() => emblaApi?.scrollPrev()} 
                         className="w-16 h-16 flex items-center justify-center text-white/50 border border-white/10 hover:border-secondary hover:text-secondary transition-all duration-700 group/prev"
+                        aria-label="Previous slide"
                     >
                         <ChevronLeft className="w-7 h-7 transition-transform duration-500 group-hover/prev:-translate-x-2" />
                     </button>
                     <button 
                         onClick={() => emblaApi?.scrollNext()} 
                         className="w-20 h-20 bg-secondary text-white flex items-center justify-center hover:bg-white hover:text-primary shadow-2xl transition-all duration-700 group/next"
+                        aria-label="Next slide"
                     >
                         <ChevronRight className="w-9 h-9 transition-transform duration-500 group-hover/next:translate-x-2" />
                     </button>

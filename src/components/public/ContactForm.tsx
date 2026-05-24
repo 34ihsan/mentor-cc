@@ -151,17 +151,17 @@ export default function ContactForm({
             <form onSubmit={handleSubmit} className="space-y-10">
                 <div className="grid md:grid-cols-2 gap-10">
                     <div className="space-y-3">
-                        <label className={`text-[10px] uppercase tracking-[0.25em] font-black ml-1 ${dark ? 'text-white/80' : 'text-zinc-400'}`}>{t('formData.name')}</label>
+                        <label htmlFor="contact-name" className={`text-[10px] uppercase tracking-[0.25em] font-black ml-1 ${dark ? 'text-white/80' : 'text-zinc-400'}`}>{t('formData.name')}</label>
                         <input
-                            type="text" name="name" value={formData.name} onChange={handleChange} required
+                            id="contact-name" type="text" name="name" value={formData.name} onChange={handleChange} required
                             className="w-full px-8 py-5 rounded-2xl bg-zinc-50 border border-zinc-100 focus:bg-white focus:border-secondary focus:ring-4 focus:ring-secondary/5 outline-none transition-all text-primary font-medium"
                             placeholder={t('formData.placeholders.name')}
                         />
                     </div>
                     <div className="space-y-3">
-                        <label className={`text-[10px] uppercase tracking-[0.25em] font-black ml-1 ${dark ? 'text-white/80' : 'text-zinc-400'}`}>{t('formData.email')}</label>
+                        <label htmlFor="contact-email" className={`text-[10px] uppercase tracking-[0.25em] font-black ml-1 ${dark ? 'text-white/80' : 'text-zinc-400'}`}>{t('formData.email')}</label>
                         <input
-                            type="email" name="email" value={formData.email} onChange={handleChange} required
+                            id="contact-email" type="email" name="email" value={formData.email} onChange={handleChange} required
                             className="w-full px-8 py-5 rounded-2xl bg-zinc-50 border border-zinc-100 focus:bg-white focus:border-secondary focus:ring-4 focus:ring-secondary/5 outline-none transition-all text-primary font-medium"
                             placeholder={t('formData.placeholders.email')}
                         />
@@ -170,9 +170,9 @@ export default function ContactForm({
 
                 <div className="grid md:grid-cols-2 gap-10">
                     <div className="space-y-3">
-                        <label className={`text-[10px] uppercase tracking-[0.25em] font-black ml-1 ${dark ? 'text-white/80' : 'text-zinc-400'}`}>{t('formData.phone')}</label>
+                        <label htmlFor="contact-phone" className={`text-[10px] uppercase tracking-[0.25em] font-black ml-1 ${dark ? 'text-white/80' : 'text-zinc-400'}`}>{t('formData.phone')}</label>
                         <input
-                            type="tel" name="phone" value={formData.phone} onChange={handleChange} required
+                            id="contact-phone" type="tel" name="phone" value={formData.phone} onChange={handleChange} required
                             className="w-full px-8 py-5 rounded-2xl bg-zinc-50 border border-zinc-100 focus:bg-white focus:border-secondary focus:ring-4 focus:ring-secondary/5 outline-none transition-all text-primary font-medium"
                             placeholder={t('formData.placeholders.phone')}
                         />
@@ -180,10 +180,10 @@ export default function ContactForm({
 
                     {showServiceSelect && (
                         <div className="space-y-3">
-                            <label className={`text-[10px] uppercase tracking-[0.25em] font-black ml-1 ${dark ? 'text-white/60' : 'text-zinc-400'}`}>{t('formData.service')}</label>
+                            <label htmlFor="contact-service" className={`text-[10px] uppercase tracking-[0.25em] font-black ml-1 ${dark ? 'text-white/60' : 'text-zinc-400'}`}>{t('formData.service')}</label>
                             <div className="relative">
                                 <select
-                                    name="service" value={formData.service} onChange={handleChange} required
+                                    id="contact-service" name="service" value={formData.service} onChange={handleChange} required
                                     className="w-full px-8 py-5 rounded-2xl bg-zinc-50 border border-zinc-100 focus:bg-white focus:border-secondary focus:ring-4 focus:ring-secondary/5 outline-none transition-all text-primary font-medium appearance-none cursor-pointer"
                                 >
                                     <option value="" disabled>{isLoadingServices ? commonT('loading') : t('formData.placeholders.service')}</option>
@@ -198,9 +198,9 @@ export default function ContactForm({
                 </div>
 
                 <div className="space-y-3">
-                    <label className={`text-[10px] uppercase tracking-[0.25em] font-black ml-1 ${dark ? 'text-white/60' : 'text-zinc-400'}`}>{t('formData.message')}</label>
+                    <label htmlFor="contact-message" className={`text-[10px] uppercase tracking-[0.25em] font-black ml-1 ${dark ? 'text-white/60' : 'text-zinc-400'}`}>{t('formData.message')}</label>
                     <textarea
-                        name="message" value={formData.message} onChange={handleChange} rows={4}
+                        id="contact-message" name="message" value={formData.message} onChange={handleChange} rows={4}
                         className="w-full px-8 py-5 rounded-2xl bg-zinc-50 border border-zinc-100 focus:bg-white focus:border-secondary focus:ring-4 focus:ring-secondary/5 outline-none transition-all text-primary font-medium resize-none"
                         placeholder={t('formData.placeholders.message')}
                     />

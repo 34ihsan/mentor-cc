@@ -65,12 +65,14 @@ export default function SuccessStoriesClient({ testimonials }: { testimonials: T
                         <button
                             onClick={prev}
                             className="w-14 h-14 flex items-center justify-center border border-white/10 text-white/40 hover:border-secondary hover:text-secondary transition-all duration-500 group"
+                            aria-label="Previous testimonial"
                         >
                             <ChevronLeft className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" />
                         </button>
                         <button
                             onClick={next}
                             className="w-16 h-16 bg-secondary text-white flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-500 group shadow-xl"
+                            aria-label="Next testimonial"
                         >
                             <ChevronRight className="w-6 h-6 group-hover:translate-x-0.5 transition-transform" />
                         </button>

@@ -4,27 +4,61 @@ import { getTranslations } from 'next-intl/server';
 import {
     ArrowRight
 } from 'lucide-react';
+import dynamic from 'next/dynamic';
 import HeroSlider from '@/components/public/HeroSlider';
-import ContactForm from '@/components/public/ContactForm';
-import SuccessStoriesClient from '@/components/public/SuccessStoriesClient';
-import Testimonials from '@/components/public/Testimonials';
-import BlogSection from '@/components/public/BlogSection';
-import PopularDestinations from '@/components/public/PopularDestinations';
 import SafeHTMLContent from '@/components/public/SafeHTMLContent';
-import SmartFinder from '@/components/public/SmartFinder';
 import { prisma } from '@/lib/prisma';
-
 import { withSafePage } from '@/lib/error-handling/withSafePage';
+
+// Defer non-critical heavy client components to improve initial load performance (FCP/TBT)
+const SmartFinder = dynamic(() => import('@/components/public/SmartFinder'), {
+    loading: () => <div className="h-[400px] bg-zinc-50/50 animate-pulse rounded-[2.5rem] border border-zinc-100" />
+});
+
+const ContactForm = dynamic(() => import('@/components/public/ContactForm'), {
+    loading: () => <div className="h-[400px] bg-white/5 animate-pulse rounded-[2.5rem] border border-white/10" />
+});
+
+const SuccessStoriesClient = dynamic(() => import('@/components/public/SuccessStoriesClient'), {
+    loading: () => <div className="h-[350px] bg-white/5 animate-pulse rounded-[2.5rem] border border-white/10" />
+});
+
+const Testimonials = dynamic(() => import('@/components/public/Testimonials'), {
+    loading: () => <div className="h-[250px] bg-zinc-50/50 animate-pulse rounded-[2.5rem]" />
+});
+
+const PopularDestinations = dynamic(() => import('@/components/public/PopularDestinations'), {
+    loading: () => <div className="h-[300px] bg-white animate-pulse rounded-[2.5rem]" />
+});
+
+const BlogSection = dynamic(() => import('@/components/public/BlogSection'), {
+    loading: () => <div className="h-[300px] bg-white animate-pulse rounded-[2.5rem]" />
+});
 
 async function LandingPageContent(props: { params: Promise<{ locale: string }> }) {
         const { locale } = await props.params;
         const t = await getTranslations();
 
-        const [homeSetting, servicesData, siteSetting] = await Promise.all([
+        // Server-side pre-fetch to completely avoid client-side loading state on initial render (critical for LCP)
+        const [homeSetting, servicesData, siteSetting, slidesRaw] = await Promise.all([
             prisma.settings.findUnique({ where: { key: 'home_page_config' } }),
             prisma.service.findMany({ where: { active: true }, orderBy: { order: 'asc' } }),
-            prisma.settings.findUnique({ where: { key: 'site_config' } })
+            prisma.settings.findUnique({ where: { key: 'site_config' } }),
+            prisma.heroSlide.findMany({ where: { active: true, pageContext: 'home' }, orderBy: { order: 'asc' } })
         ]);
+
+        const initialSlides = slidesRaw.map(slide => ({
+            id: slide.id,
+            title: (locale === 'en' ? slide.title_en || slide.title : locale === 'de' ? slide.title_de || slide.title : slide.title) || '',
+            title_en: slide.title_en,
+            title_de: slide.title_de,
+            subtitle: (locale === 'en' ? slide.subtitle_en || slide.subtitle : locale === 'de' ? slide.subtitle_de || slide.subtitle : slide.subtitle) || '',
+            subtitle_en: slide.subtitle_en,
+            subtitle_de: slide.subtitle_de,
+            imageUrl: slide.imageUrl || '',
+            link: slide.link || undefined,
+            imageSettings: slide.imageSettings || undefined
+        }));
 
         const orderedSlugs = ['sinavlar', 'yurtdisi-universite', 'yurtdisi-yuksek-lisans', 'yurtdisi-lise', 'yurtdisi-yaz-okullari', 'yurtdisi-dil-okullari', 'kariyer'];
         
@@ -94,7 +128,7 @@ async function LandingPageContent(props: { params: Promise<{ locale: string }> }
                         })
                     }}
                 />
-                <HeroSlider />
+                <HeroSlider initialSlides={initialSlides} />
 
                 {/* ABOUT US */}
                 <section className="section-padding bg-white relative overflow-hidden">

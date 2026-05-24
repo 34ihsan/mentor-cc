@@ -274,10 +274,11 @@ export default function SmartFinder() {
                                             <div className="space-y-10">
                                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                                                     <div className="space-y-4">
-                                                        <label className="text-[10px] uppercase tracking-[0.3em] font-black text-zinc-400 ml-1 flex items-center gap-2">
+                                                        <label htmlFor="finder-gpa" className="text-[10px] uppercase tracking-[0.3em] font-black text-zinc-400 ml-1 flex items-center gap-2">
                                                             <Trophy size={14} className="text-secondary" /> {t('fields.gpa')}
                                                         </label>
                                                         <input 
+                                                            id="finder-gpa"
                                                             type="number" step="0.1" min="0" max="4"
                                                             placeholder={t('fields.gpaPlaceholder')}
                                                             className="w-full p-6 rounded-2xl bg-zinc-50/50 border border-zinc-100 focus:bg-white focus:border-secondary focus:ring-4 focus:ring-secondary/5 outline-none transition-all text-primary font-black text-xl shadow-inner"
@@ -286,11 +287,12 @@ export default function SmartFinder() {
                                                         />
                                                     </div>
                                                     <div className="space-y-4">
-                                                        <label className="text-[10px] uppercase tracking-[0.3em] font-black text-zinc-400 ml-1 flex items-center gap-2">
+                                                        <label htmlFor="finder-lang-proficiency" className="text-[10px] uppercase tracking-[0.3em] font-black text-zinc-400 ml-1 flex items-center gap-2">
                                                             <Sparkles size={14} className="text-secondary" /> {t('fields.langProficiency')}
                                                         </label>
                                                         <div className="relative">
                                                             <select 
+                                                                id="finder-lang-proficiency"
                                                                 className="w-full p-6 rounded-2xl bg-zinc-50/50 border border-zinc-100 focus:bg-white focus:border-secondary focus:ring-4 focus:ring-secondary/5 outline-none transition-all text-primary font-black text-lg appearance-none shadow-inner cursor-pointer"
                                                                 value={criteria.languageScore || ''}
                                                                 onChange={(e) => setCriteria({...criteria, languageScore: e.target.value})}
@@ -381,9 +383,10 @@ export default function SmartFinder() {
                                                         </div>
                                                     </div>
                                                     <div className="space-y-4">
-                                                        <label className="text-[10px] uppercase tracking-[0.3em] font-black text-zinc-400 ml-1">{t('fields.eduFocus')}</label>
+                                                        <label htmlFor="finder-edu-focus" className="text-[10px] uppercase tracking-[0.3em] font-black text-zinc-400 ml-1">{t('fields.eduFocus')}</label>
                                                         <div className="relative">
                                                             <select 
+                                                                id="finder-edu-focus"
                                                                 className="w-full p-6 rounded-2xl bg-zinc-50/50 border border-zinc-100 focus:bg-white focus:border-secondary outline-none text-primary font-black appearance-none shadow-inner cursor-pointer"
                                                                 onChange={(e) => setCriteria({...criteria, preference: e.target.value})}
                                                             >

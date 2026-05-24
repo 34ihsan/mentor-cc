@@ -36,7 +36,12 @@ export async function POST(req: Request) {
             }
         });
 
-        // Optional: Could also create a placeholder user or send an email notification here
+        // Send Contact Reply Email asynchronously (doesn't block the request)
+        if (email) {
+            import("@/lib/mail").then((mail) => {
+                mail.sendContactReplyEmail(email, name).catch(console.error);
+            });
+        }
 
         return NextResponse.json({ success: true, leadId: lead.id });
     } catch (error) {

@@ -270,6 +270,7 @@ export default function Header() {
                             <button 
                                 onClick={() => setIsAnnouncementVisible(false)}
                                 className="text-zinc-500 hover:text-white transition-colors"
+                                aria-label="Close announcement"
                             >
                                 <X size={14} />
                             </button>
@@ -426,6 +427,7 @@ export default function Header() {
                             <button
                                 className="lg:hidden p-3 border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all rounded-xl"
                                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                                aria-label="Toggle menu"
                             >
                                 <Menu className="w-6 h-6" />
                             </button>
@@ -444,6 +446,7 @@ export default function Header() {
                             setSearchResults([]);
                         }}
                         className="absolute top-6 right-6 sm:top-10 sm:right-10 p-4 text-slate-400 hover:text-gold transition-all hover:rotate-90 z-[210]"
+                        aria-label="Close search"
                     >
                         <X size={40} />
                     </button>
@@ -527,6 +530,7 @@ export default function Header() {
                                         setIsSearchOpen(true);
                                     }}
                                     className="p-2 text-slate-400 hover:text-[#D4AF37] transition-colors"
+                                    aria-label="Open search"
                                 >
                                     <Search size={24} />
                                 </button>
@@ -543,7 +547,13 @@ export default function Header() {
                                         </button>
                                     ))}
                                 </div>
-                                <X className="w-8 h-8 text-slate-400 hover:text-[#D4AF37] transition-colors stroke-[2.5]" onClick={() => setIsMobileMenuOpen(false)} />
+                                <button
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className="p-2 text-slate-400 hover:text-[#D4AF37] transition-colors"
+                                    aria-label="Close menu"
+                                >
+                                    <X className="w-8 h-8 stroke-[2.5]" />
+                                </button>
                             </div>
                         </div>
                         <nav className="flex-1 overflow-y-auto pr-4">

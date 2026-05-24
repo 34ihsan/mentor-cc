@@ -5,7 +5,7 @@ Writes to public/sitemap.xml
 import json
 from pathlib import Path
 
-BASE_URL = "https://yourdomain.com"
+BASE_URL = "https://mentor-cc.com"
 INPUT_DIR = Path("data/import_ready")
 OUT = Path("public/sitemap.xml")
 

@@ -117,6 +117,28 @@ export async function PATCH(
             },
         });
 
+        // Trigger automated emails asynchronously on status changes
+        if (body.status && body.status !== existing.status) {
+            if (body.status === "DOCS_PENDING") {
+                import("@/lib/mail").then((mail) => {
+                    mail.sendDocsPendingEmail(
+                        application.student.email,
+                        application.student.name || "Öğrenci",
+                        application.program.name
+                    ).catch(console.error);
+                });
+            } else if (body.status === "OFFER_SENT") {
+                import("@/lib/mail").then((mail) => {
+                    mail.sendOfferReadyEmail(
+                        application.student.email,
+                        application.student.name || "Öğrenci",
+                        application.program.name,
+                        application.program.institution.name
+                    ).catch(console.error);
+                });
+            }
+        }
+
         return NextResponse.json(application);
     } catch (error) {
         console.error("Failed to update application:", error);

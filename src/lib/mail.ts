@@ -181,6 +181,63 @@ export async function sendContactReplyEmail(to: string, name: string) {
     });
 }
 
+export async function sendDocsPendingEmail(to: string, name: string, programName: string) {
+    try {
+        const result = await sendTemplatedEmail({
+            to,
+            templateType: 'DOCUMENT_PENDING',
+            variables: { isim: name, program: programName },
+            sentBy: 'Eksik Evrak Bildirimi',
+        });
+        if (result.success) return result;
+    } catch (e) {
+        console.warn("Templated DOCUMENT_PENDING failed, falling back to static email:", e);
+    }
+    
+    const signature = await getSignatureHtml();
+    const html = wrapInBase(`
+        <h2 style="color:#0B1751;margin-top:0;">Eksik Belge Bildirimi</h2>
+        <p style="color:#555;">Sayın <strong>${name}</strong>,</p>
+        <p style="color:#555;"><strong>${programName}</strong> başvurunuz danışmanlarımız tarafından incelenmiş olup, sürecin devam edebilmesi için eksik veya güncellenmesi gereken belgeler olduğu tespit edilmiştir.</p>
+        <p style="color:#555;">Lütfen en kısa sürede üye panelinize giriş yaparak eksik evraklarınızı tamamlayınız.</p>
+        <div style="text-align:center;margin:30px 0;">
+            <a href="${process.env.NEXT_PUBLIC_SITE_URL || 'https://mentor-cc.com'}/auth/login" style="background:#0B1751;color:#B4943E;padding:14px 32px;text-decoration:none;border-radius:8px;font-weight:bold;font-size:15px;display:inline-block;">
+                Belgeleri Yüklemek İçin Giriş Yapın
+            </a>
+        </div>
+    `, signature);
+    return sendEmail({ to, subject: 'Başvurunuz İçin Eksik Evrak Bildirimi - Mentor Career', html, sentBy: 'Eksik Evrak Bildirimi (Statik)' });
+}
+
+export async function sendOfferReadyEmail(to: string, name: string, programName: string, institutionName: string) {
+    try {
+        const result = await sendTemplatedEmail({
+            to,
+            templateType: 'OFFER_READY',
+            variables: { isim: name, program: programName, kurum: institutionName },
+            sentBy: 'Üniversite Kabulü Bildirimi',
+        });
+        if (result.success) return result;
+    } catch (e) {
+        console.warn("Templated OFFER_READY failed, falling back to static email:", e);
+    }
+    
+    const signature = await getSignatureHtml();
+    const html = wrapInBase(`
+        <h2 style="color:#0B1751;margin-top:0;">Tebrikler! Kabul Mektubunuz Hazır 🎉</h2>
+        <p style="color:#555;">Sayın <strong>${name}</strong>,</p>
+        <p style="color:#555;">Harika bir haberimiz var! <strong>${institutionName}</strong> bünyesindeki <strong>${programName}</strong> programı için resmi kabul mektubunuz (Offer Letter) tarafımıza ulaşmıştır.</p>
+        <p style="color:#555;">Kabul şartlarını incelemek, kayıt depozitonuzu ödemek ve vize işlemlerinizi başlatmak üzere danışmanınız sizinle iletişime geçecektir. Detaylara panelinizden de hemen ulaşabilirsiniz.</p>
+        <div style="text-align:center;margin:30px 0;">
+            <a href="${process.env.NEXT_PUBLIC_SITE_URL || 'https://mentor-cc.com'}/auth/login" style="background:#0B1751;color:#B4943E;padding:14px 32px;text-decoration:none;border-radius:8px;font-weight:bold;font-size:15px;display:inline-block;">
+                Kabul Mektubunu İnceleyin
+            </a>
+        </div>
+        <p style="color:#888;font-size:13px;">Mentor Career Consulting olarak hayallerinize giden yolda yanınızda olmaktan gurur duyuyoruz.</p>
+    `, signature);
+    return sendEmail({ to, subject: `Tebrikler, Kabul Mektubunuz Hazır! - ${institutionName}`, html, sentBy: 'Üniversite Kabulü Bildirimi (Statik)' });
+}
+
 export async function sendVerificationEmail(to: string, token: string) {
     const verifyUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/auth/verify-email?token=${token}`;
     const signature = await getSignatureHtml();
