@@ -20,6 +20,9 @@ const nextConfig = {
   },
   experimental: {
     optimizePackageImports: ["lucide-react", "framer-motion"],
+    serverActions: {
+      bodySizeLimit: '50mb',
+    },
   },
   compress: true,
   async headers() {
