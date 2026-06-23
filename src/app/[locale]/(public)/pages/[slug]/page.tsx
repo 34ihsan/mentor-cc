@@ -21,7 +21,7 @@ export default async function CustomPage({ params }: { params: Promise<{ slug: s
                 subtitle="Mentor Career ile eğitim yolculuğunuzu şekillendirin."
                 ctaText="İletişime Geçin"
                 ctaHref="/iletisim"
-                backgroundImage={page.image || "/images/hero-education-global.png"}
+                backgroundImage={page.image || "/images/hero/university_hero.png"}
                 height="md"
             />
 

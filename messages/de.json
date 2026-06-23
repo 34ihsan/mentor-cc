@@ -1,4 +1,9 @@
 {
+  "Privacy": {
+    "identification": {
+      "title": "Identifikationsinformationen"
+    }
+  },
   "SEO": {
     "title": "Auslandsstudienberatung | Star Beratung",
     "template": "%s | Star Beratung",

@@ -50,7 +50,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             <div className="relative h-[65vh] min-h-[550px] flex items-center overflow-hidden bg-zinc-50 border-b border-zinc-100">
                 <div className="absolute inset-0">
                     <Image
-                        src="/images/hero-education-global.png"
+                        src="/images/hero/university_hero.png"
                         alt="Kurumsal"
                         fill
                         priority

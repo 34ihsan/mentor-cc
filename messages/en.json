@@ -1,4 +1,9 @@
 {
+  "Privacy": {
+    "identification": {
+      "title": "Identification Information"
+    }
+  },
   "SEO": {
     "title": "Study Abroad Consultancy | Mentor Career Consulting",
     "template": "%s | Mentor Career Consulting",

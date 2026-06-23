@@ -1,4 +1,9 @@
 {
+  "Privacy": {
+    "identification": {
+      "title": "Kimlik Bilgileri"
+    }
+  },
   "SEO": {
     "title": "Yurtdışı Eğitim Danışmanlığı | Mentor Career Consulting",
     "template": "%s | Mentor Career Consulting",
