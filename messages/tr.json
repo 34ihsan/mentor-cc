@@ -1626,8 +1626,13 @@
   },
   "Dashboard": {
     "Sidebar": {
-      "overview": "Genel Bakış",
-      "users": "Kullanıcılar",
+        "groupOperations": "Operasyon & Satış",
+        "groupNetwork": "Eğitim Ağı",
+        "groupCMS": "İçerik & Pazarlama",
+        "groupFinance": "Müşteri & Finans",
+        "groupSystem": "Sistem & Yönetim",
+        "overview": "Genel Bakış",
+        "users": "Kullanıcılar",
       "leads": "Reklam Takibi",
       "analytics": "Analiz & ROI",
       "pages": "Sayfalar",
