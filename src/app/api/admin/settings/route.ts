@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { auth } from '@/auth';
+import { revalidatePath } from 'next/cache';
 
 export async function GET(request: Request) {
     const session = await auth();
@@ -48,6 +49,9 @@ export async function PATCH(request: Request) {
             update: { value: valString },
             create: { key, value: valString }
         });
+
+        // Immediately purge Next.js cache for all paths so UI updates instantly
+        revalidatePath('/', 'layout');
 
         return NextResponse.json(setting);
     } catch (error) {
