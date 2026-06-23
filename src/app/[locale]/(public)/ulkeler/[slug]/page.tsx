@@ -21,6 +21,7 @@ import { getTranslations } from 'next-intl/server';
 import SafeHTMLContent from '@/components/public/SafeHTMLContent';
 import MotionWrapper from '@/components/public/MotionWrapper';
 import UniversityCard from '@/components/public/UniversityCard';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
@@ -54,6 +55,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
         title,
         description,
+        alternates: {
+            canonical: `/${locale}/rotalar/${slug}`,
+        },
+        openGraph: {
+            title,
+            description,
+            images: country.image ? [{ url: country.image, width: 1200, height: 630, alt: title }] : undefined,
+        },
     };
 }
 
@@ -69,7 +78,13 @@ export default async function CountryHubPage({ params }: Props) {
 
     return (
         <div className="min-h-screen bg-zinc-50/50 selection:bg-secondary selection:text-white pb-20">
-            
+            <BreadcrumbSchema 
+                items={[
+                    { name: 'Anasayfa', url: `https://www.mentor-cc.com/${locale}` },
+                    { name: 'Rotalar', url: `https://www.mentor-cc.com/${locale}/rotalar` },
+                    { name: country.name, url: `https://www.mentor-cc.com/${locale}/rotalar/${slug}` },
+                ]} 
+            />
             {/* Cinematic Hero Section */}
             <section className="relative h-[90vh] flex items-center overflow-hidden bg-zinc-950">
                 <div className="absolute inset-0">

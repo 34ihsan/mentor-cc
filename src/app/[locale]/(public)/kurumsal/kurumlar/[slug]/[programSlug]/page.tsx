@@ -21,13 +21,14 @@ import Link from "next/link"; // Import Link for breadcrumbs
 import { Metadata } from "next";
 import Image from "next/image";
 import { stripHtml } from "@/utils/text";
-
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
+import CourseSchema from "@/components/seo/CourseSchema";
 interface ProgramPageProps {
     params: Promise<{ locale: string; slug: string; programSlug: string }>;
 }
 
 export async function generateMetadata({ params }: ProgramPageProps): Promise<Metadata> {
-    const { programSlug } = await params;
+    const { locale, slug, programSlug } = await params;
     const program = await prisma.program.findUnique({
         where: { slug: programSlug },
         include: { institution: true }
@@ -41,6 +42,9 @@ export async function generateMetadata({ params }: ProgramPageProps): Promise<Me
     return {
         title: `${title} | Mentor Career`,
         description,
+        alternates: {
+            canonical: `/${locale}/kurumsal/kurumlar/${slug}/${programSlug}`,
+        },
         openGraph: {
             title,
             description,
@@ -66,6 +70,22 @@ export default async function ProgramDetailPage({ params }: ProgramPageProps) {
 
     return (
         <div className="bg-[#FAF9F6]">
+            <BreadcrumbSchema 
+                items={[
+                    { name: 'Anasayfa', url: `https://www.mentor-cc.com/${locale}` },
+                    { name: 'Kurumlar', url: `https://www.mentor-cc.com/${locale}/kurumsal/kurumlar` },
+                    { name: institution.name, url: `https://www.mentor-cc.com/${locale}/kurumsal/kurumlar/${slug}` },
+                    { name: program.name, url: `https://www.mentor-cc.com/${locale}/kurumsal/kurumlar/${slug}/${programSlug}` },
+                ]} 
+            />
+            <CourseSchema 
+                name={program.name}
+                description={program.description ? stripHtml(program.description) : program.name}
+                provider={institution.name}
+                url={`https://www.mentor-cc.com/${locale}/kurumsal/kurumlar/${slug}/${programSlug}`}
+                country={institution.country}
+                city={institution.city}
+            />
             {/* --- HERO: Program Specific Focus --- */}
             <section className="relative pt-40 pb-32 overflow-hidden bg-[#0B1751]">
                 <div className="absolute inset-0">

@@ -52,6 +52,7 @@ export async function generateMetadata({
       languages: {
         'tr': '/tr',
         'en': '/en',
+        'de': '/de',
         'x-default': '/tr',
       },
     },

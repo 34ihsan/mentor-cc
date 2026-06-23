@@ -24,6 +24,8 @@ import { Metadata } from "next";
 import MotionWrapper from "@/components/public/MotionWrapper";
 import { getTranslations } from "next-intl/server";
 import AIMatchingTool from "@/components/public/AIMatchingTool";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
+import EducationalOrgSchema from "@/components/seo/EducationalOrgSchema";
 
 interface PageProps {
     params: Promise<{ locale: string; slug: string }>;
@@ -60,13 +62,21 @@ const getInstitution = cache(async (slug: string) => {
 });
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-    const { slug } = await params;
+    const { locale, slug } = await params;
     const uni = await getInstitution(slug);
     if (!uni) return {};
 
     return {
         title: `${uni.name} | Mentor Career`,
         description: uni.description,
+        alternates: {
+            canonical: `/${locale}/kurumsal/kurumlar/${slug}`,
+        },
+        openGraph: {
+            title: `${uni.name} | Mentor Career`,
+            description: uni.description || '',
+            images: uni.image ? [{ url: uni.image, width: 1200, height: 630, alt: uni.name }] : undefined,
+        },
     };
 }
 
@@ -105,6 +115,21 @@ export default async function InstitutionPage({ params }: PageProps) {
 
     return (
         <div className="min-h-screen bg-white selection:bg-primary selection:text-white">
+            <BreadcrumbSchema 
+                items={[
+                    { name: 'Anasayfa', url: `https://www.mentor-cc.com/${locale}` },
+                    { name: 'Kurumlar', url: `https://www.mentor-cc.com/${locale}/kurumsal/kurumlar` },
+                    { name: uni.name, url: `https://www.mentor-cc.com/${locale}/kurumsal/kurumlar/${slug}` },
+                ]} 
+            />
+            <EducationalOrgSchema 
+                name={uni.name}
+                url={`https://www.mentor-cc.com/${locale}/kurumsal/kurumlar/${slug}`}
+                description={uni.description || ''}
+                logo={uni.image || ''}
+                country={uni.country?.name}
+                city={uni.city || ''}
+            />
             {/* Hero Section */}
             <section className="relative h-[85vh] lg:h-[95vh] flex items-center overflow-hidden bg-zinc-950">
                 <Image
