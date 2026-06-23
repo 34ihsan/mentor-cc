@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { join } from 'path';
 import { readFileSync, existsSync } from 'fs';
-import mime from 'mime-types'; // Note: if mime-types isn't installed we can use a basic map, but it's usually installed in Next.js. Actually let's use a basic map to be safe.
+
 
 const mimeMap: Record<string, string> = {
     '.png': 'image/png',
