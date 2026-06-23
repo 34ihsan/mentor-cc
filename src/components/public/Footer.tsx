@@ -12,7 +12,7 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 
-const Footer = () => {
+const Footer = ({ siteConfig }: { siteConfig?: any }) => {
     const t = useTranslations('Footer');
     const nt = useTranslations('Navbar');
     const st = useTranslations('HomePage.Services');
@@ -121,33 +121,41 @@ const Footer = () => {
                             {t('sections.contact')}
                         </h3>
                         <div className="space-y-8">
-                            <a href="mailto:info@mentor-cc.com" className="flex items-center gap-6 group">
+                            <a href={`mailto:${siteConfig?.contact?.email || 'info@mentor-cc.com'}`} className="flex items-center gap-6 group">
                                 <div className="w-12 h-12 bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 group-hover:text-secondary group-hover:border-secondary transition-all duration-700 shadow-xl">
                                     <Mail size={18} />
                                 </div>
                                 <div className="flex flex-col">
                                     <span className="text-[9px] uppercase tracking-[0.3em] font-black text-zinc-600 group-hover:text-zinc-400 transition-colors">Digital Desk</span>
-                                    <span className="text-xs font-bold tracking-widest text-zinc-300 group-hover:text-secondary transition-colors italic">info@mentor-cc.com</span>
+                                    <span className="text-xs font-bold tracking-widest text-zinc-300 group-hover:text-secondary transition-colors italic">{siteConfig?.contact?.email || 'info@mentor-cc.com'}</span>
                                 </div>
                             </a>
-                            <a href="https://www.instagram.com/mentorcareer" target="_blank" rel="noopener noreferrer" className="flex items-center gap-6 group">
-                                <div className="w-12 h-12 bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 group-hover:text-secondary group-hover:border-secondary transition-all duration-700 shadow-xl">
-                                    <Instagram size={18} />
-                                </div>
-                                <div className="flex flex-col">
-                                    <span className="text-[9px] uppercase tracking-[0.3em] font-black text-zinc-600 group-hover:text-zinc-400 transition-colors">Social Feed</span>
-                                    <span className="text-xs font-bold tracking-widest text-zinc-300 group-hover:text-secondary transition-colors italic">@mentorcareer</span>
-                                </div>
-                            </a>
-                            <a href="https://facebook.com/MentorCareer" target="_blank" rel="noopener noreferrer" className="flex items-center gap-6 group">
-                                <div className="w-12 h-12 bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 group-hover:text-secondary group-hover:border-secondary transition-all duration-700 shadow-xl">
-                                    <Facebook size={18} />
-                                </div>
-                                <div className="flex flex-col">
-                                    <span className="text-[9px] uppercase tracking-[0.3em] font-black text-zinc-600 group-hover:text-zinc-400 transition-colors">Community</span>
-                                    <span className="text-xs font-bold tracking-widest text-zinc-300 group-hover:text-secondary transition-colors italic">MentorCareer</span>
-                                </div>
-                            </a>
+                            {siteConfig?.social?.instagram && (
+                                <a href={siteConfig.social.instagram} target="_blank" rel="noopener noreferrer" className="flex items-center gap-6 group">
+                                    <div className="w-12 h-12 bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 group-hover:text-secondary group-hover:border-secondary transition-all duration-700 shadow-xl">
+                                        <Instagram size={18} />
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <span className="text-[9px] uppercase tracking-[0.3em] font-black text-zinc-600 group-hover:text-zinc-400 transition-colors">Social Feed</span>
+                                        <span className="text-xs font-bold tracking-widest text-zinc-300 group-hover:text-secondary transition-colors italic">
+                                            @{siteConfig.social.instagram.split('/').filter(Boolean).pop()?.split('?')[0] || 'mentorcareer'}
+                                        </span>
+                                    </div>
+                                </a>
+                            )}
+                            {siteConfig?.social?.facebook && (
+                                <a href={siteConfig.social.facebook} target="_blank" rel="noopener noreferrer" className="flex items-center gap-6 group">
+                                    <div className="w-12 h-12 bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 group-hover:text-secondary group-hover:border-secondary transition-all duration-700 shadow-xl">
+                                        <Facebook size={18} />
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <span className="text-[9px] uppercase tracking-[0.3em] font-black text-zinc-600 group-hover:text-zinc-400 transition-colors">Community</span>
+                                        <span className="text-xs font-bold tracking-widest text-zinc-300 group-hover:text-secondary transition-colors italic">
+                                            {siteConfig.social.facebook.split('/').filter(Boolean).pop() || 'MentorCareer'}
+                                        </span>
+                                    </div>
+                                </a>
+                            )}
                         </div>
                     </div>
                 </div>
